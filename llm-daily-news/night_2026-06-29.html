@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大模型夜报 · 2026-06-29 深度复盘</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080b14;--bg2:#0d1220;--panel:rgba(22,28,46,0.72);--panel2:rgba(30,38,62,0.6);
+  --line:rgba(124,140,200,0.14);--txt:#e7ecf7;--mut:#97a2bd;--dim:#6b7593;
+  --acc:#7c5cff;--acc2:#00d4ff;--gold:#ffb454;--rose:#ff6b8b;--green:#46d6a0;
+  --grad:linear-gradient(120deg,#7c5cff 0%,#00d4ff 100%);
+  --grad-gold:linear-gradient(120deg,#ffb454 0%,#ff7e5f 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter','Noto Serif SC',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--bg);color:var(--txt);line-height:1.75;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(900px 500px at 12% -8%,rgba(124,92,255,0.16),transparent 60%),
+    radial-gradient(800px 480px at 92% 4%,rgba(0,212,255,0.12),transparent 55%),
+    radial-gradient(700px 600px at 50% 120%,rgba(255,180,84,0.07),transparent 60%);
+  background-attachment:fixed;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+/* ---------- HERO ---------- */
+.hero{padding:64px 0 36px;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;letter-spacing:2px;
+  color:var(--acc2);text-transform:uppercase;font-weight:600;margin-bottom:20px;
+  border:1px solid var(--line);padding:7px 15px;border-radius:30px;background:var(--panel)}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--acc2);box-shadow:0 0 12px var(--acc2);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1.title{font-family:'Noto Serif SC',serif;font-size:clamp(34px,6vw,58px);font-weight:700;line-height:1.12;letter-spacing:-0.5px}
+h1.title .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{margin-top:18px;font-size:17px;color:var(--mut);max-width:760px}
+.meta-row{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+.meta-chip{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 17px;font-size:14px;color:var(--mut)}
+.meta-chip b{color:var(--txt);font-weight:600}
+.posi{margin-top:26px;padding:18px 22px;border-left:3px solid var(--acc);background:linear-gradient(90deg,rgba(124,92,255,0.1),transparent);border-radius:0 12px 12px 0;font-size:15px;color:#cdd5e8}
+.posi b{color:var(--acc2)}
+/* ---------- STAT BAR ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:38px 0 8px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.stat .n{font-size:32px;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-family:'Inter'}
+.stat .l{font-size:12.5px;color:var(--dim);margin-top:4px;letter-spacing:.5px}
+/* ---------- SECTION ---------- */
+section{margin:54px 0}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.sec-num{font-family:'Inter';font-size:13px;font-weight:700;color:var(--bg);background:var(--grad);width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sec-head h2{font-family:'Noto Serif SC',serif;font-size:26px;font-weight:700;letter-spacing:-0.3px}
+.sec-desc{color:var(--mut);font-size:14.5px;margin:6px 0 26px;padding-left:44px}
+/* ---------- TLDR ---------- */
+.tldr{background:linear-gradient(135deg,rgba(124,92,255,0.14),rgba(0,212,255,0.07));border:1px solid var(--line);border-radius:20px;padding:30px 32px}
+.tldr h3{font-size:14px;letter-spacing:2px;color:var(--acc2);text-transform:uppercase;margin-bottom:18px}
+.tldr ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.tldr li{padding-left:30px;position:relative;font-size:15.5px;color:#dde3f1}
+.tldr li::before{content:"▸";position:absolute;left:0;top:0;color:var(--acc2);font-size:16px}
+.tldr li b{color:#fff;font-weight:600}
+/* ---------- SIGNAL DASHBOARD ---------- */
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sig{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;position:relative;overflow:hidden;backdrop-filter:blur(8px)}
+.sig::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%}
+.sig.t30::before{background:var(--rose)}
+.sig.t7::before{background:var(--gold)}
+.sig-tag{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:.5px;padding:5px 11px;border-radius:20px;margin-bottom:12px}
+.sig.t30 .sig-tag{background:rgba(255,107,139,0.14);color:var(--rose)}
+.sig.t7 .sig-tag{background:rgba(255,180,84,0.14);color:var(--gold)}
+.sig h4{font-size:17px;font-weight:600;margin-bottom:10px;color:#fff}
+.sig-metrics{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.sig-metrics span{font-size:11.5px;color:var(--mut);background:var(--panel2);border:1px solid var(--line);padding:4px 9px;border-radius:7px}
+.sig-metrics span b{color:var(--txt)}
+.sig p{font-size:13.5px;color:var(--mut);line-height:1.65}
+.verdict{margin-top:12px;font-size:12.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:8px}
+.v-real{background:rgba(70,214,160,0.13);color:var(--green)}
+.v-mix{background:rgba(255,180,84,0.13);color:var(--gold)}
+/* ---------- CARD ---------- */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:20px;backdrop-filter:blur(8px);transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);border-color:rgba(124,140,200,0.32);box-shadow:0 16px 44px -20px rgba(0,0,0,0.6)}
+.card-top{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-bottom:14px}
+.src{font-size:11.5px;font-weight:600;padding:4px 11px;border-radius:7px;letter-spacing:.3px}
+.src-xyz{background:rgba(255,107,139,0.14);color:#ff8fa6}
+.src-zhihu{background:rgba(56,148,255,0.16);color:#6cb0ff}
+.src-medium{background:rgba(70,214,160,0.14);color:#5fe0b4}
+.src-gh{background:rgba(180,150,255,0.16);color:#c2acff}
+.date{font-size:12px;color:var(--dim);margin-left:auto}
+.cat{font-size:11.5px;color:var(--acc2);border:1px solid rgba(0,212,255,0.25);padding:3px 9px;border-radius:6px}
+.card h3{font-family:'Noto Serif SC',serif;font-size:20px;font-weight:600;line-height:1.4;margin-bottom:14px}
+.card h3 a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,0.2)}
+.card h3 a:hover{color:var(--acc2);border-color:var(--acc2)}
+.points{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:6px}
+.points li{padding-left:22px;position:relative;font-size:14.5px;color:#cfd6e6}
+.points li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:2px;background:var(--grad)}
+.points li b{color:#fff;font-weight:600}
+/* annotation blocks */
+.anno{margin-top:16px;border-radius:12px;padding:15px 18px;font-size:14px;line-height:1.7}
+.anno .lbl{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;letter-spacing:.5px;margin-bottom:7px}
+.anno.pingjia{background:rgba(124,92,255,0.09);border:1px solid rgba(124,92,255,0.2)}
+.anno.pingjia .lbl{color:#a892ff}
+.anno.biz{background:rgba(0,212,255,0.07);border:1px solid rgba(0,212,255,0.18)}
+.anno.biz .lbl{color:var(--acc2)}
+.anno.ext{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.18)}
+.anno.ext .lbl{color:var(--gold)}
+.anno.fore{background:rgba(70,214,160,0.07);border:1px solid rgba(70,214,160,0.18)}
+.anno.fore .lbl{color:var(--green)}
+.anno p{color:#d4dbea}
+.anno p+p{margin-top:7px}
+.anno b{color:#fff}
+/* podcast quote style */
+.pod{border-left:3px solid var(--rose);padding:6px 0 6px 18px;margin-bottom:14px}
+.pod .gw{font-size:12.5px;color:var(--dim);margin-bottom:6px}
+.pod .gw b{color:#ff8fa6}
+.quote{font-family:'Noto Serif SC',serif;font-size:15px;color:#e3e8f3;font-style:italic}
+/* footer */
+.endnote{background:linear-gradient(135deg,rgba(124,92,255,0.1),rgba(255,180,84,0.06));border:1px solid var(--line);border-radius:20px;padding:32px;margin:48px 0 30px}
+.endnote h3{font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:18px;color:#fff}
+.action-list{list-style:none;display:flex;flex-direction:column;gap:13px}
+.action-list li{padding-left:34px;position:relative;font-size:15px;color:#d8dfee}
+.action-list li::before{content:counter(c);counter-increment:c;position:absolute;left:0;top:1px;width:23px;height:23px;background:var(--grad);color:var(--bg);border-radius:7px;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:'Inter'}
+.action-list{counter-reset:c}
+.disclaimer{font-size:12.5px;color:var(--dim);border:1px dashed var(--line);border-radius:12px;padding:16px 18px;margin-top:24px;line-height:1.7}
+footer{text-align:center;padding:40px 0 56px;color:var(--dim);font-size:13px;border-top:1px solid var(--line);margin-top:30px}
+footer b{color:var(--mut)}
+.toc{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.toc a{font-size:13px;color:var(--mut);text-decoration:none;border:1px solid var(--line);padding:8px 14px;border-radius:10px;background:var(--panel);transition:.2s}
+.toc a:hover{color:var(--acc2);border-color:var(--acc2);transform:translateY(-2px)}
+@media(max-width:760px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .sig-grid{grid-template-columns:1fr}
+  .sec-desc{padding-left:0}
+  .card{padding:22px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <span class="eyebrow"><span class="dot"></span>每日大模型夜报 · NIGHT EDITION</span>
+    <h1 class="title">大模型夜报<br><span class="g">深度复盘 · 6月29日</span></h1>
+    <p class="subtitle">为大模型从业者准备的夜间深读。不只是资讯搬运，而是从每一条信息「延伸出去」——挖掘关联知识、上下游影响与商业可能性，帮你想清楚：这个方向 6 个月后会变成什么产品卖点？</p>
+    <div class="posi">📌 <b>今夜定位</b>：有延伸阅读 · 有关联观点 · 有业务思考。每条内容后附「我的点评 + 业务视角 + 延伸阅读 + 6个月产品预测」，像行业分析师做收盘复盘。</div>
+    <div class="meta-row">
+      <span class="meta-chip">🗓 抓取窗口 <b>2026-06-29 08:00–23:00</b></span>
+      <span class="meta-chip">📡 来源 <b>小宇宙 · 知乎 · Medium/Substack · GitHub</b></span>
+      <span class="meta-chip">✍️ 编辑 <b>邹超</b></span>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">27</div><div class="l">精选条目</div></div>
+      <div class="stat"><div class="n">4</div><div class="l">信息来源</div></div>
+      <div class="stat"><div class="n">8</div><div class="l">高频信号</div></div>
+      <div class="stat"><div class="n">9</div><div class="l">开源项目</div></div>
+    </div>
+    <nav class="toc">
+      <a href="#tldr">今夜核心判断</a>
+      <a href="#signal">🔔 高频信号追踪</a>
+      <a href="#tech">技术深度</a>
+      <a href="#product">产品方法论</a>
+      <a href="#opensource">开源生态</a>
+      <a href="#podcast">播客摘录</a>
+      <a href="#end">从业者行动清单</a>
+    </nav>
+  </header>
+
+  <!-- ===== TL;DR ===== -->
+  <section id="tldr">
+    <div class="tldr">
+      <h3>◆ 今夜核心判断 / TL;DR</h3>
+      <ul>
+        <li><b>主线只有一条：2026 是「Agent 落地年」。</b>四个来源不约而同收敛到同一叙事——竞争焦点已从「模型多聪明」转向「Agent 能不能稳定完成任务」，Coding Agent 成为头部实验室的战略锚点。</li>
+        <li><b>算力故事换主角：训练 → 推理。</b>推理已占 AI 算力开支过半，自研推理 ASIC（OpenAI×博通 Jalapeño）、投机解码（DeepSeek DeepSpec）、FP8 内核（DeepGEMM）三条线同时发力，本质都是在打「单 token 成本」这场仗。</li>
+        <li><b>能力来源在「下移」：从模型参数转向工程框架（Harness）。</b>同一个模型换个运行框架，准确率能从 52% 跳到 66%——这意味着护城河正在从「谁的模型大」变成「谁的 Agent 工程做得扎实」。</li>
+        <li><b>开源在「步进式」追平闭源。</b>GLM-5.2 以约 1/6 的成本逼近闭源旗舰的 Agentic Coding 能力，叠加 openclaw、gstack 等现象级工具，开源 + 本地化 + 私有部署正在形成完整替代栈。</li>
+        <li><b>给从业者的一句话：</b>别再盯着「下一个更强的模型」，机会窗口在「把 Agent 工程化、把推理成本打下来、把能力塞进私有/端侧场景」这三件事上。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== SIGNAL DASHBOARD ===== -->
+  <section id="signal">
+    <div class="sec-head"><span class="sec-num">🔔</span><h2>高频信号追踪</h2></div>
+    <p class="sec-desc">对近 7 天出现 ≥3 次的观点标记为「7天高频信号」，对近 30 天持续出现的标记为「30天持续趋势」。每条注明首次出现时间、出现次数、来源多样性，并判断是<b style="color:var(--gold)">泡沫炒作</b>还是<b style="color:var(--green)">真实趋势</b>。</p>
+    <div class="sig-grid">
+
+      <div class="sig t30">
+        <span class="sig-tag">🔴 30天持续趋势</span>
+        <h4>Coding Agent / 编程智能体崛起</h4>
+        <div class="sig-metrics"><span>首次 <b>约06-16</b></span><span>出现 <b>≥8次</b></span><span>来源 <b>4/4 全覆盖</b></span></div>
+        <p>从小宇宙（爆发前夜、捕蛇者说 laike9m）、知乎「Agent 之年」、Interconnects（GLM-5.2 agentic coding 登顶）到 GitHub（gstack、microsoft/agent-framework）全线提及。叙事高度一致：从「被动补全」转向「主动式 Agent」。</p>
+        <span class="verdict v-real">✓ 真实趋势 · 已进入产品兑现期</span>
+      </div>
+
+      <div class="sig t30">
+        <span class="sig-tag">🔴 30天持续趋势</span>
+        <h4>算力重心转向推理侧（Inference 经济学）</h4>
+        <div class="sig-metrics"><span>首次 <b>约06-18</b></span><span>出现 <b>≥5次</b></span><span>来源 <b>播客+Medium+GitHub</b></span></div>
+        <p>小平的IO 称推理占比已超 55%、年底或达 70%；Medium 报道 Jalapeño 自研 ASIC；GitHub 上 DeepSpec 投机解码、DeepGEMM FP8 内核密集更新。三类来源指向同一战场——把单次推理成本打下来。</p>
+        <span class="verdict v-real">✓ 真实趋势 · 结构性拐点</span>
+      </div>
+
+      <div class="sig t30">
+        <span class="sig-tag">🔴 30天持续趋势</span>
+        <h4>MoE 稀疏架构成为千亿级标配</h4>
+        <div class="sig-metrics"><span>首次 <b>长期沉淀</b></span><span>出现 <b>≥6次</b></span><span>来源 <b>知乎+GitHub</b></span></div>
+        <p>知乎多篇（GLM-5.2 评测、架构总结、排行榜）将 MoE 视为兼顾参数规模与推理成本的「唯一商业化路径」；GitHub 的 DeepGEMM 专为 MoE 矩阵乘法优化。共识已固化，讨论焦点转向「负载均衡 / 专家闲置」等工程细节。</p>
+        <span class="verdict v-real">✓ 真实趋势 · 已成基础设施共识</span>
+      </div>
+
+      <div class="sig t30">
+        <span class="sig-tag">🔴 30天持续趋势</span>
+        <h4>Local-first / 端侧与私有化部署</h4>
+        <div class="sig-metrics"><span>首次 <b>约06-17</b></span><span>出现 <b>≥5次</b></span><span>来源 <b>播客+Medium+GitHub</b></span></div>
+        <p>小宇宙谈 Apple Intelligence 端侧集成；Raschka 推本地 Coding Agent；GitHub 上 openclaw（37万星）、odysseus 自托管工作空间爆火。隐私诉求 + Ollama 等工具链成熟，共同推动「数据不出本地」的新栈。</p>
+        <span class="verdict v-real">✓ 真实趋势 · 由 C 端向 B 端渗透</span>
+      </div>
+
+      <div class="sig t7">
+        <span class="sig-tag">🟡 7天高频信号</span>
+        <h4>Agent 工程层 / Harness 决定能力上限</h4>
+        <div class="sig-metrics"><span>首次 <b>约06-21</b></span><span>出现 <b>≥4次</b></span><span>来源 <b>播客+Medium+GitHub</b></span></div>
+        <p>捕蛇者说讨论 Agent Harness 的重要性；Medium 报道同模型换框架准确率 52%→66%；gstack 用 23 个角色工程化提效。共同观点：决定落地的是「外层工程约束」，不是底层参数量。</p>
+        <span class="verdict v-real">✓ 真实趋势 · 早期但确定性高</span>
+      </div>
+
+      <div class="sig t7">
+        <span class="sig-tag">🟡 7天高频信号</span>
+        <h4>GLM-5.2 开源里程碑</h4>
+        <div class="sig-metrics"><span>首次 <b>06-13</b></span><span>出现 <b>≥4次</b></span><span>来源 <b>知乎+Interconnects</b></span></div>
+        <p>知乎深度评测 + Nathan Lambert 撰文「the step change for open agents」，称其 Agentic Coding 逼近闭源、成本约 1/6。信号强且来源跨中英文，但需警惕评测榜单的「发布即刷屏」过热效应。</p>
+        <span class="verdict v-mix">≈ 真实趋势为主 · 评测热度需冷静看</span>
+      </div>
+
+      <div class="sig t7">
+        <span class="sig-tag">🟡 7天高频信号</span>
+        <h4>可验证推理 & 评测范式升级</h4>
+        <div class="sig-metrics"><span>首次 <b>06-22</b></span><span>出现 <b>≥3次</b></span><span>来源 <b>Medium+知乎</b></span></div>
+        <p>TMax 用沙盒「可验证结果」做 RL 奖励；AI Evaluation Digest 提出 Behavior Forecasters、质疑 LLM-as-a-judge；知乎指评测转向 GPQA Diamond / SciCode。评估从「看答案」转向「审推理路径」。</p>
+        <span class="verdict v-real">✓ 真实趋势 · 评测基础设施重构</span>
+      </div>
+
+      <div class="sig t7">
+        <span class="sig-tag">🟡 7天高频信号</span>
+        <h4>自研推理 ASIC / 垂直整合</h4>
+        <div class="sig-metrics"><span>首次 <b>约06-24</b></span><span>出现 <b>2次</b></span><span>来源 <b>Medium 为主</b></span></div>
+        <p>OpenAI×博通 Jalapeño（号称 9 个月流片、成本降约 50%）、Amazon Trainium 进展密集出现。方向（前沿实验室向硬件垂直整合）是真的，但单个产品的性能/成本数字目前主要来自二手报道，暂无公开统一口径，需谨慎对待。</p>
+        <span class="verdict v-mix">≈ 方向真实 · 个案数据待官方核实</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SECTION 1: TECH ===== -->
+  <section id="tech">
+    <div class="sec-head"><span class="sec-num">1</span><h2>技术深度解析</h2></div>
+    <p class="sec-desc">架构、训练方法、推理优化——今夜最值得逐字读的硬核内容。</p>
+
+    <!-- card: DeepSpec -->
+    <div class="card">
+      <div class="card-top">
+        <span class="src src-gh">GitHub</span>
+        <span class="cat">推理优化 / 投机解码</span>
+        <span class="date">2026-06-27 开源</span>
+      </div>
+      <h3><a href="https://github.com/deepseek-ai/DeepSpec" target="_blank">DeepSeek DeepSpec：全栈投机解码框架，单用户生成提速 60–85%</a></h3>
+      <ul class="points">
+        <li>集成 <b>DSpark / DFlash / Eagle3</b> 三种草稿模型算法，DSpark 通过半自回归生成 + 置信度调度，把 DeepSeek-V4 单用户速度拉高 60–85%、吞吐峰值提升约 4 倍。</li>
+        <li>发布即热，约 2 天收获 1.8k stars，配套 DeepGEMM（约 300 行 FP8 内核）形成「算法 + 底层内核」组合拳。</li>
+      </ul>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>投机解码不是新概念，但 DeepSeek 的价值在于<b>把它做成了「全栈、开箱即用」</b>。过去投机解码停留在论文和零散实现，工程门槛高；DeepSpec 把草稿模型、调度、内核打通，等于把「推理加速」从研究课题降维成可直接集成的工具。这正是 DeepSeek 一贯的打法——用极致工程把别人的研究成果产品化。</p></div>
+      <div class="anno biz"><span class="lbl">🎯 业务视角</span><p>推理速度直接等于<b>毛利率和用户体验</b>。对做 API/Agent 产品的团队，60–85% 的提速意味着同样 GPU 能多服务近一倍请求，或在不加机器的前提下把首 token 延迟砍半。对 To B 私有化交付，这是直接写进报价单的成本优势。</p></div>
+      <div class="anno ext"><span class="lbl">🔭 延伸阅读 · 关联与上下游</span><p><b>往上游看</b>：投机解码 + FP8 量化 + MoE 稀疏激活，正在合流成「推理三件套」，本质都是「用更少的有效计算换同等质量输出」。<b>往下游看</b>：当推理成本结构性下降，会反向刺激 Agent 应用——因为 Agent 是「高频多轮调用」的吞金兽，成本曲线一旦下移，很多此前算不过账的 Agent 场景会突然变得可行。<b>商业可能性</b>：「推理加速即服务」会成为云厂商和 MaaS 平台的差异化卖点。</p></div>
+      <div class="anno fore"><span class="lbl">🚀 6个月后的产品卖点预测</span><p>预计投机解码会从「框架」内化为推理引擎（vLLM/SGLang 类）的<b>默认开关</b>。半年后产品话术会从「我们支持投机解码」变成「我们的端到端 Agent 延迟 < X 秒」——技术细节被封装，对外只剩体验指标。<b>可内化点</b>：在解决方案里，把推理加速做成可量化的 SLA 承诺（延迟/并发/单位成本），比单纯堆模型更能打动采购方。</p></div>
+    </div>
+
+    <!-- card: ASIC -->
+    <div class="card">
+      <div class="card-top">
+        <span class="src src-medium">Medium / 36Kr</span>
+        <span class="cat">硬件 / 垂直整合</span>
+        <span class="date">2026-06-29</span>
+      </div>
+      <h3><a href="https://36kr.com/p/3870858049705222" target="_blank">OpenAI × 博通「Jalapeño」自研推理 ASIC：9 个月流片，成本据称降约 50%</a></h3>
+      <ul class="points">
+        <li>首款针对大规模 LLM 推理优化的自研 ASIC，借助 AI 辅助芯片设计，据报道从顶层设计到流片仅 9 个月。</li>
+        <li>早期样本宣称在匹配 Nvidia Blackwell 性能的同时成本降约 50%，被解读为前沿实验室从「纯算法」转向「垂直整合」。</li>
+      </ul>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>先打个预防针：<b>9 个月流片、降本 50% 目前主要来自二手报道，暂无官方统一口径</b>，数字要打折看。但「方向」是确定的——当推理成本成为前沿实验室的命门，自研芯片就从「要不要做」变成「不得不做」。这和当年超大厂自研 TPU/自研服务器是同一个剧本：当某项成本占比足够大，垂直整合的 ROI 就成立了。</p></div>
+      <div class="anno biz"><span class="lbl">🎯 业务视角</span><p>这件事对绝大多数团队<b>不可复制但必须看懂</b>：它意味着头部玩家在用「掌控算力成本」构筑新护城河，模型能力的差距可能会被「单位推理成本」的差距取代。对中间层公司，启示是——既然拼不了自研芯片，就要在<b>软件侧的推理效率</b>（量化、调度、缓存复用）上做到极致，否则会被两头挤压。</p></div>
+      <div class="anno ext"><span class="lbl">🔭 延伸阅读 · 关联与上下游</span><p><b>关联信号</b>：与本期「推理算力占比超 55%」「DeepSpec 投机解码」是同一根逻辑链——整个行业在为「推理时代」重构成本结构。<b>上下游影响</b>：若自研 ASIC 规模化，Nvidia 在推理侧的议价权会被稀释，云厂商的 GPU 租赁定价、乃至创业公司的算力获取策略都要重估。<b>商业可能性</b>：围绕「异构推理调度」（在 GPU/ASIC/NPU 间智能分配负载）会长出新的中间件机会。</p></div>
+      <div class="anno fore"><span class="lbl">🚀 6个月后的产品卖点预测</span><p>半年内大概率出现更多「自研/定制推理芯片」官宣，行业话术会从「我们用最新 GPU」转向「我们的推理是软硬协同优化的」。<b>可内化点</b>：解决方案里可以预埋「算力无关」的抽象层，让上层 Agent 逻辑不绑定特定硬件——这是应对硬件碎片化的防御性设计，也是对客户的灵活性卖点。</p></div>
+    </div>
+
+    <!-- card: MoE -->
+    <div class="card">
+      <div class="card-top">
+        <span class="src src-zhihu">知乎</span>
+        <span class="cat">架构 / 训练</span>
+        <span class="date">2026-06-21</span>
+      </div>
+      <h3><a href="https://zhuanlan.zhihu.com/p/2012897071942878741" target="_blank">2026 大模型架构总结：MoE 负载均衡新策略与 MuOpt 优化器</a></h3>
+      <ul class="points">
+        <li>讨论解决 MoE「专家闲置」的最新负载均衡算法，进一步压榨计算效率；MoE 已成千亿级参数模型标配。</li>
+        <li><b>MuOpt 优化器</b>开始被广泛用于大规模预训练，宣称能提升收敛速度并降低显存占用；稀疏化成为开源界追赶焦点。</li>
+      </ul>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>当讨论从「要不要用 MoE」下沉到「怎么解决专家闲置、怎么换更好的优化器」，说明这个架构<b>已经过了风口期、进入了精耕期</b>。这是技术成熟的典型标志——红利不再来自架构选型，而来自工程细节的复利。MuOpt 这类优化器的普及，本质是把训练成本继续往下压。</p></div>
+      <div class="anno biz"><span class="lbl">🎯 业务视角</span><p>对自训/微调团队，MoE 的「低激活参数」特性意味着<b>同等效果下推理更便宜</b>，这是性价比榜单的胜负手。但 MoE 的工程复杂度（路由、负载、通信）也更高，盲目跟进可能踩坑——对资源有限的团队，更务实的是用好开源 MoE 模型，而非自己从零训。</p></div>
+      <div class="anno ext"><span class="lbl">🔭 延伸阅读 · 关联与上下游</span><p><b>上下游</b>：MoE 的稀疏激活 → 直接降低推理 FLOPs → 与 DeepGEMM 这类 MoE 专用内核形成软硬协同。<b>商业可能性</b>：MoE 的「按需激活专家」特性，未来可能演化出「按领域动态加载专家」的产品形态——一个底座模型，不同行业客户加载不同专家组合，这对 To B 定制化是极有想象力的交付模式。</p></div>
+      <div class="anno fore"><span class="lbl">🚀 6个月后的产品卖点预测</span><p>MoE 会彻底「隐形」——它不再是卖点，而是默认。半年后真正的差异化会落在「<b>每百万 token 成本</b>」这个对外指标上。<b>可内化点</b>：把模型选型的对话从参数量切换到「单位任务成本 + 任务完成率」，这套话术更贴近客户的真实账本。</p></div>
+    </div>
+
+    <!-- card: verifiable reasoning -->
+    <div class="card">
+      <div class="card-top">
+        <span class="src src-medium">Substack</span>
+        <span class="cat">评测 / 推理</span>
+        <span class="date">2026-06-22 ~ 26</span>
+      </div>
+      <h3><a href="https://natolambert.substack.com/p/tmax-an-open-rl-recipe-for-terminal" target="_blank">可验证推理崛起：TMax 终端 Agent 的 RL 配方 + Behavior Forecasters 评测新范式</a></h3>
+      <ul class="points">
+        <li><b>TMax</b>：为终端/命令行 Agent 设计的 RL 方案，奖励来自「沙盒里实际执行是否成功」，弱化中间密集奖励，专注最终完成状态。</li>
+        <li><b>AI Evaluation Digest</b>：提出 Behavior Forecasters 直接预测模型一致性，质疑 LLM-as-a-judge 的偏见与成本；强调审查「推理路径」而非只看答案。</li>
+      </ul>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>这是本期我个人最看重的「慢信号」。<b>评测方式的变化，往往领先产品形态半年到一年。</b>当行业开始用「可验证执行结果」做奖励、用「推理路径审查」做评估，说明大家终于承认：能说出正确答案 ≠ 推理过程可靠。Claude「前提错误却逻辑严密」的例子很扎心——这正是 Agent 在真实业务里最危险的失败模式。</p></div>
+      <div class="anno biz"><span class="lbl">🎯 业务视角</span><p>对任何要把 Agent 交付给客户的团队，<b>「可验证」三个字就是信任的货币</b>。客户不怕 Agent 偶尔出错，怕的是出错了不知道、不可追溯。把「沙盒验证 + 推理路径留痕」做进产品，等于把「可审计性」变成卖点——尤其在金融、医疗、法务这些高风险场景，这是能不能进场的门票。</p></div>
+      <div class="anno ext"><span class="lbl">🔭 延伸阅读 · 关联与上下游</span><p><b>关联</b>：与知乎提到的 GPQA Diamond / SciCode 硬核评测是一回事——评测在「反通胀」，因为简单基准已经刷爆。<b>上下游</b>：可验证奖励（RLVR）→ 反哺训练 → 产出更可靠的 Agent → 才敢交付高风险场景，这是一条完整的价值闭环。<b>商业可能性</b>：「Agent 评测/监控/可观测性」会成为独立的工具品类，类似软件工程里的测试与 APM。</p></div>
+      <div class="anno fore"><span class="lbl">🚀 6个月后的产品卖点预测</span><p>半年后，企业级 Agent 产品的标配会多出一个模块：<b>「执行可验证 + 推理可追溯」的信任面板</b>。卖点话术从「我们的 Agent 很聪明」升级为「我们的 Agent 每一步都可验证、可回放、可审计」。<b>可内化点</b>：在解决方案里预置「沙盒执行 + trace 日志 + 一致性评分」，这是把技术趋势直接转成交付差异化的最快路径。</p></div>
+    </div>
+
+  </section>
+
+  <!-- ===== SECTION 2: PRODUCT ===== -->
+  <section id="product">
+    <div class="sec-head"><span class="sec-num">2</span><h2>产品方法论与行业长文</h2></div>
+    <p class="sec-desc">从技术到产品的那一跃——怎么让 Agent 真正「干活」，怎么把能力塞进对的场景。</p>
+
+    <!-- card: Harness -->
+    <div class="card">
+      <div class="card-top">
+        <span class="src src-medium">Medium / Substack</span>
+        <span class="cat">Agent 架构 / 工程</span>
+        <span class="date">2026-06-22 ~ 26</span>
+      </div>
+      <h3><a href="https://magazine.sebastianraschka.com/p/using-local-coding-agents" target="_blank">Agent 能力的真正来源：是「工程框架（Harness）」，不是模型参数</a></h3>
+      <ul class="points">
+        <li>同一个模型，换更好的运行约束框架，准确率可从 <b>52% 提升到 66%</b>——Agent 表现越来越由「外层工程」决定。</li>
+        <li>Raschka 实证：Qwen3.5-4B + Qwen-Code Harness + Ollama 沙盒，小模型也能在本地跑出可用的编程 Agent；主流架构正从单体调用转向「多智能体群（Swarm）」与动态治理。</li>
+      </ul>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>这是对「唯参数论」的一次有力反击。<b>52%→66% 这 14 个点，比换一代模型还划算，且成本几乎为零。</b>它揭示了一个被低估的事实：当前 Agent 落地的瓶颈，更多在「环境、工具、约束、反馈环」这些工程件，而不是底层模型不够强。这对中小团队是天大的好消息——你不需要最强的模型，需要的是最扎实的 Harness。</p></div>
+      <div class="anno biz"><span class="lbl">🎯 业务视角</span><p>这重新定义了「壁垒」。如果能力主要来自工程，那么<b>工程 know-how 就是可积累、可复用、可交付的资产</b>。一家公司沉淀的「行业专属 Harness」（领域工具集 + 约束规则 + 验证环节）会比模型本身更难被抄袭，因为它绑定了业务理解。这是「卖模型」转向「卖工程能力」的关键转折。</p></div>
+      <div class="anno ext"><span class="lbl">🔭 延伸阅读 · 关联与上下游</span><p><b>关联</b>：与 GitHub 上 gstack（23 角色工程化）、可验证推理是同一思潮——Agent 工程化。<b>上下游</b>：好的 Harness → 让小模型可用 → 让本地/私有部署可行（因为不依赖超大闭源模型）→ 打通 Local-first 这条线。<b>商业可能性</b>：「行业 Harness 模板市场」会出现——法务 Harness、财税 Harness、运维 Harness，像 SaaS 应用市场一样被分发和售卖。</p></div>
+      <div class="anno fore"><span class="lbl">🚀 6个月后的产品卖点预测</span><p>半年后，「我们有为你行业定制的 Agent 工程框架」会比「我们用了 GPT-X」更有说服力。卖点从「模型先进」转向「<b>领域工程深度</b>」。<b>可内化点</b>：立刻开始沉淀自己业务域的工具集、约束规则与评测集——这套东西做厚了，就是换模型也搬不走的护城河。</p></div>
+    </div>
+
+    <!-- card: Agent year zhihu -->
+    <div class="card">
+      <div class="card-top">
+        <span class="src src-zhihu">知乎</span>
+        <span class="cat">产品方法论 / 落地</span>
+        <span class="date">2026-06 下旬</span>
+      </div>
+      <h3><a href="https://zhuanlan.zhihu.com/p/2005591914448193177" target="_blank">2026 Agent 之年：从「工具」到「同事」，企业落地的五大支柱</a></h3>
+      <ul class="points">
+        <li>Agent 正从对话框工具，转型为能自主搜索、分析、撰写、交付的「智能同事」；具备跨模态感知，在医疗、零售等场景做复杂决策。</li>
+        <li>企业落地不该只买技术，需建立「面向 AI 的组织」：明确目标、高层支持、融入工作流、数据治理、持续迭代。</li>
+      </ul>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>「从工具到同事」这个比喻好用但要小心——它常被销售话术滥用。<b>真正的分水岭是「委派」二字</b>：工具是你点一下它动一下，同事是你交代一个目标它自己拆解执行。当前多数所谓 Agent 还停在「高级工具」阶段。这篇文章最有价值的不是技术判断，而是点破了「组织没准备好，再强的 Agent 也落不了地」。</p></div>
+      <div class="anno biz"><span class="lbl">🎯 业务视角</span><p>「五大支柱」其实是在说：<b>Agent 落地是组织变革项目，不是 IT 采购项目。</b>这对乙方是重要提醒——交付 Agent 不能只交付软件，还要交付「怎么用」的方法论和流程改造，否则客户买回去吃灰，续费就没了。把「落地咨询 + 工作流改造」打包进交付，客单价和粘性都会更高。</p></div>
+      <div class="anno ext"><span class="lbl">🔭 延伸阅读 · 关联与上下游</span><p><b>关联</b>：呼应小宇宙「Agent 任务完成率成为评估核心」——从业者已从比拼对话质量转向比拼任务交付率。<b>上下游</b>：「同事化」Agent → 需要长期记忆、权限体系、审计日志 → 催生 Agent 的「身份与治理」基础设施。<b>商业可能性</b>：按「完成的任务数 / 节省的人力工时」计费的结果导向定价（outcome-based pricing）会兴起，取代按 token/席位收费。</p></div>
+      <div class="anno fore"><span class="lbl">🚀 6个月后的产品卖点预测</span><p>半年后头部产品会强调「<b>可被分配 KPI 的数字员工</b>」——给 Agent 一个岗位说明书和考核指标。卖点话术：「它不是软件，是你雇的第 N 个员工」。<b>可内化点</b>：把交付物设计成「岗位包」（角色定义 + 工具权限 + 验收标准），比卖「一套系统」更贴合客户的预算科目（人力 vs IT）。</p></div>
+    </div>
+
+    <!-- card: Apple end-side -->
+    <div class="card">
+      <div class="card-top">
+        <span class="src src-xyz">小宇宙</span>
+        <span class="cat">端侧 AI / 交互</span>
+        <span class="date">2026-06-29</span>
+      </div>
+      <h3><a href="https://www.xiaoyuzhoufm.com/podcast/5e7c8b2b418a84a046e3ecbc" target="_blank">牛油果烤面包：WWDC 2026 复盘——Apple Intelligence 与 Siri 的 Agent 化</a></h3>
+      <ul class="points">
+        <li>Apple Intelligence 深度嵌入 macOS / iOS，强调隐私前提下用本地算力处理任务；Siri 通过 App Intents 实现跨应用执行，自然语言驱动多步工作流。</li>
+        <li>交互理念：AI 应无缝融入照片、搜索等系统功能，而非作为独立 App 存在。</li>
+      </ul>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>苹果的打法和 OpenAI 们是两条路：<b>别人造「最强大脑」，苹果造「最顺手的手脚」。</b>App Intents 把「Agent 调用能力」标准化成系统级协议，这一步棋很重——它让端侧 Agent 不必自己造工具，而是直接复用全生态 App 的能力。这是平台型玩家才能下的棋，也是它最深的护城河。</p></div>
+      <div class="anno biz"><span class="lbl">🎯 业务视角</span><p>对应用开发者，信号很明确：<b>未来你的 App 不只面向人类用户，还要面向「Agent 用户」</b>。谁先把自己的功能通过 App Intents（及类似协议）暴露给系统 Agent，谁就能在「Agent 帮用户完成任务」时被优先调用——这是新一轮的流量入口之争，类似当年抢搜索排名。</p></div>
+      <div class="anno ext"><span class="lbl">🔭 延伸阅读 · 关联与上下游</span><p><b>关联</b>：与 GitHub 上 openclaw 的 ACP（Agent Client Protocol）、本期 Local-first 趋势同频——「Agent 调用本地能力」的协议层正在成形。<b>上下游</b>：端侧 Agent 标准化 → 催生「Agent 友好型 App 设计」新规范 → 重塑移动生态的分发逻辑。<b>商业可能性</b>：「让你的产品被 Agent 调用」会成为一项新的 SEO/ASO 式生意——Agent 入口优化（AIO）。</p></div>
+      <div class="anno fore"><span class="lbl">🚀 6个月后的产品卖点预测</span><p>半年后，会有越来越多产品强调「<b>原生支持系统级 Agent 调用</b>」作为卖点。对 B 端软件，「我们的产品能被企业 Agent 编排」会成为采购加分项。<b>可内化点</b>：现在就给自己的产品/解决方案设计「对 Agent 友好」的接口（清晰的能力声明、结构化输出、可被编排），这是面向「Agent 即用户」时代的提前卡位。</p></div>
+    </div>
+
+    <!-- card: GLM-5.2 open agent -->
+    <div class="card">
+      <div class="card-top">
+        <span class="src src-medium">Interconnects</span>
+        <span class="cat">开源模型 / Agent</span>
+        <span class="date">2026-06-22</span>
+      </div>
+      <h3><a href="https://www.interconnects.ai/p/glm-52-is-the-step-change-for-open" target="_blank">Nathan Lambert：GLM-5.2 是开源 Agent 的「步进式」跨越</a></h3>
+      <ul class="points">
+        <li>GLM-5.2 在 Coding Avg（79.65）、Agentic Coding（73.33）等指标表现优异，长程代码任务击败部分闭源模型；周六突袭发布反映开源竞争白热化。</li>
+        <li>运行成本约为同级闭源模型的 <b>1/6</b>，大幅降低开发者构建复杂 Agent 的门槛。</li>
+      </ul>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>「1/6 成本逼近闭源」如果成立，杀伤力极大——但要冷静：榜单分数和真实业务表现常有落差，「发布即刷屏」也容易制造过热预期（所以我把它标为「真实趋势为主、热度需冷静看」）。不过有一点很硬：当一个开源模型能把 Agentic Coding 做到这个水平，<b>它就给所有「不想被闭源 API 绑死」的团队提供了真实的退路</b>，这个议价权的转移是实打实的。</p></div>
+      <div class="anno biz"><span class="lbl">🎯 业务视角</span><p>成本 1/6 改变的是「账本」。很多此前因 API 成本太高而无法规模化的 Agent 场景（高频调用、长上下文、批量处理），现在可能算得过账了。对 To B 私有化交付，开源 + 低成本 = <b>可以承诺数据不出域、且总拥有成本可控</b>，这是闭源 API 给不了的双重卖点。</p></div>
+      <div class="anno ext"><span class="lbl">🔭 延伸阅读 · 关联与上下游</span><p><b>关联</b>：与知乎 GLM-5.2 评测、本期「开源追平闭源」信号互证，跨中英文来源提升了可信度。<b>上下游</b>：强开源模型 → 让 Harness/本地 Agent 真正可用 → 支撑 Local-first 整条产业链。<b>商业可能性</b>：「开源模型私有化部署 + 行业微调 + 工程交付」会是中间层公司最现实的盈利模式，避开与闭源大厂的正面竞争。</p></div>
+      <div class="anno fore"><span class="lbl">🚀 6个月后的产品卖点预测</span><p>半年后，「<b>基于开源旗舰的私有化 Agent 方案</b>」会成为主流选项，话术强调「能力对标闭源、成本与数据双可控」。<b>可内化点</b>：建立「闭源打样、开源落地」的双轨能力——用闭源快速验证 PoC，用开源做规模化私有交付，兼顾速度与成本。</p></div>
+    </div>
+
+  </section>
+
+  <!-- ===== SECTION 3: OPEN SOURCE ===== -->
+  <section id="opensource">
+    <div class="sec-head"><span class="sec-num">3</span><h2>开源项目动态与工具生态</h2></div>
+    <p class="sec-desc">今夜 GitHub 上最值得收藏的 9 个项目，以及它们背后的生态信号。</p>
+
+    <!-- openclaw -->
+    <div class="card">
+      <div class="card-top">
+        <span class="src src-gh">GitHub</span>
+        <span class="cat">Agent / Local-first</span>
+        <span class="date">37.2万 ★</span>
+      </div>
+      <h3><a href="https://github.com/openclaw/openclaw" target="_blank">openclaw 🦞 ——「每个人的个人 AI 助手」，史上增长最快的非聚合类项目</a></h3>
+      <ul class="points">
+        <li>Local-first 隐私优先架构，允许 AI 深度介入个人电脑操作；支持 ACP（Agent Client Protocol）协议生态。</li>
+        <li>总星标突破 37.2 万，据称增速超越 React。</li>
+      </ul>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>37 万星这个数字要理性看（star 有泡沫成分），但现象本身说明一件事：<b>「个人拥有、本地运行、深度介入系统」的 AI 助手，正在击中一个巨大的未被满足的需求</b>。它和云端 ChatGPT 是互补而非替代——前者要的是控制权和隐私，后者要的是能力上限。ACP 协议尤其值得关注，它在尝试做「Agent 调用一切」的开放标准。</p></div>
+      <div class="anno biz"><span class="lbl">🎯 业务视角 + 🔭 延伸</span><p>对 B 端，openclaw 代表的「本地 Agent + 开放协议」是一个可借鉴的私有化范式。<b>商业可能性</b>：围绕 ACP 这类协议，会长出「Agent 与企业系统对接」的连接器生意（类似 Zapier 之于 SaaS）。<b>6个月预测</b>：Agent 互操作协议（ACP / MCP 等）会出现「标准之争」，押对协议生态的工具会吃到红利——值得提前布局适配。</p></div>
+    </div>
+
+    <!-- gstack -->
+    <div class="card">
+      <div class="card-top">
+        <span class="src src-gh">GitHub</span>
+        <span class="cat">AI 工程工具链</span>
+        <span class="date">11.2万 ★</span>
+      </div>
+      <h3><a href="https://github.com/garrytan/gstack" target="_blank">gstack ——23 个专家角色封装，把单人开发效率「理论上」提升 8–10 倍</a></h3>
+      <ul class="points">
+        <li>YC 总裁 Garry Tan 开源的个人 AI 编程工作流工具包，模拟 CEO、工程经理、QA 等 23 个角色。</li>
+        <li>11.2 万+ stars，反映开发者对「个人 AI 堆栈流程化」的高度认可。</li>
+      </ul>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>「8–10 倍」是营销数字，别当真；但 gstack 的真正价值是把「<b>多角色协作工作流</b>」做成了可复制的模板。它和前面 Harness 的观点是一体两面——能力来自工程编排。一个 YC 总裁亲自下场开源，本身就是强信号：连顶级投资人都认为「AI 工程工作流」是值得押注的方向。</p></div>
+      <div class="anno biz"><span class="lbl">🎯 业务视角 + 🚀 6个月预测</span><p><b>业务视角</b>：角色化工作流可以直接迁移到任何知识密集型行业——把「23 个开发角色」换成「财税 / 法务 / 投研角色」，就是一套垂直行业的 Agent 解决方案。<b>可内化点</b>：这是最容易「跨行业迁移」的方法论——研究它的角色拆分和协作机制，套到你的目标行业。<b>6个月预测</b>：「角色化 Agent 工作流模板」会成为一种可售卖的数字资产，按行业打包分发。</p></div>
+    </div>
+
+    <!-- microsoft agent-framework + odysseus combined -->
+    <div class="card">
+      <div class="card-top">
+        <span class="src src-gh">GitHub</span>
+        <span class="cat">框架 / 自托管</span>
+        <span class="date">2026-06</span>
+      </div>
+      <h3>企业级与自托管两条线：<a href="https://github.com/microsoft/agent-framework" target="_blank">microsoft/agent-framework</a> × <a href="https://github.com/pewdiepie-archdaemon/odysseus" target="_blank">odysseus</a></h3>
+      <ul class="points">
+        <li><b>agent-framework</b>：微软 MIT 协议开源，跨云/本地/边缘一致 API，集成 Azure AI Foundry 与 Copilot SDK，主打「终结 AI 锁死（lock-in）」。</li>
+        <li><b>odysseus</b>：隐私优先的自托管 AI 工作空间（约 2.2 万 ★），集成聊天、自主 Agent、Deep Research、本地模型流控，完全本地运行、零遥测。</li>
+      </ul>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>这两个项目代表了 Agent 框架的两极：微软打「企业标准化、跨平台、反锁定」，odysseus 打「个人/小团队的完全自主可控」。<b>有意思的是它们都在反「锁定」</b>——一个反云厂商锁定，一个反厂商遥测。这说明市场对「被某家 AI 巨头绑死」的警惕正在上升，可控性本身成了卖点。</p></div>
+      <div class="anno ext"><span class="lbl">🎯 业务视角 + 🔭 延伸</span><p><b>业务视角</b>：对做 To B 的团队，microsoft/agent-framework 这类「跨平台一致 API」降低了技术选型风险，可作为底座；odysseus 则提供了「全私有部署」的参考架构。<b>商业可能性</b>：「防锁定 / 多模型路由」会成为中立中间件的核心卖点——帮客户在多个模型/云之间自由切换，赚「保险费」。<b>6个月预测</b>：企业采购清单上会新增一项硬指标——「是否支持多模型、可迁移、不锁定」。</p></div>
+    </div>
+
+    <!-- VoxCPM + bumblebee + tradingagents combined -->
+    <div class="card">
+      <div class="card-top">
+        <span class="src src-gh">GitHub</span>
+        <span class="cat">模型 / 安全 / 垂直 Agent</span>
+        <span class="date">2026-06</span>
+      </div>
+      <h3>三个值得收藏的「专项」项目：无 Token TTS · AI 供应链安全 · 金融多智能体</h3>
+      <ul class="points">
+        <li><a href="https://github.com/OpenBMB/VoxCPM" target="_blank"><b>VoxCPM2</b></a>（清华 OpenBMB）：Tokenizer-Free TTS，端到端扩散自回归直接生成 48kHz 音频，支持 30+ 语言语音克隆——「无 Token 化」架构的代表作。</li>
+        <li><a href="https://github.com/perplexity-ai/bumblebee" target="_blank"><b>bumblebee</b></a>（Perplexity）：AI 供应链安全扫描，可查 npm/PyPI/Go/MCP server 中的恶意依赖，零第三方库、极轻量。</li>
+        <li><a href="https://github.com/tauricresearch/tradingagents" target="_blank"><b>TradingAgents</b></a>（约 6.9 万 ★）：基于 LangGraph 的金融多智能体框架，模拟基本面/情绪/技术分析师 + 风控角色。</li>
+      </ul>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>这三个项目拼出了一张「生态成熟度地图」：VoxCPM2 代表<b>架构层面的探索</b>（去 Token 化）、bumblebee 代表<b>安全/治理层的补位</b>、TradingAgents 代表<b>垂直行业的落地</b>。当一个技术栈开始长出「安全工具」和「垂直应用」，说明它已经从早期狂热进入了「认真做产品」的阶段。bumblebee 尤其值得警醒——AI 生成代码越多，供应链攻击面越大，安全是被低估的刚需。</p></div>
+      <div class="anno fore"><span class="lbl">🎯 业务视角 + 🚀 6个月预测</span><p><b>业务视角</b>：TradingAgents 是「多智能体 + 垂直域」可复制范式的活样本，金融能做，投研、风控、供应链同理。<b>商业可能性</b>：AI 供应链安全（bumblebee 方向）会成为企业 AI 治理的必选项——这是一个正在被低估的 To B 安全赛道。<b>6个月预测</b>：「AI 代码/依赖安全扫描」会像今天的 SAST/SCA 一样，进入企业 DevSecOps 标配；无 Token 架构则可能先在语音/音频模态跑通，再向其他模态外溢。</p></div>
+    </div>
+
+  </section>
+
+  <!-- ===== SECTION 4: PODCAST ===== -->
+  <section id="podcast">
+    <div class="sec-head"><span class="sec-num">4</span><h2>小宇宙播客核心观点摘录</h2></div>
+    <p class="sec-desc">今夜从中文 AI 播客里捞出的高信息密度观点——适合通勤/睡前用耳朵补课。</p>
+
+    <div class="card">
+      <div class="card-top"><span class="src src-xyz">小宇宙</span><span class="cat">行业观点</span><span class="date">2026-06-28</span></div>
+      <h3><a href="https://www.xiaoyuzhoufm.com/podcast/695ca552a10c1b55eb68f871" target="_blank">AIGC日报｜GPT-5.6 秘密测试，AI 落地告别炒作</a></h3>
+      <div class="pod"><div class="gw"><b>主持人 · 克克</b></div><p class="quote">「OpenAI 启动 GPT-5.6 分层（Tiered）测试，平衡性能与资源；创业公司正从『概念炒作』转向『落地验证』，更看 Agent 在真实业务里的表现。」</p></div>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>「分层模型」是个被低估的产品信号——它意味着厂商承认「不是所有任务都需要最强模型」，开始用<b>能力分级 + 价格分级</b>来做精细化运营。这和云计算的实例分级是同一个成熟化路径。注意：GPT-5.6 相关均为播客转述，暂无官方口径，当趋势看、不当事实引。</p></div>
+      <div class="anno biz"><span class="lbl">🎯 业务视角 + 🚀 预测</span><p>「告别炒作、转向落地验证」对乙方是好消息——客户开始为「真实效果」买单，而不是为「概念」买单，这利好真正能交付任务完成率的团队。<b>6个月预测</b>：「模型分层 + 任务路由」（简单任务用小模型、难任务才上大模型）会成为降本标配，值得内化进解决方案的成本优化层。</p></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><span class="src src-xyz">小宇宙</span><span class="cat">技术深度</span><span class="date">2026-06-29</span></div>
+      <h3><a href="https://www.xiaoyuzhoufm.com/podcast/69b415a2d4635c082f2a70db" target="_blank">小平的IO｜NVIDIA GTC 2026：物理 AI 元年</a></h3>
+      <div class="pod"><div class="gw"><b>主持人 · 小平</b></div><p class="quote">「AI 计算开支里推理侧占比已超 55%，预计年底达 70%+——AI 正从『训练时代』全面进入『服务时代』；NVIDIA 把 2026 定义为物理 AI 元年。」</p></div>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>「训练时代 → 服务时代」这句话是今夜的题眼。<b>当推理占比过半，整个行业的成本逻辑、产品逻辑、竞争逻辑都会重写</b>——这也是为什么本期投机解码、自研 ASIC、MoE 全在讲同一件事。物理 AI / 世界模型是更长线的故事，短期内对软件从业者影响不大，但值得放进观察清单。</p></div>
+      <div class="anno biz"><span class="lbl">🎯 业务视角 + 🔭 延伸</span><p>「服务时代」意味着竞争的胜负手从「谁训得起」变成「谁服务得起、服务得便宜」。<b>延伸</b>：这会催生「推理优化」专业服务市场；物理 AI 则会把 AI 的战场从屏幕延伸到机器人/自动驾驶，与本期 NVIDIA×Uber 的 L4 合作呼应——但那是 18 个月后的故事。</p></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><span class="src src-xyz">小宇宙</span><span class="cat">技术深度</span><span class="date">2026-06-21</span></div>
+      <h3><a href="https://www.xiaoyuzhoufm.com/episode/6a3070c63c6799244864e895" target="_blank">捕蛇者说 Ep59｜2026 Agent 编程新趋势（嘉宾：laike9m · Google Coding Agent 团队）</a></h3>
+      <div class="pod"><div class="gw"><b>嘉宾 · laike9m</b></div><p class="quote">「编程工具正从被动响应转向『主动式 Agent』，能自主发现任务、提出方案；更好的 Agent Harness（测试评估环境）是提升编程可靠性的关键。」</p></div>
+      <div class="anno pingjia"><span class="lbl">💬 我的点评</span><p>来自一线 Coding Agent 团队的话尤其有分量。「主动式」是关键词——<b>从『你让我做』到『我发现该做』，是 Agent 自主性的真正分水岭。</b>而他强调 Harness，又一次印证了本期的核心信号：能力来自工程环境。这条来自播客的观点，和 Medium 上的 Harness 文章、GitHub 的 gstack 完全互证——三个来源、同一结论，这就是「7天高频信号」的含金量。</p></div>
+      <div class="anno fore"><span class="lbl">🎯 业务视角 + 🚀 预测</span><p><b>业务视角</b>：「主动式 Agent」对软件研发的组织形态是颠覆性的——它改变的不只是工具，是「谁来定义任务」。<b>6个月预测</b>：Coding Agent 会从「IDE 插件」进化为「能领整个工单、自主开 PR、自测自验的研发工」，卖点从「补全更快」变成「交付一个完整功能」。研发团队该提前思考人机协作流程的重构。</p></div>
+    </div>
+
+  </section>
+
+  <!-- ===== ENDNOTE ===== -->
+  <section id="end">
+    <div class="endnote">
+      <h3>🌙 夜读结语 · 给大模型从业者的行动清单</h3>
+      <p style="color:var(--mut);font-size:14.5px;margin-bottom:20px">如果今晚只记住一件事：<b style="color:#fff">2026 下半年的机会，不在「更强的模型」，而在「把 Agent 工程化、把推理打便宜、把能力塞进对的场景」。</b>以下是我从今夜信息里提炼的、可以明天就动手的几件事——</p>
+      <ul class="action-list">
+        <li><b>沉淀你的行业 Harness。</b>能力来自工程框架（52%→66% 是铁证）。立刻开始积累领域工具集、约束规则、评测集——这是换模型也搬不走的护城河。</li>
+        <li><b>把推理成本做成可量化卖点。</b>投机解码、MoE、FP8 内核都已工程化。在解决方案里用「单位任务成本 / 延迟 / 并发」说话，比堆模型更打动采购。</li>
+        <li><b>建「闭源打样 + 开源落地」双轨。</b>GLM-5.2 们让开源私有化成本可控。用闭源快速验证 PoC，用开源做规模化私有交付，兼顾速度与成本、能力与数据可控。</li>
+        <li><b>给产品做「可验证 / 可追溯」改造。</b>评测范式已转向审查推理路径。把「沙盒验证 + trace 留痕 + 一致性评分」做进产品，就是进入高风险场景的门票。</li>
+        <li><b>提前为「Agent 即用户」卡位。</b>无论 App Intents 还是 ACP/MCP，都在标准化「Agent 调用能力」。让你的产品「对 Agent 友好」，是下一轮入口之争的提前布局。</li>
+      </ul>
+      <div class="disclaimer">
+        ⚠️ <b>口径与边界说明</b>：本报告内容来自小宇宙、知乎、Medium/Substack、GitHub 等公开来源的二次整理，部分前沿信息（如 GPT-5.6、Jalapeño ASIC 的性能/成本数字、各项 star 数与基准分数）<b>暂无官方统一口径</b>，均已在正文标注来源、按「趋势信号」而非「已证实事实」对待，引用时请以一手官方来源为准。本报告为<b>夜间深读复盘性质</b>，观点与「6个月预测」为分析师个人推演，供内部参考与思考启发，不构成投资或采购建议。
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>大模型夜报 · 深度复盘版</b></p>
+    <p style="margin-top:8px">抓取窗口 2026-06-29 08:00–23:00 ｜ 来源：小宇宙 · 知乎 · Medium/Substack · GitHub ｜ 编辑：邹超</p>
+    <p style="margin-top:8px">愿你在深夜里，比白天多想清楚一件事。🌙</p>
+  </footer>
+
+</div>
+</body>
+</html>
