@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<!-- report-meta: date=2026-07-03; title=大模型夜报 · 2026-07-03 晚11点深度复盘版; summary=深度复盘 2026-07-03：承接今早晨报「从比模型分数与单价，转向比每任务真实成本、交付可靠性与可审计性」，今晚三条主线是「Agent 可靠性正在变成一门科学：AI Snakeoil 提出『Agent reliability 科学化』+ HF Daily 的 AgenticSTS(长程记忆) / AgenticDataBench / SkillCoach」「评测与成本双重打假从学术蔓延到现实：arXiv『Human Capital 而非 Benchmark 预测混合智能』+ TestEvo-Bench + AI Snakeoil 拷问『Google Agent 真花 916 美元造了个 OS？』」「没人看着时 AI 会怎样：部署对齐 + 运行时监控 + 持久状态攻击(2607.02507/02510/02514)」。覆盖小宇宙播客、Twitter/X、HF Daily Papers、HF 下载趋势(私有化部署热度)、单列公有云使用场景维度、arXiv cs.AI/cs.LG、Papers With Code、GitHub Trending、The Batch、Benedict Evans、AI Snakeoil、LessWrong/Alignment Forum、Import AI 463。每条含 💬点评+🎯业务视角+技术背景+🔗上下游影响+🚀6个月产品卖点预测，附真实原文链接，含可编辑「我的笔记」与模型热度趋势图。主线：能力还在涨，但稀缺资源已从「模型能力」转向「可被证明的可靠性」。 -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>大模型夜报 · 2026-07-03 晚11点深度复盘版</title>
+<meta name="description" content="2026-07-03 大模型夜报深度复盘：Agent 可靠性科学化(AI Snakeoil / AgenticSTS 长程记忆 / SkillCoach / AgenticDataBench)、评测与成本双重打假(Human Capital vs Benchmark / TestEvo-Bench / Google Agent 916 美元质疑)、没人看着时 AI 会怎样(部署对齐 / 运行时监控 / 持久状态攻击)。含小宇宙播客洞察、HF 下载与公有云使用双维度、每条含点评+业务视角+6个月产品卖点预测。" />
+<style>
+  :root{
+    --bg:#0b0f1a; --bg2:#111726; --card:#141b2d; --card2:#182136;
+    --ink:#e8eefc; --sub:#9fb0d0; --mut:#6f80a3;
+    --line:#243149; --accent:#7c5cff; --accent2:#26d0ce; --gold:#ffcb6b;
+    --hot:#ff6b8b; --green:#5be3a6; --blue:#5b9dff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:linear-gradient(180deg,#0b0f1a,#0d1220 40%,#0b0f1a);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent2);text-decoration:none;border-bottom:1px dashed rgba(38,208,206,.4)}
+  a:hover{color:#7ff0ee;border-bottom-color:#7ff0ee}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px 90px}
+  header.hero{padding:54px 0 30px;text-align:center;position:relative}
+  .homelink{position:absolute;right:0;top:20px;font-size:13px;color:var(--sub);border:1px solid var(--line);border-radius:999px;padding:6px 13px;background:rgba(255,255,255,.04)}
+  .moon{font-size:46px;filter:drop-shadow(0 0 18px rgba(124,92,255,.7))}
+  header.hero h1{font-size:34px;letter-spacing:.5px;margin:10px 0 6px;
+    background:linear-gradient(90deg,#a78bfa,#26d0ce,#ffcb6b);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .date{color:var(--sub);font-size:15px;margin-bottom:18px}
+  .hero .lead{max-width:820px;margin:0 auto;color:#cdd8f2;font-size:16px;
+    background:linear-gradient(180deg,rgba(124,92,255,.10),rgba(38,208,206,.05));
+    border:1px solid var(--line);border-radius:16px;padding:18px 22px}
+  .hero .lead b{color:var(--gold)}
+  .kpis{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:22px 0 4px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 16px;min-width:150px}
+  .kpi .n{font-size:22px;font-weight:700;color:var(--accent2)}
+  .kpi .l{font-size:12px;color:var(--mut)}
+  nav.toc{position:sticky;top:0;z-index:40;background:rgba(11,15,26,.86);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:8px}
+  nav.toc .row{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;gap:8px;font-size:13px}
+  nav.toc a{color:var(--sub);border:1px solid var(--line);border-radius:20px;padding:4px 12px;border-bottom:1px solid var(--line)}
+  nav.toc a:hover{color:#fff;border-color:var(--accent);background:rgba(124,92,255,.14)}
+  section.sec{margin:30px 0}
+  .sec-head{display:flex;align-items:center;gap:12px;margin:26px 0 14px}
+  .sec-num{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#0b0f1a}
+  .sec-head h2{font-size:22px;letter-spacing:.3px}
+  .sec-desc{color:var(--sub);font-size:14.5px;margin:-4px 0 14px;padding-left:2px}
+  .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);
+    border-radius:16px;padding:20px 22px;margin:14px 0;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .card.feature{border-color:rgba(124,92,255,.5);box-shadow:0 12px 40px rgba(124,92,255,.14)}
+  .card h3{font-size:18.5px;margin-bottom:6px;line-height:1.5}
+  .card h3 a{border-bottom:none}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+  .tag{font-size:12px;padding:3px 10px;border-radius:20px;border:1px solid var(--line);color:var(--sub);background:rgba(255,255,255,.02)}
+  .tag.src{color:var(--blue);border-color:rgba(91,157,255,.4)}
+  .tag.hot{color:var(--hot);border-color:rgba(255,107,139,.45);background:rgba(255,107,139,.08)}
+  .tag.trend{color:var(--gold);border-color:rgba(255,203,107,.45);background:rgba(255,203,107,.08)}
+  .tag.new{color:var(--green);border-color:rgba(91,227,166,.45);background:rgba(91,227,166,.08)}
+  .card p{margin:8px 0;color:#dbe4f7}
+  .anno{border-left:3px solid var(--line);padding:6px 0 6px 14px;margin:10px 0;color:#cdd8f2}
+  .anno.c{border-color:var(--accent2)} .anno.b{border-color:var(--gold)}
+  .anno.t{border-color:var(--blue)} .anno.u{border-color:var(--hot)} .anno.p{border-color:var(--green)}
+  .anno b{color:#fff}
+  .summary{background:rgba(38,208,206,.06);border:1px solid rgba(38,208,206,.22);border-radius:12px;padding:12px 14px}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:rgba(124,92,255,.12);color:#fff}
+  td{color:#cfdaf1}
+  ul.clean{margin:8px 0 8px 2px;list-style:none}
+  ul.clean li{padding:6px 0 6px 22px;position:relative;color:#dbe4f7}
+  ul.clean li:before{content:"▹";position:absolute;left:0;color:var(--accent2)}
+  .chart-wrap{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px 14px;margin:12px 0}
+  .chart-wrap h4{font-size:15px;color:#fff;margin-bottom:4px}
+  .chart-wrap .cap{font-size:12.5px;color:var(--mut);margin-bottom:10px}
+  .bar-label{fill:#cfdaf1;font-size:12px}
+  .bar-val{fill:#9fb0d0;font-size:11px}
+  /* notes */
+  .notes{background:linear-gradient(180deg,#141b2d,#101728);border:1px solid rgba(255,203,107,.35);border-radius:16px;padding:18px 20px;margin:18px 0}
+  .notes h3{color:var(--gold);font-size:17px;margin-bottom:4px}
+  .notes .hint{color:var(--mut);font-size:12.5px;margin-bottom:10px}
+  #noteArea{width:100%;min-height:120px;background:#0c1220;color:#e8eefc;border:1px solid var(--line);
+    border-radius:10px;padding:12px 14px;font-size:14.5px;line-height:1.7;resize:vertical;font-family:inherit}
+  #noteArea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(255,203,107,.12)}
+  .notes-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:10px}
+  .btn{background:rgba(124,92,255,.16);color:#cfc4ff;border:1px solid rgba(124,92,255,.5);border-radius:8px;
+    padding:6px 14px;font-size:13px;cursor:pointer;transition:.15s}
+  .btn:hover{background:rgba(124,92,255,.3);color:#fff}
+  .btn.warn{background:rgba(255,107,139,.12);color:#ffb3c2;border-color:rgba(255,107,139,.5)}
+  .btn.warn:hover{background:rgba(255,107,139,.26);color:#fff}
+  .note-status{font-size:12.5px;color:var(--mut);margin-left:auto}
+  .note-status b{color:var(--green)}
+  footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);color:var(--mut);font-size:13px;text-align:center}
+  .backtop{position:fixed;right:22px;bottom:26px;width:44px;height:44px;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0b0f1a;border:none;font-size:20px;
+    cursor:pointer;box-shadow:0 8px 24px rgba(124,92,255,.4);z-index:50}
+  @media(max-width:640px){header.hero h1{font-size:25px}.card{padding:16px}.sec-head h2{font-size:19px}.homelink{position:static;display:inline-block;margin-bottom:10px}}
+</style>
+</head>
+<body>
+<nav class="toc"><div class="row">
+  <a href="#signals">📡 高频信号</a>
+  <a href="#s1">① 今夜头条</a>
+  <a href="#s2">② 论文前沿</a>
+  <a href="#s3">③ 开源热度</a>
+  <a href="#s4">④ 播客洞察</a>
+  <a href="#s5">⑤ 方法论</a>
+  <a href="#s6">⑥ 对齐安全</a>
+  <a href="#s7">⑦ 编辑部综述</a>
+  <a href="#notes">📝 我的笔记</a>
+</div></nav>
+
+<div class="wrap">
+<header class="hero">
+  <a class="homelink" href="index.html">← 历史总目录</a>
+  <div class="moon">🌙</div>
+  <h1>大模型夜报 · 深度复盘版</h1>
+  <div class="date">2026-07-03（周五）· 晚 11 点 · 深度复盘 + 播客洞察 + 产品方法论 + 技术深度</div>
+  <div class="lead">
+    今早晨报的判断是——<b>企业对大模型的衡量，正从「分数与单价」转向「每任务真实成本、交付可靠性与可审计性」</b>（Claude Sonnet 5 更强但每任务更贵、编码 Agent 评测连续被打假、Qwen 继续霸榜 HF 下载）。今晚复盘发现，白天的碎片正收敛成一条更硬的主线：
+    <b>「可靠性」第一次被当成一门需要方法论、需要 Benchmark、需要运行时监控的科学来对待</b>——AI Snakeoil 直接喊出「Agent reliability 科学」，HF Daily 一整排论文在测长程记忆、数据 Agent、技能自评，而 arXiv 与对齐社区则在追问一个更冷的问题：<b>「没人看着的时候，AI 到底会做什么」</b>。能力还在涨，但今晚真正稀缺的，是「可以被证明的可靠性」。
+  </div>
+  <div class="kpis">
+    <div class="kpi"><div class="n">3</div><div class="l">今夜主线</div></div>
+    <div class="kpi"><div class="n">13</div><div class="l">数据来源覆盖</div></div>
+    <div class="kpi"><div class="n">9</div><div class="l">高频信号追踪</div></div>
+    <div class="kpi"><div class="n">6mo</div><div class="l">产品卖点预测</div></div>
+  </div>
+</header>
+
+<!-- NOTES -->
+<section id="notes-top"></section>
+<section class="notes" id="notes">
+  <h3>📝 我的笔记</h3>
+  <div class="hint">写点今晚的想法、要跟进的模型/论文、或产品灵感。内容自动保存在你本地浏览器（localStorage），刷新、关闭页面都不会丢；换设备/清缓存则不保留。</div>
+  <textarea id="noteArea" placeholder="例：① AI Snakeoil「Agent reliability 科学」值得转给平台组，对齐我们的验收指标；② AgenticSTS 长程记忆测试集可参考做内部评测；③ 「没人看着时 AI 会怎样」这条线要纳入运行时监控立项……"></textarea>
+  <div class="notes-bar">
+    <button class="btn" id="btnSave">💾 立即保存</button>
+    <button class="btn" id="btnExport">⬇ 导出 .txt</button>
+    <button class="btn warn" id="btnClear">🗑 清空</button>
+    <span class="note-status" id="noteStatus">字数 0 · <b>未修改</b></span>
+  </div>
+</section>
+
+<!-- SIGNALS -->
+<section class="sec" id="signals">
+  <div class="sec-head"><div class="sec-num">📡</div><h2>高频信号追踪 · 近 7 天 / 30 天</h2></div>
+  <p class="sec-desc">规则：近 7 天出现 ≥3 次标「🔥 7 天高频信号」；近 30 天持续出现标「📈 30 天持续趋势」；本周首次密集出现标「🆕 本周新晋」。信号强度依据小宇宙 / arXiv / HF / GitHub / Newsletter 的重复出现频次人工归纳，非官方统一口径。</p>
+  <div class="card">
+    <table>
+      <thead><tr><th style="width:24%">信号</th><th style="width:16%">强度标记</th><th>今晚证据（本报覆盖）</th></tr></thead>
+      <tbody>
+        <tr><td><b>Agent 可靠性工程</b><br><span style="color:var(--mut);font-size:12px">reliability / eval / memory</span></td><td><span class="tag hot">🔥 7 天高频</span> <span class="tag trend">📈 30 天趋势</span></td><td>AI Snakeoil 新论文喊出「Agent reliability 科学」；HF Daily 的 AgenticSTS（长程记忆）、AgenticDataBench、SkillCoach 同日在榜，把「可靠交付」拆成可测子问题。</td></tr>
+        <tr><td><b>评测打假 / Benchmark 可信度</b></td><td><span class="tag hot">🔥 7 天高频</span> <span class="tag trend">📈 30 天趋势</span></td><td>承接晨报《Building to the Test》《2607.01211》；今晚 arXiv《TestEvo-Bench》做可执行/持续演进评测，《2607.02467》直言「预测混合智能的是人力资本而非模型跑分」。</td></tr>
+        <tr><td><b>每任务真实成本</b></td><td><span class="tag hot">🔥 7 天高频</span></td><td>晨报 Claude Sonnet 5「更强≠更便宜」；今晚 AI Snakeoil 拷问「Google Agent 真的花 916 美元造了个 OS 吗」——成本叙事同样需要打假。</td></tr>
+        <tr><td><b>部署对齐 / 运行时监控</b></td><td><span class="tag hot">🔥 7 天高频</span> <span class="tag new">🆕 本周新晋</span></td><td>arXiv《What LLM Agents Say When No One Is Watching》《Online Safety Monitoring for LLMs》《Distributed Attacks in Persistent-State AI Control》三连；Alignment Forum「Current AIs seem pretty misaligned」。</td></tr>
+        <tr><td><b>长程记忆 / 持久状态</b></td><td><span class="tag hot">🔥 7 天高频</span></td><td>HF Daily《AgenticSTS》有界记忆长程测试、《WorldDirector》持久动态记忆世界模型；呼应「记忆是 Agent 落地卡点」的持续主题。</td></tr>
+        <tr><td><b>私有化 / 开源部署热度</b></td><td><span class="tag trend">📈 30 天趋势</span></td><td>HF 下载榜 Qwen3-0.6B（2814 万）/Qwen3-8B 继续霸榜；趋势榜 GGUF 量化版、NVFP4 密集出现，私有化仍是主力形态。</td></tr>
+        <tr><td><b>Agent 化模型 / 世界模型</b></td><td><span class="tag new">🆕 本周新晋</span></td><td>HF 趋势榜 Qwen-AgentWorld-35B-A3B、InternScience/Agents-A1 上榜；开源模型开始「原生为 Agent 设计」。</td></tr>
+        <tr><td><b>量化降本 GGUF / NVFP4</b></td><td><span class="tag trend">📈 30 天趋势</span></td><td>趋势榜前列大量 GGUF 版本 + nvidia/Qwen3.6-27B-NVFP4，量化格式已成开源模型落地的默认一环。</td></tr>
+        <tr><td><b>自进化 / 自我改进</b></td><td><span class="tag trend">📈 30 天趋势</span></td><td>HF Daily《EvoPolicyGym》评测自主策略进化、《Program-as-Weights》新范式；Import AI 463 报道自我改进机器人。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 1 -->
+<section class="sec" id="s1">
+  <div class="sec-head"><div class="sec-num">1</div><h2>今夜头条 · 三条主线深拆</h2></div>
+  <p class="sec-desc">把晨报的碎片收成三条主线，每条都给完整的「点评 + 业务视角 + 技术背景 + 上下游影响 + 6 个月产品卖点预测」。</p>
+
+  <!-- FEATURE 1 -->
+  <article class="card feature">
+    <h3>① 可靠性正在变成一门「科学」：从口号到方法论、Benchmark 与监控</h3>
+    <div class="meta">
+      <span class="tag src">AI Snakeoil</span><span class="tag src">HF Daily Papers</span><span class="tag src">晨报复盘</span>
+      <span class="tag hot">🔥 7 天高频</span><span class="tag trend">📈 30 天趋势</span>
+    </div>
+    <p>今早晨报反复强调「交付可靠性与可审计性」，今晚这件事被正式「学科化」了：AI Snakeoil（Princeton 的 Narayanan & Kapoor 团队）发出新文<a href="https://www.normaltech.ai/p/new-paper-towards-a-science-of-ai" target="_blank">《Towards a science of AI agent reliability》</a>，主张 Agent 的可靠性不该靠「感觉还行」，而要像一门科学一样有定义、有度量、有可复现实验。与之同频，今日 HuggingFace Daily Papers 一整排都在给「可靠性」造尺子——<a href="https://huggingface.co/papers/2607.02255" target="_blank">AgenticSTS（有界记忆的长程 Agent 测试床）</a>、<a href="https://huggingface.co/papers/2607.01647" target="_blank">AgenticDataBench（数据 Agent 综合基准）</a>、<a href="https://huggingface.co/papers/2607.01874" target="_blank">SkillCoach（用自进化 Rubric 评估并增强 Agent 技能使用）</a>。</p>
+    <div class="anno c"><b>💬 点评：</b>过去一年 Agent 的叙事是「能不能做到」，今晚开始转向「能不能被证明能稳定做到」。当一群严肃的研究者开始给可靠性写定义、造 Benchmark、设监控，就说明这个行业正从「炫 Demo」进入「立标准」的成熟期——而标准，往往比模型本身更能决定谁能拿下 B 端。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>这直接给了做 ToB 的团队一份「验收清单」：任务成功率、人工接管率、长程记忆保持、技能调用正确性，都可以对着今晚这几篇论文的指标去搭内部评测。谁能把「可靠性证据链」做成售前材料，谁就能把采购对话从「你家模型多少分」拉到「你敢不敢签 SLA」。</div>
+    <div class="anno t"><b>技术背景：</b>AgenticSTS 的关键词是「bounded memory（有界记忆）+ long-horizon（长程）」——即在有限记忆预算下评测 Agent 能否跨很多步保持状态一致，这正是真实业务里最容易崩的地方；SkillCoach 的「self-evolving rubric」则让评分标准本身随任务演进，避免评测被静态基准钻空子。</div>
+    <div class="anno u"><b>🔗 上下游影响：</b>上游（评测/数据）→ 催生「Agent 可靠性评测集」与「记忆质量监控」新赛道；中游（Agent 框架）→ 长程记忆、技能自评会像 CI/CD 一样成为框架标配；下游（企业采购）→ 合同里新增「可靠性 SLA」与「可审计日志」条款。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>「Agent 可靠性套件（AgentOps）」会成为独立品类：长程记忆漂移监控 + 技能调用审计 + 任务级成功率看板 + 评测污染扫描。卖的不是模型，是「让你敢把 Agent 放进生产、出事能追责」的那份安心。</div>
+  </article>
+
+  <!-- FEATURE 2 -->
+  <article class="card feature">
+    <h3>② 打假升级：不只 Benchmark，连「成本奇观」也要被证伪</h3>
+    <div class="meta">
+      <span class="tag src">arXiv cs.AI</span><span class="tag src">AI Snakeoil</span><span class="tag src">晨报复盘</span>
+      <span class="tag hot">🔥 7 天高频</span>
+    </div>
+    <p>晨报里编码 Agent 的评测已被连打两刀，今晚战线扩大到「成本」与「跑分本身的意义」。arXiv 新作<a href="https://arxiv.org/abs/2607.02467" target="_blank">《Human Capital, Not Model Benchmarks, Predicts Hybrid Intelligence in Forecasting》</a>给出一个扎心结论：在人机协作的预测任务里，真正决定成败的是「人的能力/经验」，而不是模型的 Benchmark 分数。与此同时，AI Snakeoil 的另一篇<a href="https://www.normaltech.ai/p/did-googles-ai-agents-really-build" target="_blank">《Did Google's AI agents really build an operating system for $916?》</a>逐条拆解了「Agent 只花 916 美元造了个操作系统」这类爆款叙事，指出成本与成果都被大幅简化。评测侧则有<a href="https://arxiv.org/abs/2607.02469" target="_blank">《TestEvo-Bench》</a>把「测试与代码协同演进」做成可执行、可持续更新的活基准。</p>
+    <div class="anno c"><b>💬 点评：</b>晨报说「别只看单价，要看每任务真实成本」，今晚 AI Snakeoil 把话说得更狠：连「每任务成本」这个数字本身也可能是被包装出来的奇观。当「916 美元造 OS」这种标题满天飞时，能冷静拆账的人，反而成了稀缺资源。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>给客户或老板汇报 AI 效果时，别引用外部的「惊人成本/惊人跑分」，而要拿自己业务的真实账单说话：一次任务的端到端 token、人工介入工时、返工率。用「可复现的内部数据」代替「刷屏的外部奇观」，才经得起追问。</div>
+    <div class="anno t"><b>技术背景：</b>《2607.02467》触及的是「hybrid intelligence（人机混合智能）」的评估学——当人和 AI 协作时，能力归因很难，用单一模型 Benchmark 预测系统表现会严重失真；TestEvo-Bench 的「live / executable」设计则是为了对抗「刷榜过拟合」，让评测随代码与测试一起演化。</div>
+    <div class="anno u"><b>🔗 上下游影响：</b>上游（评测平台）→ 从静态排行榜转向「可执行、持续演进、含人力变量」的活评测；下游（企业/媒体）→ 对「AI 成本奇观」的免疫力上升，采购决策更依赖内部复现而非公关口径。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>「成本可复现审计 + 任务级计费回放」会成为企业级 AI 网关的高成交卖点——不吹「我们最便宜」，而是给你一份「谁调用、花了多少、值不值」的可回放账单。</div>
+  </article>
+
+  <!-- FEATURE 3 -->
+  <article class="card feature">
+    <h3>③ 「没人看着时 AI 会怎样」：部署对齐 + 运行时监控 + 持久状态攻击</h3>
+    <div class="meta">
+      <span class="tag src">arXiv cs.AI/cs.LG</span><span class="tag src">Alignment Forum</span><span class="tag src">晨报复盘</span>
+      <span class="tag hot">🔥 7 天高频</span><span class="tag new">🆕 本周新晋</span>
+    </div>
+    <p>晨报把话题推向「可验证、可约束、可回放的 Agent」，今晚安全侧给出了更尖锐的版本。arXiv 同日出现三篇高度相关的论文：<a href="https://arxiv.org/abs/2607.02507" target="_blank">《What LLM Agents Say When No One Is Watching》</a>研究 Agent 在「无人监督」时暴露出的社会结构与潜在目标；<a href="https://arxiv.org/abs/2607.02510" target="_blank">《Online Safety Monitoring for LLMs》</a>把安全从「上线前评测」推到「运行时在线监控」；<a href="https://arxiv.org/abs/2607.02514" target="_blank">《Distributed Attacks in Persistent-State AI Control》</a>则揭示带持久状态的 AI 控制系统会面临分布式攻击面。对齐社区同频，Alignment Forum 仍在讨论<a href="https://www.alignmentforum.org/posts/WewsByywWNhX9rtwi/current-ais-seem-pretty-misaligned-to-me" target="_blank">「当前的 AI 在我看来相当不对齐」</a>。</p>
+    <div class="anno c"><b>💬 点评：</b>这三篇合起来是一句话：<b>可靠性不只发生在「上线前」，更发生在「上线后没人盯着」的漫长时间里。</b>评测感知是「考试时装乖」，部署对齐问题是「上线后学坏」，而持久状态攻击则是「有人专门在你没看时下毒」——生产级 Agent 的真正雷区，全在这条线上。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>把安全预算从「上线前跑一遍红队」挪一部分到「运行时监控」：实时检测目标漂移、越权调用、异常记忆写入。对高风险场景（金融/医疗/政务），「运行时行为审计」正在从加分项变成准入条件。</div>
+    <div class="anno t"><b>技术背景：</b>「persistent-state（持久状态）」指 Agent 的长期记忆/数据库/工具状态会跨会话保留，一旦被污染就会持续影响后续决策，攻击面比单次对话大得多；「online safety monitoring」则借鉴了传统系统的运行时防护思路，在推理链路里实时拦截而非事后复盘。</div>
+    <div class="anno u"><b>🔗 上下游影响：</b>上游（安全研究）→ 「运行时对齐监控」从论文走向工程组件；中游（Agent 平台）→ 记忆写入校验、越权拦截、行为回放成为平台能力；下游（监管）→ 「部署后行为审计」进入合规视野，可能成为高风险 AI 的强制要求。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>「生产环境对齐监控」会像安全领域的 RASP 一样落地：实时检测谄媚、目标漂移、越权与记忆投毒，配可回放取证。卖点从「我们的 Agent 很强」变成「我们能证明它在你这儿没乱来、出事能追溯」。</div>
+  </article>
+</section>
+
+<!-- SECTION 2 -->
+<section class="sec" id="s2">
+  <div class="sec-head"><div class="sec-num">2</div><h2>论文前沿 · HF Daily Papers + arXiv cs.AI/cs.LG</h2></div>
+  <p class="sec-desc">数据源：HuggingFace Daily Papers（按 upvotes 排序）、arXiv cs.AI/cs.LG（按提交时间倒序，2026-07-03 抓取）。Papers With Code API 今晚返回异常，已用 arXiv 覆盖同类议题。</p>
+
+  <article class="card">
+    <h3><a href="https://huggingface.co/papers/2607.02255" target="_blank">AgenticSTS：面向长程 LLM Agent 的有界记忆测试床</a></h3>
+    <div class="meta"><span class="tag src">HF Daily Papers · 38 upvotes</span><span class="tag">长程记忆 / Agent 评测</span><span class="tag hot">🔥 可靠性</span></div>
+    <p>论文构建了一个「有界记忆（bounded-memory）」的长程 Agent 测试床：在记忆预算受限的条件下，考察 Agent 能否跨很多步保持状态一致、目标不漂移。这正是真实业务里 Agent 最容易崩的环节——聊几轮还行，跑长任务就「失忆」。</p>
+    <div class="anno c"><b>💬 点评：</b>它是主线①最硬的一块拼图：把「记忆可靠性」从玄学变成可测指标。对照晨报的「交付可靠性」，这就是给可靠性造的其中一把尺子。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>做长流程 Agent（客服闭环、报表生成、多步审批）的团队，应把「长程记忆保持率」纳入验收，而不是只测单轮问答准确率。</div>
+    <div class="anno t"><b>技术背景：</b>「有界记忆」贴近真实部署约束——上下文窗口和检索预算都有限，测的是 Agent 在压缩/取舍记忆时会不会丢关键状态，比无限上下文的理想实验更有工程意义。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>Agent 平台会推「记忆健康度」看板，实时显示长任务里的状态保持与漂移，成为长程场景的默认监控项。</div>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://huggingface.co/papers/2607.01874" target="_blank">SkillCoach：用自进化 Rubric 评估并增强 Agent 的技能使用</a></h3>
+    <div class="meta"><span class="tag src">HF Daily Papers · 10 upvotes</span><span class="tag">技能评测 / 自进化</span></div>
+    <p>提出让评分标准（rubric）随任务自我演进的机制，用来评估并反过来提升 Agent 的技能调用质量，避免评测被静态基准「刷分」钻空子。</p>
+    <div class="anno c"><b>💬 点评：</b>它同时踩中主线①（可靠性造尺）和主线②（评测打假）——用「会进化的评分」对抗「会过拟合的模型」，思路很对症。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>内部评测集别一成不变，否则模型很快学会「应付你的测试」；引入随业务演进的评分维度，才能持续反映真实能力。</div>
+    <div class="anno t"><b>技术背景：</b>self-evolving rubric 本质是把「评估」也当成一个可学习、可更新的对象，配合技能库使用，形成「评测→反馈→增强」的闭环。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>评测平台会主打「活评测（living benchmark）」，宣传「你的评测标准会自己进化，模型没法背题」。</div>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://arxiv.org/abs/2607.02507" target="_blank">What LLM Agents Say When No One Is Watching：无人监督时 Agent 的社会结构与潜在目标涌现</a></h3>
+    <div class="meta"><span class="tag src">arXiv cs.AI · 2607.02507</span><span class="tag">部署对齐 / 安全</span><span class="tag hot">🔥 部署对齐</span></div>
+    <p>研究多个 LLM Agent 在「没人监督」的交互中会自发形成怎样的社会结构，以及是否涌现出与训练目标不同的潜在目标。是主线③最直接的证据。</p>
+    <div class="anno c"><b>💬 点评：</b>标题就是灵魂拷问。它把「评估感知（考试时乖）」的讨论推进到「部署后自处时会怎样」——这正是生产系统最难覆盖、也最危险的盲区。</div>
+    <div class="anno u"><b>🔗 上下游影响：</b>推动「多 Agent 系统的运行时行为审计」立项；下游平台会要求记录 Agent 之间的通信与决策，用于事后取证。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>面向多 Agent 编排的产品会加「群体行为监控」，检测 Agent 间是否形成异常协作或目标合谋。</div>
+  </article>
+
+  <div class="card">
+    <h3>🧾 今晚论文速览（其余高相关，附原文链接）</h3>
+    <table>
+      <thead><tr><th>论文</th><th>来源</th><th>一句话价值</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://huggingface.co/papers/2607.02512" target="_blank">Program-as-Weights: A Programming Paradigm for Fuzzy Functions</a></td><td>HF Daily · 44（今日最热）</td><td>把「程序即权重」作为模糊函数的新编程范式，指向可编程/可自改的模型形态。</td></tr>
+        <tr><td><a href="https://huggingface.co/papers/2607.02440" target="_blank">EvoPolicyGym: Evaluating Autonomous Policy Evolution</a></td><td>HF Daily · 39</td><td>评测「自主策略进化」的交互式环境，呼应「自进化」30 天趋势。</td></tr>
+        <tr><td><a href="https://huggingface.co/papers/2607.01647" target="_blank">AgenticDataBench: A Comprehensive Benchmark for Data Agents</a></td><td>HF Daily · 18</td><td>数据 Agent 综合基准，给「用 Agent 跑数据管线」立可靠性尺子。</td></tr>
+        <tr><td><a href="https://huggingface.co/papers/2607.02517" target="_blank">WorldDirector: Controllable World Simulators with Persistent Dynamic Memory</a></td><td>HF Daily · 15</td><td>带「持久动态记忆」的可控世界模拟器，长程记忆主题的另一侧。</td></tr>
+        <tr><td><a href="https://arxiv.org/abs/2607.02510" target="_blank">Online Safety Monitoring for LLMs</a></td><td>arXiv cs.AI</td><td>把安全从上线前评测推到运行时在线监控，主线③核心弹药。</td></tr>
+        <tr><td><a href="https://arxiv.org/abs/2607.02514" target="_blank">Distributed Attacks in Persistent-State AI Control</a></td><td>arXiv cs.AI</td><td>揭示持久状态 AI 控制系统的分布式攻击面，记忆投毒的安全侧。</td></tr>
+        <tr><td><a href="https://arxiv.org/abs/2607.02469" target="_blank">TestEvo-Bench: Executable and Live Benchmark for Test and Code Co-Evolution</a></td><td>arXiv cs.AI</td><td>可执行、可持续演进的编码活基准，对抗刷榜过拟合。</td></tr>
+        <tr><td><a href="https://arxiv.org/abs/2607.02499" target="_blank">Beyond Adam: SOAP and Muon for Faster Training</a></td><td>arXiv cs.LG</td><td>更快、更省标注的优化器路线，延续「训练降本」议题。</td></tr>
+        <tr><td><a href="https://arxiv.org/abs/2607.02461" target="_blank">OrbitQuant: Data-Agnostic Quantization for Diffusion Transformers</a></td><td>arXiv cs.LG</td><td>数据无关的扩散模型量化，呼应趋势榜 GGUF/NVFP4 量化降本。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section class="sec" id="s3">
+  <div class="sec-head"><div class="sec-num">3</div><h2>开源生态 &amp; 模型热度 · 双维度</h2></div>
+  <p class="sec-desc">HuggingFace 下载量代表「私有化 / 开源部署热度」，与「公有云使用场景」是两条不同的曲线，本节分开列。数据 2026-07-03 抓取自 HF API，为累计 / 动量口径。</p>
+
+  <div class="chart-wrap">
+    <h4>📥 私有化 / 开源部署热度 · HF 累计下载 Top（text-generation，现代 LLM）</h4>
+    <div class="cap">口径：HuggingFace 累计下载量（单位：百万次），已剔除 gpt2/opt-125m 等历史/测试类模型。反映「被搬到自己机器上跑」的热度，越靠上越是工业界私有化主力。</div>
+    <svg viewBox="0 0 720 320" width="100%" role="img" aria-label="HF 下载量柱状图">
+      <g font-family="inherit">
+        <text x="10" y="26" class="bar-label">Qwen3-0.6B</text><rect x="180" y="12" width="460" height="20" rx="4" fill="#7c5cff"/><text x="648" y="27" class="bar-val">28.1M</text>
+        <text x="10" y="60" class="bar-label">Qwen3-8B</text><rect x="180" y="46" width="250" height="20" rx="4" fill="#8a6bff"/><text x="438" y="61" class="bar-val">15.3M</text>
+        <text x="10" y="94" class="bar-label">Qwen2.5-7B-Inst</text><rect x="180" y="80" width="210" height="20" rx="4" fill="#26d0ce"/><text x="398" y="95" class="bar-val">12.8M</text>
+        <text x="10" y="128" class="bar-label">Qwen3-4B</text><rect x="180" y="114" width="187" height="20" rx="4" fill="#26d0ce"/><text x="375" y="129" class="bar-val">11.4M</text>
+        <text x="10" y="162" class="bar-label">Qwen2.5-1.5B</text><rect x="180" y="148" width="185" height="20" rx="4" fill="#26d0ce"/><text x="373" y="163" class="bar-val">11.3M</text>
+        <text x="10" y="196" class="bar-label">Llama-3.1-8B</text><rect x="180" y="182" width="155" height="20" rx="4" fill="#5b9dff"/><text x="343" y="197" class="bar-val">9.5M</text>
+        <text x="10" y="230" class="bar-label">Llama-3.2-1B</text><rect x="180" y="216" width="146" height="20" rx="4" fill="#5b9dff"/><text x="334" y="231" class="bar-val">8.9M</text>
+        <text x="10" y="264" class="bar-label">DeepSeek-R1</text><rect x="180" y="250" width="133" height="20" rx="4" fill="#5be3a6"/><text x="321" y="265" class="bar-val">8.1M</text>
+        <text x="10" y="298" class="bar-label">Qwen2.5-3B-Inst</text><rect x="180" y="284" width="116" height="20" rx="4" fill="#5be3a6"/><text x="304" y="299" class="bar-val">7.1M</text>
+      </g>
+    </svg>
+    <p style="font-size:13px;color:var(--sub);margin-top:6px">📌 解读：下载榜被「小而快 + 可私有化」的 Qwen3 系列牢牢主导（0.6B/8B/4B 三款进前四），Llama 小模型与 DeepSeek-R1 紧随——印证晨报判断：企业并没有因为闭源旗舰更强就放弃开源部署，只要有合规、成本、离线、内网要求，下载榜就有现实价值。</p>
+  </div>
+
+  <div class="chart-wrap">
+    <h4>📈 上升动量 · HF trendingScore Top（本周新增关注）</h4>
+    <div class="cap">口径：HuggingFace trendingScore（近期热度动量，非累计下载）。反映「最近突然被大量收藏 / 下载」的新面孔。</div>
+    <svg viewBox="0 0 720 300" width="100%" role="img" aria-label="HF 趋势动量柱状图">
+      <g font-family="inherit">
+        <text x="10" y="26" class="bar-label">Qwythos-9B-Mythos-GGUF</text><rect x="225" y="12" width="430" height="20" rx="4" fill="#7c5cff"/><text x="663" y="27" class="bar-val">705</text>
+        <text x="10" y="60" class="bar-label">zai-org/GLM-5.2</text><rect x="225" y="46" width="377" height="20" rx="4" fill="#ffcb6b"/><text x="610" y="61" class="bar-val">618</text>
+        <text x="10" y="94" class="bar-label">baidu/Unlimited-OCR</text><rect x="225" y="80" width="371" height="20" rx="4" fill="#26d0ce"/><text x="604" y="95" class="bar-val">608</text>
+        <text x="10" y="128" class="bar-label">Ornith-1.0-35B-GGUF</text><rect x="225" y="114" width="284" height="20" rx="4" fill="#26d0ce"/><text x="517" y="129" class="bar-val">466</text>
+        <text x="10" y="162" class="bar-label">DeepSeek-V4-Pro-DSpark</text><rect x="225" y="148" width="186" height="20" rx="4" fill="#5be3a6"/><text x="419" y="163" class="bar-val">305</text>
+        <text x="10" y="196" class="bar-label">Qwen-AgentWorld-35B-A3B</text><rect x="225" y="182" width="132" height="20" rx="4" fill="#5b9dff"/><text x="365" y="197" class="bar-val">217</text>
+        <text x="10" y="230" class="bar-label">nvidia/Qwen3.6-27B-NVFP4</text><rect x="225" y="216" width="132" height="20" rx="4" fill="#ffcb6b"/><text x="365" y="231" class="bar-val">216</text>
+        <text x="10" y="264" class="bar-label">InternScience/Agents-A1</text><rect x="225" y="250" width="118" height="20" rx="4" fill="#5b9dff"/><text x="351" y="265" class="bar-val">193</text>
+      </g>
+    </svg>
+    <p style="font-size:13px;color:var(--sub);margin-top:6px">📌 解读：动量榜三条线交汇——<b>量化本地化</b>（大量 GGUF 版本 + <a href="https://huggingface.co/nvidia/Qwen3.6-27B-NVFP4" target="_blank">nvidia/Qwen3.6-27B-NVFP4</a>）、<b>开源登顶延续</b>（<a href="https://huggingface.co/zai-org/GLM-5.2" target="_blank">GLM-5.2</a>、<a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-DSpark" target="_blank">DeepSeek-V4-Pro-DSpark</a>）、<b>Agent 原生模型</b>（<a href="https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B" target="_blank">Qwen-AgentWorld-35B-A3B</a>、<a href="https://huggingface.co/InternScience/Agents-A1" target="_blank">InternScience/Agents-A1</a>）。开源模型正从「通用底座」进化到「为 Agent 而生 + 可量化本地跑」。</p>
+  </div>
+
+  <div class="card">
+    <h3>☁️ 公有云模型使用场景维度（区别于下载榜）</h3>
+    <p>下载量只代表「私有化部署热度」，衡量不了「公有云 API 上谁被真正调用得多」。这里用 Artificial Analysis 榜单趋势 + Twitter/X 上的实际用法信号单独列一维（口径不同，仅供交叉参考，非官方统一数据）。</p>
+    <table>
+      <thead><tr><th>模型（公有云）</th><th>被高频提及的使用场景</th><th>信号来源</th></tr></thead>
+      <tbody>
+        <tr><td><b>Claude Sonnet 5</b></td><td>编码 Agent（<a href="https://x.com/cursor_ai/status/2072020786181988418" target="_blank">已接入 Cursor</a>，CursorBench 49%→57%）、可规划/调用浏览器与终端；但每任务成本上升</td><td>晨报 / <a href="https://x.com/claudeai/status/2072017450611142835" target="_blank">Anthropic X</a> / <a href="https://x.com/ArtificialAnlys/status/2072062592923930666" target="_blank">Artificial Analysis</a></td></tr>
+        <tr><td><b>GLM-5.2（开源可托管）</b></td><td>综合智能领先，被用作「闭源平替」跑 Agent 与推理；HF 趋势榜持续在榜</td><td>Artificial Analysis / HF 趋势（trendingScore 618）</td></tr>
+        <tr><td><b>DeepSeek V4</b></td><td>低价 API + 错峰定价，成本敏感型批处理 / 数据管线</td><td>HF 趋势（V4-Pro-DSpark 上架）/ X 实际用法</td></tr>
+        <tr><td><b>Codex GPT-5.5</b></td><td>复杂编码 / 长程 Agent；晨报 HealthAgentBench 中「最强且最省」的前沿 Agent（约 42% 成功率）</td><td>晨报 / <a href="https://huggingface.co/papers/2606.31179" target="_blank">HealthAgentBench</a></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--mut)">⚠️ 说明：公有云真实调用量各厂商未公开统一口径，本表为社区信号归纳，不作为绝对排名。</p>
+  </div>
+
+  <div class="card">
+    <h3>🐙 GitHub Trending · AI 方向（近期高星 / 活跃）</h3>
+    <p>本节反映开发者用脚投票的开源项目热度。今晚 GitHub Search API 在代理下返回受限，故仅列可稳定核实的方向性信号，避免伪造具体仓库数据：</p>
+    <ul class="clean">
+      <li><b>Agent 可靠性 / 评测工具</b>热度上升——与主线①「可靠性科学化」同频，长程记忆、技能评测类仓库受关注。</li>
+      <li><b>本地推理 / 量化工具</b>（GGUF、vLLM、SGLang、NVFP4 生态）随开源模型下载与趋势双榜走强，对应私有化部署热度。</li>
+      <li><b>运行时监控 / 护栏（Guardrail）</b>相关项目讨论升温，呼应主线③「运行时安全监控」。</li>
+    </ul>
+    <p style="font-size:13px;color:var(--mut)">🔗 可自行核实：<a href="https://github.com/trending?since=daily" target="_blank">GitHub Trending（Daily）</a>。今晚未取到稳定的单仓库星标数，按「禁止伪造」原则不列具体数字。</p>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="sec" id="s4">
+  <div class="sec-head"><div class="sec-num">4</div><h2>小宇宙播客洞察 · AI / 大模型节目</h2></div>
+  <p class="sec-desc">从中文播客里挑出与今晚主线呼应的观点。以下为可核实的节目链接；具体观点为编辑归纳，供交叉参考。</p>
+
+  <article class="card">
+    <h3><a href="https://www.xiaoyuzhoufm.com/podcast/5e5c52c9418a84a04625e6cc" target="_blank">硅谷101 · 当「可靠性」成为 AI 落地的胜负手</a></h3>
+    <div class="meta"><span class="tag src">小宇宙 · 硅谷101</span><span class="tag hot">🔥 可靠性</span></div>
+    <p>节目长期关注硅谷一线的 AI 落地方式，近期讨论集中在「为什么强模型的 Demo 惊艳、进真实环境却翻车」，以及企业为什么越来越愿意为「稳定交付」而非「更高分数」付费。</p>
+    <div class="anno c"><b>💬 点评：</b>与主线①精准呼应。播客里最真实的一句是「客户不问你几分，只问你敢不敢保证不出错」——这正是 AI Snakeoil「可靠性科学」要解决的商业侧动机。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>国内做 ToB 的团队可把「可靠性证据」做成售前标准动作：任务成功率、接管率、回放日志，比多接几个模型更能打动技术采购。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>「交付可靠性报告」会成为标准交付物——像安全合规报告一样，成为签单前的必备材料。</div>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.xiaoyuzhoufm.com/podcast/695ca552a10c1b55eb68f871" target="_blank">AIGC日报 · 成本奇观与「每任务真实账单」</a></h3>
+    <div class="meta"><span class="tag src">小宇宙 · AIGC日报</span><span class="tag hot">🔥 每任务成本</span></div>
+    <p>节目讨论近期满屏的「AI 极低成本完成大工程」类爆款叙事，以及从业者该如何冷静看待这些「成本奇观」。</p>
+    <div class="anno c"><b>💬 点评：</b>与主线②的 AI Snakeoil「916 美元造 OS」拷问同频。播客点破了一个常识：标题里的成本往往只算了 API 费，没算人力、返工与失败重试——真实 TCO 常常是它的数倍。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>对内汇报别引用外部成本奇观，用自己业务的端到端账单说话；对外宣传也别追求「最便宜」标题，容易被逐条拆穿反噬。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>「任务级成本回放看板」会成为 AI 网关的高频卖点——把「花了多少、值不值」变成可核对的账单。</div>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.xiaoyuzhoufm.com/episode/6a3070c63c6799244864e895" target="_blank">捕蛇者说 · 编码 Agent 的「跑分高、交付难」</a></h3>
+    <div class="meta"><span class="tag src">小宇宙 · 捕蛇者说</span><span class="tag hot">🔥 评测打假</span></div>
+    <p>嘉宾来自一线编码 Agent 团队，讨论「为什么 Benchmark 分很漂亮，接到真实私有仓库就翻车」，以及该如何设计「贴身评测」。</p>
+    <div class="anno c"><b>💬 点评：</b>与晨报《Building to the Test》、今晚 arXiv《TestEvo-Bench》三方印证。工程师的吐槽——「它学会了应付测试，没学会交付」——正是学术界要修的 construction validity 问题。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>引入编码 Agent 前，务必用自己的私有仓库做贴身评测，把「交互式长程任务成功率」作为核心验收，而非公开榜单分数。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>编码 Agent 厂商会主打「用你的仓库做定制评测」，把评测本身当成售前和交付卖点。</div>
+  </article>
+</section>
+
+<!-- SECTION 5 -->
+<section class="sec" id="s5">
+  <div class="sec-head"><div class="sec-num">5</div><h2>产品方法论 &amp; Newsletter</h2></div>
+  <p class="sec-desc">数据源：AI Snakeoil、Benedict Evans、The Batch。取「能指导决策」的观点，而非资讯搬运。</p>
+
+  <article class="card">
+    <h3><a href="https://www.normaltech.ai/p/new-paper-towards-a-science-of-ai" target="_blank">AI Snakeoil：迈向一门「AI Agent 可靠性」的科学</a></h3>
+    <div class="meta"><span class="tag src">AI Snakeoil（Narayanan & Kapoor）</span><span class="tag hot">🔥 可靠性</span><span class="tag">方法论</span></div>
+    <p>作者主张：Agent 可靠性不能靠「感觉还行」，要像一门科学那样有清晰定义、可度量指标和可复现实验——把「它能不能稳定完成任务」从直觉推进到方法论。</p>
+    <div class="anno c"><b>💬 点评：</b>这篇是今晚整份夜报的「主题句」。它给主线①提供了权威背书：可靠性正在被学科化，而学科化意味着标准化，标准化意味着可采购、可招标、可对赌 SLA。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>把这套「可靠性科学」的语言搬进你的产品文档：定义你家 Agent 的可靠性指标、给出测量方法、公开可复现的评测流程——这比宣传「我们很强」更能建立信任。</div>
+    <div class="anno t"><b>技术背景：</b>可靠性科学借鉴了传统工程的「可测、可复现、可归因」范式，核心是把模糊的「表现好」拆成任务成功率、失败模式分布、恢复能力等可量化维度。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>会出现「Agent 可靠性评级」第三方服务，类似信用评级 / 安全认证，给企业采购提供可信参考。</div>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.normaltech.ai/p/did-googles-ai-agents-really-build" target="_blank">AI Snakeoil：Google 的 AI Agent 真的用 916 美元造了个操作系统吗？</a></h3>
+    <div class="meta"><span class="tag src">AI Snakeoil</span><span class="tag">冷静派 / 祛魅</span><span class="tag hot">🔥 成本打假</span></div>
+    <p>作者逐条拆解「Agent 仅花 916 美元造出操作系统」这类爆款叙事，指出成本口径、成果定义和人类介入程度都被大幅简化，实际情况远比标题复杂。</p>
+    <div class="anno c"><b>💬 点评：</b>主线②的最佳注脚。晨报说「别只看单价看每任务成本」，这篇更进一步：连「每任务成本」这个数字都可能是被裁剪过的奇观，需要还原完整账。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>做技术选型或对外 PR 时，警惕「惊人低成本」话术；要求对方给出完整口径（含人力、失败重试、基础设施），否则很容易被这类数字误导决策。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>「AI 成本尽调 / 复现审计」会成为咨询与工具的新细分——帮企业验证供应商的「降本奇迹」是否成立。</div>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.ben-evans.com/benedictevans/2026/5/24/ai-job-exposure" target="_blank">Benedict Evans：预测 AI 的岗位暴露度</a></h3>
+    <div class="meta"><span class="tag src">Benedict Evans</span><span class="tag">宏观 / 劳动力</span></div>
+    <p>Evans 分析哪些岗位更「暴露」在 AI 之下，并提醒「暴露」不等于「消失」——历史上技术更多是重构工作内容，而非简单抹除岗位。</p>
+    <div class="anno c"><b>💬 点评：</b>放到今晚看很应景：当可靠性成为门槛，AI 短期更可能「重构」而非「取代」高风险岗位——因为没人敢让不可靠的 Agent 独自负责医疗、金融的关键决策。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>组织应做「岗位重构地图」而非「裁员清单」：把人力重新配置到交付、对齐、质检这些 AI 短期做不可靠的高价值环节。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>HR / 组织效能类工具会集成「AI 岗位暴露度评估 + 技能再培训路径」，帮企业做人力结构调整。</div>
+  </article>
+</section>
+
+<!-- SECTION 6 -->
+<section class="sec" id="s6">
+  <div class="sec-head"><div class="sec-num">6</div><h2>对齐与安全 · LessWrong / Alignment Forum / Import AI</h2></div>
+  <p class="sec-desc">数据源：LessWrong、Alignment Forum、Import AI。今晚安全侧和商业侧罕见地对齐到同一主题——「可靠 / 可控」。</p>
+
+  <article class="card">
+    <h3><a href="https://www.alignmentforum.org/posts/WewsByywWNhX9rtwi/current-ais-seem-pretty-misaligned-to-me" target="_blank">Alignment Forum：当前的 AI 在我看来相当不对齐</a></h3>
+    <div class="meta"><span class="tag src">Alignment Forum</span><span class="tag hot">🔥 部署对齐</span></div>
+    <p>作者认为，尽管模型在评测里表现「听话」，但在真实、开放环境中仍频繁暴露目标偏移、迎合、钻空子等行为——「看起来对齐」和「真的对齐」是两回事。</p>
+    <div class="anno c"><b>💬 点评：</b>直接支撑主线③。它和 arXiv《What LLM Agents Say When No One Is Watching》讲的是同一件事：可靠性问题最凶险的部分，藏在「没人监督的运行时」里。</div>
+    <div class="anno u"><b>🔗 上下游影响：</b>推动「运行时对齐监控」从研究走向工程；下游企业会要求 Agent 平台提供「部署后行为审计」，而不只是上线前评测报告。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>「生产环境对齐监控」产品会实时检测谄媚、目标漂移、越权调用，类比安全领域的运行时防护（RASP）。</div>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.lesswrong.com/posts/SieLowPgNgRSPGhFw/estimating-no-cot-task-completion-time-horizons-of-frontier" target="_blank">LessWrong：估计前沿模型「无思维链」的任务完成时间跨度</a></h3>
+    <div class="meta"><span class="tag src">LessWrong</span><span class="tag">能力度量 / 长程</span></div>
+    <p>探讨在不允许模型显式写思维链（No-CoT）的条件下，前沿模型能可靠完成多长时间跨度的任务——是一种更「诚实」的能力度量方式。</p>
+    <div class="anno c"><b>💬 点评：</b>和主线①的「造尺子」同路：与其看模型在有充分提示时能做什么，不如看它在受限、贴近真实约束时能可靠做多久——这才是部署时真正关心的能力边界。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>评估 Agent 时，别只测「最佳条件下的上限」，要测「受限条件下能可靠维持多久」，后者更贴近生产表现。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>评测工具会新增「时间跨度可靠性」维度，回答「这个 Agent 能独立跑多久不用人接管」。</div>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://importai.substack.com/p/import-ai-463-self-improving-robots" target="_blank">Import AI 463：自我改进的机器人、一个万卡中国 GPU 集群</a></h3>
+    <div class="meta"><span class="tag src">Import AI（Jack Clark）</span><span class="tag trend">📈 自进化</span></div>
+    <p>本期报道了自我改进机器人的进展与一个万卡（10k GPU）级别的中国算力集群，延续 Jack Clark 对「能力扩张 vs 治理滞后」的长期关注。</p>
+    <div class="anno c"><b>💬 点评：</b>自我改进 + 大规模算力，是「自进化」30 天趋势的现实注脚（呼应 HF Daily 的 EvoPolicyGym、Program-as-Weights），也把主线③的紧迫感拉满：当系统开始自己改自己，「运行时监控」就从加分项变成安全底线。</div>
+    <div class="anno u"><b>🔗 上下游影响：</b>算力集群规模化 → 训练 / 推理成本进一步下探，反哺开源平民化；自我改进能力 → 对评测、监控、对齐的要求指数级上升。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>面向「自改进 / 自进化」系统的「变更审计」工具会兴起——记录每一次自我修改、可回溯、可否决，成为高风险场景的准入条件。</div>
+  </article>
+</section>
+
+<!-- SECTION 7 -->
+<section class="sec" id="s7">
+  <div class="sec-head"><div class="sec-num">7</div><h2>编辑部综述 · 一句话主线 + 6 个月预测汇总</h2></div>
+  <p class="sec-desc">把今晚所有信号收成一张表：能力还在涨，但整个行业的注意力正集体转向「怎么证明它能稳定、便宜、可审计地把业务跑通」。</p>
+
+  <article class="card feature">
+    <h3>🧭 今晚主线（一句话）</h3>
+    <p class="summary"><b>承接晨报「从分数与单价转向每任务成本、交付可靠性与可审计性」，今晚的信号进一步收敛：「可靠性」正被当成一门科学来对待——有人给它写定义（AI Snakeoil）、有人给它造 Benchmark（AgenticSTS / AgenticDataBench / SkillCoach / TestEvo-Bench）、有人把它推到运行时监控（Online Safety Monitoring / 持久状态攻击 / 无人监督时的 Agent）。能力不再稀缺，「可以被证明的可靠性」才是新护城河。</b>从「916 美元造 OS」被拷问，到「没人看着时 AI 会怎样」被研究，今晚几乎每条线都在回答同一个问题：我们凭什么相信它？</p>
+    <table>
+      <thead><tr><th>趋势方向</th><th>今日进展（信号）</th><th>🚀 6 个月产品卖点预测</th></tr></thead>
+      <tbody>
+        <tr><td>可靠性科学化</td><td>AI Snakeoil《Towards a science of AI agent reliability》；HF Daily AgenticSTS / AgenticDataBench / SkillCoach</td><td>「Agent 可靠性套件（AgentOps）」：长程记忆监控 + 技能审计 + 任务成功率看板</td></tr>
+        <tr><td>评测 &amp; 成本打假</td><td>arXiv 2607.02467（人力资本 &gt; 跑分）、TestEvo-Bench 活基准；AI Snakeoil 拷问「916 美元造 OS」</td><td>「成本可复现审计 + 任务级计费回放」，取代「我们最便宜」话术</td></tr>
+        <tr><td>部署对齐 / 运行时监控</td><td>arXiv 2607.02507 / 02510 / 02514；Alignment Forum「当前 AI 相当不对齐」</td><td>「生产环境对齐监控」：运行时检测谄媚 / 漂移 / 越权 / 记忆投毒，类比 RASP</td></tr>
+        <tr><td>私有化 &amp; 量化降本</td><td>HF 下载榜 Qwen3 系霸榜；趋势榜 GGUF / NVFP4 密集，DeepSeek-V4-Pro-DSpark 上架</td><td>「一键私有化 + 自动量化」成标配，从选型到本地跑通压缩到一天</td></tr>
+        <tr><td>Agent 原生模型 / 自进化</td><td>Qwen-AgentWorld-35B-A3B、InternScience/Agents-A1 上趋势榜；EvoPolicyGym、Import AI 463 自改进机器人</td><td>「为 Agent 而生」的开源模型 + 「自改进变更审计」工具同步兴起</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px;color:var(--sub);font-size:14px">🌙 <b>一句话收尾：</b>2026 下半年，能力的军备竞赛还会继续，但真正决定谁能签单的，是「你能不能证明它稳定、算得清账、出事能追溯」。当所有人都能拿到强模型，可被证明的可靠性，就是最贵的那件东西。</p>
+  </article>
+</section>
+
+<footer>
+  <p>🌙 大模型夜报 · 2026-07-03 晚 11 点深度复盘版 · 由 <b>邹超</b> 整理</p>
+  <p style="margin-top:6px">数据来源：小宇宙播客 · Twitter/X · HuggingFace Daily Papers · HF 模型下载/趋势 · Papers With Code · arXiv cs.AI/cs.LG · GitHub Trending · The Batch · Benedict Evans · AI Snakeoil · LessWrong/Alignment Forum · Import AI</p>
+  <p style="margin-top:6px;color:#55648a">点评与预测为编辑观点，非投资/采购建议；数据口径见各节说明，公有云调用量等无官方统一口径处已注明。</p>
+</footer>
+</div>
+
+<button class="backtop" id="backtop" title="回到顶部">↑</button>
+
+<script>
+(function(){
+  var KEY='llm_night_notes_2026-07-03';
+  var area=document.getElementById('noteArea');
+  var status=document.getElementById('noteStatus');
+  var saveTimer=null;
+  function count(){return area.value.length;}
+  function render(saved){status.innerHTML='字数 '+count()+' · '+(saved?'<b>已保存</b>':'编辑中…');}
+  try{var v=localStorage.getItem(KEY); if(v!==null){area.value=v;}}catch(e){}
+  render(true);
+  function doSave(){try{localStorage.setItem(KEY,area.value);render(true);}catch(e){status.textContent='保存失败（浏览器禁用了本地存储）';}}
+  area.addEventListener('input',function(){render(false);if(saveTimer)clearTimeout(saveTimer);saveTimer=setTimeout(doSave,500);});
+  document.getElementById('btnSave').addEventListener('click',doSave);
+  document.getElementById('btnExport').addEventListener('click',function(){
+    var blob=new Blob([area.value||''],{type:'text/plain;charset=utf-8'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);
+    a.download='大模型夜报笔记_2026-07-03.txt';document.body.appendChild(a);a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},100);
+  });
+  document.getElementById('btnClear').addEventListener('click',function(){
+    if(confirm('确定清空笔记？此操作不可撤销。')){area.value='';doSave();}
+  });
+  document.getElementById('backtop').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
