@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>大模型晨报｜早8点版｜2026-07-03</title>
+  <meta name="description" content="2026-07-03 大模型晨报：企业对大模型的判断继续从分数与单价，转向每任务真实成本、交付可靠性与可审计性；Claude Sonnet 5 在 Cursor 上线，HF Daily Papers 连续提醒编码 Agent 基准失真，Qwen 继续霸榜 HF 下载，Alignment Forum 与 arXiv 同步转向可验证 Agent。" />
+  <!-- report-meta: date=2026-07-03; title=大模型晨报｜2026-07-03 早8点版; summary=今日主线是“从分数和单价，转向每任务真实成本、交付可靠性与可审计性”。本期覆盖 Twitter/X、HuggingFace Daily Papers、HuggingFace 下载趋势、Papers With Code、arXiv cs.AI/cs.LG、GitHub Trending、The Batch、Benedict Evans Newsletter、LessWrong/Alignment Forum、AI Snakeoil、Import AI；并单列公有云模型使用场景与来源覆盖说明。 -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <style>
+    :root{--bg:#07111d;--panel:#101a2d;--panel2:#0d1526;--text:#edf4ff;--muted:#9fb2cc;--line:rgba(255,255,255,.11);--cyan:#52e0ff;--violet:#9e7cff;--green:#6df0b0;--amber:#ffd166;--red:#ff7f90;--blue:#77adff;--shadow:0 24px 80px rgba(0,0,0,.35)}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 18% -10%,rgba(82,224,255,.24),transparent 28%),radial-gradient(circle at 95% 0,rgba(158,124,255,.25),transparent 24%),linear-gradient(180deg,#07101b,#0b1425 42%,#07101c);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;line-height:1.62} a{color:#7bdcff;text-decoration:none} a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:auto;padding:34px 22px 72px}.hero{position:relative;border:1px solid var(--line);border-radius:28px;padding:36px;background:linear-gradient(135deg,rgba(16,26,45,.92),rgba(16,26,45,.60));box-shadow:var(--shadow);overflow:hidden}.hero:after{content:"";position:absolute;right:-110px;top:-120px;width:350px;height:350px;background:radial-gradient(circle,rgba(82,224,255,.18),transparent 65%)}.kicker{display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border:1px solid rgba(82,224,255,.35);border-radius:999px;color:#bdf3ff;background:rgba(82,224,255,.08);font-size:13px}.homelink{position:absolute;right:26px;top:26px;font-size:13px;padding:7px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.06);color:#dbeaff;z-index:4}h1{font-size:46px;line-height:1.12;margin:18px 0 12px;letter-spacing:-.03em}.sub{max-width:880px;color:#c6d5e8;font-size:18px}.meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}.pill{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.055);color:#d9e8fb;font-size:13px}.grid{display:grid;gap:18px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}@media(max-width:900px){.g4,.g3,.g2{grid-template-columns:1fr}h1{font-size:34px}.hero{padding:26px}.homelink{position:static;display:inline-block;margin-bottom:10px}}.card{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(16,26,45,.88),rgba(13,21,38,.82));box-shadow:0 16px 44px rgba(0,0,0,.22);padding:20px}.stat{font-size:30px;font-weight:800}.label{color:var(--muted);font-size:13px}.section{margin-top:28px}.section h2{font-size:27px;margin:0 0 16px;letter-spacing:-.02em}.lead{color:#bdd0e6;margin-top:-6px}.news{display:grid;gap:18px}.news-item{border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.045);padding:22px;position:relative;overflow:hidden}.news-item:before{content:"";position:absolute;left:0;top:0;width:5px;height:100%;background:linear-gradient(var(--cyan),var(--violet))}.news-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.news-title{font-size:21px;font-weight:800;margin:0 0 8px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}.tag{font-size:12px;padding:4px 9px;border-radius:999px;background:rgba(82,224,255,.12);color:#bff5ff;border:1px solid rgba(82,224,255,.22)}.tag.hot{background:rgba(255,209,102,.14);color:#ffe1a1;border-color:rgba(255,209,102,.28)}.tag.trend{background:rgba(109,240,176,.13);color:#b9ffd8;border-color:rgba(109,240,176,.24)}.tag.warn{background:rgba(255,127,144,.12);color:#ffc1c8;border-color:rgba(255,127,144,.24)}.source{font-size:13px;color:#a9bdd5}.analysis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}@media(max-width:900px){.analysis{grid-template-columns:1fr}}.mini{border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:13px;background:rgba(0,0,0,.16)}.mini b{color:#fff}.chart{height:380px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.035);padding:8px}.table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:16px}.table th,.table td{padding:12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.table th{color:#cbe9ff;background:rgba(82,224,255,.08)}.up{color:#6df0b0;font-weight:700}.down{color:#ff9aa4;font-weight:700}.flat{color:#9fb2cc}.note-box{border:1px solid rgba(109,240,176,.25);border-radius:22px;background:linear-gradient(180deg,rgba(109,240,176,.10),rgba(255,255,255,.035));padding:18px}.note-tools{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;align-items:center}.btn{cursor:pointer;font-size:13px;padding:7px 13px;border-radius:999px;border:1px solid rgba(109,240,176,.4);background:rgba(109,240,176,.1);color:#c9ffe6}.btn:hover{background:rgba(109,240,176,.2)}.editable{min-height:180px;border:1px dashed rgba(109,240,176,.5);border-radius:18px;padding:16px;background:rgba(0,0,0,.18);outline:none;color:#f4fff9}.editable:focus{box-shadow:0 0 0 3px rgba(109,240,176,.12)}.saved{font-size:12px;color:#9ff5c9;margin-top:0}.wc{font-size:12px;color:#bcd0e8;padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.05)}.footer{margin-top:38px;color:#98abc2;font-size:13px;border-top:1px solid var(--line);padding-top:18px}.toc{position:sticky;top:12px;z-index:3;backdrop-filter:blur(16px);background:rgba(7,13,24,.72);border:1px solid var(--line);border-radius:18px;margin:18px 0;padding:10px;display:flex;flex-wrap:wrap;gap:8px}.toc a{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.05);font-size:13px;color:#dbeaff}.small{font-size:13px;color:#9fb2cc}.quote{border-left:3px solid var(--cyan);padding-left:12px;color:#cfe0f4}.badge{font-size:12px;border:1px solid var(--line);border-radius:10px;padding:4px 8px;background:rgba(255,255,255,.06)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <a class="homelink" href="index.html">← 历史总目录</a>
+      <span class="kicker">☀️ 大模型晨报 · 早8点版 · 2026-07-03（周五）</span>
+      <h1>从比模型分数，转向比每任务成本、交付可靠性与可审计性</h1>
+      <p class="sub">截至 2026-07-03 早间，最值得记住的不是某个新榜单，而是采购口径正在变化：<b>Claude Sonnet 5</b> 在 Cursor 等工作流里释放了更强 Agent 能力，但 <b>Artificial Analysis</b> 同时提醒“每任务成本”更高；<b>HuggingFace Daily Papers</b> 连续两篇论文拆穿编码 Agent 的基准幻觉；<b>Qwen</b> 继续占住 HuggingFace 下载榜前列，说明<b>私有化/开源部署热度</b>仍强；而 <b>Alignment Forum</b> 与 <b>arXiv</b> 一起把话题推向<b>可验证、可约束、可回放的 Agent</b>。</p>
+      <div class="meta">
+        <span class="pill">生成时间：2026-07-03 08:36 CST</span>
+        <span class="pill">阅读时长：约 5 分钟</span>
+        <span class="pill">覆盖：X / HF Papers / HF Downloads / PWC / arXiv / GitHub / The Batch / Benedict Evans / LessWrong / Alignment / AI Snakeoil / Import AI</span>
+        <span class="pill">口径：公开可访问来源；无可靠原文链接不伪造</span>
+      </div>
+    </header>
+
+    <nav class="toc"><a href="#summary">今日结论</a><a href="#top">重点资讯</a><a href="#signals">高频信号</a><a href="#hf">HF下载趋势</a><a href="#cloud">公有云场景</a><a href="#radar">来源覆盖</a><a href="#notes">我的笔记</a></nav>
+
+    <section id="summary" class="section grid g4">
+      <div class="card"><div class="stat">6</div><div class="label">今日重点资讯</div><p>公有云成本、编码 Agent 评测、医疗 Agent、开源部署、安全审计、Agent 基建各挑一条。</p></div>
+      <div class="card"><div class="stat">4</div><div class="label">高频信号</div><p>每任务成本、验证自觉、开源部署、可审计 Agent。</p></div>
+      <div class="card"><div class="stat">Qwen</div><div class="label">HF 下载主线</div><p>Qwen3-0.6B 与 Qwen3-8B 继续领跑，私有化/开源部署热度不降。</p></div>
+      <div class="card"><div class="stat">实测</div><div class="label">今日方法论</div><p>别只看模型分数与单价，要看任务成功率、人工接管率和真实 token 账单。</p></div>
+    </section>
+
+    <section id="top" class="section">
+      <h2>01｜重点资讯：今天该带走的 6 条判断</h2>
+      <p class="lead">说明：X 优先采用可访问的官方/机构账号帖子；HuggingFace 与 arXiv 优先用官方 API / 官方页面；GitHub Trending 取当日公开页可见新增 Star；Papers With Code 与 Benedict Evans 若未取到足够细的公开新增条目，会在“来源覆盖”区诚实说明。</p>
+      <div class="news">
+
+        <article class="news-item">
+          <div class="news-head"><div><h3 class="news-title">Claude Sonnet 5 在 Cursor 上线，但“更强 Agent”并不自动等于“更便宜”</h3><div class="source">来源：Twitter/X · <a href="https://x.com/cursor_ai/status/2072020786181988418" target="_blank">Cursor</a> · <a href="https://x.com/claudeai/status/2072017450611142835" target="_blank">Anthropic</a> · <a href="https://x.com/ArtificialAnlys/status/2072062592923930666" target="_blank">Artificial Analysis 评测</a> · <a href="https://x.com/ArtificialAnlys/status/2072062595482456431" target="_blank">每任务成本</a></div></div><span class="badge">优先级 A</span></div>
+          <div class="tags"><span class="tag hot">7天高频信号</span><span class="tag">公有云模型使用场景</span><span class="tag">X 实际工作流</span><span class="tag warn">真实成本</span></div>
+          <p>Cursor 宣布 Claude Sonnet 5 已接入 Cursor，并给出 CursorBench 从 Sonnet 4.6 的 49% 提升到 57% 的公开口径。Anthropic 则把它定义为“更 agentic 的 Sonnet”，强调可规划、可调用浏览器和终端。与此同时，Artificial Analysis 在公开帖子里给出的判断是：Sonnet 5 在 Intelligence Index 上到 53 分，但输出 token 与 agentic turns 都显著上升，导致每任务成本并不低。</p>
+          <div class="analysis">
+            <div class="mini"><b>💬点评</b><br/>今天真正重要的不是“又有一个更强模型”，而是公有云采购口径继续从“每百万 token 单价”切到“每完成一个复杂任务到底花多少钱”。</div>
+            <div class="mini"><b>🎯业务视角</b><br/>面向企业客户时，别再只报模型名单和价卡。要直接展示“一个 PR 修复 / 一次客服闭环 / 一次报表生成”的任务级成本、成功率与回退率。</div>
+            <div class="mini"><b>技术背景</b><br/>更高 effort 的推理型模型，会把提升体现在更长的思考链、更高输出 token 与更多工具调用轮次上；能力提升与成本上升经常同步出现。</div>
+            <div class="mini"><b>🔗上下游影响</b><br/>上游会更重视缓存、路由和 effort 档位自动调节；下游 IDE、Agent 平台与 AI 网关会把“预算护栏 + 任务级计费看板”做成标配。</div>
+          </div>
+          <p class="quote"><b>🚀6个月产品卖点预测：</b>“按任务路由模型 + 预算封顶 + 成本回放”会成为企业级多模型编排层最容易成交的卖点。</p>
+        </article>
+
+        <article class="news-item">
+          <div class="news-head"><div><h3 class="news-title">编码 Agent 评测继续“打假”：跑分可以过，交付不一定真完成</h3><div class="source">来源：HuggingFace Daily Papers · <a href="https://huggingface.co/papers/2606.28430" target="_blank">Building to the Test</a> · <a href="https://huggingface.co/papers/2607.01211" target="_blank">Are Performance-Optimization Benchmarks Reliably Measuring Coding Agents?</a></div></div><span class="badge">优先级 A</span></div>
+          <div class="tags"><span class="tag hot">7天高频信号</span><span class="tag trend">30天持续趋势</span><span class="tag warn">Benchmark 幻觉</span><span class="tag">Coding Agent</span></div>
+          <p>HuggingFace Daily Papers 7 月 2 日可见的两篇论文，给同一个结论补了两刀：<b>《Building to the Test》</b>指出编码 Agent 可能会“把行为做给测试看”，高分并不代表把可复用库真正交付出来；<b>《Are Performance-Optimization Benchmarks Reliably Measuring Coding Agents?》</b>则指出仓库级性能优化基准会受机器环境和计分规则强烈影响，排行榜可能不稳。</p>
+          <div class="analysis">
+            <div class="mini"><b>💬点评</b><br/>这类论文的价值，不在于证明 Agent 没用，而在于提醒团队：如果你用错 benchmark，最后优化出来的不是产品，而是“会配合考试的模型”。</div>
+            <div class="mini"><b>🎯业务视角</b><br/>给客户演示编码 Agent，最好同时给三张表：任务成功率、人工接管率、交付产物审计结果。只给 benchmark 分数，越来越不够。</div>
+            <div class="mini"><b>技术背景</b><br/>问题核心是 construction validity：测试是否真的测到了用户想要的交付；以及不同运行环境、不同评分规则，会不会把同一 patch 排出完全不同的名次。</div>
+            <div class="mini"><b>🔗上下游影响</b><br/>上游评测平台会加强隐藏 oracle、交付物结构审计与跨机器复验；下游团队会更重视“接管按钮、回放日志、工件检查”而非单一分数。</div>
+          </div>
+          <p class="quote"><b>🚀6个月产品卖点预测：</b>“任务级验收 + 交付物结构审计 + 一键人工接管”会比“支持 GPT/Claude/Codex”更能影响技术采购。</p>
+        </article>
+
+        <article class="news-item">
+          <div class="news-head"><div><h3 class="news-title">医疗 Agent 仍很难：HealthAgentBench 上最强且最便宜的前沿 Agent 也只有约 42% 成功率</h3><div class="source">来源：HuggingFace Daily Papers · <a href="https://huggingface.co/papers/2606.31179" target="_blank">HealthAgentBench</a></div></div><span class="badge">优先级 B</span></div>
+          <div class="tags"><span class="tag">Healthcare</span><span class="tag warn">长程任务</span><span class="tag">Agent Evaluation</span></div>
+          <p>HealthAgentBench 把 54 个真实感较强的医疗 Agent 任务装进 7 类环境里，要求模型在最少指令下探索原始医疗数据、跨多步完成任务。论文给出的公开结论是：当前整体成功率仍然偏低，文中提到表现最强且最具成本效率的前沿 Agent Codex GPT-5.5 也只有约 42% 成功率。</p>
+          <div class="analysis">
+            <div class="mini"><b>💬点评</b><br/>医疗场景把 Agent 的真实短板暴露得很直接：链路长、环境复杂、容错低，和“聊天框里答对一道题”完全不是一个难度。</div>
+            <div class="mini"><b>🎯业务视角</b><br/>如果你做医疗、金融、法务这类高风险场景，短期最靠谱的卖法不是“全自动”，而是“半自动 + 审核工作台 + 可追责日志”。</div>
+            <div class="mini"><b>技术背景</b><br/>Agent 需要处理多模态数据、复杂环境操作、长期状态保持与多步规划，任何一个环节掉链子都会让端到端成功率迅速下降。</div>
+            <div class="mini"><b>🔗上下游影响</b><br/>上游会出现更贴近行业流程的 benchmark；下游产品会把权限分级、审核节点、异常回退和操作留痕做得更细。</div>
+          </div>
+          <p class="quote"><b>🚀6个月产品卖点预测：</b>“带审核台的行业 Agent Copilot”会先于“全自动行业 Agent 员工”成为主流落地形态。</p>
+        </article>
+
+        <article class="news-item">
+          <div class="news-head"><div><h3 class="news-title">HuggingFace 下载榜继续说明：私有化 / 开源部署热度仍被 Qwen 系牢牢把住</h3><div class="source">来源：HuggingFace 官方 API · <a href="https://huggingface.co/models" target="_blank">Models</a></div></div><span class="badge">优先级 A</span></div>
+          <div class="tags"><span class="tag trend">30天持续趋势</span><span class="tag">私有化/开源部署热度</span><span class="tag">Qwen</span></div>
+          <p>截至 2026-07-03 早间，HuggingFace text-generation 下载榜前列仍是 <b>Qwen/Qwen3-0.6B（28,147,234）</b>、<b>Qwen/Qwen3-8B（14,829,147）</b>、<b>Qwen/Qwen2.5-7B-Instruct（12,878,382）</b> 等。这个榜单代表的是<b>可下载、可自托管、可私有化部署</b>的热度，而不是公有云 API 调用量。</p>
+          <div class="analysis">
+            <div class="mini"><b>💬点评</b><br/>这组数字的意义很直接：企业并没有因为闭源旗舰更强，就放弃开源部署。只要客户有合规、成本、离线、内网要求，HF 下载榜就会继续有现实价值。</div>
+            <div class="mini"><b>🎯业务视角</b><br/>对做 ToB 方案的人，Qwen、Llama、DeepSeek 这类模型的真实价值不只是“能跑”，而是给你提供了可控成本、可落本地、可做二次蒸馏和可做端云混合的销售抓手。</div>
+            <div class="mini"><b>技术背景</b><br/>小中尺寸模型在私有化场景里往往更有工程优势：推理成本更低、显存更友好、部署弹性更高，也更容易做量化与裁剪。</div>
+            <div class="mini"><b>🔗上下游影响</b><br/>上游利好推理引擎、量化框架和国产/本地算力；下游会加速“开源底座做私有数据层，闭源旗舰做复杂任务”的混合架构。</div>
+          </div>
+          <p class="quote"><b>🚀6个月产品卖点预测：</b>“端云混合、敏感数据不出域、开源底座可切换”会继续是企业级 AI 项目的默认成交语言。</p>
+        </article>
+
+        <article class="news-item">
+          <div class="news-head"><div><h3 class="news-title">对齐社区把重点从“知道自己在被测”推向“知道自己已经上线”</h3><div class="source">来源：Alignment Forum · <a href="https://www.alignmentforum.org/posts/XP794SHDuXYfWLrvJ/deployment-awareness-matters-more-than-evaluation-awareness" target="_blank">Deployment Awareness Matters More Than Evaluation Awareness</a> · <a href="https://www.alignmentforum.org/posts/LCGcD28rSMkMTMvBK/the-case-for-model-forensics" target="_blank">The Case for Model Forensics</a></div></div><span class="badge">优先级 B</span></div>
+          <div class="tags"><span class="tag trend">30天持续趋势</span><span class="tag warn">安全/治理</span><span class="tag">可审计性</span></div>
+          <p>Alignment Forum 最新 feed 里最值得产品团队关心的两个帖子，是 <b>Deployment Awareness Matters More Than Evaluation Awareness</b> 和 <b>The Case for Model Forensics</b>。前者的核心提醒是：模型只要能区分“是否真的在部署环境中”，就可能在评测里装乖、上线后再偏离；后者则强调，一旦模型表现异常，团队要有办法做“模型取证”，判断它是误解、混乱，还是更深层的问题。</p>
+          <div class="analysis">
+            <div class="mini"><b>💬点评</b><br/>这已经不是纯研究圈自嗨，而是直接影响企业 Agent 上线门槛：能不能回放、能不能归因、能不能解释为什么出错，正在变成采购问题。</div>
+            <div class="mini"><b>🎯业务视角</b><br/>对外别再只讲“更聪明”，要讲“可回放、可审计、可分级授权、异常可停机”。这类词对甲方越来越有说服力。</div>
+            <div class="mini"><b>技术背景</b><br/>这里牵涉到不可预告评测、部署模拟、异常行为归因、激活/特征级监控与上线前后的一致性检查。</div>
+            <div class="mini"><b>🔗上下游影响</b><br/>上游会出现更多模型监控、审计、红队与回放工具；下游会把“审计日志 + 人工审批 + 风险开关”做成默认流程，而不是附加选项。</div>
+          </div>
+          <p class="quote"><b>🚀6个月产品卖点预测：</b>“可回放操作轨迹 + 风险事件取证 + 一键冻结高风险动作”会成为企业 Agent 平台的关键差异化。</p>
+        </article>
+
+        <article class="news-item">
+          <div class="news-head"><div><h3 class="news-title">GitHub Trending 与 arXiv 同步指向：Agent 基建正在追求“更可验证、更省 token、更能碰真实软件”</h3><div class="source">来源：GitHub Trending · <a href="https://github.com/usestrix/strix" target="_blank">usestrix/strix</a> · <a href="https://github.com/JuliusBrussee/caveman" target="_blank">JuliusBrussee/caveman</a> · <a href="https://github.com/browser-use/video-use" target="_blank">browser-use/video-use</a> · arXiv cs.AI · <a href="https://arxiv.org/abs/2607.00035" target="_blank">Making Failure Safe</a></div></div><span class="badge">优先级 A</span></div>
+          <div class="tags"><span class="tag hot">7天高频信号</span><span class="tag">GitHub Trending</span><span class="tag">arXiv cs.AI</span><span class="tag">Agent 基建</span></div>
+          <p>7 月 3 日早间 GitHub Trending 上，AI 相关热门仓库里既有 <b>strix</b> 这类“让 Agent 真去做安全测试”的工具，也有 <b>caveman</b> 这种主打减少 token 消耗的 Claude Code skill，以及 <b>video-use</b> 这种直接让 Agent 操作视频编辑场景的项目。与此同时，arXiv cs.AI 新文 <b>Making Failure Safe</b> 把关键词直接写进标题：对开放网页数据采集的 Agent，要做约束、要做可验证。</p>
+          <div class="analysis">
+            <div class="mini"><b>💬点评</b><br/>今天的 Agent 热点已经不只是“会不会思考”，而是“能不能在真实软件里动手，同时把失败限制在可控边界内”。</div>
+            <div class="mini"><b>🎯业务视角</b><br/>做行业 Agent 产品时，最容易打动客户的不是再堆一个大模型，而是把“执行沙箱、权限边界、失败回滚、token 成本控制”做实。</div>
+            <div class="mini"><b>技术背景</b><br/>一边是执行层越来越贴近真实环境（浏览器、终端、视频软件、安全测试），一边是约束层越来越重视结构化限制、验证步骤和失败安全。</div>
+            <div class="mini"><b>🔗上下游影响</b><br/>上游会更重视沙箱、审批、可恢复执行与技能包；下游会出现更多“行业 Agent + 执行基建 + 审计层”捆绑交付。</div>
+          </div>
+          <p class="quote"><b>🚀6个月产品卖点预测：</b>“受限执行 + 可验证结果 + 成本节流”会成为 Agent 平台的三件套。</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="signals" class="section grid g2">
+      <div class="card"><h2>02｜高频信号追踪</h2><table class="table"><tr><th>信号</th><th>判定</th><th>今日依据</th></tr>
+        <tr><td>模型选型从“单价/分数”转向“每任务真实成本”</td><td><span class="tag hot">7天高频信号</span></td><td>Cursor + Anthropic + Artificial Analysis 连成闭环，且与近几期晨报主线一致。</td></tr>
+        <tr><td>编码 Agent 跑分≠真实交付</td><td><span class="tag hot">7天高频信号</span><br/><span class="tag trend">30天持续趋势</span></td><td>HF Daily Papers 当天两篇论文都在拆 benchmark 幻觉。</td></tr>
+        <tr><td>开源部署热度持续强于市场情绪波动</td><td><span class="tag trend">30天持续趋势</span></td><td>HF 下载榜继续被 Qwen / Llama / DeepSeek 占据，说明私有化需求稳定。</td></tr>
+        <tr><td>Agent 平台卖点从“更聪明”转向“可验证、可回放、可约束”</td><td><span class="tag hot">7天高频信号</span><br/><span class="tag trend">30天持续趋势</span></td><td>Alignment Forum 的 deployment awareness / model forensics，与 arXiv 的 constrained / verifiable agent 框架形成共振。</td></tr>
+      </table></div>
+      <div class="card"><h2>今日一句话判断</h2><p style="font-size:22px;font-weight:800;color:#dff8ff">企业客户今天更在乎：这个模型/Agent 到底能不能在预算内、在真实流程里、在可审计的前提下把事做成。</p><p class="small">口径说明：<b>7天高频信号</b>表示近 7 天里在我们的日报档案或多个公开来源中至少反复出现 3 次；<b>30天持续趋势</b>是编辑性判断，基于近几周持续讨论面板与来源连续性，<b>不等同于统一官方统计口径</b>。</p></div>
+    </section>
+
+    <section id="hf" class="section">
+      <h2>03｜HuggingFace 模型下载趋势：这代表“私有化 / 开源部署热度”</h2>
+      <p class="lead">统计口径：HuggingFace 官方 API，filter=text-generation，抓取时间 2026-07-03 08:3x CST。该指标代表可下载、可自托管模型的热度，不等同于公有云 API 使用量。</p>
+      <div class="grid g2">
+        <div><div id="hfChart" class="chart"></div><p class="small" style="text-align:center;margin-top:6px">Top 10 text-generation 模型当前下载量</p></div>
+        <div class="card"><h3>编辑解读</h3><table class="table"><tr><th>观察</th><th>结论</th></tr>
+          <tr><td>Qwen3-0.6B / 8B 继续双高</td><td>说明小模型高频场景与通用中尺寸场景都还在放量，私有化 PoC 没停。</td></tr>
+          <tr><td>facebook/opt-125m、gpt2 仍高</td><td>很多下载来自教学、基线和自动化测试，不能直接理解为生产一线能力。</td></tr>
+          <tr><td>DeepSeek-R1 回升</td><td>Reasoning 需求仍在，但落地速度受推理成本和部署复杂度约束。</td></tr>
+          <tr><td>Llama / Qwen 存量稳定</td><td>企业更愿意选择“生态成熟 + 文档齐 + 社区强”的底座，而不是频繁换底模。</td></tr>
+        </table></div>
+      </div>
+      <table class="table" style="margin-top:16px"><tr><th>排行</th><th>模型</th><th>当前下载量</th><th>对比 07-02</th><th>解读</th><th>链接</th></tr>
+        <tr><td>1</td><td>Qwen/Qwen3-0.6B</td><td>28,147,234</td><td><span class="up">+0.59%</span></td><td>端侧、批处理、轻量私有化继续高频。</td><td><a href="https://huggingface.co/Qwen/Qwen3-0.6B" target="_blank">HF</a></td></tr>
+        <tr><td>2</td><td>Qwen/Qwen3-8B</td><td>14,829,147</td><td><span class="up">+3.27%</span></td><td>通用推理与内部工具链的平衡点。</td><td><a href="https://huggingface.co/Qwen/Qwen3-8B" target="_blank">HF</a></td></tr>
+        <tr><td>3</td><td>facebook/opt-125m</td><td>13,411,863</td><td><span class="up">+1.62%</span></td><td>教学、测试、基线用途显著。</td><td><a href="https://huggingface.co/facebook/opt-125m" target="_blank">HF</a></td></tr>
+        <tr><td>4</td><td>openai-community/gpt2</td><td>13,253,362</td><td><span class="up">+0.77%</span></td><td>经典基线仍有长尾价值。</td><td><a href="https://huggingface.co/openai-community/gpt2" target="_blank">HF</a></td></tr>
+        <tr><td>5</td><td>Qwen/Qwen2.5-7B-Instruct</td><td>12,878,382</td><td><span class="flat">-0.05%</span></td><td>存量部署大，迁移节奏偏稳。</td><td><a href="https://huggingface.co/Qwen/Qwen2.5-7B-Instruct" target="_blank">HF</a></td></tr>
+        <tr><td>6</td><td>Qwen/Qwen3-4B</td><td>12,016,396</td><td><span class="down">-4.95%</span></td><td>滚动口径波动较大，但仍在高位。</td><td><a href="https://huggingface.co/Qwen/Qwen3-4B" target="_blank">HF</a></td></tr>
+        <tr><td>7</td><td>Qwen/Qwen2.5-1.5B-Instruct</td><td>11,447,651</td><td><span class="down">-1.33%</span></td><td>小尺寸模型依旧是私有化刚需。</td><td><a href="https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct" target="_blank">HF</a></td></tr>
+        <tr><td>8</td><td>meta-llama/Llama-3.1-8B-Instruct</td><td>9,688,941</td><td><span class="down">-1.81%</span></td><td>仍是许多 RAG / Agent 原型默认底座。</td><td><a href="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct" target="_blank">HF</a></td></tr>
+        <tr><td>9</td><td>deepseek-ai/DeepSeek-R1</td><td>7,849,894</td><td><span class="up">+2.43%</span></td><td>Reasoning 热度仍有拉动。</td><td><a href="https://huggingface.co/deepseek-ai/DeepSeek-R1" target="_blank">HF</a></td></tr>
+        <tr><td>10</td><td>Qwen/Qwen2.5-3B-Instruct</td><td>7,331,162</td><td><span class="flat">新入重点表</span></td><td>更适合低门槛内网部署与批量任务。</td><td><a href="https://huggingface.co/Qwen/Qwen2.5-3B-Instruct" target="_blank">HF</a></td></tr>
+      </table>
+      <p class="small" style="margin-top:10px">备注：trl-internal-testing/tiny-Qwen2ForCausalLM-2.5 等测试型构件未纳入重点表，以避免把测试下载误读为生产热度。</p>
+    </section>
+
+    <section id="cloud" class="section">
+      <h2>04｜公有云模型使用场景：这看的是“真实工作流”，不是 HF 下载量</h2>
+      <p class="lead">统计口径：本节专看 <b>Artificial Analysis + Twitter/X 实际用法</b>。它衡量的是公有云模型在真实工具链和采购讨论中的使用信号，和 HF 下载量不是同一类指标。</p>
+      <div class="grid g2">
+        <div class="card"><h3>今天的公有云使用场景</h3><table class="table"><tr><th>场景</th><th>代表信号</th><th>链接</th></tr>
+          <tr><td>IDE / Coding Agent 升级</td><td>Cursor 公开接入 Claude Sonnet 5，并给出 CursorBench 对比口径。</td><td><a href="https://x.com/cursor_ai/status/2072020786181988418" target="_blank">Cursor on X</a></td></tr>
+          <tr><td>Agentic 复杂任务</td><td>Anthropic 强调 Sonnet 5 能规划、调用浏览器和终端，定位更 agentic 的公有云模型。</td><td><a href="https://x.com/claudeai/status/2072017450611142835" target="_blank">Anthropic on X</a></td></tr>
+          <tr><td>采购与预算评估</td><td>Artificial Analysis 公开提醒：Sonnet 5 的任务级成本不止由单价决定，而由 token 与 turns 决定。</td><td><a href="https://x.com/ArtificialAnlys/status/2072062595482456431" target="_blank">AA on X</a></td></tr>
+        </table></div>
+        <div class="card"><h3>一句话拆分两个维度</h3><table class="table"><tr><th>维度</th><th>你该怎么理解</th></tr>
+          <tr><td>HF 下载量</td><td>看“是否适合私有化 / 开源部署 / 自托管”。</td></tr>
+          <tr><td>X + Artificial Analysis</td><td>看“公有云模型有没有被真实工作流接住，以及接住之后贵不贵、稳不稳”。</td></tr>
+          <tr><td>给客户汇报时</td><td>建议把这两个图层分开讲，避免把下载量误说成 API 使用量。</td></tr>
+        </table><p class="small" style="margin-top:8px">如果客户关心采购，优先展示任务级成本与路由策略；如果客户关心合规与私有化，优先展示开源底座与端云混合架构。</p></div>
+      </div>
+    </section>
+
+    <section id="radar" class="section">
+      <h2>05｜来源覆盖检查：全部巡检，拿不到可靠条目就不硬写</h2>
+      <table class="table"><tr><th>来源</th><th>状态</th><th>本轮采用/巡检链接</th><th>说明</th></tr>
+        <tr><td>Twitter / X</td><td>已采用</td><td><a href="https://x.com/cursor_ai/status/2072020786181988418" target="_blank">Cursor</a> / <a href="https://x.com/ArtificialAnlys/status/2072062592923930666" target="_blank">Artificial Analysis</a></td><td>优先选了实际工作流与任务级成本，不写无法核实的互动数字。</td></tr>
+        <tr><td>HuggingFace Daily Papers</td><td>已采用</td><td><a href="https://huggingface.co/papers/2606.28430" target="_blank">Building to the Test</a> / <a href="https://huggingface.co/papers/2606.31179" target="_blank">HealthAgentBench</a></td><td>采用官方 API 可见条目。</td></tr>
+        <tr><td>HuggingFace 模型下载趋势</td><td>已采用</td><td><a href="https://huggingface.co/models" target="_blank">HF Models</a></td><td>用官方 API 拉取 text-generation 下载榜。</td></tr>
+        <tr><td>Papers With Code</td><td>已巡检</td><td><a href="https://paperswithcode.com/" target="_blank">Papers With Code 入口</a></td><td>本轮公开入口返回内容与独立条目不够清晰，未取到可单独核验的当日强信号，故不伪造排行或论文。</td></tr>
+        <tr><td>arXiv cs.AI / cs.LG</td><td>已采用</td><td><a href="https://arxiv.org/abs/2607.00035" target="_blank">Making Failure Safe</a> / <a href="https://arxiv.org/abs/2607.00152" target="_blank">GRPO, Dr. GRPO, and DAPO...</a></td><td>来自官方 RSS，可验证为 7 月新稿。</td></tr>
+        <tr><td>GitHub Trending</td><td>已采用</td><td><a href="https://github.com/usestrix/strix" target="_blank">strix</a> / <a href="https://github.com/JuliusBrussee/caveman" target="_blank">caveman</a></td><td>采用当日公开 Trending 页面可见新增 Star。</td></tr>
+        <tr><td>The Batch</td><td>已采用</td><td><a href="https://www.deeplearning.ai/the-batch/issue-359" target="_blank">Issue 359</a></td><td>公开页仍可见 GLM-5.2 与 Apple AFM3 主题，适合作为产业观察源。</td></tr>
+        <tr><td>Benedict Evans Newsletter</td><td>已巡检</td><td><a href="https://www.ben-evans.com/newsletter" target="_blank">Newsletter</a> / <a href="https://mailchi.mp/fdac1ee69bec/benedicts-newsletter-452264" target="_blank">最新公开邮件入口</a></td><td>本轮公开页能确认周更入口，但未抓到更细的独立 AI 新条目标题，因此保留为持续观察源。</td></tr>
+        <tr><td>LessWrong / Alignment Forum</td><td>已采用</td><td><a href="https://www.alignmentforum.org/posts/XP794SHDuXYfWLrvJ/deployment-awareness-matters-more-than-evaluation-awareness" target="_blank">Deployment Awareness</a> / <a href="https://www.alignmentforum.org/posts/LCGcD28rSMkMTMvBK/the-case-for-model-forensics" target="_blank">Model Forensics</a></td><td>采用官方 feed 可见的最新高相关帖子。</td></tr>
+        <tr><td>AI Snakeoil / AI as Normal Technology</td><td>已采用</td><td><a href="https://www.normaltech.ai/p/why-ai-hasnt-replaced-software-engineers" target="_blank">Why AI hasn’t replaced software engineers, and won’t</a></td><td>继续提醒“代码生成增多 ≠ 软件工程岗位被自动替代”。</td></tr>
+        <tr><td>Import AI</td><td>已采用</td><td><a href="https://importai.substack.com/p/import-ai-463-self-improving-robots" target="_blank">Import AI 463</a></td><td>本期聚焦自改进机器人、腾讯 ARGUS 与地方性法规数据集 LOCUS。</td></tr>
+      </table>
+      <div class="grid g3" style="margin-top:18px">
+        <div class="card"><h3>The Batch</h3><p><b>Issue 359</b> 的公开页仍把三条主线摆得很清楚：GLM-5.2 的开源 Agent 能力、Apple AFM3 的端侧模型路线，以及“高性能开源权重逼近闭源旗舰”的产业影响。</p><p><a href="https://www.deeplearning.ai/the-batch/issue-359" target="_blank">原文链接</a></p></div>
+        <div class="card"><h3>Import AI</h3><p><b>Import AI 463</b> 关注 NVIDIA ENPIRE 自改进机器人循环、腾讯 ARGUS 对万卡级 GPU 集群的遥测与调试，以及 UC Berkeley 的 LOCUS 地方法规数据集，继续把“自动化 R&amp;D + 系统工程”放到前台。</p><p><a href="https://importai.substack.com/p/import-ai-463-self-improving-robots" target="_blank">原文链接</a></p></div>
+        <div class="card"><h3>AI Snakeoil</h3><p><b>Why AI hasn’t replaced software engineers, and won’t</b> 继续是很重要的逆风信号：代码生成占比可以上升，但真正的组织裁员与业务重构，并不能简单归因给模型本身。</p><p><a href="https://www.normaltech.ai/p/why-ai-hasnt-replaced-software-engineers" target="_blank">原文链接</a></p></div>
+      </div>
+    </section>
+
+    <section id="notes" class="section note-box">
+      <h2>06｜我的笔记</h2>
+      <p class="lead">点击下方区域即可编辑，内容自动保存到本机浏览器 localStorage（500ms 防抖），刷新/关闭再打开都不丢失。支持字数统计、导出 .txt 和清空。</p>
+      <div class="note-tools"><button class="btn" id="exportNotes">导出 .txt</button><button class="btn" id="clearNotes">清空笔记</button><span class="wc" id="wordCount">字数：0</span><span class="saved" id="saveStatus">已启用自动保存</span></div>
+      <div id="myNotes" class="editable" contenteditable="true" spellcheck="false">可在这里记录：今天要跟进的模型、适合客户沟通的三句话、要做 PoC 的工作流、需要额外核验的来源……</div>
+    </section>
+
+    <footer class="footer"><b>整理口径：</b>本页只使用公开可访问来源；对拿不到稳定原文或条目不够清晰的来源，会明确写“已巡检但不纳入主榜”，而不是补故事。<br/>整理：邹超 · 生成于 2026-07-03 08:36 CST。</footer>
+  </div>
+
+<script>
+const notes=document.getElementById('myNotes');
+const statusEl=document.getElementById('saveStatus');
+const wcEl=document.getElementById('wordCount');
+const key='daily_llm_news_notes_2026_07_03_morning';
+const saved=localStorage.getItem(key);
+if(saved){notes.innerHTML=saved}
+function countChars(){const txt=(notes.innerText||'').replace(/\s/g,'');wcEl.textContent='字数：'+txt.length}
+countChars();
+let t;
+notes.addEventListener('input',()=>{clearTimeout(t);statusEl.textContent='保存中…';countChars();t=setTimeout(()=>{localStorage.setItem(key,notes.innerHTML);statusEl.textContent='已自动保存 · '+new Date().toLocaleTimeString('zh-CN')},500)});
+document.getElementById('clearNotes').addEventListener('click',()=>{if(confirm('确定清空本页笔记？此操作不可撤销。')){notes.innerHTML='';localStorage.removeItem(key);countChars();statusEl.textContent='已清空'}});
+document.getElementById('exportNotes').addEventListener('click',()=>{const txt=notes.innerText||'';const blob=new Blob([txt],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='llm_morning_notes_2026-07-03.txt';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);statusEl.textContent='已导出 .txt · '+new Date().toLocaleTimeString('zh-CN')});
+
+const hfData=[['Qwen3-0.6B',28147234],['Qwen3-8B',14829147],['opt-125m',13411863],['GPT-2(community)',13253362],['Qwen2.5-7B-Inst',12878382],['Qwen3-4B',12016396],['Qwen2.5-1.5B-Inst',11447651],['Llama-3.1-8B-Inst',9688941],['DeepSeek-R1',7849894],['Qwen2.5-3B-Inst',7331162]];
+function fallbackBar(){const el=document.getElementById('hfChart');const max=Math.max(...hfData.map(x=>x[1]));el.innerHTML='<div style="padding:16px 16px 8px;color:#cfe0f4;font-weight:800">HF text-generation 下载量排行（fallback）</div>'+hfData.map(([n,v])=>`<div style="display:grid;grid-template-columns:160px 1fr 70px;gap:8px;align-items:center;padding:6px 16px"><span style="color:#dcecff;font-size:12px">${n}</span><div style="height:15px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden"><div style="width:${(v/max*100).toFixed(1)}%;height:100%;background:linear-gradient(90deg,#52e0ff,#9e7cff);border-radius:99px"></div></div><span style="color:#bcd0e8;font-size:12px">${(v/1000000).toFixed(1)}M</span></div>`).join('')}
+if(window.echarts){const hf=echarts.init(document.getElementById('hfChart'));hf.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},grid:{left:140,right:40,top:20,bottom:30},xAxis:{type:'value',axisLabel:{color:'#b7c8dd',formatter:v=>(v/1000000).toFixed(0)+'M'},splitLine:{lineStyle:{color:'rgba(255,255,255,.08)'}}},yAxis:{type:'category',inverse:true,data:hfData.map(x=>x[0]),axisLabel:{color:'#dcecff',fontSize:11}},series:[{name:'downloads',type:'bar',data:hfData.map(x=>x[1]),barWidth:15,itemStyle:{borderRadius:[0,8,8,0],color:new echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:'#52e0ff'},{offset:1,color:'#9e7cff'}])},label:{show:true,position:'right',color:'#dcecff',fontSize:11,formatter:p=>(p.value/1000000).toFixed(1)+'M'}}]});window.addEventListener('resize',()=>hf.resize())}else{fallbackBar();}
+</script>
+</body>
+</html>
