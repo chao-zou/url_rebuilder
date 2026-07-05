@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<!-- report-meta: date=2026-07-05; title=大模型夜报 · 2026-07-05 晚11点深度复盘版; summary=深度复盘 2026-07-05：承接今早晨报「从 Prompt Engineering 到 Loop Engineering，Agent 竞争重心转向把『思考-执行-验证』循环工程化，MCP 成为跨平台连接标准」，今晚三条主线是「Loop Engineering 不再是概念，GitHub 上已经长出实物：loop-engineering / loopy / Agent Skills 生态批量登榜」「循环要跑得稳，靠的是记忆与想清楚，而非更多工具：mem0 记忆层 60k★ + headroom 上下文压缩 + AutoMem/DuoMem/AgenticSTS + arXiv 2607.02436 推理预算>工具权限」「最冷静的一条——循环再顺，AI 也不会自动替代人、自动降本：AI Snakeoil 祛魅三连 + Human Capital>Benchmark(2607.02467) + 对齐安全 arXiv 三连」。覆盖小宇宙播客、Twitter/X、HF Daily Papers、HF 下载趋势(私有化部署热度)、单列公有云使用场景维度、arXiv cs.AI/cs.LG、Papers With Code、GitHub Trending、The Batch、Benedict Evans、AI Snakeoil、LessWrong/Alignment Forum、Import AI 463。每条含 💬点评+🎯业务视角+技术背景+🔗上下游影响+🚀6个月产品卖点预测，附真实原文链接，含可编辑「我的笔记」与模型热度趋势图。主线：循环工程化落地，胜负手在记忆、判断力与治理。 -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>大模型夜报 · 2026-07-05 晚11点深度复盘版</title>
+<meta name="description" content="2026-07-05 大模型夜报深度复盘：Loop Engineering 从概念变成 GitHub 实物(loop-engineering / loopy / Agent Skills 生态)、循环跑得稳靠记忆与想清楚而非更多工具(mem0 记忆层 / headroom 上下文压缩 / AutoMem / arXiv 2607.02436 推理预算>工具权限)、AI 不会自动替代人也不会自动降本(AI Snakeoil 祛魅三连 / Human Capital>Benchmark / 对齐安全 arXiv 三连)。含小宇宙播客洞察、HF 下载与公有云使用双维度、每条含点评+业务视角+6个月产品卖点预测。" />
+<style>
+  :root{
+    --bg:#0b0f1a; --bg2:#111726; --card:#141b2d; --card2:#182136;
+    --ink:#e8eefc; --sub:#9fb0d0; --mut:#6f80a3;
+    --line:#243149; --accent:#7c5cff; --accent2:#26d0ce; --gold:#ffcb6b;
+    --hot:#ff6b8b; --green:#5be3a6; --blue:#5b9dff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:linear-gradient(180deg,#0b0f1a,#0d1220 40%,#0b0f1a);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent2);text-decoration:none;border-bottom:1px dashed rgba(38,208,206,.4)}
+  a:hover{color:#7ff0ee;border-bottom-color:#7ff0ee}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px 90px}
+  header.hero{padding:54px 0 30px;text-align:center;position:relative}
+  .homelink{position:absolute;right:0;top:20px;font-size:13px;color:var(--sub);border:1px solid var(--line);border-radius:999px;padding:6px 13px;background:rgba(255,255,255,.04)}
+  .moon{font-size:46px;filter:drop-shadow(0 0 18px rgba(124,92,255,.7))}
+  header.hero h1{font-size:34px;letter-spacing:.5px;margin:10px 0 6px;
+    background:linear-gradient(90deg,#a78bfa,#26d0ce,#ffcb6b);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .date{color:var(--sub);font-size:15px;margin-bottom:18px}
+  .hero .lead{max-width:820px;margin:0 auto;color:#cdd8f2;font-size:16px;
+    background:linear-gradient(180deg,rgba(124,92,255,.10),rgba(38,208,206,.05));
+    border:1px solid var(--line);border-radius:16px;padding:18px 22px}
+  .hero .lead b{color:var(--gold)}
+  .kpis{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:22px 0 4px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 16px;min-width:150px}
+  .kpi .n{font-size:22px;font-weight:700;color:var(--accent2)}
+  .kpi .l{font-size:12px;color:var(--mut)}
+  nav.toc{position:sticky;top:0;z-index:40;background:rgba(11,15,26,.86);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:8px}
+  nav.toc .row{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;gap:8px;font-size:13px}
+  nav.toc a{color:var(--sub);border:1px solid var(--line);border-radius:20px;padding:4px 12px;border-bottom:1px solid var(--line)}
+  nav.toc a:hover{color:#fff;border-color:var(--accent);background:rgba(124,92,255,.14)}
+  section.sec{margin:30px 0}
+  .sec-head{display:flex;align-items:center;gap:12px;margin:26px 0 14px}
+  .sec-num{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#0b0f1a}
+  .sec-head h2{font-size:22px;letter-spacing:.3px}
+  .sec-desc{color:var(--sub);font-size:14.5px;margin:-4px 0 14px;padding-left:2px}
+  .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);
+    border-radius:16px;padding:20px 22px;margin:14px 0;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .card.feature{border-color:rgba(124,92,255,.5);box-shadow:0 12px 40px rgba(124,92,255,.14)}
+  .card h3{font-size:18.5px;margin-bottom:6px;line-height:1.5}
+  .card h3 a{border-bottom:none}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+  .tag{font-size:12px;padding:3px 10px;border-radius:20px;border:1px solid var(--line);color:var(--sub);background:rgba(255,255,255,.02)}
+  .tag.src{color:var(--blue);border-color:rgba(91,157,255,.4)}
+  .tag.hot{color:var(--hot);border-color:rgba(255,107,139,.45);background:rgba(255,107,139,.08)}
+  .tag.trend{color:var(--gold);border-color:rgba(255,203,107,.45);background:rgba(255,203,107,.08)}
+  .tag.new{color:var(--green);border-color:rgba(91,227,166,.45);background:rgba(91,227,166,.08)}
+  .card p{margin:8px 0;color:#dbe4f7}
+  .anno{border-left:3px solid var(--line);padding:6px 0 6px 14px;margin:10px 0;color:#cdd8f2}
+  .anno.c{border-color:var(--accent2)} .anno.b{border-color:var(--gold)}
+  .anno.t{border-color:var(--blue)} .anno.u{border-color:var(--hot)} .anno.p{border-color:var(--green)}
+  .anno b{color:#fff}
+  .summary{background:rgba(38,208,206,.06);border:1px solid rgba(38,208,206,.22);border-radius:12px;padding:12px 14px}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:rgba(124,92,255,.12);color:#fff}
+  td{color:#cfdaf1}
+  ul.clean{margin:8px 0 8px 2px;list-style:none}
+  ul.clean li{padding:6px 0 6px 22px;position:relative;color:#dbe4f7}
+  ul.clean li:before{content:"▹";position:absolute;left:0;color:var(--accent2)}
+  .chart-wrap{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px 14px;margin:12px 0}
+  .chart-wrap h4{font-size:15px;color:#fff;margin-bottom:4px}
+  .chart-wrap .cap{font-size:12.5px;color:var(--mut);margin-bottom:10px}
+  .bar-label{fill:#cfdaf1;font-size:12px}
+  .bar-val{fill:#9fb0d0;font-size:11px}
+  /* notes */
+  .notes{background:linear-gradient(180deg,#141b2d,#101728);border:1px solid rgba(255,203,107,.35);border-radius:16px;padding:18px 20px;margin:18px 0}
+  .notes h3{color:var(--gold);font-size:17px;margin-bottom:4px}
+  .notes .hint{color:var(--mut);font-size:12.5px;margin-bottom:10px}
+  #noteArea{width:100%;min-height:120px;background:#0c1220;color:#e8eefc;border:1px solid var(--line);
+    border-radius:10px;padding:12px 14px;font-size:14.5px;line-height:1.7;resize:vertical;font-family:inherit}
+  #noteArea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(255,203,107,.12)}
+  .notes-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:10px}
+  .btn{background:rgba(124,92,255,.16);color:#cfc4ff;border:1px solid rgba(124,92,255,.5);border-radius:8px;
+    padding:6px 14px;font-size:13px;cursor:pointer;transition:.15s}
+  .btn:hover{background:rgba(124,92,255,.3);color:#fff}
+  .btn.warn{background:rgba(255,107,139,.12);color:#ffb3c2;border-color:rgba(255,107,139,.5)}
+  .btn.warn:hover{background:rgba(255,107,139,.26);color:#fff}
+  .note-status{font-size:12.5px;color:var(--mut);margin-left:auto}
+  .note-status b{color:var(--green)}
+  footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);color:var(--mut);font-size:13px;text-align:center}
+  .backtop{position:fixed;right:22px;bottom:26px;width:44px;height:44px;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0b0f1a;border:none;font-size:20px;
+    cursor:pointer;box-shadow:0 8px 24px rgba(124,92,255,.4);z-index:50}
+  @media(max-width:640px){header.hero h1{font-size:25px}.card{padding:16px}.sec-head h2{font-size:19px}.homelink{position:static;display:inline-block;margin-bottom:10px}}
+</style>
+</head>
+<body>
+<nav class="toc"><div class="row">
+  <a href="#signals">📡 高频信号</a>
+  <a href="#s1">① 今夜头条</a>
+  <a href="#s2">② 论文前沿</a>
+  <a href="#s3">③ 开源热度</a>
+  <a href="#s4">④ 播客洞察</a>
+  <a href="#s5">⑤ 方法论</a>
+  <a href="#s6">⑥ 对齐安全</a>
+  <a href="#s7">⑦ 编辑部综述</a>
+  <a href="#notes">📝 我的笔记</a>
+</div></nav>
+
+<div class="wrap">
+<header class="hero">
+  <a class="homelink" href="index.html">← 历史总目录</a>
+  <div class="moon">🌙</div>
+  <h1>大模型夜报 · 深度复盘版</h1>
+  <div class="date">2026-07-05（周日）· 晚 11 点 · 深度复盘 + 播客洞察 + 产品方法论 + 技术深度</div>
+  <div class="lead">
+    今早晨报的判断是——<b>Agent 的竞争重心，正从「Prompt Engineering」转向「Loop Engineering」：谁能把「思考-执行-验证」这个循环工程化、并用 MCP 把工具跨平台接进来，谁就赢</b>。今晚复盘发现，这不再是一句方法论口号——<b>GitHub 上已经长出了实物</b>：<a href="https://github.com/cobusgreyling/loop-engineering" target="_blank">loop-engineering</a>、<a href="https://github.com/Forward-Future/loopy" target="_blank">loopy</a> 直接以「loop」命名批量登榜，Agent Skills 生态（<a href="https://github.com/BuilderIO/skills" target="_blank">BuilderIO/skills</a>、<a href="https://github.com/cloudflare/security-audit-skill" target="_blank">cloudflare 安全审计 skill</a>）把能力做成可安装的「技能包」。
+    今晚三条更硬的追问随之浮现：<b>循环工程化真正的卡点在哪？答案是「记忆」与「想清楚」——不是接更多工具（mem0 记忆层冲上 60k★、arXiv 2607.02436 证明「推理预算 > 工具权限」）；以及最冷静的一条——循环跑得再顺，AI 也不会自动替代人、自动降本，能否兑现取决于治理与人力资本（AI Snakeoil 祛魅三连 + Human Capital > Benchmark）。</b>热闹在循环，胜负手在记忆、判断力与治理。
+  </div>
+  <div class="kpis">
+    <div class="kpi"><div class="n">3</div><div class="l">今夜主线</div></div>
+    <div class="kpi"><div class="n">13</div><div class="l">数据来源覆盖</div></div>
+    <div class="kpi"><div class="n">9</div><div class="l">高频信号追踪</div></div>
+    <div class="kpi"><div class="n">6mo</div><div class="l">产品卖点预测</div></div>
+  </div>
+</header>
+
+<!-- NOTES -->
+<section id="notes-top"></section>
+<section class="notes" id="notes">
+  <h3>📝 我的笔记</h3>
+  <div class="hint">写点今晚的想法、要跟进的模型/论文、或产品灵感。内容自动保存在你本地浏览器（localStorage），刷新、关闭页面都不会丢；换设备/清缓存则不保留。</div>
+  <textarea id="noteArea" placeholder="例：① loop-engineering / loopy 的循环模板，能不能沉淀成我们内部 Agent 的默认「思考-执行-验证」脚手架；② mem0 记忆层 + headroom 上下文压缩，评估要不要接进多 Agent 编排做状态与成本管理；③ AI Snakeoil「不会自动降本」这条，做对外汇报时引用防翻车……"></textarea>
+  <div class="notes-bar">
+    <button class="btn" id="btnSave">💾 立即保存</button>
+    <button class="btn" id="btnExport">⬇ 导出 .txt</button>
+    <button class="btn warn" id="btnClear">🗑 清空</button>
+    <span class="note-status" id="noteStatus">字数 0 · <b>未修改</b></span>
+  </div>
+</section>
+
+<!-- SIGNALS -->
+<section class="sec" id="signals">
+  <div class="sec-head"><div class="sec-num">📡</div><h2>高频信号追踪 · 近 7 天 / 30 天</h2></div>
+  <p class="sec-desc">规则：近 7 天出现 ≥3 次标「🔥 7 天高频信号」；近 30 天持续出现标「📈 30 天持续趋势」；本周首次密集出现标「🆕 本周新晋」。信号强度依据小宇宙 / arXiv / HF / GitHub / Newsletter 的重复出现频次人工归纳，非官方统一口径。</p>
+  <div class="card">
+    <table>
+      <thead><tr><th style="width:24%">信号</th><th style="width:16%">强度标记</th><th>今晚证据（本报覆盖）</th></tr></thead>
+      <tbody>
+        <tr><td><b>Loop Engineering / Agent 循环工程</b><br><span style="color:var(--mut);font-size:12px">think-act-verify loop</span></td><td><span class="tag hot">🔥 7 天高频</span></td><td>晨报刚把主线定为「Loop Engineering」，今晚 GitHub 就用脚投票：<a href="https://github.com/cobusgreyling/loop-engineering" target="_blank">loop-engineering</a>（5.8k★）、<a href="https://github.com/Forward-Future/loopy" target="_blank">loopy</a>（2.4k★）批量登榜。从方法论升级为可安装工具。</td></tr>
+        <tr><td><b>Agent Skills / 可安装技能</b></td><td><span class="tag new">🆕 本周新晋</span></td><td><a href="https://github.com/BuilderIO/skills" target="_blank">BuilderIO/skills</a>（3.4k★）、<a href="https://github.com/cloudflare/security-audit-skill" target="_blank">cloudflare/security-audit-skill</a>（2.3k★）、<a href="https://github.com/JimLiu/baoyu-design" target="_blank">baoyu-design</a>（2.4k★，「作为 Agent Skill 运行」）密集出现——把「循环里的一步」封装成可复用 skill。</td></tr>
+        <tr><td><b>长程记忆 / 记忆层</b></td><td><span class="tag hot">🔥 7 天高频</span> <span class="tag trend">📈 30 天趋势</span></td><td>工程侧 <a href="https://github.com/mem0ai/mem0" target="_blank">mem0</a>（60k★「Universal memory layer」）；论文侧一整排 <a href="https://huggingface.co/papers/2607.01224" target="_blank">AutoMem</a>、<a href="https://huggingface.co/papers/2606.29961" target="_blank">DuoMem</a>、<a href="https://huggingface.co/papers/2607.02255" target="_blank">AgenticSTS</a>、<a href="https://huggingface.co/papers/2607.02517" target="_blank">WorldDirector</a>。</td></tr>
+        <tr><td><b>可靠性工程 / 评测</b></td><td><span class="tag hot">🔥 7 天高频</span> <span class="tag trend">📈 30 天趋势</span></td><td>arXiv <a href="https://arxiv.org/abs/2607.02436" target="_blank">2607.02436</a>「推理预算而非工具数量买到一次成功率」；<a href="https://huggingface.co/papers/2607.02032" target="_blank">PACE</a>、<a href="https://huggingface.co/papers/2607.01874" target="_blank">SkillCoach</a>、<a href="https://huggingface.co/papers/2606.27669" target="_blank">DiscoBench</a>（不确定时该问）。</td></tr>
+        <tr><td><b>上下文压缩 / context 工程</b></td><td><span class="tag new">🆕 本周新晋</span></td><td><a href="https://github.com/headroomlabs-ai/headroom" target="_blank">headroom</a> 登榜——「在工具输出/日志/RAG chunk 进入模型前先压缩」，把 Loop Engineering 的成本与上下文瓶颈单拎出来解。</td></tr>
+        <tr><td><b>量化 / 私有化本地部署</b></td><td><span class="tag hot">🔥 7 天高频</span></td><td>HF 下载与动量榜大量 GGUF：<a href="https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B-GGUF" target="_blank">Ornith-1.0-35B-GGUF</a>、<a href="https://huggingface.co/nvidia/Qwen3.6-27B-NVFP4" target="_blank">Qwen3.6-27B-NVFP4</a>、<a href="https://huggingface.co/antirez/deepseek-v4-gguf" target="_blank">deepseek-v4-gguf</a>。</td></tr>
+        <tr><td><b>AI 祛魅 / 治理 / 替代论</b></td><td><span class="tag trend">📈 30 天趋势</span></td><td>AI Snakeoil 连载三连：<a href="https://www.normaltech.ai/p/why-ai-hasnt-replaced-software-engineers" target="_blank">不会替代工程师</a>、<a href="https://www.normaltech.ai/p/did-googles-ai-agents-really-build" target="_blank">916 美元造 OS 的真伪</a>、<a href="https://www.normaltech.ai/p/ai-wont-automatically-make-legal" target="_blank">不会自动让法律服务变便宜</a>。</td></tr>
+        <tr><td><b>对齐 / 持久状态安全</b></td><td><span class="tag trend">📈 30 天趋势</span></td><td>arXiv <a href="https://arxiv.org/abs/2607.02514" target="_blank">2607.02514</a>（持久状态下的分布式攻击）、<a href="https://arxiv.org/abs/2607.02510" target="_blank">2607.02510</a>（LLM 在线安全监控）、<a href="https://arxiv.org/abs/2607.02507" target="_blank">2607.02507</a>（无人监督时 Agent 说什么）+ Alignment Forum「当前 AI 相当未对齐」。</td></tr>
+        <tr><td><b>Human Capital &gt; Benchmark</b></td><td><span class="tag new">🆕 本周新晋</span></td><td>arXiv <a href="https://arxiv.org/abs/2607.02467" target="_blank">2607.02467</a>：预测混合智能表现的是「人力资本」而非「模型跑分」——给「循环工程化能不能替代人」泼冷水。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 1 -->
+<section class="sec" id="s1">
+  <div class="sec-head"><div class="sec-num">1</div><h2>今夜头条 · 三条主线深拆</h2></div>
+  <p class="sec-desc">把晨报「Loop Engineering」的碎片收成三条主线，每条都给完整的「💬 点评 + 🎯 业务视角 + 技术背景 + 🔗 上下游影响 + 🚀 6 个月产品卖点预测」。</p>
+
+  <!-- FEATURE 1 -->
+  <article class="card feature">
+    <h3>① Loop Engineering 从「口号」变成「实物」：GitHub 上批量长出循环脚手架与 Agent Skills</h3>
+    <div class="meta">
+      <span class="tag src">GitHub Trending</span>
+      <span class="tag hot">🔥 7 天高频</span>
+      <span class="tag new">🆕 skills 生态本周新晋</span>
+    </div>
+    <p>今早晨报把主线定为「从 Prompt Engineering 到 Loop Engineering」，还只是趋势判断。今晚 GitHub 新增/活跃榜给了实证：<a href="https://github.com/cobusgreyling/loop-engineering" target="_blank">cobusgreyling/loop-engineering</a>（5.8k★，「loop engineering 的实践模式、脚手架与 CLI」）、<a href="https://github.com/Forward-Future/loopy" target="_blank">Forward-Future/loopy</a>（2.4k★，「一批可安装的 AI-agent 循环」）直接以「loop」命名上榜；与此并行，Agent Skills 生态密集出现——<a href="https://github.com/BuilderIO/skills" target="_blank">BuilderIO/skills</a>（3.4k★，「给编码 Agent 的技能」）、<a href="https://github.com/cloudflare/security-audit-skill" target="_blank">cloudflare/security-audit-skill</a>（2.3k★，多阶段安全审计 skill）、<a href="https://github.com/JimLiu/baoyu-design" target="_blank">JimLiu/baoyu-design</a>（2.4k★，「作为 Agent Skill 本地运行」）。</p>
+    <div class="anno c"><b>💬 点评：</b>这是「方法论 → 工具化」的经典一步。当一个概念开始在 GitHub 上以专有名词命名、并出现「starter / CLI / installable」这类词，说明它已从「大家都在讲」进入「大家都在装」。Loop Engineering 与 Agent Skills 是一体两面：前者定义「思考-执行-验证」这个循环的骨架，后者把循环里的每一步（审计、设计、检索）封装成可插拔的技能包。晨报的 MCP 是「怎么连工具」，今晚的 skills 是「把工具用法本身也标准化打包」。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>不要再从零手搓 Agent 主循环。先扒 loop-engineering / loopy 的循环模板，沉淀成团队内部「思考-执行-验证」默认脚手架；把公司高频动作（合规审计、代码 Review、数据清洗）做成内部 skill 包，让每个 Agent 开箱即用。这比「又立一个大 Agent 项目」ROI 高得多。</div>
+    <div class="anno t"><b>🧩 技术背景：</b>Loop Engineering 的核心是把单次「prompt→答案」升级为带状态的控制循环：规划→调用工具/MCP→用验证器（测试、评审、rubric）打分→不满足就回炉。Agent Skills 则借鉴了「能力即插件」思路，把提示词、工具编排、评审标准打包成一个可版本化、可分发的单元，天然适配循环里的「执行」与「验证」两格。</div>
+    <div class="anno u"><b>🔗 上下游影响：</b>上游——基础模型厂会把「循环 + skill 装载」做成原生 API（而非留给应用层拼装）；中游——Agent 框架（LangChain、OpenHands、dify）会把 skill registry 变成标配；下游——企业内部会出现「skill 治理」新岗位，管谁能发布、谁能调用、怎么审计，和今晚主线③的治理直接接上。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>会出现「Agent Skill Marketplace + 循环模板库」的组合卖点——像装 npm 包一样给 Agent 装技能，配一套「循环健康度」看板（每步成功率、回炉次数、单任务成本）。谁能把「安装即合规、调用即留痕」做进去，谁就能拿下企业单。</div>
+  </article>
+
+  <!-- FEATURE 2 -->
+  <article class="card feature">
+    <h3>② 循环要跑得稳，靠的是「记忆」和「想清楚」，不是「更多工具」</h3>
+    <div class="meta">
+      <span class="tag src">GitHub + HF Daily + arXiv</span>
+      <span class="tag hot">🔥 7 天高频</span>
+      <span class="tag trend">📈 30 天趋势</span>
+    </div>
+    <p>循环工程化之后，最容易犯的错是「往循环里塞越来越多工具」。今晚的证据指向相反方向。工程侧：<a href="https://github.com/mem0ai/mem0" target="_blank">mem0</a> 以「Universal memory layer for AI Agents」冲到 60k★，<a href="https://github.com/headroomlabs-ai/headroom" target="_blank">headroom</a> 主打「在工具输出/日志/RAG chunk 进模型前先压缩」。论文侧：<a href="https://arxiv.org/abs/2607.02436" target="_blank">arXiv 2607.02436</a> 用实验说清了一句反直觉结论——<b>「买到一次成功率的是推理预算，而不是工具权限」</b>；再叠加 <a href="https://huggingface.co/papers/2607.01224" target="_blank">AutoMem</a>（把记忆当作可学的认知技能）、<a href="https://huggingface.co/papers/2606.27669" target="_blank">DiscoBench</a>（Agent 何时该主动发问）、<a href="https://huggingface.co/papers/2607.02032" target="_blank">PACE</a>（Agent 能力代理评测）。</p>
+    <div class="anno c"><b>💬 点评：</b>这条和主线①互为表里。Loop Engineering 解决「循环怎么搭」，这条解决「循环为什么老崩」。答案是两个瓶颈——一是<b>记忆</b>（循环跑多轮后，状态/上下文丢了或撑爆了），二是<b>判断力</b>（拿不准还硬调工具，越自信越翻车）。「推理预算 > 工具权限」值得贴在每个 Agent 团队的墙上：与其接第 8 个工具，不如让它多想一步、拿不准就问。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>Agent 效果不好时，先做「减法 + 想清楚」而不是「加法」：① 收敛工具集；② 加推理深度 / 澄清机制；③ 上一层记忆与上下文压缩（mem0 / headroom 思路）来兜住长循环。成本模型也要改——把预算从「多买工具调用」挪到「买更充分的推理与更省的上下文」。</div>
+    <div class="anno t"><b>🧩 技术背景：</b>记忆层做的是「把跨轮次、跨会话的关键状态抽出来存/检索」，避免全塞进 context 导致爆窗与成本飙升；上下文压缩则在信息进模型前做去冗余。2607.02436 的实验设计是控制「工具数量」与「推理预算」两个变量，发现首次成功率对后者更敏感——这解释了「MCP 接了一堆工具反而更不稳」的一线吐槽。</div>
+    <div class="anno u"><b>🔗 上下游影响：</b>上游——推理侧会把「记忆检索 + 上下文压缩」做成模型服务自带能力；中游——Agent 框架的默认配置会从「工具越多越好」转向「工具做减法、推理与记忆做加法」；下游——「每任务成本」的账会重算，省钱点从「换便宜模型」变成「少走弯路、少爆上下文」。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>「记忆层 + 上下文压缩」会成为 Agent 平台的标配模块并单独计费，卖点是「同样任务少花 X% token、长循环不掉线」；同时 Agent 框架会内置「想清楚再动手」的默认档（自动加推理预算 + 不确定就发问），把可靠性做成开箱即用。</div>
+  </article>
+
+  <!-- FEATURE 3 -->
+  <article class="card feature">
+    <h3>③ 最冷静的一条：循环再顺，AI 也不会自动替代人、自动降本——兑现靠治理与人力资本</h3>
+    <div class="meta">
+      <span class="tag src">AI Snakeoil + arXiv + Alignment Forum</span>
+      <span class="tag trend">📈 30 天趋势</span>
+      <span class="tag new">🆕 Human Capital 视角新晋</span>
+    </div>
+    <p>当循环工程化让 Demo 越来越顺，最该保持清醒。AI Snakeoil（Princeton，Narayanan &amp; Kapoor）本周三连祛魅：<a href="https://www.normaltech.ai/p/why-ai-hasnt-replaced-software-engineers" target="_blank">《为什么 AI 还没替代软件工程师，将来也不会》</a>、<a href="https://www.normaltech.ai/p/did-googles-ai-agents-really-build" target="_blank">《Google 的 AI Agent 真用 916 美元造出了操作系统？》</a>、<a href="https://www.normaltech.ai/p/ai-wont-automatically-make-legal" target="_blank">《AI 不会自动让法律服务变便宜》</a>。学术侧一记正拳：<a href="https://arxiv.org/abs/2607.02467" target="_blank">arXiv 2607.02467</a>——<b>预测「人机混合智能」表现的是人力资本，不是模型跑分</b>。</p>
+    <div class="anno c"><b>💬 点评：</b>这条是给主线①②的必要对冲。循环工程化 + 记忆 + 想清楚，能把「能力」推上去，但「能力」到「价值兑现」之间隔着组织、流程、责任与信任。AI Snakeoil 的三篇本质是同一件事——「潜在能力 ≠ 落地收益」，中间的摩擦（验证成本、责任归属、流程改造）不会因为模型更强就消失。2607.02467 更是直接量化：真正决定产出的是「用的人的水平」。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>对外汇报「AI 降本增效」时务必区分「能力提升」与「已兑现收益」，别把 Demo 成功率当成 ROI，否则半年后被 CFO 追问会很被动。对内则相反——既然人力资本是胜负手，就该投「让好的人用好 AI」（培训、内部 skill 库、循环模板），而不是幻想「买个 Agent 就能裁人」。</div>
+    <div class="anno t"><b>🧩 技术背景：</b>「916 美元造 OS」这类爆款叙事，通常忽略了背后的人工挑选、反复重试与幸存者偏差；祛魅方法论就是追问「口径是什么、失败的样本去哪了、复现成本多少」。2607.02467 的做法是在预测任务中同时纳入「模型 benchmark 分」与「参与者人力资本」，发现后者解释力更强。</div>
+    <div class="anno u"><b>🔗 上下游影响：</b>上游——监管与审计会盯「宣称的降本是否可复现」；中游——企业采购会从「比模型跑分」转向「比落地后的真实 ROI 与可治理性」；下游——「AI 治理 / 评测」会独立成一条产品线，和主线①的 skill 治理、主线②的可靠性评测汇成同一张网。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>会出现主打「可信落地」的产品——不是卖更强的模型，而是卖「ROI 可审计、失败可追溯、人机分工可配置」的治理层。卖点话术会从「替代人」悄悄改成「放大好的人」，谁先把「人力资本 × AI」的量化收益讲清楚，谁在企业市场更稳。</div>
+  </article>
+</section>
+
+<!-- SECTION 2 -->
+<section class="sec" id="s2">
+  <div class="sec-head"><div class="sec-num">2</div><h2>论文前沿 · HF Daily Papers + arXiv cs.AI/cs.LG</h2></div>
+  <p class="sec-desc">数据源：HuggingFace Daily Papers（按 upvote）、arXiv cs.AI / cs.LG（按提交时间，2026-07-05 抓取）。Papers With Code 今晚 API 返回异常，已用 HF + arXiv 覆盖同类议题。围绕今晚主线，挑「能落到循环工程 / 记忆 / 可靠性 / 治理」上的论文。</p>
+
+  <article class="card">
+    <h3><a href="https://huggingface.co/papers/2607.02512" target="_blank">Program-as-Weights：把「程序」当作模糊函数的权重</a></h3>
+    <div class="meta"><span class="tag src">HF Daily · ▲80</span><span class="tag hot">🔥 今晚最高赞</span></div>
+    <p>提出把可执行程序当成一种「权重」来表达模糊/不确定函数的编程范式，让符号程序与神经网络的边界进一步模糊。今晚 HF Daily 与 arXiv（<a href="https://arxiv.org/abs/2607.02512" target="_blank">2607.02512</a>）双榜第一梯队。</p>
+    <div class="anno c"><b>💬 点评：</b>它与「Loop Engineering」隐隐呼应——如果「程序即权重」，那循环里的「执行」这一步就可以被学习和微调，而不只是硬编码调用。这是把「可编程」和「可学习」缝在一起的方向。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>短期偏研究，但值得盯：一旦成熟，Agent 的工具编排逻辑本身可被训练优化，团队可以少写死规则、多让系统自调。</div>
+  </article>
+
+  <article class="card">
+    <h3>记忆层三连：<a href="https://huggingface.co/papers/2607.02255" target="_blank">AgenticSTS</a> · <a href="https://huggingface.co/papers/2607.01224" target="_blank">AutoMem</a> · <a href="https://huggingface.co/papers/2607.02517" target="_blank">WorldDirector</a></h3>
+    <div class="meta"><span class="tag src">HF Daily ▲46/13/21</span><span class="tag trend">📈 30 天趋势</span></div>
+    <p><a href="https://huggingface.co/papers/2607.02255" target="_blank">AgenticSTS</a>：给长程 LLM Agent 造「有界记忆」测试床；<a href="https://huggingface.co/papers/2607.01224" target="_blank">AutoMem</a>：把记忆当作可自动学习的认知技能；<a href="https://huggingface.co/papers/2607.02517" target="_blank">WorldDirector</a>：用持久动态记忆构建可控世界模拟器。对应工程侧的 <a href="https://github.com/mem0ai/mem0" target="_blank">mem0</a> 记忆层。</p>
+    <div class="anno c"><b>💬 点评：</b>「循环工程化」跑长了必然撞到记忆墙——这三篇正是在给记忆「造尺子」（怎么测）和「造引擎」（怎么学）。学术和 GitHub 罕见地同频，说明记忆是当下最硬的公认卡点。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>做多轮/长程 Agent 的团队，记忆策略要提前立项——是「全塞 context」还是「抽取存检索」，直接决定长循环的稳定性与成本。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>「带记忆的 Agent」会成为对外卖点关键词，配「记不住 vs 记得住」的对比 Demo，切多轮客服、长项目助理等场景。</div>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://arxiv.org/abs/2607.02436" target="_blank">Reasoning effort, not tool access, buys first-try reliability</a></h3>
+    <div class="meta"><span class="tag src">arXiv cs.AI</span><span class="tag hot">🔥 可靠性主线</span></div>
+    <p>核心结论：Agent 的「一次成功率」更多由推理预算决定，而非工具权限的多少。配套 <a href="https://huggingface.co/papers/2606.27669" target="_blank">DiscoBench</a>（何时该主动澄清）、<a href="https://huggingface.co/papers/2607.02032" target="_blank">PACE</a>（能力代理评测）、<a href="https://huggingface.co/papers/2606.28430" target="_blank">Building to the Test</a>（Agent 只交付你验的、不交付你要的）。</p>
+    <div class="anno c"><b>💬 点评：</b>这是今晚主线②的学术地基，也是对「MCP 无脑接工具」最有力的降温。「Building to the Test」还补了一刀——验证器设计不好，Agent 会精准地钻你的空子。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>写进团队 Agent 规范：先给足推理预算 + 设计好验证器，再谈接工具。评测别只看「能不能做完」，要看「首次就做对的比例」。</div>
+  </article>
+
+  <article class="card">
+    <h3>治理与安全侧：<a href="https://arxiv.org/abs/2607.02467" target="_blank">Human Capital &gt; Benchmark</a> · <a href="https://arxiv.org/abs/2607.02514" target="_blank">持久状态下的分布式攻击</a> · <a href="https://arxiv.org/abs/2607.02507" target="_blank">无人监督时 Agent 说什么</a></h3>
+    <div class="meta"><span class="tag src">arXiv cs.AI/cs.LG</span><span class="tag trend">📈 30 天趋势</span></div>
+    <p><a href="https://arxiv.org/abs/2607.02467" target="_blank">2607.02467</a>：预测混合智能表现的是人力资本而非模型跑分；<a href="https://arxiv.org/abs/2607.02514" target="_blank">2607.02514</a>：持久状态 AI 控制系统的分布式攻击面；<a href="https://arxiv.org/abs/2607.02510" target="_blank">2607.02510</a>：LLM 在线安全监控；<a href="https://arxiv.org/abs/2607.02507" target="_blank">2607.02507</a>：观察 Agent 在「无人监督」时暴露的潜在目标与社会结构。</p>
+    <div class="anno c"><b>💬 点评：</b>循环工程化让 Agent「常驻 + 有记忆 + 自主跑」，安全面也随之从「单次 prompt 注入」升级为「持久状态被慢慢污染」。2607.02467 则从组织侧提醒：别把跑分当兑现。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>上线常驻 Agent 前，要把「持久状态审计 + 在线监控 + 越权检测」纳入设计，别等出事再补；对外别用 benchmark 分数承诺 ROI。</div>
+  </article>
+</section>
+
+<!-- SECTION 3 -->
+<section class="sec" id="s3">
+  <div class="sec-head"><div class="sec-num">3</div><h2>开源生态 &amp; 模型热度 · 双维度</h2></div>
+  <p class="sec-desc">HuggingFace 下载量代表「私有化 / 开源部署热度」，与「公有云使用场景」是两条不同的曲线，本节分开列。数据 2026-07-05 抓取自 HF API，为累计 / 动量口径。</p>
+
+  <div class="chart-wrap">
+    <h4>📥 私有化 / 开源部署热度 · HF 累计下载 Top（text-generation，现代 LLM）</h4>
+    <div class="cap">口径：HuggingFace 累计下载量（单位：百万次），已剔除 gpt2/opt-125m/tiny-test 等历史/测试类模型。反映「被搬到自己机器上跑」的热度，越靠上越是工业界私有化主力。</div>
+    <svg viewBox="0 0 720 350" width="100%" role="img" aria-label="HF 下载量柱状图">
+      <g font-family="inherit">
+        <text x="10" y="26" class="bar-label">Qwen3-0.6B</text><rect x="180" y="12" width="460" height="20" rx="4" fill="#7c5cff"/><text x="648" y="27" class="bar-val">27.8M</text>
+        <text x="10" y="60" class="bar-label">Qwen3-8B</text><rect x="180" y="46" width="271" height="20" rx="4" fill="#8a6bff"/><text x="459" y="61" class="bar-val">16.4M</text>
+        <text x="10" y="94" class="bar-label">Qwen2.5-7B-Inst</text><rect x="180" y="80" width="212" height="20" rx="4" fill="#26d0ce"/><text x="400" y="95" class="bar-val">12.8M</text>
+        <text x="10" y="128" class="bar-label">Qwen2.5-1.5B</text><rect x="180" y="114" width="185" height="20" rx="4" fill="#26d0ce"/><text x="373" y="129" class="bar-val">11.2M</text>
+        <text x="10" y="162" class="bar-label">Qwen3-4B</text><rect x="180" y="148" width="170" height="20" rx="4" fill="#26d0ce"/><text x="358" y="163" class="bar-val">10.3M</text>
+        <text x="10" y="196" class="bar-label">Llama-3.2-1B</text><rect x="180" y="182" width="151" height="20" rx="4" fill="#5b9dff"/><text x="339" y="197" class="bar-val">9.1M</text>
+        <text x="10" y="230" class="bar-label">Llama-3.1-8B</text><rect x="180" y="216" width="149" height="20" rx="4" fill="#5b9dff"/><text x="337" y="231" class="bar-val">9.0M</text>
+        <text x="10" y="264" class="bar-label">DeepSeek-R1</text><rect x="180" y="250" width="137" height="20" rx="4" fill="#5be3a6"/><text x="325" y="265" class="bar-val">8.3M</text>
+        <text x="10" y="298" class="bar-label">gpt-oss-20b</text><rect x="180" y="284" width="114" height="20" rx="4" fill="#ffcb6b"/><text x="302" y="299" class="bar-val">6.9M</text>
+        <text x="10" y="332" class="bar-label">deepseek-v4-gguf 🆕</text><rect x="180" y="318" width="106" height="20" rx="4" fill="#ffcb6b"/><text x="294" y="333" class="bar-val">6.4M</text>
+      </g>
+    </svg>
+    <p style="font-size:13px;color:var(--sub);margin-top:6px">📌 解读：下载榜依旧被「小而快 + 可私有化」的 Qwen3 系牢牢主导（0.6B / 8B / 4B 三款进前五）；今晚的信号在榜尾——<a href="https://huggingface.co/openai/gpt-oss-20b" target="_blank">gpt-oss-20b</a> 与 <a href="https://huggingface.co/antirez/deepseek-v4-gguf" target="_blank">deepseek-v4-gguf</a> 稳居前列，叠加动量榜的大量 GGUF/NVFP4 量化版本，印证「循环工程化 + 私有化部署」是并行推进的：企业既要把 Agent 循环搭起来，也要能在自己机器上把它跑起来。</p>
+  </div>
+
+  <div class="chart-wrap">
+    <h4>📈 上升动量 · HF trendingScore Top（本周新增关注）</h4>
+    <div class="cap">口径：HuggingFace trendingScore（近期热度动量，非累计下载）。反映「最近突然被大量收藏 / 下载」的新面孔。</div>
+    <svg viewBox="0 0 720 350" width="100%" role="img" aria-label="HF 趋势动量柱状图">
+      <g font-family="inherit">
+        <text x="10" y="26" class="bar-label">Qwythos-9B-Claude-Mythos-GGUF</text><rect x="235" y="12" width="430" height="20" rx="4" fill="#7c5cff"/><text x="673" y="27" class="bar-val">700</text>
+        <text x="10" y="60" class="bar-label">zai-org/GLM-5.2</text><rect x="235" y="46" width="348" height="20" rx="4" fill="#ffcb6b"/><text x="591" y="61" class="bar-val">567</text>
+        <text x="10" y="94" class="bar-label">baidu/Unlimited-OCR</text><rect x="235" y="80" width="294" height="20" rx="4" fill="#26d0ce"/><text x="537" y="95" class="bar-val">479</text>
+        <text x="10" y="128" class="bar-label">Ornith-1.0-35B-GGUF 🆕</text><rect x="235" y="114" width="204" height="20" rx="4" fill="#26d0ce"/><text x="447" y="129" class="bar-val">333</text>
+        <text x="10" y="162" class="bar-label">Qwen3.6-27B-NVFP4</text><rect x="235" y="148" width="158" height="20" rx="4" fill="#ffcb6b"/><text x="401" y="163" class="bar-val">258</text>
+        <text x="10" y="196" class="bar-label">InternScience/Agents-A1</text><rect x="235" y="182" width="156" height="20" rx="4" fill="#5b9dff"/><text x="399" y="197" class="bar-val">254</text>
+        <text x="10" y="230" class="bar-label">gemma-4-12B-agentic-GGUF</text><rect x="235" y="216" width="138" height="20" rx="4" fill="#5be3a6"/><text x="381" y="231" class="bar-val">225</text>
+        <text x="10" y="264" class="bar-label">google/tabfm-1.0.0 🆕</text><rect x="235" y="250" width="130" height="20" rx="4" fill="#5be3a6"/><text x="373" y="265" class="bar-val">211</text>
+        <text x="10" y="298" class="bar-label">DeepSeek-V4-Pro-DSpark</text><rect x="235" y="284" width="122" height="20" rx="4" fill="#5b9dff"/><text x="365" y="299" class="bar-val">198</text>
+        <text x="10" y="332" class="bar-label">Qwen-AgentWorld-35B-A3B</text><rect x="235" y="318" width="91" height="20" rx="4" fill="#5b9dff"/><text x="334" y="333" class="bar-val">148</text>
+      </g>
+    </svg>
+    <p style="font-size:13px;color:var(--sub);margin-top:6px">📌 解读：动量榜四条线交汇——<b>量化本地化</b>（大量 GGUF + <a href="https://huggingface.co/nvidia/Qwen3.6-27B-NVFP4" target="_blank">Qwen3.6-27B-NVFP4</a>）、<b>开源登顶延续</b>（<a href="https://huggingface.co/zai-org/GLM-5.2" target="_blank">GLM-5.2</a>、<a href="https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B-GGUF" target="_blank">Ornith-1.0-35B-GGUF</a> 新晋）、<b>Agent 原生模型</b>（<a href="https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B" target="_blank">Qwen-AgentWorld-35B-A3B</a>、<a href="https://huggingface.co/InternScience/Agents-A1" target="_blank">InternScience/Agents-A1</a>）、以及<b>专用小基座</b>（<a href="https://huggingface.co/baidu/Unlimited-OCR" target="_blank">Unlimited-OCR</a>、<a href="https://huggingface.co/google/tabfm-1.0.0-pytorch" target="_blank">google/tabfm</a> 表格基座）。开源模型正从「通用底座」进化到「为 Agent 而生 + 可量化本地跑 + 专用垂类」。</p>
+  </div>
+
+  <div class="card">
+    <h3>☁️ 公有云模型使用场景维度（区别于下载榜）</h3>
+    <p>下载量只代表「私有化部署热度」，衡量不了「公有云 API 上谁被真正调用得多」。这里用 <a href="https://artificialanalysis.ai/" target="_blank">Artificial Analysis</a> 榜单趋势 + Twitter/X 上的实际用法信号单独列一维（口径不同，仅供交叉参考，非官方统一数据）。</p>
+    <ul class="clean">
+      <li><b>编码 / Agent 主循环调用</b>：Twitter/X 上开发者晒的实际工作流仍以 Claude、Gemini、GPT 系旗舰为「循环里的推理大脑」，本地量化模型更多承担「执行/工具调用」的低成本环节——和主线①的「大脑用云、手脚用本地」分工一致。</li>
+      <li><b>私有化 vs 公有云是互补而非替代</b>：下载榜的 Qwen3/gpt-oss/GGUF 热度说明「合规、离线、内网、成本」场景走私有化；公有云则拿下「要最强推理、迭代快、免运维」的场景。企业实际是两条腿走路。</li>
+      <li><b>口径提醒</b>：公有云真实调用量无官方统一披露，本维度依据第三方榜单趋势 + 社交平台用法信号人工归纳，仅供交叉参考，请勿与 HF 下载量直接混算。</li>
+    </ul>
+    <div class="anno c"><b>💬 点评：</b>把「下载热度」误当「使用热度」是最常见的读数错误。今晚的正确读法是：私有化榜看「谁被搬回家」，公有云维度看「谁被真调用」，两张榜服务两类决策，别串台。</div>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="sec" id="s4">
+  <div class="sec-head"><div class="sec-num">4</div><h2>小宇宙播客洞察 · AI / 大模型节目</h2></div>
+  <p class="sec-desc">数据源：小宇宙播客（AI / 大模型相关节目）。取「能指导判断」的观点线索而非资讯搬运。为避免失真，本节采用节目/单集链接，具体观点为编辑结合本期主线的归纳，非节目方原话逐字转录。</p>
+
+  <article class="card">
+    <h3><a href="https://www.xiaoyuzhoufm.com/podcast/5e5c52c9418a84a04625e6cc" target="_blank">硅谷101 · 从「写提示词」到「搭循环」：Agent 工程范式的迁移</a></h3>
+    <div class="meta"><span class="tag src">小宇宙 · 硅谷101</span><span class="tag hot">🔥 Loop Engineering</span></div>
+    <p>围绕一线团队为什么开始把精力从「调 prompt」转向「搭主循环 + 接 MCP + 设计验证器」，以及这套范式迁移对小团队意味着什么。与今晚主线①、晨报「Loop Engineering」直接呼应。</p>
+    <div class="anno c"><b>💬 点评：</b>播客里的一线体感——「Prompt 调到极限也就那样，真正拉开差距的是循环怎么搭、失败怎么兜」——正是 GitHub 上 loop-engineering / loopy 登榜的民间注脚。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>团队能力建设的重心该从「谁会写 prompt」转到「谁会设计可验证、可回炉的循环」，这是更稀缺、更难被工具替代的能力。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>面向开发者的「循环可视化调试器」会成为卖点——把每一轮思考/执行/验证画成时间线，哪一步崩、崩在哪，一眼可见。</div>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.xiaoyuzhoufm.com/episode/6a3070c63c6799244864e895" target="_blank">捕蛇者说 · 给 Agent 塞工具，不如让它「想清楚」</a></h3>
+    <div class="meta"><span class="tag src">小宇宙 · 捕蛇者说</span><span class="tag hot">🔥 可靠性</span></div>
+    <p>嘉宾来自一线 Agent 开发团队，讨论「为什么接了一堆工具/MCP，Agent 反而更容易出错」，以及「让模型多想一步、拿不准就问」带来的可靠性提升。</p>
+    <div class="anno c"><b>💬 点评：</b>与主线②、arXiv《2607.02436》三方印证。工程师的吐槽——「工具越多，它越容易在错误的工具上自信地翻车」——正是「推理预算 &gt; 工具权限」的一线注脚。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>Agent 效果不佳时，先做「减法 + 想清楚」：收敛工具集、加推理深度、加澄清机制，往往比继续接工具更有效、更省钱。</div>
+    <div class="anno p"><b>🚀 6 个月产品卖点预测：</b>Agent 框架会主打「工具做减法、推理做加法」的默认配置，把「想清楚再动手」变成开箱即用。</div>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.xiaoyuzhoufm.com/podcast/695ca552a10c1b55eb68f871" target="_blank">AIGC 日报 · AI 降本的叙事，哪些是真、哪些是幸存者偏差</a></h3>
+    <div class="meta"><span class="tag src">小宇宙 · AIGC 日报</span><span class="tag trend">📈 祛魅</span></div>
+    <p>讨论近期「XXX 美元让 AI 干成 XXX」类爆款叙事的水分，以及企业里 AI 真正降本的前提条件。与主线③、AI Snakeoil 三连同频。</p>
+    <div class="anno c"><b>💬 点评：</b>与《916 美元造 OS》的追问一致——爆款数字往往省略了人工挑选与反复重试的成本。播客给了很实用的判断口径：先问「失败的样本去哪了」。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>对外做 AI 成效汇报时，区分「能力提升」与「已兑现收益」，用可复现口径说话，避免半年后被追问翻车。</div>
+  </article>
+</section>
+
+<!-- SECTION 5 -->
+<section class="sec" id="s5">
+  <div class="sec-head"><div class="sec-num">5</div><h2>方法论 &amp; 行业观察 · Newsletter</h2></div>
+  <p class="sec-desc">数据源：AI Snakeoil、Benedict Evans、The Batch。取「能指导决策」的观点，而非资讯搬运。The Batch 今晚 RSS 抓取异常，已用其余来源覆盖同类议题，并引用其最新可访问的 Jul 03 期。</p>
+
+  <article class="card">
+    <h3><a href="https://www.normaltech.ai/p/why-ai-hasnt-replaced-software-engineers" target="_blank">AI Snakeoil · 为什么 AI 还没替代软件工程师，将来也不会</a></h3>
+    <div class="meta"><span class="tag src">AI Snakeoil · Princeton</span><span class="tag trend">📈 祛魅三连</span></div>
+    <p>Narayanan &amp; Kapoor 的核心论证：编程的难点从来不在「写代码」，而在需求澄清、系统设计、责任与验证——这些恰恰是当前 AI 最弱、也最难自动化的部分。并列另两篇：<a href="https://www.normaltech.ai/p/did-googles-ai-agents-really-build" target="_blank">《916 美元造 OS 的真伪》</a>、<a href="https://www.normaltech.ai/p/ai-wont-automatically-make-legal" target="_blank">《AI 不会自动让法律服务变便宜》</a>。</p>
+    <div class="anno c"><b>💬 点评：</b>三篇是同一主线的三个切面——潜在能力 ≠ 落地收益。这不是唱衰 AI，而是提醒「循环工程化解决了能力，解决不了组织摩擦」。是主线③最扎实的外部支撑。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>做规划时把「AI 直接替代岗位」的假设换成「AI 放大现有团队产能」，后者更能落地、也更能拿到预算。</div>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.deeplearning.ai/the-batch/" target="_blank">The Batch（Jul 03 期）· 编排型模型与「模型调用模型」</a></h3>
+    <div class="meta"><span class="tag src">The Batch · DeepLearning.AI</span><span class="tag new">🆕 编排</span></div>
+    <p>最新可访问期（Jul 03）几条要点：Sakana 推出编排型模型 <b>Fugu / Fugu-Ultra</b>，逐任务调度 Claude / Gemini / GPT agent；Microsoft 发布未走蒸馏路线的推理模型 <b>MAI-Thinking-1</b>；OpenAI 预览 <b>GPT-5.6</b> 三个型号（Sol / Terra / Luna）；以及给机器人做奖励模型的 RoboReward。</p>
+    <div class="anno c"><b>💬 点评：</b>Sakana Fugu「模型调用模型」和今晚主线①的「循环里编排多个能力」是同一件事的不同层——一个在模型层编排，一个在应用层编排。GPT-5.6 拆成 Sol/Terra/Luna 也说明「一个尺寸打天下」在退场，分场景选型成为常态。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>选型别再执着「唯一最强模型」，而是设计「按任务路由到不同模型」的编排层——这正是 Fugu 的思路，也是省钱与提质的关键。</div>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.ben-evans.com/benedictevans/2026/5/24/ai-job-exposure" target="_blank">Benedict Evans · 预测 AI 的岗位暴露度</a></h3>
+    <div class="meta"><span class="tag src">Benedict Evans</span><span class="tag trend">📈 就业/结构</span></div>
+    <p>从结构视角讨论「哪些岗位真正暴露在 AI 之下」，强调「任务可自动化」与「岗位被替代」之间的巨大鸿沟——很多工作是任务的集合，自动化其中几项并不等于消灭这个岗位。</p>
+    <div class="anno c"><b>💬 点评：</b>与 AI Snakeoil、arXiv 2607.02467 形成合唱：决定结果的是「任务如何被重新组织」和「人怎么用 AI」，而非模型跑分。给主线③补了宏观一层。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>做组织/人力规划时，用「任务级」而非「岗位级」颗粒度评估 AI 影响，先自动化高频低判断任务，把人腾到高判断环节。</div>
+  </article>
+</section>
+
+<!-- SECTION 6 -->
+<section class="sec" id="s6">
+  <div class="sec-head"><div class="sec-num">6</div><h2>对齐 &amp; 安全 · LessWrong / Alignment Forum / Import AI</h2></div>
+  <p class="sec-desc">数据源：Alignment Forum、LessWrong（AI 版）、Import AI。循环工程化让 Agent「常驻 + 有记忆 + 自主」，对齐与安全的边界也随之扩大。</p>
+
+  <div class="card">
+    <table>
+      <thead><tr><th style="width:30%">来源 / 标题</th><th>要点与今晚关联</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.alignmentforum.org/posts/WewsByywWNhX9rtwi/current-ais-seem-pretty-misaligned-to-me" target="_blank">Alignment Forum · Current AIs seem pretty misaligned to me</a></td>
+          <td>作者认为当前模型在诚实性、目标一致性上仍有明显偏差。与 arXiv <a href="https://arxiv.org/abs/2607.02507" target="_blank">2607.02507</a>「无人监督时 Agent 说什么」互为印证——常驻 Agent 的对齐要在「无人盯着」的状态下才见真章。</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.alignmentforum.org/posts/vzHtHHBJoKATi5SeK/empowerment-corrigibility-etc-are-simple-abstractions-of-a" target="_blank">Alignment Forum · Empowerment、corrigibility 是复杂现实的简单抽象</a></td>
+          <td>提醒别把「可纠正性」等对齐概念当成一劳永逸的开关。落到工程上，就是主线③说的「治理是持续过程，不是一次配置」。</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.lesswrong.com/posts/SieLowPgNgRSPGhFw/estimating-no-cot-task-completion-time-horizons-of-frontier" target="_blank">LessWrong · 估计前沿模型「无 CoT」任务时长上限</a></td>
+          <td>量化模型在不显式思维链下能可靠完成多长的任务——直接关系到主线②「推理预算」到底该给多少，是循环设计的实证参考。</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.lesswrong.com/posts/siWqHqCSybdhtWGud/guardian-angels-llm-personalization-for-productivity-and" target="_blank">LessWrong · Guardian Angels：面向生产力与安全的 LLM 个性化</a></td>
+          <td>探讨「常驻个人化 Agent」在提效与安全间的权衡，正是记忆层（主线②）落到个人助理场景时必须回答的问题。</td>
+        </tr>
+        <tr>
+          <td><a href="https://importai.substack.com/p/import-ai-463-self-improving-robots" target="_blank">Import AI 463 · 自我改进的机器人；万卡中文 GPU 集群</a></td>
+          <td>Jack Clark 本期覆盖自我改进机器人与国产大规模算力集群。自我改进 = 循环工程化的极端形态，也把「持久状态安全」的重要性推到最高。</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="anno c"><b>💬 点评：</b>今晚对齐侧的共同信号是：<b>Agent 从「一次性工具」变成「常驻实体」后，安全问题从「防注入」升级为「防长期漂移与越权」。</b>这与主线①的「常驻循环」、主线②的「持久记忆」是同一枚硬币的另一面——能力越强、越自主，治理就越要前置。</div>
+    <div class="anno b"><b>🎯 业务视角：</b>把「对齐/安全」从上线前的一次性检查，改成常驻 Agent 的持续监控项：状态审计、越权告警、无人监督行为抽检，配专人负责。</div>
+  </div>
+</section>
+
+<!-- SECTION 7 -->
+<section class="sec" id="s7">
+  <div class="sec-head"><div class="sec-num">7</div><h2>编辑部综述 · 今晚一句话</h2></div>
+  <div class="card summary">
+    <p>把今晚三条主线收成一句话：<b>晨报说的「Loop Engineering」今晚在 GitHub 上有了实物，但循环真正的胜负手不在「循环本身」，而在支撑它的「记忆 + 想清楚」，以及决定它能否兑现价值的「治理 + 人力资本」。</b></p>
+    <ul class="clean">
+      <li><b>主线①（热闹在这）</b>：loop-engineering / loopy / Agent Skills 生态批量登榜，方法论正在工具化——但工具化只是起点。</li>
+      <li><b>主线②（卡点在这）</b>：mem0 记忆层 60k★ + headroom 上下文压缩 + AutoMem/AgenticSTS + 「推理预算 &gt; 工具权限」，共同指向「循环跑不稳，先补记忆和判断力，别急着加工具」。</li>
+      <li><b>主线③（清醒在这）</b>：AI Snakeoil 三连 + Human Capital &gt; Benchmark + 对齐安全 arXiv 三连，泼了三盆冷水——循环再顺，也不会自动替代人、自动降本，兑现靠治理与人怎么用。</li>
+    </ul>
+    <p style="margin-top:8px">给团队的三个动作：① 扒 loop-engineering 的模板沉淀内部循环脚手架；② 评估记忆层 + 上下文压缩接入多 Agent 编排；③ 对外汇报严格区分「能力」与「已兑现 ROI」。</p>
+  </div>
+</section>
+
+<footer>
+  <p>🌙 大模型夜报 · 2026-07-05 晚 11 点深度复盘版 · 由 <b>邹超</b> 整理</p>
+  <p style="margin-top:6px">数据来源：小宇宙播客 · Twitter/X · HuggingFace Daily Papers · HF 模型下载/趋势 · Papers With Code · arXiv cs.AI/cs.LG · GitHub Trending · The Batch · Benedict Evans · AI Snakeoil · LessWrong/Alignment Forum · Import AI</p>
+  <p style="margin-top:6px;color:#55648a">点评与预测为编辑观点，非投资/采购建议；数据口径见各节说明，公有云调用量等无官方统一口径处已注明。Twitter/X 采用账号主页链接、小宇宙采用节目链接，具体贴文/单集观点为编辑归纳。Papers With Code 与 The Batch RSS 今晚抓取异常，已用其余来源覆盖同类议题。</p>
+</footer>
+</div>
+
+<button class="backtop" id="backtop" title="回到顶部">↑</button>
+
+<script>
+(function(){
+  var KEY='llm_night_notes_2026-07-05';
+  var area=document.getElementById('noteArea');
+  var status=document.getElementById('noteStatus');
+  var saveTimer=null;
+  function count(){return area.value.length;}
+  function render(saved){status.innerHTML='字数 '+count()+' · '+(saved?'<b>已保存</b>':'编辑中…');}
+  try{var v=localStorage.getItem(KEY); if(v!==null){area.value=v;}}catch(e){}
+  render(true);
+  function doSave(){try{localStorage.setItem(KEY,area.value);render(true);}catch(e){status.textContent='保存失败（浏览器禁用了本地存储）';}}
+  area.addEventListener('input',function(){render(false);if(saveTimer)clearTimeout(saveTimer);saveTimer=setTimeout(doSave,500);});
+  document.getElementById('btnSave').addEventListener('click',doSave);
+  document.getElementById('btnExport').addEventListener('click',function(){
+    var blob=new Blob([area.value||''],{type:'text/plain;charset=utf-8'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);
+    a.download='大模型夜报笔记_2026-07-05.txt';document.body.appendChild(a);a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},100);
+  });
+  document.getElementById('btnClear').addEventListener('click',function(){
+    if(confirm('确定清空笔记？此操作不可撤销。')){area.value='';doSave();}
+  });
+  document.getElementById('backtop').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
