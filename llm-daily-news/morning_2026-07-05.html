@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>大模型晨报｜早8点版｜2026-07-05</title>
+  <meta name="description" content="2026-07-05 大模型晨报：Agent 竞争重心从 Prompt Engineering 转向 Loop Engineering（循环工程）——把“思考-执行-验证”循环工程化。The Batch #360 与 Claude Code harness 剖析共振；MCP 随 X 官方托管服务器与 Google agents-cli 成为连接标准；Models Invoking Models 让动态路由继续压成本；PerceptionRubrics 揭示多模态/GUI Agent 的可靠性鸿沟；HF 下载榜 Qwen 系稳居，nvidia Qwen3.6-35B-A3B-NVFP4 以 FP4 量化新入私有化视野。" />
+  <!-- report-meta: date=2026-07-05; title=大模型晨报｜2026-07-05 早8点版; summary=今日主线是“从 Prompt Engineering 到 Loop Engineering：Agent 竞争重心转向把‘思考-执行-验证’循环工程化，MCP 成为跨平台连接标准”。本期覆盖 Twitter/X、HuggingFace Daily Papers、HuggingFace 下载趋势、Papers With Code、arXiv cs.AI/cs.LG、GitHub Trending、The Batch、Benedict Evans Newsletter、LessWrong/Alignment Forum、AI Snakeoil、Import AI；并单列公有云模型使用场景与来源覆盖说明。 -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <style>
+    :root{--bg:#07111d;--panel:#101a2d;--panel2:#0d1526;--text:#edf4ff;--muted:#9fb2cc;--line:rgba(255,255,255,.11);--cyan:#52e0ff;--violet:#9e7cff;--green:#6df0b0;--amber:#ffd166;--red:#ff7f90;--blue:#77adff;--shadow:0 24px 80px rgba(0,0,0,.35)}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 18% -10%,rgba(82,224,255,.24),transparent 28%),radial-gradient(circle at 95% 0,rgba(158,124,255,.25),transparent 24%),linear-gradient(180deg,#07101b,#0b1425 42%,#07101c);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;line-height:1.62} a{color:#7bdcff;text-decoration:none} a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:auto;padding:34px 22px 72px}.hero{position:relative;border:1px solid var(--line);border-radius:28px;padding:36px;background:linear-gradient(135deg,rgba(16,26,45,.92),rgba(16,26,45,.60));box-shadow:var(--shadow);overflow:hidden}.hero:after{content:"";position:absolute;right:-110px;top:-120px;width:350px;height:350px;background:radial-gradient(circle,rgba(82,224,255,.18),transparent 65%)}.kicker{display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border:1px solid rgba(82,224,255,.35);border-radius:999px;color:#bdf3ff;background:rgba(82,224,255,.08);font-size:13px}.homelink{position:absolute;right:26px;top:26px;font-size:13px;padding:7px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.06);color:#dbeaff;z-index:4}h1{font-size:46px;line-height:1.12;margin:18px 0 12px;letter-spacing:-.03em}.sub{max-width:880px;color:#c6d5e8;font-size:18px}.meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}.pill{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.055);color:#d9e8fb;font-size:13px}.grid{display:grid;gap:18px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}@media(max-width:900px){.g4,.g3,.g2{grid-template-columns:1fr}h1{font-size:34px}.hero{padding:26px}.homelink{position:static;display:inline-block;margin-bottom:10px}}.card{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(16,26,45,.88),rgba(13,21,38,.82));box-shadow:0 16px 44px rgba(0,0,0,.22);padding:20px}.stat{font-size:30px;font-weight:800}.label{color:var(--muted);font-size:13px}.section{margin-top:28px}.section h2{font-size:27px;margin:0 0 16px;letter-spacing:-.02em}.lead{color:#bdd0e6;margin-top:-6px}.news{display:grid;gap:18px}.news-item{border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.045);padding:22px;position:relative;overflow:hidden}.news-item:before{content:"";position:absolute;left:0;top:0;width:5px;height:100%;background:linear-gradient(var(--cyan),var(--violet))}.news-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.news-title{font-size:21px;font-weight:800;margin:0 0 8px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}.tag{font-size:12px;padding:4px 9px;border-radius:999px;background:rgba(82,224,255,.12);color:#bff5ff;border:1px solid rgba(82,224,255,.22)}.tag.hot{background:rgba(255,209,102,.14);color:#ffe1a1;border-color:rgba(255,209,102,.28)}.tag.trend{background:rgba(109,240,176,.13);color:#b9ffd8;border-color:rgba(109,240,176,.24)}.tag.warn{background:rgba(255,127,144,.12);color:#ffc1c8;border-color:rgba(255,127,144,.24)}.source{font-size:13px;color:#a9bdd5}.analysis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}@media(max-width:900px){.analysis{grid-template-columns:1fr}}.mini{border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:13px;background:rgba(0,0,0,.16)}.mini b{color:#fff}.chart{height:380px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.035);padding:8px}.table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:16px}.table th,.table td{padding:12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.table th{color:#cbe9ff;background:rgba(82,224,255,.08)}.up{color:#6df0b0;font-weight:700}.down{color:#ff9aa4;font-weight:700}.flat{color:#9fb2cc}.note-box{border:1px solid rgba(109,240,176,.25);border-radius:22px;background:linear-gradient(180deg,rgba(109,240,176,.10),rgba(255,255,255,.035));padding:18px}.note-tools{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;align-items:center}.btn{cursor:pointer;font-size:13px;padding:7px 13px;border-radius:999px;border:1px solid rgba(109,240,176,.4);background:rgba(109,240,176,.1);color:#c9ffe6}.btn:hover{background:rgba(109,240,176,.2)}.editable{min-height:180px;border:1px dashed rgba(109,240,176,.5);border-radius:18px;padding:16px;background:rgba(0,0,0,.18);outline:none;color:#f4fff9}.editable:focus{box-shadow:0 0 0 3px rgba(109,240,176,.12)}.saved{font-size:12px;color:#9ff5c9;margin-top:0}.wc{font-size:12px;color:#bcd0e8;padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.05)}.footer{margin-top:38px;color:#98abc2;font-size:13px;border-top:1px solid var(--line);padding-top:18px}.toc{position:sticky;top:12px;z-index:3;backdrop-filter:blur(16px);background:rgba(7,13,24,.72);border:1px solid var(--line);border-radius:18px;margin:18px 0;padding:10px;display:flex;flex-wrap:wrap;gap:8px}.toc a{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.05);font-size:13px;color:#dbeaff}.small{font-size:13px;color:#9fb2cc}.quote{border-left:3px solid var(--cyan);padding-left:12px;color:#cfe0f4}.badge{font-size:12px;border:1px solid var(--line);border-radius:10px;padding:4px 8px;background:rgba(255,255,255,.06)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <a class="homelink" href="index.html">← 历史总目录</a>
+      <span class="kicker">☀️ 大模型晨报 · 早8点版 · 2026-07-05（周日）</span>
+      <h1>从 Prompt 工程到循环工程：竞争重心转向“把思考-执行-验证的循环工程化”</h1>
+      <p class="sub">承接近几日“多 Agent 编排 + 每任务成本 + 可治理”的主线，今早信号更聚焦到<b>循环层</b>：<b>The Batch #360</b> 把 Claude Code 作者 Boris Cherney 与 OpenClaw 作者 Peter Steinberger 推动的 <b>Loop Engineering（循环工程）</b> 摆上台面，X 上《Dive into Claude Code》对 Agent harness 的拆解与之呼应——Prompt Engineering 正被“循环工程”接棒；与此同时 <b>MCP</b> 随 X 官方托管服务器与 <b>Google agents-cli</b> 成为跨平台连接标准；The Batch 的 <b>Models Invoking Models</b> 让动态路由继续压成本；<b>PerceptionRubrics</b> 泼来冷水——多模态/GUI Agent 存在明显“可靠性鸿沟”；HF 下载榜 <b>Qwen</b> 系依旧稳居，<b>nvidia/Qwen3.6-35B-A3B-NVFP4</b> 以 FP4 量化新入私有化视野。</p>
+      <div class="meta">
+        <span class="pill">生成时间：2026-07-05 08:05 CST</span>
+        <span class="pill">阅读时长：约 5 分钟</span>
+        <span class="pill">覆盖：X / HF Papers / HF Downloads / PWC / arXiv / GitHub / The Batch / Benedict Evans / LessWrong / Alignment / AI Snakeoil / Import AI</span>
+        <span class="pill">口径：公开可访问来源；无可靠原文链接不伪造</span>
+      </div>
+    </header>
+
+    <nav class="toc"><a href="#summary">今日结论</a><a href="#top">重点资讯</a><a href="#signals">高频信号</a><a href="#hf">HF下载趋势</a><a href="#cloud">公有云场景</a><a href="#radar">来源覆盖</a><a href="#notes">我的笔记</a></nav>
+
+    <section id="summary" class="section grid g4">
+      <div class="card"><div class="stat">6</div><div class="label">今日重点资讯</div><p>循环工程、MCP 连接标准、模型调模型路由、可靠性鸿沟、开源部署热度、编码 Agent 生产化各挑一条。</p></div>
+      <div class="card"><div class="stat">5</div><div class="label">高频信号</div><p>循环工程、MCP 标准化、任务级成本分流、开源/私有化部署、跑分≠真实交付。</p></div>
+      <div class="card"><div class="stat">循环工程</div><div class="label">今日方法论关键词</div><p>别只调 Prompt，要工程化“思考-执行-验证”的整条回路：反馈、纠错、复核。</p></div>
+      <div class="card"><div class="stat">NVFP4</div><div class="label">私有化新信号</div><p>nvidia/Qwen3.6-35B-A3B-NVFP4 登 HF 下载前列，FP4 量化把 MoE 塞进更小显存。</p></div>
+    </section>
+
+    <section id="top" class="section">
+      <h2>01｜重点资讯：今天该带走的 6 条判断</h2>
+      <p class="lead">说明：X 优先采用可访问的官方/机构账号与知名从业者帖子，不写无法核实的互动数字；HuggingFace 下载与 arXiv 优先用官方 API / 官方页面；GitHub Trending 取当日公开页可见热门 AI 仓库；Papers With Code 官方站已于 2025 年退役，本期以近期高关注 arXiv / SOTA 论文替代并在“来源覆盖”区说明。</p>
+      <div class="news">
+
+        <article class="news-item">
+          <div class="news-head"><div><h3 class="news-title">Prompt Engineering 让位于 Loop Engineering：Agent 竞争重心从“写好提示”转向“工程化整条回路”</h3><div class="source">来源：The Batch · <a href="https://www.deeplearning.ai/the-batch/issue-360" target="_blank">Issue 360（Loop Engineering）</a> · Twitter/X · <a href="https://x.com/burkov/status/2048233381305942381" target="_blank">Dive into Claude Code：Agent harness 剖析</a></div></div><span class="badge">优先级 A</span></div>
+          <div class="tags"><span class="tag hot">7天高频信号</span><span class="tag trend">30天持续趋势</span><span class="tag">X 实际工作流</span><span class="tag">Loop Engineering</span></div>
+          <p>今早两条来源指向同一件事：<b>The Batch #360</b> 把 Claude Code 作者 <b>Boris Cherney</b> 与 OpenClaw 作者 <b>Peter Steinberger</b> 共同推动的 <b>Loop Engineering（循环工程）</b> 摆上台面——主张把注意力从单点 Prompt 优化，转向系统性工程化 Agent 的“思考-执行-验证”循环，通过更严格的反馈回路与多 Agent 协同来抬升复杂多步任务的成功率；X 上被大量转发的《Dive into Claude Code: The Design Space of Today's and Future AI Agent Systems》则从 harness（治理框架）角度拆解了任务拆分、工具调用循环与自动纠错，强调“验证层”是可靠性的关键。两者合起来说明：Prompt 工程红利期已过，下一波竞争在“循环”。</p>
+          <div class="analysis">
+            <div class="mini"><b>💬点评</b><br/>“循环工程”不是新造词游戏，而是把评价标准从“提示写得妙不妙”换成“回路稳不稳、错了能不能自愈”。这才是 Agent 能被长期用起来的分水岭。</div>
+            <div class="mini"><b>🎯业务视角</b><br/>做方案别再堆“我们的 Prompt 很强”，要展示“思考→执行→验证→回退”的完整闭环，以及失败时的自动纠错与人工接管点。</div>
+            <div class="mini"><b>技术背景</b><br/>Loop Engineering 的三要素：显式反馈回路、可验证的执行结果、循环触发与终止条件。本质是把 Agent 从“一次性生成”改造成“可迭代收敛的过程”。</div>
+            <div class="mini"><b>🔗上下游影响</b><br/>上游会催生更多 harness / 验证器 / 循环编排框架；下游产品会把“循环可观测 + 纠错日志 + 收敛度指标”做成默认能力。</div>
+          </div>
+          <p class="quote"><b>🚀6个月产品卖点预测：</b>“可工程化的执行循环 + 内置验证器 + 收敛度看板”会取代“提示词库”，成为 Agent 平台最能成交的技术叙事。</p>
+        </article>
+
+        <article class="news-item">
+          <div class="news-head"><div><h3 class="news-title">MCP 正式成为“连接标准”：X 上线官方托管 MCP 服务器，Google 发布 agents-cli</h3><div class="source">来源：Twitter/X · <a href="https://x.com/tetsuoai/status/2071775282420445427" target="_blank">X 官方托管 MCP 服务器</a> · GitHub Trending · <a href="https://github.com/google/agents-cli" target="_blank">google/agents-cli</a></div></div><span class="badge">优先级 A</span></div>
+          <div class="tags"><span class="tag hot">7天高频信号</span><span class="tag">MCP</span><span class="tag">基础设施标准化</span></div>
+          <p>MCP（Model Context Protocol）今早出现两个“进主流”的强信号：<b>X 平台</b>推出官方托管的 MCP 服务器，让 Grok Build、Cursor、Claude、VS Code 等客户端可直接连接 X 做搜索帖子、管理书签、获取趋势与代拟发文，开发者不必再各自处理 API 鉴权与配额；<b>Google</b> 则发布官方 <b>agents-cli</b>，支持一键部署 MCP 服务器，并自带 Token 监控、调用链路追踪与 Agentic Workflow 单测套件。当平台方与云厂商都开始官方托管/官方工具化 MCP，它就从“社区约定”变成了“行业连接标准”。</p>
+          <div class="analysis">
+            <div class="mini"><b>💬点评</b><br/>去年大家还在争“要不要接 MCP”，今年平台方直接把 MCP 服务器托管起来。协议一旦被大厂官方背书，接入成本骤降，生态会加速向它靠拢。</div>
+            <div class="mini"><b>🎯业务视角</b><br/>如果你的产品还没有 MCP Server，客户很快会默认“为什么接不进我的 Agent”。把自家能力包成 MCP Server，正在从加分项变成入场券。</div>
+            <div class="mini"><b>技术背景</b><br/>MCP 用统一协议描述“工具/资源/上下文”的连接方式，屏蔽各家 API 差异；官方托管则进一步解决鉴权、配额、稳定性这些工程脏活。</div>
+            <div class="mini"><b>🔗上下游影响</b><br/>上游利好 MCP 网关、鉴权与可观测工具；下游会出现“把 SaaS 能力一键 MCP 化”的中间件，以及围绕 MCP 的安全审计需求。</div>
+          </div>
+          <p class="quote"><b>🚀6个月产品卖点预测：</b>“官方托管 MCP Server + 一键接入主流 Agent + 调用链可观测”会成为平台类产品争夺开发者的标准配置。</p>
+        </article>
+
+        <article class="news-item">
+          <div class="news-head"><div><h3 class="news-title">Models Invoking Models：大模型当调度器、小模型做执行，动态路由继续压成本</h3><div class="source">来源：The Batch · <a href="https://www.deeplearning.ai/the-batch/issue-360" target="_blank">Issue 360（Models Invoking Models）</a> · Artificial Analysis · <a href="https://artificialanalysis.ai/models" target="_blank">Models 榜（成本/排名口径）</a></div></div><span class="badge">优先级 A</span></div>
+          <div class="tags"><span class="tag hot">7天高频信号</span><span class="tag trend">30天持续趋势</span><span class="tag">公有云模型使用场景</span><span class="tag warn">成本</span></div>
+          <p><b>The Batch #360</b> 专门讨论了日益普及的“模型调用模型”架构：由前沿大模型（如 GPT-5.6）当中心调度器，按需调用针对特定任务优化的小模型或旧版本（如轻量 mini 版），在保证生成质量的同时把推理成本压下来；文中还提到新的 API 标准正在萌芽以支持这种自动化的模型间路由与能力交接。这正是把近几日“每任务真实成本 + 任务分流”的主线，进一步做成了“架构默认项”。</p>
+          <div class="analysis">
+            <div class="mini"><b>💬点评</b><br/>它和“循环工程”是一体两面：循环工程解决“怎么把一件事做对”，模型调模型解决“怎么用最省的模型组合把它做对”。</div>
+            <div class="mini"><b>🎯业务视角</b><br/>报价别只报单一模型，给客户一张“任务难度 × 推荐模型 × 单任务成本”的路由表；能自动把简单任务从贵模型上分流，本身就是可售卖的能力。</div>
+            <div class="mini"><b>技术背景</b><br/>模型调模型 = 升级版的 MoE 思路搬到系统层：调度器负责规划与分派，执行模型负责具体子任务，靠标准化接口完成能力交接。</div>
+            <div class="mini"><b>🔗上下游影响</b><br/>上游会强化路由、缓存与 effort 自动调节；下游 AI 网关会把“预算护栏 + 任务级计费看板 + 自动降级”做成默认配置。</div>
+          </div>
+          <p class="quote"><b>🚀6个月产品卖点预测：</b>“按难度自动路由 + 预算封顶 + 每任务成本回放”会成为多模型编排层最容易打动 CFO 的卖点。</p>
+        </article>
+
+        <article class="news-item">
+          <div class="news-head"><div><h3 class="news-title">泼一盆冷水：多模态/GUI Agent 存在“可靠性鸿沟”，能识别单点却搞不定多约束</h3><div class="source">来源：HuggingFace Daily Papers / arXiv · <a href="https://arxiv.org/abs/2606.28322" target="_blank">PerceptionRubrics</a> · <a href="https://arxiv.org/abs/2607.03154" target="_blank">TurboServe（流式视频推理）</a></div></div><span class="badge">优先级 B</span></div>
+          <div class="tags"><span class="tag warn">逆风信号</span><span class="tag">多模态</span><span class="tag">GUI Agent</span><span class="tag">评测</span></div>
+          <p><b>PerceptionRubrics</b> 提出了一个精细校准多模态大模型（MLLM）的评测框架，揭示出严重的“可靠性鸿沟”（Reliability Gap）：模型能通过原子级的单点识别测试，但在需要同时满足多个约束的“合取感知”（Conjunctive Perception）任务上表现骤降，尤其在 GUI 自动化场景难以保持感知的连续性与一致性。这直接挑战了只用粗粒度语义相似度做评估的旧体系。同日 <b>TurboServe</b> 从工程侧补位——首个面向流式视频生成的推理服务系统，据称在同等算力下相比通用框架吞吐量约提升 2 倍，为多模态实时化铺路。</p>
+          <div class="analysis">
+            <div class="mini"><b>💬点评</b><br/>“看起来很美”的 GUI Agent demo 很多，但真上生产会栽在多约束一致性上。这条提醒我们：多模态可靠性还没到能无人值守的程度。</div>
+            <div class="mini"><b>🎯业务视角</b><br/>做 GUI Agent / 视觉分析产品，别只讲“能看懂截图”，要讲“多条件校验 + 关键步骤显式确认 + 出错可回退”，把可靠性当卖点而非默认。</div>
+            <div class="mini"><b>技术背景</b><br/>合取感知考验的是模型在多个并列约束下的联合判断能力；这类失败往往不会体现在单点 benchmark 上，需要专门的 rubric 才能暴露。</div>
+            <div class="mini"><b>🔗上下游影响</b><br/>上游会出现更多面向多模态的细粒度评测与显式逻辑校验；下游 GUI Agent 会普遍加入“关键动作二次确认”与人工兜底。</div>
+          </div>
+          <p class="quote"><b>🚀6个月产品卖点预测：</b>“多约束视觉校验 + 关键步骤人工确认 + 全流程可回退”会成为 GUI/多模态 Agent 落地的可靠性差异化卖点。</p>
+        </article>
+
+        <article class="news-item">
+          <div class="news-head"><div><h3 class="news-title">HF 下载榜：私有化/开源部署热度仍被 Qwen 把住，nvidia Qwen3.6-35B-A3B-NVFP4 以 FP4 量化新入视野</h3><div class="source">来源：HuggingFace 官方 API · <a href="https://huggingface.co/models" target="_blank">Models</a> · <a href="https://huggingface.co/nvidia/Qwen3.6-35B-A3B-NVFP4" target="_blank">nvidia/Qwen3.6-35B-A3B-NVFP4</a></div></div><span class="badge">优先级 A</span></div>
+          <div class="tags"><span class="tag trend">30天持续趋势</span><span class="tag">私有化/开源部署热度</span><span class="tag">Qwen</span><span class="tag">NVFP4</span></div>
+          <p>截至 2026-07-05 早间，HuggingFace text-generation 下载榜前列仍是 <b>Qwen/Qwen3-0.6B（27,994,605）</b>、<b>Qwen/Qwen3-8B（16,001,721，较昨日约 +4.40%）</b>、<b>Qwen/Qwen2.5-7B-Instruct（12,834,959）</b> 等，<b>Qwen/Qwen3-Embedding-0.6B（10,351,571）</b>继续稳居前列印证 RAG/检索底座需求旺盛。今日最值得注意的新信号是 <b>nvidia/Qwen3.6-35B-A3B-NVFP4（6,354,853）</b>登上高位——这是 NVIDIA 提供的 <b>NVFP4（FP4）量化版</b> Qwen3.6-35B-A3B（MoE，激活约 3B），意味着“把强 MoE 模型用 4-bit 塞进更小显存做私有化”正在被大量拉取。此外 <b>deepseek-ai/DeepSeek-R1（8,214,698，约 +1.68%）</b>、<b>antirez/deepseek-v4-gguf（6,434,676）</b> 与 <b>openai/gpt-oss-20b（6,923,180）</b> 仍处高位。该榜衡量的是私有化/自托管热度，不等同于公有云 API 调用量。</p>
+          <div class="analysis">
+            <div class="mini"><b>💬点评</b><br/>下载榜的故事一直很稳：只要客户有合规、成本、离线、内网诉求，Qwen 系小中尺寸 + 量化底座就会持续放量。NVFP4 是今天的新抓手。</div>
+            <div class="mini"><b>🎯业务视角</b><br/>NVFP4 量化 MoE 走热是明确信号：客户想“用更少显存跑更强模型”。你要能提供 FP4/GGUF 量化、部署、监控与二次蒸馏的完整方案。</div>
+            <div class="mini"><b>技术背景</b><br/>NVFP4 是 NVIDIA 的 4-bit 浮点量化格式，配合 MoE 稀疏激活，可在显著降显存/带宽的同时尽量保住精度，适合单卡/边缘私有化。</div>
+            <div class="mini"><b>🔗上下游影响</b><br/>上游利好量化框架、推理引擎与国产/新一代算力；下游会加速“开源量化底座做私有数据层，闭源旗舰做复杂任务”的混合架构。</div>
+          </div>
+          <p class="quote"><b>🚀6个月产品卖点预测：</b>“FP4/低比特量化 + MoE 私有化 + 敏感数据不出域”会继续是企业级 AI 项目的默认成交语言。</p>
+        </article>
+
+        <article class="news-item">
+          <div class="news-head"><div><h3 class="news-title">编码 Agent 生产化提速：Scale-SWE 达 73% SWE-bench，superpowers 破 21 万星，但“替代工程师”仍是逆风</h3><div class="source">来源：GitHub Trending · <a href="https://github.com/obra/superpowers" target="_blank">obra/superpowers</a> · <a href="https://github.com/XiaomiMiMo/MiMo-Code" target="_blank">XiaomiMiMo/MiMo-Code</a> · arXiv · <a href="https://arxiv.org/abs/2602.09892" target="_blank">Scale-SWE Agent</a> · AI Snakeoil · <a href="https://www.normaltech.ai/p/ai-as-normal-technology" target="_blank">AI as Normal Technology</a></div></div><span class="badge">优先级 B</span></div>
+          <div class="tags"><span class="tag hot">7天高频信号</span><span class="tag trend">30天持续趋势</span><span class="tag">编码 Agent</span><span class="tag warn">跑分≠交付</span></div>
+          <p>编码 Agent 生态今早继续升温：<b>Scale-SWE Agent</b> 靠对 GitHub 大规模真实数据的沉浸式训练，在 <b>SWE-bench Verified</b> 上达到 <b>73%</b>；GitHub Trending 上 <b>obra/superpowers</b> 突破 <b>21 万星</b>，把 TDD 驱动、系统性调试、子 Agent 协作等“方法论”结构化注入普通助手；小米 <b>MiMo-Code</b> 以本地多模态 + 一站式记忆系统对标 Claude Code。但 <b>AI Snakeoil</b> 的《AI as Normal Technology》仍是重要逆风：作者主张把 AI 当“常规技术”看待，安全与能力取决于部署环境而非单纯调参，提醒“代码生成变多 ≠ 软件工程岗位被自动替代”。</p>
+          <div class="analysis">
+            <div class="mini"><b>💬点评</b><br/>跑分在涨、明星项目在冒，但“可靠性鸿沟”和“替代论降温”同时存在。编码 Agent 是强力倍增器，不是即插即用的替代品。</div>
+            <div class="mini"><b>🎯业务视角</b><br/>卖编码 Agent，别承诺“替代团队”，要承诺“把资深工程师的方法论固化成可复用技能，让团队产能翻倍且质量可控”。</div>
+            <div class="mini"><b>技术背景</b><br/>superpowers 这类框架的价值不在模型更强，而在用结构化技能约束 Agent 的盲目尝试；SWE-bench Verified 则是当前编码 Agent 最被认可的真实任务基准。</div>
+            <div class="mini"><b>🔗上下游影响</b><br/>上游会出现更多“技能库 + 记忆系统 + 验证器”中间件；下游企业会把编码 Agent 嵌进现有 CI/评审流程，而非另起炉灶。</div>
+          </div>
+          <p class="quote"><b>🚀6个月产品卖点预测：</b>“结构化技能库 + 长期记忆 + 与 CI/评审打通”会成为编码 Agent 在企业里真正留存的三件套。</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="signals" class="section grid g2">
+      <div class="card"><h2>02｜高频信号追踪</h2><table class="table"><tr><th>信号</th><th>判定</th><th>今日依据</th></tr>
+        <tr><td>Agent 竞争从 Prompt Engineering 转向 Loop Engineering（循环工程）</td><td><span class="tag hot">7天高频信号</span><br/><span class="tag trend">30天持续趋势</span></td><td>The Batch #360 正式命名 Loop Engineering，X《Dive into Claude Code》harness 剖析呼应，与近几期“编排/循环”主线连贯。</td></tr>
+        <tr><td>MCP 从社区约定走向官方托管的“连接标准”</td><td><span class="tag hot">7天高频信号</span></td><td>X 官方托管 MCP 服务器 + Google agents-cli 一键部署 MCP，延续 07-04“MCP 工具批量登榜”。</td></tr>
+        <tr><td>模型选型从“单价/分数”转向“每任务真实成本 + 任务分流/模型调模型”</td><td><span class="tag hot">7天高频信号</span><br/><span class="tag trend">30天持续趋势</span></td><td>The Batch Models Invoking Models + Artificial Analysis 成本口径，与近几期成本分流主线连贯。</td></tr>
+        <tr><td>开源/私有化部署热度持续强于情绪波动</td><td><span class="tag trend">30天持续趋势</span></td><td>HF 下载榜继续被 Qwen 占据，nvidia Qwen3.6-35B-A3B-NVFP4 以 FP4 量化新入前列。</td></tr>
+        <tr><td>编码 Agent 跑分上升，但“替代工程师/可靠性”仍是持续议题</td><td><span class="tag trend">30天持续趋势</span></td><td>Scale-SWE 达 73% SWE-bench，同时 AI Snakeoil 与 PerceptionRubrics 从两侧提示“跑分≠可靠交付”。</td></tr>
+      </table></div>
+      <div class="card"><h2>今日一句话判断</h2><p style="font-size:22px;font-weight:800;color:#dff8ff">今天企业客户更在乎：这一群模型/Agent 能不能被工程化成一条稳定、可纠错、可接入（MCP）、还能按成本自动分流的执行循环。</p><p class="small">口径说明：<b>7天高频信号</b>表示近 7 天里在我们的日报档案或多个公开来源中至少反复出现 3 次；<b>30天持续趋势</b>是编辑性判断，基于近几周持续讨论面板与来源连续性，<b>不等同于统一官方统计口径</b>。</p></div>
+    </section>
+
+    <section id="hf" class="section">
+      <h2>03｜HuggingFace 模型下载趋势：这代表“私有化 / 开源部署热度”</h2>
+      <p class="lead">统计口径：HuggingFace 官方 API，filter=text-generation，sort=downloads，抓取时间 2026-07-05 08:0x CST。该指标代表可下载、可自托管模型的热度，不等同于公有云 API 使用量。对比列以 07-04 晨报数值为基准。</p>
+      <div class="grid g2">
+        <div><div id="hfChart" class="chart"></div><p class="small" style="text-align:center;margin-top:6px">Top 10 text-generation 模型当前下载量</p></div>
+        <div class="card"><h3>编辑解读</h3><table class="table"><tr><th>观察</th><th>结论</th></tr>
+          <tr><td>Qwen3-8B 环比约 +4.40%</td><td>通用中尺寸模型继续放量，仍是私有化 PoC 的主力档位。</td></tr>
+          <tr><td>Qwen3-Embedding-0.6B 稳居前列</td><td>RAG / 检索底座需求旺盛，embedding 模型被单独规模化拉取。</td></tr>
+          <tr><td>nvidia Qwen3.6-35B-A3B-NVFP4 新入高位</td><td>FP4 量化的 MoE 底座被大量下载，"低比特跑强模型"私有化诉求明确。</td></tr>
+          <tr><td>DeepSeek-R1 约 +1.68%</td><td>强推理开源底座热度稳定，reasoning 自托管信号持续。</td></tr>
+        </table></div>
+      </div>
+      <table class="table" style="margin-top:16px"><tr><th>排行</th><th>模型</th><th>当前下载量</th><th>对比 07-04</th><th>解读</th><th>链接</th></tr>
+        <tr><td>1</td><td>Qwen/Qwen3-0.6B</td><td>27,994,605</td><td><span class="down">-0.54%</span></td><td>端侧、批处理、轻量私有化继续高频。</td><td><a href="https://huggingface.co/Qwen/Qwen3-0.6B" target="_blank">HF</a></td></tr>
+        <tr><td>2</td><td>Qwen/Qwen3-8B</td><td>16,001,721</td><td><span class="up">+4.40%</span></td><td>通用推理与内部工具链的平衡点，继续放量。</td><td><a href="https://huggingface.co/Qwen/Qwen3-8B" target="_blank">HF</a></td></tr>
+        <tr><td>3</td><td>facebook/opt-125m</td><td>13,795,345</td><td><span class="up">+0.57%</span></td><td>教学、测试、基线用途显著。</td><td><a href="https://huggingface.co/facebook/opt-125m" target="_blank">HF</a></td></tr>
+        <tr><td>4</td><td>openai-community/gpt2</td><td>13,218,856</td><td><span class="down">-0.24%</span></td><td>经典基线仍有长尾价值。</td><td><a href="https://huggingface.co/openai-community/gpt2" target="_blank">HF</a></td></tr>
+        <tr><td>5</td><td>Qwen/Qwen2.5-7B-Instruct</td><td>12,834,959</td><td><span class="up">+0.24%</span></td><td>存量部署大，迁移节奏偏稳。</td><td><a href="https://huggingface.co/Qwen/Qwen2.5-7B-Instruct" target="_blank">HF</a></td></tr>
+        <tr><td>6</td><td>Qwen/Qwen2.5-1.5B-Instruct</td><td>11,194,051</td><td><span class="down">-0.90%</span></td><td>小尺寸模型依旧是私有化刚需。</td><td><a href="https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct" target="_blank">HF</a></td></tr>
+        <tr><td>7</td><td>Qwen/Qwen3-4B</td><td>10,483,582</td><td><span class="down">-7.85%</span></td><td>滚动口径波动较大，但仍在高位。</td><td><a href="https://huggingface.co/Qwen/Qwen3-4B" target="_blank">HF</a></td></tr>
+        <tr><td>8</td><td>Qwen/Qwen3-Embedding-0.6B</td><td>10,351,571</td><td><span class="up">+0.28%</span></td><td>RAG / 检索底座需求旺盛。</td><td><a href="https://huggingface.co/Qwen/Qwen3-Embedding-0.6B" target="_blank">HF</a></td></tr>
+        <tr><td>9</td><td>meta-llama/Llama-3.1-8B-Instruct</td><td>9,285,862</td><td><span class="down">-2.15%</span></td><td>仍是许多 RAG / Agent 原型默认底座。</td><td><a href="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct" target="_blank">HF</a></td></tr>
+        <tr><td>10</td><td>meta-llama/Llama-3.2-1B-Instruct</td><td>9,020,161</td><td><span class="flat">进入前列</span></td><td>端侧小模型继续被规模化拉取。</td><td><a href="https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct" target="_blank">HF</a></td></tr>
+      </table>
+      <p class="small" style="margin-top:10px">备注：trl-internal-testing/tiny-Qwen2ForCausalLM-2.5（9,701,891）、hmellor/tiny-random-LlamaForCausalLM（5,115,414）等测试型构件未纳入重点表，以避免把测试下载误读为生产热度；同日 deepseek-ai/DeepSeek-R1（8,214,698，约 +1.68%）、openai/gpt-oss-20b（6,923,180）、antirez/deepseek-v4-gguf（6,434,676）与 nvidia/Qwen3.6-35B-A3B-NVFP4（6,354,853，新入）作为 reasoning / 量化自托管信号补充说明。</p>
+    </section>
+
+    <section id="cloud" class="section">
+      <h2>04｜公有云模型使用场景：这看的是“真实工作流”，不是 HF 下载量</h2>
+      <p class="lead">统计口径：本节专看 <b>Artificial Analysis + Twitter/X 实际用法</b>。它衡量的是公有云模型在真实工具链和采购讨论中的使用信号，和 HF 下载量不是同一类指标。</p>
+      <div class="grid g2">
+        <div class="card"><h3>今天的公有云使用场景</h3><table class="table"><tr><th>场景</th><th>代表信号</th><th>链接</th></tr>
+          <tr><td>编码 Agent 界面之争</td><td>开发者实测 xAI Grok Build vs Claude Code，讨论"AI 原生编程界面"该长啥样、低延迟与简洁 TUI 更受资深开发者青睐。</td><td><a href="https://x.com/lemire/status/2064412388275671313" target="_blank">Lemire on X</a></td></tr>
+          <tr><td>MCP 连接第三方平台</td><td>X 官方托管 MCP 服务器，让公有云模型客户端直连社交平台做搜索/发文/趋势获取。</td><td><a href="https://x.com/tetsuoai/status/2071775282420445427" target="_blank">X MCP on X</a></td></tr>
+          <tr><td>模型调模型 / 动态路由</td><td>The Batch：前沿大模型当调度器、小模型做执行，在质量与成本间自动权衡。</td><td><a href="https://artificialanalysis.ai/models" target="_blank">AA Models</a></td></tr>
+        </table></div>
+        <div class="card"><h3>一句话拆分两个维度</h3><table class="table"><tr><th>维度</th><th>你该怎么理解</th></tr>
+          <tr><td>HF 下载量</td><td>看"是否适合私有化 / 开源部署 / 自托管"。</td></tr>
+          <tr><td>X + Artificial Analysis</td><td>看"公有云模型有没有被真实工作流接住，以及接住后贵不贵、稳不稳、能不能编排/路由"。</td></tr>
+          <tr><td>给客户汇报时</td><td>建议把这两个图层分开讲，避免把下载量误说成 API 使用量。</td></tr>
+        </table><p class="small" style="margin-top:8px">如果客户关心采购，优先展示任务级成本与路由策略；如果客户关心合规与私有化，优先展示开源/量化底座与端云混合架构。<br/>说明：本节 Artificial Analysis 的具体成本数值沿用近几日晨报口径，未在今日重复抓取新精确数字，避免伪造。</p></div>
+      </div>
+    </section>
+
+    <section id="radar" class="section">
+      <h2>05｜来源覆盖检查：全部巡检，拿不到可靠条目就不硬写</h2>
+      <table class="table"><tr><th>来源</th><th>状态</th><th>本轮采用/巡检链接</th><th>说明</th></tr>
+        <tr><td>Twitter / X</td><td>已采用</td><td><a href="https://x.com/tetsuoai/status/2071775282420445427" target="_blank">X 官方 MCP</a> / <a href="https://x.com/lemire/status/2064412388275671313" target="_blank">Grok Build vs Claude Code</a> / <a href="https://x.com/burkov/status/2048233381305942381" target="_blank">Dive into Claude Code</a></td><td>优先选实际工作流与 harness/循环方法，不写无法核实的互动数字。</td></tr>
+        <tr><td>HuggingFace Daily Papers</td><td>已采用</td><td><a href="https://arxiv.org/abs/2606.28322" target="_blank">PerceptionRubrics</a> / <a href="https://arxiv.org/abs/2607.03154" target="_blank">TurboServe</a> / <a href="https://arxiv.org/abs/2510.11926" target="_blank">Locaris</a></td><td>采用近两日高热度条目；周日平台通常不发新条目，已在下方说明。</td></tr>
+        <tr><td>HuggingFace 模型下载趋势</td><td>已采用</td><td><a href="https://huggingface.co/models" target="_blank">HF Models</a></td><td>用官方 API 拉取 text-generation 下载榜（真实数据）。</td></tr>
+        <tr><td>Papers With Code</td><td>已替代</td><td><a href="https://arxiv.org/abs/2602.09892" target="_blank">Scale-SWE Agent</a> / <a href="https://arxiv.org/abs/2604.00149" target="_blank">PhysVEC</a></td><td>PWC 官方站已于 2025 年退役，本期以近期高关注 arXiv / SOTA 论文替代并注明。</td></tr>
+        <tr><td>arXiv cs.AI / cs.LG</td><td>已采用</td><td><a href="https://arxiv.org/abs/2607.02329" target="_blank">Grounded Autonomous Research</a> / <a href="https://arxiv.org/abs/2607.01433" target="_blank">CreativityNeuro</a> / <a href="https://arxiv.org/abs/2607.01153" target="_blank">Adversarial Pragmatics（AI 安全）</a> / <a href="https://arxiv.org/abs/2510.03222" target="_blank">Low-probability Tokens（RLVR）</a></td><td>07-01/02 前后最新提交，聚焦科学 Agent、创造力、安全评估与 RL 探索。</td></tr>
+        <tr><td>GitHub Trending</td><td>已采用</td><td><a href="https://github.com/obra/superpowers" target="_blank">obra/superpowers</a> / <a href="https://github.com/google/agents-cli" target="_blank">google/agents-cli</a> / <a href="https://github.com/agency-enterprise/agency-agents" target="_blank">agency-agents</a> / <a href="https://github.com/XiaomiMiMo/MiMo-Code" target="_blank">XiaomiMiMo/MiMo-Code</a></td><td>采用当日公开 Trending 页面可见热门 AI 仓库。</td></tr>
+        <tr><td>The Batch</td><td>已采用</td><td><a href="https://www.deeplearning.ai/the-batch/issue-360" target="_blank">Issue 360</a></td><td>公开页可见 GPT-5.6 系列与微软协议调整、Loop Engineering、Models Invoking Models 三条主线。</td></tr>
+        <tr><td>Benedict Evans Newsletter</td><td>已巡检</td><td><a href="https://www.ben-evans.com/newsletter" target="_blank">No. 547（06-28）</a></td><td>周日/不定期更新，最新公开一期仍为 06-28（Multiplayer AI 与垂直 SaaS 竞争），保留为持续观察源。</td></tr>
+        <tr><td>LessWrong / Alignment Forum</td><td>已采用</td><td><a href="https://www.lesswrong.com/posts/ckKZFqfSQGMye4JeK" target="_blank">No-CoT 任务完成时间线评估（07-02）</a> / <a href="https://www.lesswrong.com/posts/BmA5KwzZhLk2rykoz/training-deliberative-monitors-for-black-box-scheming" target="_blank">黑盒权谋行为检测</a></td><td>采用官方 feed 可见的最新高相关帖子（评测方法论 × 对齐安全）。</td></tr>
+        <tr><td>AI Snakeoil / AI as Normal Technology</td><td>已采用</td><td><a href="https://www.normaltech.ai/p/ai-as-normal-technology" target="_blank">AI as Normal Technology</a></td><td>继续提醒"把 AI 当常规技术"、安全取决于部署环境，"代码生成增多 ≠ 岗位被自动替代"。</td></tr>
+        <tr><td>Import AI</td><td>已巡检</td><td><a href="https://importai.substack.com/p/import-ai-463-self-improving-robots" target="_blank">Import AI 463</a></td><td>周一更新，最新一期仍为 463：自改进机器人、万卡级中国 GPU 集群、多 Agent 性能权衡。</td></tr>
+      </table>
+      <div class="grid g3" style="margin-top:18px">
+        <div class="card"><h3>The Batch #360</h3><p>本期三条主线：<b>OpenAI GPT-5.6 系列</b>发布并调整与微软的合作（授权不再完全独占，OpenAI 可通过其他云分发）；<b>Loop Engineering（循环工程）</b>被正式命名，取代 Prompt Engineering 成为 Agent 开发者新焦点；<b>Models Invoking Models</b> 让大模型调度小模型的路由架构走向主流。</p><p><a href="https://www.deeplearning.ai/the-batch/issue-360" target="_blank">原文链接</a></p></div>
+        <div class="card"><h3>Import AI 463</h3><p><b>Import AI 463</b> 关注自改进机器人、中国万卡级 GPU 集群，以及不同前沿模型（GPT-5.5 vs Opus 4.7）在多 Agent 配置下的性能权衡——多 Agent 设置能更有效探索解空间。周一更新，最新一期仍为 463。</p><p><a href="https://importai.substack.com/p/import-ai-463-self-improving-robots" target="_blank">原文链接</a></p></div>
+        <div class="card"><h3>AI Snakeoil</h3><p><b>AI as Normal Technology</b>：Arvind Narayanan 与 Sayash Kapoor 主张把 AI 当"常规技术"看待，安全性取决于部署环境与上下文而非仅靠微调，并呼吁在开源模型社会影响的辩论里保持精确，去掉过度神格化的宣传。</p><p><a href="https://www.normaltech.ai/p/ai-as-normal-technology" target="_blank">原文链接</a></p></div>
+      </div>
+    </section>
+
+    <section id="notes" class="section note-box">
+      <h2>06｜我的笔记</h2>
+      <p class="lead">点击下方区域即可编辑，内容自动保存到本机浏览器 localStorage（500ms 防抖），刷新/关闭再打开都不丢失。支持字数统计、导出 .txt 和清空。</p>
+      <div class="note-tools"><button class="btn" id="exportNotes">导出 .txt</button><button class="btn" id="clearNotes">清空笔记</button><span class="wc" id="wordCount">字数：0</span><span class="saved" id="saveStatus">已启用自动保存</span></div>
+      <div id="myNotes" class="editable" contenteditable="true" spellcheck="false">可在这里记录：今天要落地的循环工程（Loop Engineering）改造点、要不要把自家能力包成 MCP Server、模型调模型的路由/成本策略、GUI Agent 的可靠性校验清单、需要额外核验的来源……</div>
+    </section>
+
+    <footer class="footer"><b>整理口径：</b>本页只使用公开可访问来源；对拿不到稳定原文或条目不够清晰的来源，会明确写"已巡检但不纳入主榜"，而不是补故事。HuggingFace 下载量为官方 API 实时数据，其余条目已尽力核验链接可访问性。<br/>整理：邹超 · 生成于 2026-07-05 08:05 CST。</footer>
+  </div>
+
+<script>
+const notes=document.getElementById('myNotes');
+const statusEl=document.getElementById('saveStatus');
+const wcEl=document.getElementById('wordCount');
+const key='daily_llm_news_notes_2026_07_05_morning';
+const saved=localStorage.getItem(key);
+if(saved){notes.innerHTML=saved}
+function countChars(){const txt=(notes.innerText||'').replace(/\s/g,'');wcEl.textContent='字数：'+txt.length}
+countChars();
+let t;
+notes.addEventListener('input',()=>{clearTimeout(t);statusEl.textContent='保存中…';countChars();t=setTimeout(()=>{localStorage.setItem(key,notes.innerHTML);statusEl.textContent='已自动保存 · '+new Date().toLocaleTimeString('zh-CN')},500)});
+document.getElementById('clearNotes').addEventListener('click',()=>{if(confirm('确定清空本页笔记？此操作不可撤销。')){notes.innerHTML='';localStorage.removeItem(key);countChars();statusEl.textContent='已清空'}});
+document.getElementById('exportNotes').addEventListener('click',()=>{const txt=notes.innerText||'';const blob=new Blob([txt],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='llm_morning_notes_2026-07-05.txt';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);statusEl.textContent='已导出 .txt · '+new Date().toLocaleTimeString('zh-CN')});
+
+const hfData=[['Qwen3-0.6B',27994605],['Qwen3-8B',16001721],['opt-125m',13795345],['GPT-2(community)',13218856],['Qwen2.5-7B-Inst',12834959],['Qwen2.5-1.5B-Inst',11194051],['Qwen3-4B',10483582],['Qwen3-Embedding-0.6B',10351571],['Llama-3.1-8B-Inst',9285862],['Llama-3.2-1B-Inst',9020161]];
+function fallbackBar(){const el=document.getElementById('hfChart');const max=Math.max(...hfData.map(x=>x[1]));el.innerHTML='<div style="padding:16px 16px 8px;color:#cfe0f4;font-weight:800">HF text-generation 下载量排行（fallback）</div>'+hfData.map(([n,v])=>`<div style="display:grid;grid-template-columns:160px 1fr 70px;gap:8px;align-items:center;padding:6px 16px"><span style="color:#dcecff;font-size:12px">${n}</span><div style="height:15px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden"><div style="width:${(v/max*100).toFixed(1)}%;height:100%;background:linear-gradient(90deg,#52e0ff,#9e7cff);border-radius:99px"></div></div><span style="color:#bcd0e8;font-size:12px">${(v/1000000).toFixed(1)}M</span></div>`).join('')}
+if(window.echarts){const hf=echarts.init(document.getElementById('hfChart'));hf.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},grid:{left:140,right:40,top:20,bottom:30},xAxis:{type:'value',axisLabel:{color:'#b7c8dd',formatter:v=>(v/1000000).toFixed(0)+'M'},splitLine:{lineStyle:{color:'rgba(255,255,255,.08)'}}},yAxis:{type:'category',inverse:true,data:hfData.map(x=>x[0]),axisLabel:{color:'#dcecff',fontSize:11}},series:[{name:'downloads',type:'bar',data:hfData.map(x=>x[1]),barWidth:15,itemStyle:{borderRadius:[0,8,8,0],color:new echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:'#52e0ff'},{offset:1,color:'#9e7cff'}])},label:{show:true,position:'right',color:'#dcecff',fontSize:11,formatter:p=>(p.value/1000000).toFixed(1)+'M'}}]});window.addEventListener('resize',()=>hf.resize())}else{fallbackBar();}
+</script>
+</body>
+</html>
