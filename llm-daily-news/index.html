@@ -1,193 +1,115 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>大模型晨报 / 夜报 · 历史总目录</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --line:rgba(255,255,255,.12); --text:#eaf2ff; --muted:#9db1d1; --accent:#7cc7ff; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Inter,'Noto Sans SC',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; color:var(--text);
-      background:radial-gradient(1100px 600px at 80% -5%,#1b2c52 0%,transparent 55%),radial-gradient(900px 500px at 0% 0%,#20184a 0%,transparent 50%),linear-gradient(180deg,#0a1224,#070d1a 60%,#05080f); min-height:100vh; }
-    .wrap { max-width:1200px; margin:0 auto; padding:52px 24px 96px; }
-    .hero h1 { margin:0 0 12px; font-size:42px; font-weight:800; letter-spacing:-.01em; }
-    .hero h1 span { background:linear-gradient(90deg,#7cc7ff,#8d7dff); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-    .hero p { margin:0; color:var(--muted); max-width:780px; line-height:1.8; font-size:15px; }
-    .badges { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
-    .badge { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; background:rgba(124,199,255,.12); color:var(--accent); border:1px solid rgba(124,199,255,.2); font-size:13px; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:18px; margin-top:30px; }
-    .card { text-decoration:none; color:inherit; background:rgba(255,255,255,.06); border:1px solid var(--line); border-radius:20px;
-      padding:20px 22px; display:block; min-height:200px; box-shadow:0 18px 48px rgba(0,0,0,.22); backdrop-filter:blur(12px); transition:transform .2s,border-color .2s,box-shadow .2s; }
-    .card:hover { transform:translateY(-4px); border-color:rgba(124,199,255,.45); box-shadow:0 24px 64px rgba(0,0,0,.3); }
-    .card-top { display:flex; align-items:center; gap:10px; color:var(--muted); font-size:12.5px; margin-bottom:14px; }
-    .pill { font-weight:700; padding:3px 10px; border-radius:999px; border:1px solid; font-size:12px; }
-    .card-top .date { margin-left:2px; }
-    .card-top .jump { margin-left:auto; color:var(--accent); }
-    .card h3 { margin:0 0 12px; font-size:20px; line-height:1.4; font-weight:700; }
-    .card p { margin:0; color:#c8d7ef; line-height:1.7; font-size:13.5px; }
-    .foot { margin-top:42px; color:var(--muted); font-size:13px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📚 大模型晨报 / 夜报 · 历史总目录</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#0a0e1f;--bg1:#111834;--card:rgba(24,32,64,.72);--card-brd:rgba(120,140,220,.18);
+  --ink:#e8ecf8;--ink-dim:#a4adcf;--ink-mute:#6f78a0;--moon:#c7b8ff;--accent:#7c6cff;--accent2:#4dd6ff;--gold:#ffcf6b;--orange:#ff9d5c;
+  --grad:linear-gradient(120deg,#7c6cff 0%,#4dd6ff 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans SC','Inter',system-ui,sans-serif;color:var(--ink);line-height:1.7;min-height:100vh;
+  background:radial-gradient(1200px 600px at 12% -8%,rgba(124,108,255,.18),transparent 60%),radial-gradient(1000px 500px at 92% 4%,rgba(77,214,255,.12),transparent 55%),linear-gradient(180deg,var(--bg0),var(--bg1) 45%,var(--bg0));background-attachment:fixed;}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px 90px}
+.hero{text-align:center;padding:60px 0 30px}
+.hero .tag{display:inline-block;padding:7px 18px;border-radius:999px;background:rgba(124,108,255,.14);border:1px solid rgba(199,184,255,.35);color:var(--moon);font-weight:700;font-size:13.5px;margin-bottom:20px}
+.hero h1{font-size:clamp(30px,5.5vw,48px);font-weight:900;background:linear-gradient(120deg,#fff,#c7b8ff 55%,#4dd6ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+.hero p{color:var(--ink-dim);font-size:15.5px;max-width:640px;margin:0 auto}
+.filters{display:flex;justify-content:center;gap:10px;margin:28px 0 8px;flex-wrap:wrap}
+.fbtn{cursor:pointer;font-size:14px;font-weight:600;padding:8px 20px;border-radius:999px;border:1px solid var(--card-brd);background:rgba(124,108,255,.1);color:var(--ink-dim);transition:.2s}
+.fbtn:hover{color:var(--ink);border-color:var(--accent)}
+.fbtn.active{background:var(--grad);color:#fff;border-color:transparent}
+.stat-line{text-align:center;color:var(--ink-mute);font-size:13.5px;margin-bottom:26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{position:relative;display:block;background:var(--card);border:1px solid var(--card-brd);border-radius:18px;padding:22px 22px;text-decoration:none;color:inherit;backdrop-filter:blur(12px);transition:.26s;overflow:hidden;cursor:pointer}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;opacity:.9}
+.card.morning::before{background:linear-gradient(180deg,#ffcf6b,#ff9d5c)}
+.card.night::before{background:var(--grad)}
+.card:hover{transform:translateY(-5px);border-color:rgba(124,108,255,.55);box-shadow:0 20px 46px -20px rgba(80,70,200,.65)}
+.card:hover .go{color:var(--accent2)}
+.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.type-badge{font-size:12.5px;font-weight:700;padding:4px 12px;border-radius:999px}
+.type-badge.morning{background:rgba(255,207,107,.14);color:var(--gold);border:1px solid rgba(255,207,107,.4)}
+.type-badge.night{background:rgba(124,108,255,.16);color:var(--moon);border:1px solid rgba(124,108,255,.45)}
+.weekday{font-size:12.5px;color:var(--ink-mute)}
+.card h3{font-size:20px;font-weight:800;margin-bottom:6px;color:#fff}
+.card .sub{font-size:13.5px;color:var(--ink-dim);margin-bottom:14px}
+.card .go{font-size:13.5px;color:var(--ink-mute);font-weight:600;transition:.2s}
+.empty{grid-column:1/-1;text-align:center;color:var(--ink-mute);padding:40px}
+.foot{text-align:center;color:var(--ink-mute);font-size:13px;margin-top:56px;padding-top:24px;border-top:1px solid var(--card-brd)}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <section class="hero">
-      <h1>大模型<span>晨报 / 夜报</span> · 历史总目录</h1>
-      <p>这里汇总每日生成的 AI / 大模型晨报与夜报。每张卡片含类型、日期、标题与 2-3 句核心摘要，点击即可查看完整报告。夜报侧重睡前深度复盘，晨报侧重当日速览。</p>
-      <div class="badges">
-        <div class="badge">共 18 份报告</div>
-        <div class="badge">🌙 夜报 8 份</div>
-        <div class="badge">☀️ 晨报 8 份</div>
-      </div>
-    </section>
-    <section class="grid">
-      <a class="card" href="morning_2026-07-06.html">
+<div class="wrap">
+  <header class="hero">
+    <div class="tag">📚 大模型晨报 / 夜报</div>
+    <h1>历史总目录</h1>
+    <p>每日追踪 AI / 大模型全域资讯。晨报速览、夜报深度复盘，覆盖论文、模型趋势、公有云用量、社区实践、播客洞察与行业思辨。</p>
+    <div class="filters">
+      <span class="fbtn active" data-f="all">全部</span>
+      <span class="fbtn" data-f="night">🌙 夜报</span>
+      <span class="fbtn" data-f="morning">☀️ 晨报</span>
+    </div>
+    <div class="stat-line" id="statLine"></div>
+  </header>
+  <main class="grid" id="grid"></main>
+  <footer class="foot">🌙 大模型晨报 / 夜报 · 自动生成 · 最近更新 2026-07-06</footer>
+</div>
+<script>
+/* 报告清单：newest first。type 自动决定徽章（morning=晨报 / night=夜报）。 */
+const REPORTS=[
+  {type:"night",date:"2026-07-06",file:"night_2026-07-06.html"},
+  {type:"morning",date:"2026-07-06",file:"morning_2026-07-06.html"},
+  {type:"night",date:"2026-07-05",file:"night_2026-07-05.html"},
+  {type:"morning",date:"2026-07-05",file:"morning_2026-07-05.html"},
+  {type:"night",date:"2026-07-04",file:"night_2026-07-04.html"},
+  {type:"morning",date:"2026-07-04",file:"morning_2026-07-04.html"},
+  {type:"night",date:"2026-07-03",file:"night_2026-07-03.html"},
+  {type:"morning",date:"2026-07-03",file:"morning_2026-07-03.html"},
+  {type:"night",date:"2026-07-02",file:"night_2026-07-02.html"},
+  {type:"morning",date:"2026-07-02",file:"morning_2026-07-02.html"},
+  {type:"night",date:"2026-07-01",file:"night_2026-07-01.html"},
+  {type:"morning",date:"2026-07-01",file:"morning_2026-07-01.html"},
+  {type:"night",date:"2026-06-30",file:"night_2026-06-30.html"},
+  {type:"morning",date:"2026-06-30",file:"morning_2026-06-30.html"},
+  {type:"night",date:"2026-06-29",file:"night_2026-06-29.html"}
+];
+const WD=['周日','周一','周二','周三','周四','周五','周六'];
+function weekday(d){const t=new Date(d+'T12:00:00');return WD[t.getDay()];}
+const grid=document.getElementById('grid');
+const statLine=document.getElementById('statLine');
+let filter='all';
+function render(){
+  grid.innerHTML='';
+  const list=REPORTS.filter(r=>filter==='all'||r.type===filter);
+  if(!list.length){grid.innerHTML='<div class="empty">暂无该类型报告</div>';}
+  list.forEach(r=>{
+    const isNight=r.type==='night';
+    const a=document.createElement('a');
+    a.className='card '+r.type;a.href=r.file;
+    a.innerHTML=`
       <div class="card-top">
-        <span class="pill" style="color:#ffd166;border-color:#ffd16655;background:#ffd1661a;">晨报</span>
-        <span class="date">2026-07-06</span>
-        <span class="jump">打开 →</span>
+        <span class="type-badge ${r.type}">${isNight?'🌙 夜报':'☀️ 晨报'}</span>
+        <span class="weekday">${weekday(r.date)}</span>
       </div>
-      <h3>大模型晨报｜2026-07-06 早8点版</h3>
-      <p>今日主线是“Agent 工程栈从‘调 Prompt’走向‘装技能 + 稳循环 + 带记忆’：Agent Skills 成为可复用操作层的新范式”。GitHub Trending 的 Skill/Loop 仓库、HF 论文 SkillCoach 与 Program-as-Weights、Agent…</p>
-    </a><a class="card" href="night_2026-07-05.html">
-      <div class="card-top">
-        <span class="pill" style="color:#8d7dff;border-color:#8d7dff55;background:#8d7dff1a;">夜报</span>
-        <span class="date">2026-07-05</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>大模型夜报 · 2026-07-05 晚11点深度复盘版</h3>
-      <p>深度复盘 2026-07-05：承接今早晨报「从 Prompt Engineering 到 Loop Engineering，Agent 竞争重心转向把『思考-执行-验证』循环工程化，MCP 成为跨平台连接标准」，今晚三条主线是「Loop Engineering 不再是概念，GitHub 上已经…</p>
-    </a><a class="card" href="morning_2026-07-05.html">
-      <div class="card-top">
-        <span class="pill" style="color:#ffd166;border-color:#ffd16655;background:#ffd1661a;">晨报</span>
-        <span class="date">2026-07-05</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>大模型晨报｜2026-07-05 早8点版</h3>
-      <p>今日主线是“从 Prompt Engineering 到 Loop Engineering：Agent 竞争重心转向把‘思考-执行-验证’循环工程化，MCP 成为跨平台连接标准”。本期覆盖 Twitter/X、HuggingFace Daily Papers、HuggingFace 下载趋势、P…</p>
-    </a><a class="card" href="night_2026-07-04.html">
-      <div class="card-top">
-        <span class="pill" style="color:#8d7dff;border-color:#8d7dff55;background:#8d7dff1a;">夜报</span>
-        <span class="date">2026-07-04</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>大模型夜报 · 2026-07-04 晚11点深度复盘版</h3>
-      <p>深度复盘 2026-07-04：承接今早晨报「Agent 从比谁更聪明，转向比谁能被编排、被治理、被低成本自运行」，今晚三条主线是「编排的下半场是记忆：AutoMem/DuoMem/AgenticSTS/WorldDirector 一整排给记忆造尺子与引擎」「可靠性的新答案不是更多工具、而是想清…</p>
-    </a><a class="card" href="morning_2026-07-04.html">
-      <div class="card-top">
-        <span class="pill" style="color:#ffd166;border-color:#ffd16655;background:#ffd1661a;">晨报</span>
-        <span class="date">2026-07-04</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>大模型晨报｜2026-07-04 早8点版</h3>
-      <p>今日主线是“Agent 从比谁更聪明，转向比谁能被编排、被治理、被低成本自运行”。本期覆盖 Twitter/X、HuggingFace Daily Papers、HuggingFace 下载趋势、Papers With Code、arXiv cs.AI/cs.LG、GitHub Trending…</p>
-    </a><a class="card" href="night_2026-07-03.html">
-      <div class="card-top">
-        <span class="pill" style="color:#8d7dff;border-color:#8d7dff55;background:#8d7dff1a;">夜报</span>
-        <span class="date">2026-07-03</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>大模型夜报 · 2026-07-03 晚11点深度复盘版</h3>
-      <p>深度复盘 2026-07-03：承接今早晨报「从比模型分数与单价，转向比每任务真实成本、交付可靠性与可审计性」，今晚三条主线是「Agent 可靠性正在变成一门科学：AI Snakeoil 提出『Agent reliability 科学化』+ HF Daily 的 AgenticSTS(长程记忆)…</p>
-    </a><a class="card" href="morning_2026-07-03.html">
-      <div class="card-top">
-        <span class="pill" style="color:#ffd166;border-color:#ffd16655;background:#ffd1661a;">晨报</span>
-        <span class="date">2026-07-03</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>大模型晨报｜2026-07-03 早8点版</h3>
-      <p>今日主线是“从分数和单价，转向每任务真实成本、交付可靠性与可审计性”。本期覆盖 Twitter/X、HuggingFace Daily Papers、HuggingFace 下载趋势、Papers With Code、arXiv cs.AI/cs.LG、GitHub Trending、The B…</p>
-    </a><a class="card" href="night_2026-07-02.html">
-      <div class="card-top">
-        <span class="pill" style="color:#8d7dff;border-color:#8d7dff55;background:#8d7dff1a;">夜报</span>
-        <span class="date">2026-07-02</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>大模型夜报 · 2026-07-02 晚11点深度复盘版</h3>
-      <p>深度复盘 2026-07-02：承接晨报「开源权重 GLM-5.2 登顶、Claude Sonnet 5 拼性价比、Amazon 押注 FDE」，今晚三条主线是「能力平民化：开源登顶+端侧 AFM3+DeepSeek V4 上架 HF」「护城河转向 Agent 可靠性工程：记忆(AutoMem/…</p>
-    </a><a class="card" href="morning_2026-07-02.html">
-      <div class="card-top">
-        <span class="pill" style="color:#ffd166;border-color:#ffd16655;background:#ffd1661a;">晨报</span>
-        <span class="date">2026-07-02</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>大模型晨报｜2026-07-02 早8点版</h3>
-      <p>开源权重 GLM-5.2 登顶 Artificial Analysis Intelligence Index、Claude Sonnet 5 以 53 分重定义公有云性价比、Forward Deployed Engineer(FDE) 成资本与人才峰值热点(Amazon 承诺 10 亿美元)、编…</p>
-    </a><a class="card" href="night_2026-07-01.html">
-      <div class="card-top">
-        <span class="pill" style="color:#8d7dff;border-color:#8d7dff55;background:#8d7dff1a;">夜报</span>
-        <span class="date">2026-07-01</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>大模型夜报 · 2026-07-01 晚11点深度复盘版</h3>
-      <p>深度复盘 2026-07-01：三条主线是「GPT-5.6 Sol 受控放量+分层准入」「DeepSeek V4 错峰经济学把 API 定价做成产品能力」「WORLDEVOLVER 自进化世界模型让冻结参数的 Agent 越用越准」。覆盖小宇宙播客（硅谷101/AI每日热搜）、HF Daily…</p>
-    </a><a class="card" href="morning_2026-07-01.html">
-      <div class="card-top">
-        <span class="pill" style="color:#ffd166;border-color:#ffd16655;background:#ffd1661a;">晨报</span>
-        <span class="date">2026-07-01</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>大模型晨报｜2026-07-01 早8点版</h3>
-      <p>GPT-5.6 Sol/Terra/Luna 受控发布、Anthropic 完成约 650 亿美元融资逼近万亿估值、DeepSeek V4 预告错峰定价、编码 Agent 集体“打假”（SWE-Together/Multi-LCB/微软弃用 Claude Code）、开源权重 GLM-5.2 登…</p>
-    </a><a class="card" href="night_2026-06-30.html">
-      <div class="card-top">
-        <span class="pill" style="color:#8d7dff;border-color:#8d7dff55;background:#8d7dff1a;">夜报</span>
-        <span class="date">2026-06-30</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>大模型夜报 · 2026-06-30 晚11点深度复盘版</h3>
-      <p>覆盖小宇宙播客、HF Daily Papers、HF模型下载趋势、ArXiv、GitHub Trending、Medium/Substack、The Batch、Benedict Evans、LessWrong/Alignment Forum等全量来源。本期主线是「Agent 从对话框走向自动化…</p>
-    </a><a class="card" href="night_v2_2026-06-30.html">
-      <div class="card-top">
-        <span class="pill" style="color:#8d7dff;border-color:#8d7dff55;background:#8d7dff1a;">夜报</span>
-        <span class="date">2026-06-30</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>升级版大模型夜报｜2026-06-30 晚11点版</h3>
-      <p>这是一版偏深度复盘的大模型夜报，重点拆开“私有化部署热度”与“公有云调用场景”两个维度来观察 2026 年 6 月末的模型生态变化。报告同时覆盖论文、开源仓库、newsletter、播客与对齐讨论，并给出业务判断、上下游影响与未来 6 个月产品卖点预测。</p>
-    </a><a class="card" href="2026-06-30.html">
-      <div class="card-top">
-        <span class="pill" style="color:#7cc7ff;border-color:#7cc7ff55;background:#7cc7ff1a;">日报</span>
-        <span class="date">2026-06-30</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>每日大模型资讯报告｜2026-06-30</h3>
-      <p>统计窗口：2026-06-29 08:14 至 2026-06-30 08:14（CST）。本报告汇总小宇宙公开页面与 X/Twitter 可公开访问内容，并提炼过去 24 小时附近的大模型讨论趋势。</p>
-    </a><a class="card" href="morning_2026-06-30.html">
-      <div class="card-top">
-        <span class="pill" style="color:#ffd166;border-color:#ffd16655;background:#ffd1661a;">晨报</span>
-        <span class="date">2026-06-30</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>启动大脑晨报｜大模型与 AI Agent｜2026-06-30</h3>
-      <p>统计窗口：2026-06-29 20:00 — 2026-06-30 08:00（CST）。由于公开搜索对 X/Twitter 实时互动数和微博热榜的可访问性有限，本报告将“可验证公开资料”与“社媒线索”分开标注；未拿到统一官方口径的内容不作为确定结论。</p>
-    </a><a class="card" href="morning_v2_2026-06-30.html">
-      <div class="card-top">
-        <span class="pill" style="color:#ffd166;border-color:#ffd16655;background:#ffd1661a;">晨报</span>
-        <span class="date">2026-06-30</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>升级版大模型晨报｜早8点版｜2026-06-30</h3>
-      <p>截至 2026-06-30 上午，公开信号显示：开源小模型与私有化部署继续升温，Video/GUI Agent、代码 Agent、RAG/记忆层成为高频主题；与此同时，评测可靠性与安全治理正在从“附录”变成产品卖点。</p>
-    </a><a class="card" href="night_2026-06-29.html">
-      <div class="card-top">
-        <span class="pill" style="color:#8d7dff;border-color:#8d7dff55;background:#8d7dff1a;">夜报</span>
-        <span class="date">2026-06-29</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>大模型夜报 · 2026-06-29 深度复盘</h3>
-      <p>为大模型从业者准备的夜间深读。不只是资讯搬运，而是从每一条信息「延伸出去」——挖掘关联知识、上下游影响与商业可能性，帮你想清楚：这个方向 6 个月后会变成什么产品卖点？</p>
-    </a><a class="card" href="2026-06-22_to_06-29.html">
-      <div class="card-top">
-        <span class="pill" style="color:#5fe3b3;border-color:#5fe3b355;background:#5fe3b31a;">周报</span>
-        <span class="date">2026-06-22</span>
-        <span class="jump">打开 →</span>
-      </div>
-      <h3>大模型一周动态 Briefing｜2026.06.22-06.29</h3>
-      <p>本报告汇总过去一周小宇宙与 Twitter/X 上的大模型相关内容。重点不只放在资讯本身，而是提炼：企业客户为什么要关心、企业解决方案可以怎么切入，以及鞋服电商与泛互联网行业有哪些可落地机会。</p>
-    </a>
-    </section>
-    <div class="foot">本目录由 generate_index.py 自动生成 · 最新更新：2026-07-06 晨报 · 整理：邹超</div>
-  </div>
+      <h3>${r.date}</h3>
+      <div class="sub">${isNight?'深度复盘 · 播客洞察 · 产品方法论 · 技术深度':'当日 AI / 大模型资讯速览'}</div>
+      <div class="go">阅读全文 →</div>`;
+    grid.appendChild(a);
+  });
+  const n=REPORTS.filter(r=>r.type==='night').length,m=REPORTS.filter(r=>r.type==='morning').length;
+  statLine.textContent=`共 ${REPORTS.length} 期 · 🌙 夜报 ${n} 期 · ☀️ 晨报 ${m} 期`;
+}
+document.querySelectorAll('.fbtn').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');filter=b.dataset.f;render();
+}));
+render();
+</script>
 </body>
 </html>
