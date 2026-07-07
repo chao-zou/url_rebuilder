@@ -1,115 +1,204 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>📚 大模型晨报 / 夜报 · 历史总目录</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>📚 大模型日报 · 历史总目录</title>
 <style>
-:root{
-  --bg0:#0a0e1f;--bg1:#111834;--card:rgba(24,32,64,.72);--card-brd:rgba(120,140,220,.18);
-  --ink:#e8ecf8;--ink-dim:#a4adcf;--ink-mute:#6f78a0;--moon:#c7b8ff;--accent:#7c6cff;--accent2:#4dd6ff;--gold:#ffcf6b;--orange:#ff9d5c;
-  --grad:linear-gradient(120deg,#7c6cff 0%,#4dd6ff 100%);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Noto Sans SC','Inter',system-ui,sans-serif;color:var(--ink);line-height:1.7;min-height:100vh;
-  background:radial-gradient(1200px 600px at 12% -8%,rgba(124,108,255,.18),transparent 60%),radial-gradient(1000px 500px at 92% 4%,rgba(77,214,255,.12),transparent 55%),linear-gradient(180deg,var(--bg0),var(--bg1) 45%,var(--bg0));background-attachment:fixed;}
-.wrap{max-width:1000px;margin:0 auto;padding:0 22px 90px}
-.hero{text-align:center;padding:60px 0 30px}
-.hero .tag{display:inline-block;padding:7px 18px;border-radius:999px;background:rgba(124,108,255,.14);border:1px solid rgba(199,184,255,.35);color:var(--moon);font-weight:700;font-size:13.5px;margin-bottom:20px}
-.hero h1{font-size:clamp(30px,5.5vw,48px);font-weight:900;background:linear-gradient(120deg,#fff,#c7b8ff 55%,#4dd6ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
-.hero p{color:var(--ink-dim);font-size:15.5px;max-width:640px;margin:0 auto}
-.filters{display:flex;justify-content:center;gap:10px;margin:28px 0 8px;flex-wrap:wrap}
-.fbtn{cursor:pointer;font-size:14px;font-weight:600;padding:8px 20px;border-radius:999px;border:1px solid var(--card-brd);background:rgba(124,108,255,.1);color:var(--ink-dim);transition:.2s}
-.fbtn:hover{color:var(--ink);border-color:var(--accent)}
-.fbtn.active{background:var(--grad);color:#fff;border-color:transparent}
-.stat-line{text-align:center;color:var(--ink-mute);font-size:13.5px;margin-bottom:26px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
-.card{position:relative;display:block;background:var(--card);border:1px solid var(--card-brd);border-radius:18px;padding:22px 22px;text-decoration:none;color:inherit;backdrop-filter:blur(12px);transition:.26s;overflow:hidden;cursor:pointer}
-.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;opacity:.9}
-.card.morning::before{background:linear-gradient(180deg,#ffcf6b,#ff9d5c)}
-.card.night::before{background:var(--grad)}
-.card:hover{transform:translateY(-5px);border-color:rgba(124,108,255,.55);box-shadow:0 20px 46px -20px rgba(80,70,200,.65)}
-.card:hover .go{color:var(--accent2)}
-.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.type-badge{font-size:12.5px;font-weight:700;padding:4px 12px;border-radius:999px}
-.type-badge.morning{background:rgba(255,207,107,.14);color:var(--gold);border:1px solid rgba(255,207,107,.4)}
-.type-badge.night{background:rgba(124,108,255,.16);color:var(--moon);border:1px solid rgba(124,108,255,.45)}
-.weekday{font-size:12.5px;color:var(--ink-mute)}
-.card h3{font-size:20px;font-weight:800;margin-bottom:6px;color:#fff}
-.card .sub{font-size:13.5px;color:var(--ink-dim);margin-bottom:14px}
-.card .go{font-size:13.5px;color:var(--ink-mute);font-weight:600;transition:.2s}
-.empty{grid-column:1/-1;text-align:center;color:var(--ink-mute);padding:40px}
-.foot{text-align:center;color:var(--ink-mute);font-size:13px;margin-top:56px;padding-top:24px;border-top:1px solid var(--card-brd)}
+  :root{
+    --bg:#f7f5f0; --card:#fff; --ink:#20242b; --sub:#5c6470; --line:#ece7dd;
+    --accent:#e8541e; --gold:#f5a623; --moon:#5b6bd6;
+    --shadow:0 4px 16px rgba(40,30,10,.06); --shadow-h:0 12px 32px rgba(40,30,10,.14);
+    --mono:"SFMono-Regular",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Inter","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background:linear-gradient(180deg,#fff6ea,var(--bg) 240px);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px 80px}
+  header{padding:48px 0 26px}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+    color:#b4530b;background:#ffe9d1;padding:6px 14px;border-radius:999px}
+  h1{font-size:36px;font-weight:800;letter-spacing:-.02em;margin:16px 0 6px;
+    background:linear-gradient(92deg,var(--accent),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{color:var(--sub);font-size:15px}
+  .stat{display:flex;gap:22px;margin-top:20px;flex-wrap:wrap}
+  .stat div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 18px;box-shadow:var(--shadow)}
+  .stat b{display:block;font-size:22px;font-weight:800;color:var(--accent)}
+  .stat span{font-size:12.5px;color:var(--sub)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:30px}
+  .rcard{position:relative;display:block;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;padding:22px 22px 20px;box-shadow:var(--shadow);text-decoration:none;color:inherit;
+    transition:.2s;overflow:hidden;cursor:pointer}
+  .rcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--c,var(--gold))}
+  .rcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-h);border-color:var(--c,var(--gold))}
+  .type-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;
+    padding:4px 11px;border-radius:999px;margin-bottom:12px}
+  .type-morning{background:#fff0df;color:#c96a11}
+  .type-evening{background:#e9ecff;color:#4a58c4}
+  .rcard h3{font-size:19px;font-weight:800;margin-bottom:6px}
+  .rcard .rdate{font-size:13px;color:var(--sub);font-family:var(--mono)}
+  .rcard .rdesc{font-size:13.5px;color:#4a5058;margin-top:10px;min-height:38px}
+  .rcard .go{margin-top:14px;font-size:13px;font-weight:700;color:var(--c,var(--accent));display:flex;align-items:center;gap:6px}
+  .empty{margin-top:40px;text-align:center;color:var(--sub);background:#fff;border:1px dashed var(--line);border-radius:16px;padding:50px}
+  footer{margin-top:56px;text-align:center;color:var(--sub);font-size:13px;border-top:1px solid var(--line);padding-top:26px}
+  @media(max-width:600px){h1{font-size:28px}.wrap{padding:0 14px 60px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header class="hero">
-    <div class="tag">📚 大模型晨报 / 夜报</div>
+  <header>
+    <span class="badge">📚 大模型日报 · 历史归档</span>
     <h1>历史总目录</h1>
-    <p>每日追踪 AI / 大模型全域资讯。晨报速览、夜报深度复盘，覆盖论文、模型趋势、公有云用量、社区实践、播客洞察与行业思辨。</p>
-    <div class="filters">
-      <span class="fbtn active" data-f="all">全部</span>
-      <span class="fbtn" data-f="night">🌙 夜报</span>
-      <span class="fbtn" data-f="morning">☀️ 晨报</span>
+    <p class="sub">每日「晨报 / 夜报」全量归档 · 卡片可点击 · 按日期倒序</p>
+    <div class="stat">
+      <div><b id="cTotal">0</b><span>报告总数</span></div>
+      <div><b id="cMorning">0</b><span>☀️ 晨报</span></div>
+      <div><b id="cEvening">0</b><span>🌙 夜报</span></div>
     </div>
-    <div class="stat-line" id="statLine"></div>
   </header>
-  <main class="grid" id="grid"></main>
-  <footer class="foot">🌙 大模型晨报 / 夜报 · 自动生成 · 最近更新 2026-07-06</footer>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">暂无归档报告</div>
+  <footer>☀️🌙 大模型日报 · 由 <b>邹超</b> 每日整理 · 数据来源覆盖 Twitter/X · HuggingFace · ArXiv · GitHub · The Batch 等 12 类</footer>
 </div>
+
 <script>
-/* 报告清单：newest first。type 自动决定徽章（morning=晨报 / night=夜报）。 */
-const REPORTS=[
-  {type:"night",date:"2026-07-06",file:"night_2026-07-06.html"},
-  {type:"morning",date:"2026-07-06",file:"morning_2026-07-06.html"},
-  {type:"night",date:"2026-07-05",file:"night_2026-07-05.html"},
-  {type:"morning",date:"2026-07-05",file:"morning_2026-07-05.html"},
-  {type:"night",date:"2026-07-04",file:"night_2026-07-04.html"},
-  {type:"morning",date:"2026-07-04",file:"morning_2026-07-04.html"},
-  {type:"night",date:"2026-07-03",file:"night_2026-07-03.html"},
-  {type:"morning",date:"2026-07-03",file:"morning_2026-07-03.html"},
-  {type:"night",date:"2026-07-02",file:"night_2026-07-02.html"},
-  {type:"morning",date:"2026-07-02",file:"morning_2026-07-02.html"},
-  {type:"night",date:"2026-07-01",file:"night_2026-07-01.html"},
-  {type:"morning",date:"2026-07-01",file:"morning_2026-07-01.html"},
-  {type:"night",date:"2026-06-30",file:"night_2026-06-30.html"},
-  {type:"morning",date:"2026-06-30",file:"morning_2026-06-30.html"},
-  {type:"night",date:"2026-06-29",file:"night_2026-06-29.html"}
+/* ===== 报告清单（由 generate_index.py 依据远端实际文件生成；type 依据文件前缀自动识别） ===== */
+const REPORTS = [
+  {
+    "file": "morning_2026-06-30.html",
+    "date": "2026-06-30",
+    "title": "启动大脑晨报",
+    "desc": "统计窗口：2026-06-29 20:00 — 2026-06-30 08:00（CST）。由于公开搜索对 X/Twitter 实时互动数和微博热榜的可访问性有限，本报告将“可验证公开资料”与“社媒线索”分开标注；未拿到统一官方口径的内…"
+  },
+  {
+    "file": "morning_2026-07-01.html",
+    "date": "2026-07-01",
+    "title": "大模型晨报",
+    "desc": "GPT-5.6 Sol/Terra/Luna 受控发布、Anthropic 完成约 650 亿美元融资逼近万亿估值、DeepSeek V4 预告错峰定价、编码 Agent 集体“打假”（SWE-Together/Multi-LCB/微软…"
+  },
+  {
+    "file": "morning_2026-07-02.html",
+    "date": "2026-07-02",
+    "title": "大模型晨报",
+    "desc": "开源权重 GLM-5.2 登顶 Artificial Analysis Intelligence Index、Claude Sonnet 5 以 53 分重定义公有云性价比、Forward Deployed Engineer(FDE) …"
+  },
+  {
+    "file": "morning_2026-07-03.html",
+    "date": "2026-07-03",
+    "title": "大模型晨报",
+    "desc": "今日主线是“从分数和单价，转向每任务真实成本、交付可靠性与可审计性”。本期覆盖 Twitter/X、HuggingFace Daily Papers、HuggingFace 下载趋势、Papers With Code、arXiv cs.…"
+  },
+  {
+    "file": "morning_2026-07-04.html",
+    "date": "2026-07-04",
+    "title": "大模型晨报",
+    "desc": "今日主线是“Agent 从比谁更聪明，转向比谁能被编排、被治理、被低成本自运行”。本期覆盖 Twitter/X、HuggingFace Daily Papers、HuggingFace 下载趋势、Papers With Code、arX…"
+  },
+  {
+    "file": "morning_2026-07-05.html",
+    "date": "2026-07-05",
+    "title": "大模型晨报",
+    "desc": "今日主线是“从 Prompt Engineering 到 Loop Engineering：Agent 竞争重心转向把‘思考-执行-验证’循环工程化，MCP 成为跨平台连接标准”。本期覆盖 Twitter/X、HuggingFace D…"
+  },
+  {
+    "file": "morning_2026-07-06.html",
+    "date": "2026-07-06",
+    "title": "大模型晨报",
+    "desc": "今日主线是“Agent 工程栈从‘调 Prompt’走向‘装技能 + 稳循环 + 带记忆’：Agent Skills 成为可复用操作层的新范式”。GitHub Trending 的 Skill/Loop 仓库、HF 论文 SkillCo…"
+  },
+  {
+    "file": "morning_2026-07-07.html",
+    "date": "2026-07-07",
+    "title": "大模型晨报",
+    "desc": "今日主线：OpenAI GPT-5.6（Sol/Terra/Luna）与 Anthropic Claude Fable 5 正面对垒，把「旗舰+均衡+轻量」分层定价推成行业标配；Agent 自主工作流与上下文压缩/本地部署成为落地侧最热…"
+  },
+  {
+    "file": "morning_v2_2026-06-30.html",
+    "date": "2026-06-30",
+    "title": "升级版大模型晨报",
+    "desc": "截至 2026-06-30 上午，公开信号显示：开源小模型与私有化部署继续升温，Video/GUI Agent、代码 Agent、RAG/记忆层成为高频主题；与此同时，评测可靠性与安全治理正在从“附录”变成产品卖点。"
+  },
+  {
+    "file": "night_2026-06-29.html",
+    "date": "2026-06-29",
+    "title": "大模型夜报",
+    "desc": "为大模型从业者准备的夜间深读。不只是资讯搬运，而是从每一条信息「延伸出去」——挖掘关联知识、上下游影响与商业可能性，帮你想清楚：这个方向 6 个月后会变成什么产品卖点？"
+  },
+  {
+    "file": "night_2026-06-30.html",
+    "date": "2026-06-30",
+    "title": "大模型夜报",
+    "desc": "覆盖小宇宙播客、HF Daily Papers、HF模型下载趋势、ArXiv、GitHub Trending、Medium/Substack、The Batch、Benedict Evans、LessWrong/Alignment Fo…"
+  },
+  {
+    "file": "night_2026-07-01.html",
+    "date": "2026-07-01",
+    "title": "大模型夜报",
+    "desc": "深度复盘 2026-07-01：三条主线是「GPT-5.6 Sol 受控放量+分层准入」「DeepSeek V4 错峰经济学把 API 定价做成产品能力」「WORLDEVOLVER 自进化世界模型让冻结参数的 Agent 越用越准」。覆…"
+  },
+  {
+    "file": "night_2026-07-02.html",
+    "date": "2026-07-02",
+    "title": "大模型夜报",
+    "desc": "深度复盘 2026-07-02：承接晨报「开源权重 GLM-5.2 登顶、Claude Sonnet 5 拼性价比、Amazon 押注 FDE」，今晚三条主线是「能力平民化：开源登顶+端侧 AFM3+DeepSeek V4 上架 HF」…"
+  },
+  {
+    "file": "night_2026-07-03.html",
+    "date": "2026-07-03",
+    "title": "大模型夜报",
+    "desc": "深度复盘 2026-07-03：承接今早晨报「从比模型分数与单价，转向比每任务真实成本、交付可靠性与可审计性」，今晚三条主线是「Agent 可靠性正在变成一门科学：AI Snakeoil 提出『Agent reliability 科学化…"
+  },
+  {
+    "file": "night_2026-07-04.html",
+    "date": "2026-07-04",
+    "title": "大模型夜报",
+    "desc": "深度复盘 2026-07-04：承接今早晨报「Agent 从比谁更聪明，转向比谁能被编排、被治理、被低成本自运行」，今晚三条主线是「编排的下半场是记忆：AutoMem/DuoMem/AgenticSTS/WorldDirector 一整…"
+  },
+  {
+    "file": "night_2026-07-05.html",
+    "date": "2026-07-05",
+    "title": "大模型夜报",
+    "desc": "深度复盘 2026-07-05：承接今早晨报「从 Prompt Engineering 到 Loop Engineering，Agent 竞争重心转向把『思考-执行-验证』循环工程化，MCP 成为跨平台连接标准」，今晚三条主线是「Loo…"
+  },
+  {
+    "file": "night_2026-07-06.html",
+    "date": "2026-07-06",
+    "title": "🌙 大模型夜报 2026-07-06",
+    "desc": "今晚是 ICML 2026 开幕日，学术侧的灵活性陷阱与十年时间检验奖同台；产业侧则被两条主线牵引——推理成本半年暴跌 82% 把 LLM 推进「分钱时代」，以及 Anthropic、Import AI 集中讨论的「平庸递归自我提升」（…"
+  },
+  {
+    "file": "night_v2_2026-06-30.html",
+    "date": "2026-06-30",
+    "title": "升级版大模型夜报",
+    "desc": "这是一版偏深度复盘的大模型夜报，重点拆开“私有化部署热度”与“公有云调用场景”两个维度来观察 2026 年 6 月末的模型生态变化。报告同时覆盖论文、开源仓库、newsletter、播客与对齐讨论，并给出业务判断、上下游影响与未来 6 …"
+  }
 ];
-const WD=['周日','周一','周二','周三','周四','周五','周六'];
-function weekday(d){const t=new Date(d+'T12:00:00');return WD[t.getDay()];}
-const grid=document.getElementById('grid');
-const statLine=document.getElementById('statLine');
-let filter='all';
-function render(){
-  grid.innerHTML='';
-  const list=REPORTS.filter(r=>filter==='all'||r.type===filter);
-  if(!list.length){grid.innerHTML='<div class="empty">暂无该类型报告</div>';}
-  list.forEach(r=>{
-    const isNight=r.type==='night';
-    const a=document.createElement('a');
-    a.className='card '+r.type;a.href=r.file;
-    a.innerHTML=`
-      <div class="card-top">
-        <span class="type-badge ${r.type}">${isNight?'🌙 夜报':'☀️ 晨报'}</span>
-        <span class="weekday">${weekday(r.date)}</span>
-      </div>
-      <h3>${r.date}</h3>
-      <div class="sub">${isNight?'深度复盘 · 播客洞察 · 产品方法论 · 技术深度':'当日 AI / 大模型资讯速览'}</div>
-      <div class="go">阅读全文 →</div>`;
-    grid.appendChild(a);
-  });
-  const n=REPORTS.filter(r=>r.type==='night').length,m=REPORTS.filter(r=>r.type==='morning').length;
-  statLine.textContent=`共 ${REPORTS.length} 期 · 🌙 夜报 ${n} 期 · ☀️ 晨报 ${m} 期`;
+
+function typeOf(file){
+  if(/^morning[_-]/i.test(file)) return {key:'morning', label:'☀️ 晨报', cls:'type-morning', color:'var(--gold)'};
+  if(/^(evening|night)[_-]/i.test(file)) return {key:'evening', label:'🌙 夜报', cls:'type-evening', color:'var(--moon)'};
+  return {key:'morning', label:'📄 日报', cls:'type-morning', color:'var(--gold)'};
 }
-document.querySelectorAll('.fbtn').forEach(b=>b.addEventListener('click',()=>{
-  document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));
-  b.classList.add('active');filter=b.dataset.f;render();
-}));
-render();
+
+const sorted = REPORTS.slice().sort((a,b)=> (b.date||'').localeCompare(a.date||'') || b.file.localeCompare(a.file));
+let nM=0, nE=0;
+const grid=document.getElementById('grid');
+grid.innerHTML = sorted.map(r=>{
+  const t=typeOf(r.file);
+  if(t.key==='morning') nM++; else nE++;
+  return `<a class="rcard" href="./${r.file}" style="--c:${t.color}">
+    <span class="type-badge ${t.cls}">${t.label}</span>
+    <h3>${r.title}</h3>
+    <div class="rdate">📅 ${r.date}</div>
+    <div class="rdesc">${r.desc||''}</div>
+    <div class="go">阅读全文 →</div>
+  </a>`;
+}).join('');
+
+document.getElementById('cTotal').textContent = sorted.length;
+document.getElementById('cMorning').textContent = nM;
+document.getElementById('cEvening').textContent = nE;
+if(sorted.length===0){ document.getElementById('empty').style.display='block'; }
 </script>
 </body>
 </html>
