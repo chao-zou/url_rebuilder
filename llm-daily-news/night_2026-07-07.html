@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌙 大模型夜报 2026-07-07</title>
+<!-- report-meta: date=2026-07-07; title=大模型夜报 2026-07-07; summary=GPT-5.6 定档发布日与三档定价、Claude Fable 5 回归引「静默降智」争议、美团 LongCat-2.0 国产算力开源、WAIC 2026 前瞻 300+ 全球首发、可灵 30 亿美元融资，构成今日五条主线。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#0a0e1f;--bg1:#111834;--bg2:#161f42;
+  --card:rgba(24,32,64,.72);--card-brd:rgba(120,140,220,.18);
+  --ink:#e8ecf8;--ink-dim:#a4adcf;--ink-mute:#6f78a0;
+  --moon:#c7b8ff;--accent:#7c6cff;--accent2:#4dd6ff;--gold:#ffcf6b;
+  --green:#5be6a8;--red:#ff7a92;--orange:#ff9d5c;
+  --grad:linear-gradient(120deg,#7c6cff 0%,#4dd6ff 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans SC','Inter',system-ui,sans-serif;
+  background:
+    radial-gradient(1200px 600px at 12% -8%,rgba(124,108,255,.18),transparent 60%),
+    radial-gradient(1000px 500px at 92% 4%,rgba(77,214,255,.12),transparent 55%),
+    linear-gradient(180deg,var(--bg0),var(--bg1) 40%,var(--bg0));
+  color:var(--ink);line-height:1.75;min-height:100vh;
+  background-attachment:fixed;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 100px}
+a{color:var(--accent2);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:64px 0 40px;text-align:center;overflow:hidden}
+.stars{position:absolute;inset:0;pointer-events:none;opacity:.55}
+.stars i{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:tw 3s infinite ease-in-out}
+@keyframes tw{0%,100%{opacity:.2}50%{opacity:1}}
+.moon-badge{
+  display:inline-flex;align-items:center;gap:10px;padding:8px 20px;border-radius:999px;
+  background:rgba(124,108,255,.14);border:1px solid rgba(199,184,255,.35);
+  color:var(--moon);font-weight:700;font-size:14px;letter-spacing:.5px;margin-bottom:22px;
+  backdrop-filter:blur(8px);
+}
+.hero h1{
+  font-size:clamp(34px,6vw,58px);font-weight:900;line-height:1.12;margin-bottom:10px;
+  background:linear-gradient(120deg,#fff 10%,#c7b8ff 55%,#4dd6ff 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero .date-line{font-size:17px;color:var(--ink-dim);font-weight:500;margin-bottom:26px}
+.hero .date-line b{color:var(--gold)}
+.lede{
+  max-width:760px;margin:0 auto;font-size:16.5px;color:var(--ink-dim);
+  background:var(--card);border:1px solid var(--card-brd);border-radius:18px;
+  padding:22px 26px;text-align:left;backdrop-filter:blur(12px);
+}
+.lede b{color:var(--moon)}
+
+/* ---------- Stat strip ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:34px 0 10px}
+.stat{background:var(--card);border:1px solid var(--card-brd);border-radius:16px;padding:18px 14px;text-align:center;backdrop-filter:blur(10px);transition:.25s}
+.stat:hover{transform:translateY(-4px);border-color:rgba(124,108,255,.5)}
+.stat .num{font-size:30px;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat .lbl{font-size:12.5px;color:var(--ink-mute);margin-top:4px}
+
+/* ---------- Section ---------- */
+.sec{margin-top:52px}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.sec-head .ic{font-size:26px}
+.sec-head h2{font-size:24px;font-weight:800;color:var(--ink)}
+.sec-desc{color:var(--ink-mute);font-size:14px;margin-bottom:22px;padding-left:40px}
+.sec-desc .pill{display:inline-block;background:rgba(77,214,255,.12);color:var(--accent2);border:1px solid rgba(77,214,255,.3);border-radius:6px;padding:1px 8px;font-size:12px;margin:0 2px}
+
+/* ---------- News card ---------- */
+.card{
+  background:var(--card);border:1px solid var(--card-brd);border-radius:20px;
+  padding:26px 28px;margin-bottom:22px;backdrop-filter:blur(14px);
+  position:relative;transition:.28s;overflow:hidden;
+}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--grad);opacity:.85}
+.card:hover{transform:translateY(-3px);border-color:rgba(124,108,255,.45);box-shadow:0 18px 44px -20px rgba(80,70,200,.6)}
+.card .ttl{font-size:19px;font-weight:800;color:#fff;margin-bottom:12px;line-height:1.45}
+.card .ttl .idx{color:var(--accent);margin-right:8px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.bdg{font-size:12px;font-weight:600;padding:3px 11px;border-radius:999px;border:1px solid transparent}
+.bdg.date{background:rgba(160,170,210,.1);color:var(--ink-dim);border-color:rgba(160,170,210,.25)}
+.bdg.hi{background:rgba(91,230,168,.13);color:var(--green);border-color:rgba(91,230,168,.35)}
+.bdg.md{background:rgba(255,157,92,.13);color:var(--orange);border-color:rgba(255,157,92,.35)}
+.bdg.lo{background:rgba(255,122,146,.13);color:var(--red);border-color:rgba(255,122,146,.35)}
+.bdg.sig7{background:linear-gradient(90deg,rgba(255,207,107,.18),rgba(255,157,92,.18));color:var(--gold);border-color:rgba(255,207,107,.5);animation:pulse 2.4s infinite}
+.bdg.sig30{background:rgba(124,108,255,.16);color:var(--moon);border-color:rgba(124,108,255,.45)}
+.bdg.cloud{background:rgba(77,214,255,.13);color:var(--accent2);border-color:rgba(77,214,255,.4)}
+.bdg.deploy{background:rgba(199,184,255,.13);color:var(--moon);border-color:rgba(199,184,255,.4)}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,207,107,.3)}50%{box-shadow:0 0 0 5px rgba(255,207,107,0)}}
+.summary{color:var(--ink-dim);font-size:15px;margin-bottom:16px}
+
+.blocks{display:flex;flex-direction:column;gap:10px}
+.blk{border-radius:12px;padding:12px 15px;font-size:14.5px;border:1px solid transparent}
+.blk .h{font-weight:700;display:block;margin-bottom:3px;font-size:13.5px}
+.blk.comment{background:rgba(255,207,107,.07);border-color:rgba(255,207,107,.2)}.blk.comment .h{color:var(--gold)}
+.blk.biz{background:rgba(91,230,168,.06);border-color:rgba(91,230,168,.18)}.blk.biz .h{color:var(--green)}
+.blk.tech{background:rgba(77,214,255,.06);border-color:rgba(77,214,255,.18)}.blk.tech .h{color:var(--accent2)}
+.blk.chain{background:rgba(124,108,255,.07);border-color:rgba(124,108,255,.2)}.blk.chain .h{color:var(--moon)}
+.blk.pred{background:rgba(255,157,92,.07);border-color:rgba(255,157,92,.2)}.blk.pred .h{color:var(--orange)}
+.blk .body{color:var(--ink-dim)}
+.src{margin-top:15px;font-size:13px;color:var(--ink-mute)}
+.src a{word-break:break-all}
+.src .no-link{color:var(--red);font-style:italic}
+
+/* ---------- Signal tracker ---------- */
+.signal-box{background:linear-gradient(135deg,rgba(124,108,255,.1),rgba(77,214,255,.06));border:1px solid rgba(124,108,255,.3);border-radius:20px;padding:26px 28px}
+.signal-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
+.sg-col h4{font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.sg-col.f7 h4{color:var(--gold)}.sg-col.f30 h4{color:var(--moon)}
+.sg-col ul{list-style:none}
+.sg-col li{font-size:14px;color:var(--ink-dim);padding:8px 12px;margin-bottom:8px;border-radius:10px;background:rgba(255,255,255,.03);border-left:3px solid}
+.sg-col.f7 li{border-color:var(--gold)}.sg-col.f30 li{border-color:var(--moon)}
+
+/* ---------- Notes ---------- */
+.notes-box{background:var(--card);border:1px solid var(--card-brd);border-radius:20px;padding:26px 28px;backdrop-filter:blur(14px)}
+.notes-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px}
+.notes-head h2{font-size:22px;font-weight:800;display:flex;align-items:center;gap:10px}
+.notes-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.save-state{font-size:13px;color:var(--ink-mute)}
+.save-state.saved{color:var(--green)}
+.btn{cursor:pointer;font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:10px;border:1px solid var(--card-brd);background:rgba(124,108,255,.12);color:var(--ink);transition:.2s}
+.btn:hover{background:rgba(124,108,255,.28);border-color:var(--accent)}
+.btn.danger{background:rgba(255,122,146,.1);color:var(--red);border-color:rgba(255,122,146,.3)}
+.btn.danger:hover{background:rgba(255,122,146,.25)}
+#noteArea{width:100%;min-height:180px;resize:vertical;background:rgba(10,14,31,.6);border:1px solid var(--card-brd);border-radius:14px;padding:16px 18px;color:var(--ink);font-family:inherit;font-size:15px;line-height:1.7;outline:none;transition:.2s}
+#noteArea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,108,255,.15)}
+#noteArea::placeholder{color:var(--ink-mute)}
+.notes-foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:13px;color:var(--ink-mute)}
+
+/* ---------- Footer ---------- */
+.foot{margin-top:60px;padding-top:26px;border-top:1px solid var(--card-brd);text-align:center;color:var(--ink-mute);font-size:13.5px}
+.foot .srcs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:14px 0}
+.foot .srcs span{background:rgba(255,255,255,.04);border:1px solid var(--card-brd);border-radius:8px;padding:3px 10px;font-size:12px;color:var(--ink-dim)}
+.foot .back{display:inline-block;margin-top:12px}
+
+@media(max-width:720px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .signal-grid{grid-template-columns:1fr}
+  .sec-desc{padding-left:0}
+  .card{padding:22px 18px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="stars" id="stars"></div>
+    <div class="moon-badge">🌙 今日大模型夜报 · 深度复盘版</div>
+    <h1>大模型夜报</h1>
+    <div class="date-line">2026 年 7 月 7 日 · <b>星期二</b> · 覆盖当日 AI / 大模型全域资讯</div>
+    <p class="lede">
+      今晚有五条主线彼此交织：<b>GPT-5.6（Sol / Terra / Luna）</b>在业界高度关注中走向正式发布，三档定价把「按任务难度分档买智能」摆上台面；<b>Claude Fable 5</b> 在解除出口管制后回归，却陷入「静默降智」争议；<b>美团 LongCat-2.0</b> 以「五万卡国产算力全流程训练」开源引爆国产替代话题；<b>WAIC 2026</b> 前瞻放出 300+ 全球首发新品清单；快手<b>可灵 AI 30 亿美元融资</b>创下视频大模型最大单笔纪录。夜报以「深度复盘 + 小宇宙播客洞察 + 产品方法论 + 技术深度」为定位，每条资讯附 💬点评、🎯业务视角、技术背景、🔗上下游影响与 🚀6 个月产品卖点预测。
+    </p>
+  </header>
+
+  <!-- STATS -->
+  <section class="stats" id="stats-strip"></section>
+
+  <!-- SECTIONS (rendered by JS) -->
+  <main id="sections"></main>
+
+  <!-- SIGNAL TRACKER -->
+  <section class="sec" id="signals">
+    <div class="sec-head"><span class="ic">📡</span><h2>高频信号追踪</h2></div>
+    <div class="sec-desc">近 7 天出现 ≥3 次标记 <span class="pill">7天高频信号</span>；近 30 天持续出现标记 <span class="pill">30天持续趋势</span>。</div>
+    <div class="signal-box">
+      <div class="signal-grid">
+        <div class="sg-col f7">
+          <h4>🔥 7 天高频信号</h4>
+          <ul>
+            <li><b>GPT-5.6（Sol/Terra/Luna）分档发行与定价</b>——OpenAI 官方、The Batch、TechTimes 连续报道，前沿模型「按难度分档 + 战略资源化」成新常态。</li>
+            <li><b>Claude Fable 5 回归与「静默降智」争议</b>——7 月 1 日恢复全球可用，随即被曝调试/重构能力大幅回落，信任成本上升。</li>
+            <li><b>美团 LongCat-2.0 国产算力开源</b>——五万卡国产集群全流程训练的万亿参数模型，7 月 6 日开源推理代码，国产替代叙事升温。</li>
+            <li><b>Anthropic 自研芯片密谈三星 2nm</b>——挖角 OpenAI 芯片老兵 Clive Chan，模型商「造芯」竞赛升级。</li>
+            <li><b>WAIC 2026 前瞻</b>——300+ 全球首发、华为 Atlas 950、MiniMax M3、阶跃 Agent OS、全球首款 AI 智能体手机集中亮相。</li>
+            <li><b>Agent「进驻办公群」范式</b>——昆仑万维天工 Skywork Tags、腾讯混元 Hy3、Claude Tag，Agent 化身「常驻员工」。</li>
+          </ul>
+        </div>
+        <div class="sg-col f30">
+          <h4>📈 30 天持续趋势</h4>
+          <ul>
+            <li><b>DeepSeek-V4-Flash 蝉联全球调用量榜首</b>——公有云 + 开源部署双热，性价比路线持续吃下长尾负载。</li>
+            <li><b>AI 推理成本持续下探</b>——半年级别大幅回落，峰谷定价 / 缓存命中把成本竞争推向极致。</li>
+            <li><b>MoE 架构主流化</b>——开源榜与新发布模型普遍采用「大总参数、小激活」路线（具体占比口径不一，谨慎参考）。</li>
+            <li><b>扩散语言模型（dLLM）升温</b>——NVIDIA TwoTower 等把「AR 骨干 + 扩散解码」推向可用，学术与工程双线推进。</li>
+            <li><b>「平庸化 / 自我改进循环」思辨</b>——Benedict Evans「1997 互联网时刻」类比与吴恩达「self-improving loops」呼应。</li>
+            <li><b>具身智能 / 人形机器人放量</b>——工信部称全年整机产量有望破 10 万台，触觉与国产算力成新价值高地。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTES -->
+  <section class="sec" id="notes">
+    <div class="notes-box">
+      <div class="notes-head">
+        <h2>📝 我的笔记</h2>
+        <div class="notes-tools">
+          <span class="save-state" id="saveState">未修改</span>
+          <button class="btn" id="exportBtn">⬇ 导出 .txt</button>
+          <button class="btn danger" id="clearBtn">🗑 清空</button>
+        </div>
+      </div>
+      <textarea id="noteArea" placeholder="在这里记录你对今晚资讯的思考、灵感与待办……（内容会自动保存在本浏览器，500ms 防抖）"></textarea>
+      <div class="notes-foot">
+        <span id="wordCount">0 字</span>
+        <span>💾 自动保存至本地 · localStorage</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div>数据来源（全域覆盖）</div>
+    <div class="srcs">
+      <span>小宇宙播客</span><span>Twitter/X</span><span>HuggingFace Daily Papers</span><span>HuggingFace 模型趋势</span>
+      <span>Papers With Code</span><span>ArXiv cs.AI/cs.LG</span><span>GitHub Trending</span><span>The Batch</span>
+      <span>Benedict Evans</span><span>LessWrong / Alignment Forum</span><span>AI Snakeoil</span><span>Import AI</span>
+      <span>Artificial Analysis</span>
+    </div>
+    <div>🌙 大模型夜报 · 2026-07-07 · 由 邹超 生成 · 所有分析为编者观点，仅供参考</div>
+    <a class="back" href="./index.html">← 返回历史总目录</a>
+  </footer>
+
+</div>
+<script>
+/* ============ NIGHT REPORT DATA ============ */
+const REPORT_DATE = "2026-07-07";
+const SECTIONS = [
+  {
+    id:"tech", ic:"🧪", title:"技术论文与前沿研究",
+    desc:"来源：HuggingFace Daily Papers · Papers With Code · ArXiv cs.AI / cs.LG · ICML 2026",
+    items:[
+      {
+        idx:"01", title:"NVIDIA 开源 Nemotron-Labs-TwoTower 双塔扩散语言模型：Token 生成提速 2.42×、保留 98.7% 质量",
+        badges:[{t:"2026-07-02",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"30天持续趋势",c:"sig30"},{t:"私有化部署热度·高",c:"deploy"}],
+        summary:"英伟达发布并开源 Nemotron-Labs-TwoTower——一种基于预训练自回归骨干的离散扩散语言模型：克隆现有 Nemotron 权重为两塔，冻结一塔做因果上下文编码，仅在约 2.1T token 上微调去噪塔，单一 checkpoint 可在掩码扩散 / 类自回归 / 纯自回归三种模式间切换。",
+        comment:"这是把 dLLM 从「从零训一个新范式」降级为「给现成 AR 模型做一次解码改造」，工程可行性一下子拉满——扩散语言模型第一次有了「不换底座就能提速」的落地路径。",
+        biz:"对做长文本批量生成、需要压 GPU 串行等待时间的团队，2.42× 的提速意味着同等硬件吞吐翻倍，且开源权重可商用（NVIDIA Nemotron Open Model License）。",
+        tech:"双塔结构解耦「上下文理解」与「并行去噪」，避开了从零训练 diffusion LM 的高成本；论文验证掩码扩散可作为大型预训练 AR 模型（含 MoE 骨干）的实用解码适配层。",
+        chain:"上游承接 Nemotron / MoE 预训练骨干；下游影响推理引擎的并行解码调度与高吞吐批处理服务。",
+        pred:"未来 6 个月，推理框架会普遍提供「AR 骨干 + 扩散解码」的可切换模式，把「不换模型、一键提速 2×」作为降本卖点，尤其瞄准离线批量生成场景。",
+        src:"https://arxiv.org/pdf/2606.26493v2", srcName:"arXiv 2606.26493 / IT之家"
+      },
+      {
+        idx:"02", title:"CoT-Control 研究：15 个推理模型「思维链可控性」仅 2.7%，RL 训得越多越失控",
+        badges:[{t:"2026-07-06",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"7天高频信号",c:"sig7"}],
+        summary:"NYU、UCL、UPenn 联合构建 CoT-Control 评估套件（14,076 条测试实例），系统测量推理模型对自身思维链的控制能力：对最终输出的控制成功率约 61.9%，但对思维链本身的控制成功率仅约 2.7%，且 RL 训练越多、思维链可控性越低。",
+        comment:"这直击「CoT 可解释性」的软肋——我们能引导模型「说什么结论」，却几乎无法引导它「怎么想」。把思维链当成忠实的推理证据来审计，可能是一种自我安慰。",
+        biz:"对依赖「展示思考过程」建立信任的产品（法律、医疗、金融辅助决策），需警惕：暴露的推理轨迹未必反映真实计算，不能直接当作合规审计依据。",
+        tech:"研究用激活引导（activation steering）测试可控性，发现输出层与推理层控制难度差一个数量级；方法依赖白盒访问，暂不能迁移到闭源模型。",
+        chain:"上游是可解释性与 RL 后训练研究；下游影响 Agent 审计、CoT 监控与安全评测工具设计。",
+        pred:"未来 6 个月，会出现「不依赖 CoT 忠实性」的外部行为审计工具，主打「看结果与工具调用、不轻信思考过程」的可信监控卖点。",
+        src:"https://www.xiaoyuzhoufm.com/podcast/667d1ecfc13b46d76c3f64b8", srcName:"HuggingFace 每日AI论文速递 / 新浪科技"
+      },
+      {
+        idx:"03", title:"实时安全监控新解：把外部验证器信号阈值化即可媲美复杂序贯检验",
+        badges:[{t:"2026-07-02",c:"date"},{t:"MEDIUM 置信",c:"md"}],
+        summary:"一篇 cs.AI 论文提出：对 LLM 部署期的不安全输出做在线监控，只需将外部模型的 verifier 信号通过风险控制校准阈值、再做告警判定；在数学推理与红队数据集上，这种简单设计与更复杂的序贯假设检验监控方法表现相当。",
+        comment:"安全工程的一条朴素真理再次被验证——先上一个「够用、可解释、易运维」的简单基线，往往比堆一套复杂统计框架更划算。",
+        biz:"对需要给线上 LLM 加「护栏」的团队，这意味着可以用轻量阈值监控快速起步，把工程复杂度和成本压到最低。",
+        tech:"核心是用风险控制（risk control）校准阈值，把 verifier 的连续信号转成告警的二元决策，避免序贯检验的实现与调参负担。",
+        chain:"上游是 verifier / reward model 质量；下游是推理网关的实时拦截与告警链路。",
+        pred:"未来 6 个月，LLM 网关产品会内置「验证器阈值告警」开箱模块，以「几行配置即得可用安全监控」作为普惠卖点。",
+        src:"https://papers.cool/arxiv/cs.AI", srcName:"arXiv cs.AI / Cool Papers"
+      },
+      {
+        idx:"04", title:"MPLM：用消息传递（Message Passing）实现更高效的推理",
+        badges:[{t:"2026-07-02",c:"date"},{t:"MEDIUM 置信",c:"md"}],
+        summary:"arXiv cs.CL 论文 MPLM（Message Passing enables efficient reasoning）在社区论文速览中获约 8.4 评分，探索以消息传递机制提升语言模型的推理效率，属近期「推理加速 / 后训练」方向的代表性工作之一。",
+        comment:"当刷 benchmark 的边际收益递减，学界的注意力正明显从「更强」转向「更省」——同样的推理质量，能不能用更少的计算换到，成了新的竞赛点。",
+        biz:"对推理成本敏感的应用，这类「结构级效率优化」若能落地，将直接改善单位 token 的性价比，是长期值得跟踪的技术储备。",
+        tech:"以消息传递范式重构推理时的信息流动，试图在不牺牲质量的前提下降低有效计算量；具体收益需以论文实验与后续复现为准。",
+        chain:"上游是推理机制与图/序列建模研究；下游是推理引擎与高效解码策略。",
+        pred:"未来 6 个月，效率导向的推理方法会更多进入开源实现，产品侧以「同质量、更低算力」作为差异化卖点。",
+        src:"https://arxiv.org/list/cs.LG/recent", srcName:"arXiv cs.LG（社区速览）"
+      },
+      {
+        idx:"05", title:"HuggingFace 每日 AI 论文（07-06）：策略对齐破解推理盲区，轻量外挂实现实时修正",
+        badges:[{t:"2026-07-06",c:"date"},{t:"HIGH 置信",c:"hi"}],
+        summary:"HuggingFace Daily Papers 07-06 期共收录 9 篇论文，主题聚焦「策略对齐破解推理盲区」与「轻量外挂实现实时修正」，反映当前研究热点集中在推理鲁棒性与低成本可插拔式对齐 / 纠错。",
+        comment:"「轻量外挂 + 实时修正」是很务实的方向——不动大模型本体，用小成本的旁路组件补齐可靠性短板，这比重训一遍模型现实得多。",
+        biz:"对已在生产中固定底座模型的团队，可插拔的纠错 / 对齐外挂意味着「不换模型也能持续改进质量」，升级成本极低。",
+        tech:"策略对齐类方法针对特定推理盲区做定向优化；轻量外挂多以 adapter / 旁路模块形式在推理时介入，实现低开销的实时修正。",
+        chain:"上游是对齐与后训练研究；下游是模型服务的质量运维与持续改进管线。",
+        pred:"未来 6 个月，模型平台会普及「可插拔纠错模块市场」，让团队按场景挂载对齐 / 纠错外挂，作为「持续变强不重训」的卖点。",
+        src:"https://huggingface.co/papers", srcName:"HuggingFace Daily Papers"
+      }
+    ]
+  },
+  {
+    id:"deploy", ic:"📦", title:"开源模型与私有化部署热度",
+    desc:"来源：HuggingFace 模型下载趋势。<b>HuggingFace 下载量代表「私有化 / 开源部署热度」</b>，与公有云调用量口径不同，单独成维。",
+    items:[
+      {
+        idx:"06", title:"美团 LongCat-2.0 开源：五万卡国产算力全流程训练的 1.6T 万亿参数模型",
+        badges:[{t:"2026-06-30 / 07-06 开源",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"7天高频信号",c:"sig7"},{t:"私有化部署热度·极高",c:"deploy"}],
+        summary:"美团发布并开源 LongCat-2.0（总参数 1.6T，平均激活约 48B，动态范围 33B~56B），宣称为业界首个在五万卡国产算力集群上完成全流程训练与推理的万亿参数模型，从零预训练、原生支持 1M 超长上下文，架构围绕 Agentic Coding 任务设计；7 月 6 日进一步开源针对国产芯片深度优化的推理代码。",
+        comment:"看点不在「又一个万亿模型」，而在「英伟达含量为零」——训练侧也跑通国产算力，是国产「模芯协同」从验证走向规模化的标志性一步。",
+        biz:"对受供应链 / 合规约束、必须走国产算力路线的行业客户，LongCat-2.0 提供了「训练到推理全国产」的可复现参考，显著降低国产化落地的技术不确定性。",
+        tech:"引入 LongCat 稀疏注意力（LSA）与 N-gram 相关机制降本；工程上通过卡间通信异常处理、弹性扩缩卡与自动故障恢复，将月均日故障率降低 70% 以上，并以确定性算子 + Bitwise 一致性验证保障正确性。",
+        chain:"上游是国产 NPU 集群与自研确定性算子；下游是国产化私有部署、Agentic Coding 工具与行业自建推理集群。",
+        pred:"未来 6 个月，国产算力厂商会以「LongCat 同款训练栈」为卖点打包「万卡容错训练 + 推理优化」方案，主攻政企国产化替代市场。",
+        src:"https://tech.meituan.com/2026/06/30/LongCat2.0.html", srcName:"美团技术团队 / IT之家"
+      },
+      {
+        idx:"07", title:"DeepSeek-V4-Flash 持续领跑 HuggingFace 模型趋势榜",
+        badges:[{t:"2026-07-01",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"30天持续趋势",c:"sig30"},{t:"私有化部署热度·高",c:"deploy"}],
+        summary:"DeepSeek 系 Flash 版本凭借卓越的 Inference 效率与生成表现，在开源社区保持极高活跃度与下载热度，既霸榜公有云调用量，也在私有化下载侧长期居前。",
+        comment:"DeepSeek 同时拿下「调用量」和「下载量」两张表，说明它已成为 2026 年事实上的「默认底座」之一——生态越集中，围绕它的工具红利越大。",
+        biz:"对二次开发者，DeepSeek 系是安全的默认选型；围绕它的微调、蒸馏、部署工具存在明确的商业机会。",
+        tech:"Flash 版走「高性价比推理」路线，通过 MoE 低激活 + 高效注意力压低单 token 成本，兼顾质量与吞吐。",
+        chain:"上游是 DeepSeek 训练体系；下游是海量基于其微调的垂直模型与推理服务商。",
+        pred:"未来 6 个月，围绕 DeepSeek 系的「行业微调市场」会更成型，服务商以「基于全球头部底座」作为信任卖点。",
+        src:"https://huggingface.co/models", srcName:"HuggingFace Models"
+      },
+      {
+        idx:"08", title:"NVIDIA TwoTower-30B-A3B 权重登陆 HF：6 天下载破万，扩散解码进入自托管清单",
+        badges:[{t:"2026-07-01",c:"date"},{t:"MEDIUM 置信",c:"md"},{t:"私有化部署热度·上升",c:"deploy"}],
+        summary:"Nemotron-Labs-TwoTower-30B-A3B-Base-BF16（约 126GB）在 HuggingFace 上线约 6 天即录得逾万次下载、上百 likes，显示开源社区对「可自托管的扩散语言模型」兴趣快速升温。",
+        comment:"下载量说明一件事：把「提速 2×」的能力权重开源出来，比只发一篇论文更能撬动生态——工程师会用脚投票。",
+        biz:"对追求高吞吐、又要数据不出域的团队，30B 级扩散解码模型给了一个「本地可跑、可商用」的新选项，值得纳入选型评估。",
+        tech:"A3B 表示激活约 3B 的稀疏结构；BF16 全权重体积大但可量化，社区正围绕其部署与量化路径快速迭代。",
+        chain:"上游是 NVIDIA 权重与训练配方；下游是本地推理栈、量化工具链与高吞吐批处理服务。",
+        pred:"未来 6 个月，会出现更多「扩散解码 GGUF / 量化版」，把大体积权重压进消费级显存，扩大自托管扩散模型的实际使用面。",
+        src:"https://huggingface.co/nvidia/Nemotron-Labs-TwoTower-30B-A3B-Base-BF16/tree/main", srcName:"HuggingFace Models · NVIDIA"
+      },
+      {
+        idx:"09", title:"GLM-5.2：以高性价比 Agentic 表现逼近闭源模型，成开源自部署热门",
+        badges:[{t:"2026-07-03",c:"date"},{t:"MEDIUM 置信",c:"md"},{t:"私有化部署热度·高",c:"deploy"}],
+        summary:"The Batch 报道 GLM-5.2 在「Top Agentic Performance, Low Cost」维度突出，以高效率交付逼近闭源模型的表现，成为开源侧自部署与 Agent 场景的热门底座之一。",
+        comment:"开源模型正从「能用」迈向「够打闭源」——当性价比与 Agent 能力同时到位，企业「自己部署一套」的动机会越来越强。",
+        biz:"对预算敏感又要跑 Agent 工作流的团队，GLM-5.2 提供了「低成本、可自控」的现实选项，降低对昂贵闭源 API 的依赖。",
+        tech:"主打 Agentic 任务的效率优化，在开放式问题与工具调用链上以较低推理成本维持较高完成质量。",
+        chain:"上游是智谱训练体系；下游是自建 Agent 平台、私有知识库与成本敏感的高频场景。",
+        pred:"未来 6 个月，开源模型会普遍以「Agentic 性价比」而非纯 benchmark 分数作为卖点，抢占企业自部署市场。",
+        src:"https://www.deeplearning.ai/the-batch/issue-359", srcName:"The Batch / HuggingFace"
+      },
+      {
+        idx:"10", title:"MoE 架构继续主导新发布开源大模型（占比口径不一，谨慎参考）",
+        badges:[{t:"2026-07-03",c:"date"},{t:"LOW 置信",c:"lo"},{t:"30天持续趋势",c:"sig30"}],
+        summary:"从 LongCat-2.0（激活 48B）、DeepSeek-Flash 到 NVIDIA TwoTower（A3B），新发布的开源大模型普遍采用「大总参数、小激活」的 MoE 路线；但「MoE 占开源榜比例」的具体数字来自不同渠道，尚无统一官方口径。",
+        comment:"MoE 主流化的方向没有争议，争议只在「占比多少」——这类具体比例来自单一或分散来源，建议只当方向信号看，别当权威数据引用。",
+        biz:"MoE 意味着「大容量、小激活成本」，对追求成本效率的企业推理是结构性利好，但抬高了部署调度与显存管理的复杂度。",
+        tech:"MoE 通过路由只激活部分专家，兼顾容量与推理成本，代价是显存占用高、负载均衡与专家并行调度更复杂。",
+        chain:"上游是 MoE 训练与路由算法；下游是推理引擎的专家并行调度与显存优化。",
+        pred:"未来 6 个月，推理框架会把「MoE 专家卸载 / 动态加载」做成标配，以「单卡也能跑 MoE」这类降本能力作为卖点。",
+        src:"https://www.datalearner.com/leaderboards", srcName:"DataLearner 榜单（多来源，口径不一）"
+      }
+    ]
+  },
+  {
+    id:"cloud", ic:"☁️", title:"公有云模型使用场景",
+    desc:"来源：Artificial Analysis + Twitter/X 实际用法。<b>与私有化部署热度分开统计</b>，聚焦公有云 API 的调用份额、性价比与真实用法。",
+    items:[
+      {
+        idx:"11", title:"Claude Fable 5 解除出口管制后回归全球，刷新远程劳动自动化率 16.1%",
+        badges:[{t:"2026-07-01",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"公有云场景",c:"cloud"},{t:"7天高频信号",c:"sig7"}],
+        summary:"Anthropic Claude Fable 5 在 6 月因安全 / 出口审查一度对全球下线，经两周华盛顿协商、新增安全分类器与联合 Amazon、Microsoft、Google 的越狱框架后，于 7 月 1 日恢复可用；据 CAIS 远程劳动指数（RLI），Fable 5 以 16.1% 的自动化率刷新纪录。7 月 7 日前部分付费用户可用最多 50% 周额度体验。",
+        comment:"一款模型的「上线 / 下线」如今要过监管这一关——能力越强，越像受管制的战略物资，可及性不再只由技术决定。",
+        biz:"对依赖顶配能力的产品，供给的政策不确定性成为新风险；同时 16.1% 的远程任务自动化率意味着「AI 替人做远程活」的临界正在逼近，白领工作流值得提前重构。",
+        tech:"RLI 衡量 Agent 端到端完成真实远程任务的比例；回归伴随新安全分类器，安全与能力被绑定评估。",
+        chain:"上游是 Anthropic 模型与合规体系；下游是企业的模型供给风险管理与远程工作自动化设计。",
+        pred:"未来 6 个月，企业会普遍建立「前沿模型 + 开源兜底」双轨架构，把「模型供给可替代性」写进采购硬指标。",
+        src:"https://www.macrumors.com/2026/07/01/anthropic-fable-5-relaunch/", srcName:"MacRumors / ZDNET / TheStreet"
+      },
+      {
+        idx:"12", title:"争议：Claude Fable 5 被曝「静默降智」，调试能力一度从 86.2 跌至 25.9",
+        badges:[{t:"2026-07-03",c:"date"},{t:"MEDIUM 置信",c:"md"},{t:"公有云场景",c:"cloud"},{t:"7天高频信号",c:"sig7"}],
+        summary:"多家媒体与开发者反馈，Fable 5 回归后在部分第三方评测中出现能力回落：有报道称调试能力从 86.2 降至 25.9、重构从 73.6 降至 38.4、幻觉指标从 75.9 滑落到 61.7，叠加其「最贵模型」定位（较部分国产模型贵数十倍），引发「花高价却体验憋屈」的争议。（第三方评测口径，非官方数据，谨慎参考）",
+        comment:"「静默降智」难以证实也难以证伪，但它揭示了闭源模型的结构性风险：你无法验证今天的模型和昨天是不是同一个——信任只能靠厂商自证。",
+        biz:"对把关键链路押注在单一闭源模型上的团队是警示：需建立自有回归评测集，持续监测「同一模型」的能力漂移，而非只信官方基准。",
+        tech:"能力回落可能来自安全分类器加严、路由降级或限流策略；因缺乏白盒访问，外部只能通过黑盒回归测试间接观测。",
+        chain:"上游是厂商的安全 / 成本策略调整；下游是应用侧的模型行为监控与多模型冗余。",
+        pred:"未来 6 个月，会兴起「模型能力漂移监控」服务，用固定测试集每日跑分预警降智，作为企业级采购的信任基础设施卖点。",
+        src:"https://36kr.com/p/3879721936826633", srcName:"36氪 / 开发者社区（第三方口径）"
+      },
+      {
+        idx:"13", title:"GPT-5.6（Sol / Terra / Luna）走向发布：三档定价把「按难度买智能」摆上台面",
+        badges:[{t:"2026-07-06",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"公有云场景",c:"cloud"},{t:"7天高频信号",c:"sig7"}],
+        summary:"OpenAI 以有限预览形式推出 GPT-5.6 家族并逐步扩大可用范围：Sol（旗舰，约 $5 输入 / $30 输出每百万 token，主攻复杂多步推理、软件工程与安全）、Terra（约 $2.5 / $15，性能接近上代 GPT-5.5 但成本约低一半）、Luna（轻量经济档）；官方帮助中心已上线预览说明，社区还流传「速度拨盘」式的质量-速度可调设计。",
+        comment:"从「一个旗舰打天下」到「三档 + 拨盘」，OpenAI 在把定价权还给用户：不是所有任务都值得用最贵的脑子，这才是成本时代的产品思维。",
+        biz:"对开发者是直接利好——可按任务难度路由到 Terra/Luna 省钱、只在硬骨头上调用 Sol；采购与工程需要重建「任务难度 → 模型档位」的映射策略。",
+        tech:"分档基于 Agentic-First 训练范式做能力-成本分层；缓存命中与分档定价共同决定实际单价，需结合真实调用结构测算。",
+        chain:"上游是 OpenAI 训练与定价策略；下游是中间件的「按难度智能路由」与成本优化。",
+        pred:"未来 6 个月，主流中间件会普及「任务难度自动分档路由」，把 Sol/Terra/Luna 与其他厂商模型统一编排，以「质量与成本双优」为卖点。",
+        src:"https://help.openai.com/en/articles/20001325-a-preview-of-gpt-56-sol-terra-and-luna", srcName:"OpenAI Help Center / The Batch"
+      },
+      {
+        idx:"14", title:"腾讯混元 Hy3 发布，元宝首发接入并上线免费 Agent 功能",
+        badges:[{t:"2026-07-06",c:"date"},{t:"MEDIUM 置信",c:"md"},{t:"公有云场景",c:"cloud"}],
+        summary:"腾讯 7 月 6 日发布混元 Hy3 大模型，元宝第一时间完成接入并同步上线免费 Agent 功能，支持「深度思考 / 快速思考」两种模式，用户可用自然语言直接生成 PPT、Word、Excel、PDF 等文件。",
+        comment:"大厂 Agent 正快速分成两条路线：一类帮开发者「写代码改工程」，一类帮普通用户「出文档办杂事」——混元 Hy3 + 元宝明显走后者，用「生成办公文件」抢日常刚需。",
+        biz:"对办公场景，免费 + 自然语言生成 Office 文件会快速教育用户习惯；对第三方文档类工具是正面竞争压力。",
+        tech:"双思考模式对应「快慢融合」推理调度，把简单请求走快路径、复杂请求走深度推理，平衡体验与成本。",
+        chain:"上游是混元模型迭代；下游是元宝 C 端入口与办公协作生态。",
+        pred:"未来 6 个月，通用助手会把「一句话生成可编辑 Office 文档」做成标配入口，以「零门槛办公自动化」抢占日活。",
+        src:"https://m.weibo.cn/detail/5318152384676528", srcName:"腾讯 / 媒体报道"
+      }
+    ]
+  },
+  {
+    id:"community", ic:"🛠️", title:"社区实践、工程趋势与技巧",
+    desc:"来源：GitHub Trending + Twitter/X 实际用法。优先互动多的实战技巧、工作流与工程范式。",
+    items:[
+      {
+        idx:"15", title:"Meta 开源 Astryx：面向「人-Agent 协作」的可定制设计系统登上 GitHub Trending",
+        badges:[{t:"2026-07-05",c:"date"},{t:"MEDIUM 置信",c:"md"},{t:"7天高频信号",c:"sig7"}],
+        summary:"Meta 开源全新设计系统 Astryx，主打「人类可用性」与「Agent 可兼容」双目标，帮助开发者在保持结构完整性的前提下，构建可被 AI 驱动地构造与维护的复杂数字产品，上线即登上 GitHub Trending。",
+        comment:"当界面既要给人看、又要给 Agent 操作，设计系统就必须「双读者」——Astryx 把「为 Agent 而设计的 UI 规范」摆上台面，这是前端范式的一次前移。",
+        biz:"对做 Agent-first 产品的团队，统一的人-机双兼容设计系统能显著降低「让 Agent 稳定操作界面」的适配成本。",
+        tech:"以结构化、语义清晰的组件规范让 Agent 可解析可操作，同时保留人类可用性，强调灵活适配不同工作流。",
+        chain:"上游是前端组件与设计规范；下游是 Agent 自动化操作、RPA 与 GUI Agent 生态。",
+        pred:"未来 6 个月，会出现更多「Agent-readable UI」规范与组件库，把「让 AI 也能看懂并操作你的界面」作为前端框架卖点。",
+        src:"https://aitoolly.com/ai-news/article/2026-07-05-meta-launches-astryx-a-fully-customizable-open-source-design-system-for-human-agent-collaboration", srcName:"GitHub Trending / AIToolly"
+      },
+      {
+        idx:"16", title:"Google 官方 chrome-devtools-mcp 走热：浏览器调试能力直连 AI Agent",
+        badges:[{t:"2026-07-03",c:"date"},{t:"HIGH 置信",c:"hi"}],
+        summary:"Google 官方提供的 Chrome DevTools MCP（模型上下文协议）服务在 GitHub Trending 上快速攀升（累计约 45.0k stars），让 AI Agent 可直接调用浏览器前端调试能力，被视为「浏览器前端调试的最终形态」。",
+        comment:"MCP 正在把「工具接入」标准化——当 Google 官方都下场做 DevTools MCP，意味着 Agent 调用浏览器不再是各家自造轮子，而是走统一协议。",
+        biz:"对做 Web 自动化、前端 AI 调试、E2E 测试的团队，官方 MCP 大幅降低集成与维护成本，可靠性也更有保障。",
+        tech:"通过 MCP 暴露 DevTools 协议能力（DOM、网络、性能、控制台），让 Agent 以标准化接口读写浏览器状态。",
+        chain:"上游是 MCP 协议生态；下游是 GUI/浏览器 Agent、自动化测试与前端诊断工具。",
+        pred:"未来 6 个月，主流开发工具会普遍内置官方 MCP 连接器，把「标准协议接工具」作为 Agent 可靠性卖点。",
+        src:"https://cloud.tencent.com/developer/article/2702969", srcName:"GitHub Trending / 腾讯云社区"
+      },
+      {
+        idx:"17", title:"昆仑万维天工 Skywork Tags 上线：给 AI Agent 发「工牌」进驻钉钉 / 飞书 / Slack",
+        badges:[{t:"2026-07-02",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"7天高频信号",c:"sig7"}],
+        summary:"昆仑万维发布天工大模型 3.2，最大亮点是 Skywork Tags——被形象称为给 AI Agent 发一张「工牌」，让 AI 以成员身份进驻钉钉、飞书、Slack 等办公群聊深度协作；此前 Anthropic 已推出同类 Claude Tag 功能。",
+        comment:"Agent 的形态正从「你去用的工具」变成「群里@它就干活的同事」——一旦进了办公 IM，AI 的调用就嵌进了组织的日常协作动线里。",
+        biz:"对企业协作场景，Agent「常驻群聊」把 AI 的触点从独立 App 前移到既有工作流，采纳门槛骤降，是很强的落地范式。",
+        tech:"通过身份标签 + IM 集成，让 Agent 具备可@、可分工、可持续在场的协作实体形态，背后是多轮上下文与任务编排。",
+        chain:"上游是天工模型与 Agent 编排；下游是办公 IM 生态与企业协作流程。",
+        pred:"未来 6 个月，办公 IM 会普遍支持「把 Agent 作为成员加入群聊」，以「AI 常驻同事」作为团队协作卖点。",
+        src:"http://m.toutiao.com/group/7658534810238878246/", srcName:"昆仑万维 / 媒体报道"
+      },
+      {
+        idx:"18", title:"大厂 Agent 路线分化：Code 派 vs Work 派，豆包 / 千问「智能体」引乌龙",
+        badges:[{t:"2026-07-07",c:"date"},{t:"MEDIUM 置信",c:"md"}],
+        summary:"围绕豆包 / 千问「智能体」功能调整的传闻引发讨论（部分为翻译乌龙），但趋势清晰：阿里、腾讯、字节、Kimi、MiniMax、智谱均在做 Agent，且路线明显分为两类——Code 派帮开发者写代码 / 改工程 / 跑命令，Work 派帮普通用户整理资料 / 处理文件 / 推进办公任务（如腾讯 CodeBuddy 与 WorkBuddy）。",
+        comment:"Agent 不是一个市场，而是两个：一个卖给写代码的人，一个卖给做表格的人。看懂这条分野，才能理解各家产品命名与定价的差异。",
+        biz:"对企业选型，先明确自己要的是「Code Agent」还是「Work Agent」，再匹配厂商强项，避免被「全能 Agent」的营销话术带偏。",
+        tech:"Code 派强调代码库理解、工具执行与沙箱；Work 派强调文件解析、文档生成与办公系统集成，二者的评测维度并不通用。",
+        chain:"上游是各家基础模型；下游是研发工具链与办公协作两条差异化落地路径。",
+        pred:"未来 6 个月，Agent 产品会更明确地二分定位与定价，「专精 Code」或「专精 Work」的清晰品类叙事将取代模糊的「全能助手」。",
+        src:"http://m.toutiao.com/group/7659562833318855209/", srcName:"36氪 / 雷科技"
+      },
+      {
+        idx:"19", title:"吴恩达：未来 3–6 个月，从「写提示词」转向「自我改进循环」",
+        badges:[{t:"2026-07-04",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"30天持续趋势",c:"sig30"}],
+        summary:"吴恩达（Andrew Ng）表示，未来 3 到 6 个月，开发者将从「写提示词」转向使用「自我改进循环（self-improving loops）」：不再逐条给 AI 发指令，而是给定目标，让它在循环中自主尝试、纠错、优化直到跑通任务，很多开发者已从 Chat 模式转向 Agent 模式。",
+        comment:"这是把「人给 AI 打工」翻转成「AI 给目标打工」——提示词工程的黄金期正在过去，会设计『目标 + 验证器 + 循环』的人，才是下一波生产力赢家。",
+        biz:"对团队，能力建设重点应从「训练大家写好 prompt」转向「设计可自动验证的任务目标与评测闭环」，这决定 Agent 能否被信任地放手跑。",
+        tech:"self-improving loop 依赖清晰的目标定义与可靠的验证信号（测试 / 评测器），让 Agent 在反馈中迭代，核心难点是验证器质量。",
+        chain:"上游是 Agent 编排与验证器设计；下游是研发、内容、运营等场景的自动化闭环。",
+        pred:"未来 6 个月，开发工具会内置「目标 + 验证器 + 自动迭代」模板，把「给目标不给步骤」作为 Agent 化开发的核心卖点。",
+        src:"https://m.weibo.cn/detail/5316980225871377", srcName:"Twitter/X · Andrew Ng / 爱可可"
+      }
+    ]
+  },
+  {
+    id:"podcast", ic:"🎙️", title:"小宇宙播客洞察与产品方法论",
+    desc:"来源：小宇宙 AI / 大模型相关节目。提炼播客中的产品方法论、行业判断与深度洞察。",
+    items:[
+      {
+        idx:"20", title:"《HuggingFace 每日 AI 论文速递》：把「读论文」做成每天 10 分钟的通勤习惯",
+        badges:[{t:"2026-07-06",c:"date"},{t:"HIGH 置信",c:"hi"}],
+        summary:"小宇宙 / Apple Podcast 上的《HuggingFace 每日 AI 论文速递》每个工作日更新，用约 10 分钟串讲当日热门论文（07-06 期聚焦「策略对齐破解推理盲区」「轻量外挂实现实时修正」等 9 篇），并配套小红书图文版。",
+        comment:"这类节目本质是「信息过载时代的信噪比服务」——它不生产论文，而是把从业者每天『必须跟进但没时间读』的焦虑，打包成一段可通勤消费的音频。",
+        biz:"对内容 / 知识产品，这是一个可复用的方法论：找到高频、必须跟进又费时的信息流，用『每日固定时长 + 多端分发』做成习惯型产品。",
+        tech:"以「日更 + 定长 + 多平台（播客 / 小红书）」的内容流水线，围绕固定信息源做结构化摘要与口语化转述。",
+        chain:"上游是 HuggingFace Daily Papers 信息源；下游是 AI 从业者的日常信息摄入习惯。",
+        pred:"未来 6 个月，垂直领域「日更速递型」音频 / 图文产品会更多，以「帮你把该跟的信息跟完」作为订阅留存卖点。",
+        src:"https://www.xiaoyuzhoufm.com/podcast/667d1ecfc13b46d76c3f64b8", srcName:"小宇宙 · HuggingFace 每日AI论文速递"
+      },
+      {
+        idx:"21", title:"《Dwarkesh Podcast》× 3Blue1Brown：AI 能逼近百年数学猜想，却写不好一篇文章",
+        badges:[{t:"2026-07-01",c:"date"},{t:"HIGH 置信",c:"hi"}],
+        summary:"Dwarkesh Patel 播客 7 月 1 日对话 3Blue1Brown 创始人 Grant Sanderson，讨论 AI 与数学的未来：一个反直觉观察是——AI 在结构化、可验证的数学问题上进展惊人，却在开放式、审美性的写作表达上仍显笨拙。",
+        comment:"这条『数学强、写作弱』的反差，恰好印证了当下 AI 的能力地图——凡是有明确验证信号的领域进展飞快，凡是靠品味和模糊判断的领域仍是短板。",
+        biz:"对产品选型，这提示一条选场景的原则：优先把 AI 用在「结果可自动验证」的任务（数学、代码、数据），慎用在「好坏靠人主观品味」的任务。",
+        tech:"可验证任务能构造清晰奖励信号、支撑 RLVR 与自博弈；开放式生成缺乏可靠自动评价，难以形成强反馈闭环。",
+        chain:"上游是 RLVR / 验证器研究；下游是「可验证优先」的场景筛选与产品设计。",
+        pred:"未来 6 个月，落地成功的 AI 功能会明显集中在「可验证任务」，产品方法论会把『有没有验证信号』作为立项第一筛。",
+        src:"http://m.toutiao.com/group/7659331370933584438/", srcName:"Dwarkesh Podcast / 媒体转述"
+      },
+      {
+        idx:"22", title:"《硅谷101》延续讨论：递归自我提升（RSI）与「平庸自我进化」成主线叙事",
+        badges:[{t:"2026-07-06",c:"date"},{t:"MEDIUM 置信",c:"md"},{t:"7天高频信号",c:"sig7"}],
+        summary:"围绕 Anthropic「模型辅助研发」的观察，播客与社区持续讨论「递归自我提升（RSI）」与「平庸 RSI（Prosaic RSI）」：不是科幻式智能爆炸，而是用现有模型辅助写 kernel、调实验，形成『模型帮忙造更好模型』的工程复利。",
+        comment:"最该警惕的不是『某天突然超级智能』，而是这种『无聊的持续加速』——它没有戏剧性节点，却在悄悄把研发周期从月压到天。",
+        biz:"若自我迭代范式成立，护城河将从『谁有数据』转向『谁有更好的验证器与自动化研发流水线』，对纯数据壁垒型公司是长期挑战。",
+        tech:"Prosaic RSI 依赖可自动验证的环境（RLVR）与 Coding Agent 辅助，无需新范式突破，核心难点仍是验证器可靠性。",
+        chain:"上游是自博弈 / 合成环境与内部 Coding Agent；下游影响研发组织形态与算力 / 人才配置。",
+        pred:"未来 6 个月，前沿实验室会把「AI 参与研发比例 / 自动化流水线质量」作为对外叙事重点，用于融资与人才吸引。",
+        src:"https://www.xiaoyuzhoufm.com/podcast/5e5c52c9418a84a04625e6cc", srcName:"小宇宙 · 硅谷101"
+      }
+    ]
+  },
+  {
+    id:"opinion", ic:"🧭", title:"深度观点、行业时评与前瞻思辨",
+    desc:"来源：The Batch · Benedict Evans · Import AI · LessWrong / Alignment Forum · AI Snakeoil · 产业动态。",
+    items:[
+      {
+        idx:"23", title:"WAIC 2026 前瞻：300+ 全球首发，华为 Atlas 950、MiniMax M3、阶跃 Agent OS 集中亮相",
+        badges:[{t:"2026-07-07",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"7天高频信号",c:"sig7"}],
+        summary:"2026 世界人工智能大会（WAIC）将于 7 月 17—20 日在上海世博、张江、西岸「三地四馆」举办。7 月 7 日新闻发布会披露：展览总面积首破 10 万㎡，1100+ 家企业参展、3000+ 项展品、超 300 款产品全球首发；业界最大规模超节点华为 Atlas 950 真机、MiniMax M3 多模态大模型、阶跃 Agent 操作系统、近存计算 3D 芯片、全球首款 AI 智能体手机及多款人形机器人 / 灵巧手将亮相。论坛将聚焦世界模型、开源智能体、AI Coding、Token 经济、OPC 等议题。",
+        comment:"从『首发新品清单』能读出今年的产业重心——算力超节点、多模态、Agent OS、具身，四条主线全齐，AI 正从『聊天』全面转向『生产力与硬件』。",
+        biz:"对从业者，WAIC 是一次密集的选型与合作窗口（已披露达成约 162 亿元意向合作）；智算与具身两大赛道各汇聚 200+ 家企业，是判断供给格局的好参照。",
+        tech:"看点集中在超节点算力（Atlas 950）、多模态大模型（MiniMax M3）与 Agent 操作系统层，反映『模型-算力-系统』协同的产业化方向。",
+        chain:"上游是芯片 / 算力与基础模型；下游是行业 AI+ 落地、具身智能与端侧新硬件。",
+        pred:"未来 6 个月，『Agent OS』与『AI 智能体硬件（手机 / 机器人）』会成为新品发布的高频关键词，产业叙事从『模型参数』转向『系统与终端』。",
+        src:"https://finance.sina.com.cn/jjxw/2026-07-07/doc-inifykpa8457489.shtml", srcName:"新浪财经 / 央视 / 上海发布"
+      },
+      {
+        idx:"24", title:"快手可灵 AI 完成 30 亿美元融资，投后估值 180 亿美元，BAT 罕见同台",
+        badges:[{t:"2026-07-02",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"7天高频信号",c:"sig7"}],
+        summary:"快手 7 月 2 日公告，旗下独立主体北京可灵完成上限 30 亿美元外部增资，投后估值约 180 亿美元（较 4 月传出的 200 亿美元目标下调），腾讯、阿里、百度罕见同台参投，创全球视频大模型公司最大单笔融资纪录；据报道可灵一季度单季营收超 6.5 亿元、同比增长超 300%，市场预期 12 个月内启动赴港 IPO。",
+        comment:"估值从 200 亿回调到 180 亿，是个耐人寻味的信号——AI 应用层的定价正从『想象空间溢价』回归到『商业兑现能力』的锚点，故事要开始算账了。",
+        biz:"对 AI 视频赛道，头部集中 + 巨额弹药会加速淘汰赛；对创业者，估值锚点转向『真实营收』意味着单靠 demo 融资的窗口在收窄。",
+        tech:"资金将用于模型迭代、商业化拓展与全球化团队；视频生成的竞争点在时长 / 一致性 / 可控性与推理成本。",
+        chain:"上游是算力与视频数据；下游是内容创作、广告营销与影视工业化管线。",
+        pred:"未来 6 个月，视频大模型会更强调『可控性 + 商业化 ROI』而非炫技时长，头部公司以『能赚钱的生成』作为对资本的核心叙事。",
+        src:"https://finance.sina.com.cn/jjxw/2026-07-03/doc-inifntfa5595495.shtml", srcName:"新浪财经 / 界面新闻"
+      },
+      {
+        idx:"25", title:"Anthropic 密谈三星 2nm 自研 AI 芯片，挖角 OpenAI 芯片老兵",
+        badges:[{t:"2026-07-03",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"7天高频信号",c:"sig7"}],
+        summary:"据 The Information 报道，Anthropic 已启动自研 AI 芯片前期筹备，正与三星电子洽谈采用其 2nm 制程及先进封装代工，并招揽 OpenAI 初代芯片团队核心成员 Clive Chan；市场同期还传出 Meta 与三星合作、Google 下一代 TPU 换封装等消息，模型商『造芯』竞赛全面升级。",
+        comment:"『买 token』的时代正让位于『押算力』——当头部模型公司纷纷自研芯片，说明它们判断：长期竞争力不在模型本身，而在能不能低成本、可控地拿到算力。",
+        biz:"对下游企业，芯片自研意味着头部厂商成本结构与供给稳定性将分化；对供应链，三星凭 2nm 拿下 Meta、Anthropic 等客户，代工格局正在被重塑。",
+        tech:"2nm 提升晶体管密度与能效，先进封装把计算芯片与高速内存紧密集成、减少数据搬运等待；自研 ASIC 可针对自家模型做定制优化。",
+        chain:"上游是先进制程 / 封装（三星、台积电、Intel EMIB-T）；下游是模型商的算力自给与数据中心自建（Anthropic 规划约 1GW 自有数据中心）。",
+        pred:"未来 6 个月，『模型商 + 自研 ASIC + 代工厂』的绑定会更普遍，硬件主权成为前沿实验室的核心叙事与融资卖点。",
+        src:"https://finance.sina.cn/stock/jdts/2026-07-04/detail-inifrtiy0066772.d.html", srcName:"The Information / DeepTech / 新浪财经"
+      },
+      {
+        idx:"26", title:"The Batch：GPT-5.6 到来，但只对获批合作伙伴开放",
+        badges:[{t:"2026-07-06",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"7天高频信号",c:"sig7"}],
+        summary:"The Batch（DeepLearning.AI）在 Data Points 中报道 GPT-5.6 以「仅对获批合作伙伴开放」的方式先行落地，同期还关注 GLM-5.2 的高性价比 Agentic 表现、美国高校 AI 学位激增，以及 Apple 在 MacBook / iPhone / 云服务整合大模型的 2026 计划。",
+        comment:"『先给合作伙伴、再逐步放开』正在成为前沿模型的默认发布节奏——这既是安全 / 合规的缓冲，也是把最强能力当作稀缺资源来经营的商业选择。",
+        biz:"对无法第一时间拿到前沿模型的企业，『受限发行』意味着能力可及性分层，需提前储备开源兜底方案，避免被供给节奏卡住。",
+        tech:"分阶段发行便于厂商做安全评估、容量控制与定价试探；配合分档模型，形成『能力-成本-可及性』三维分层。",
+        chain:"上游是 OpenAI 发布策略；下游是企业的模型采购节奏与替代方案储备。",
+        pred:"未来 6 个月，『合作伙伴优先 → 分批 GA』会成为前沿模型标准发布路径，倒逼企业建立『前沿 + 开源』双轨采购。",
+        src:"https://www.deeplearning.ai/the-batch/gpt-5-6-arrives-but-only-for-approved-partners", srcName:"The Batch · DeepLearning.AI"
+      },
+      {
+        idx:"27", title:"工信部：今年我国人形机器人整机产量有望突破 10 万台",
+        badges:[{t:"2026-07-07",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"30天持续趋势",c:"sig30"}],
+        summary:"工业和信息化部科技司在 WAIC 2026 新闻发布会上表示，我国大模型、智能体等加速迭代，今年人形机器人全年整机产量有望突破 10 万台，规上工业企业人工智能应用普及率已超一定比例，具身智能进入放量前夜。",
+        comment:"10 万台是个从『展品』到『产品』的门槛数字——一旦进入规模化量产，供应链、成本和数据飞轮才真正转起来，具身智能才算落地。",
+        biz:"对机器人产业链，量产临近意味着零部件（灵巧手、传感器）、具身数据与国产算力等『卖铲子』环节迎来确定性窗口。",
+        tech:"量产瓶颈从算法转向本体可靠性、成本与规模化数据；触觉感知与国产训练算力是关键拼图。",
+        chain:"上游是核心零部件与具身模型；下游是工业装配、服务与家庭场景的规模化部署。",
+        pred:"未来 6 个月，人形机器人叙事会从『能做什么演示』转向『量产良率与单台成本』，具身数据集与国产算力成为新价值高地。",
+        src:"https://m.bjnews.com.cn/detail/1783412916129538.html", srcName:"新华社 / 工信部"
+      },
+      {
+        idx:"28", title:"Benedict Evans / Import AI：AI 处于「1997 互联网时刻」，从奇迹转向平庸的业务工具",
+        badges:[{t:"2026-06-28",c:"date"},{t:"HIGH 置信",c:"hi"},{t:"30天持续趋势",c:"sig30"}],
+        summary:"Benedict Evans 将当前 AI 类比 1997 年的互联网：技术正从实验室奇迹转向『平庸化』的业务工具，警示基础设施投入过热的泡沫风险；Import AI 等则从『平庸 RSI』与自动化 R&D 角度补充『无聊但持续』的加速叙事，两者共同指向『务实落地』的下半场。",
+        comment:"『平庸化』不是唱衰，而是成熟——就像今天没人再惊叹『有网站』。当 AI 变得无聊、变成默认选项，才是它真正渗透业务的开始。",
+        biz:"行业关注点应从『AI 能做什么』转向『AI 如何融入现有业务流程』，优先做工作流重构与 ROI 兑现，而非在基础设施层过度超前投资。",
+        tech:"技术采纳曲线的规律：早期泡沫 + 基础设施过建，随后是漫长的应用层价值兑现期，价值从『参数』转向『集成』。",
+        chain:"上游是资本与算力投入节奏；下游是应用层商业模式与务实落地案例。",
+        pred:"未来 6 个月，市场叙事会更看重『AI 带来的真实营收 / 成本改善』，务实落地案例取代参数竞赛成为主流卖点。",
+        src:"https://www.ben-evans.com/newsletter", srcName:"Benedict Evans Newsletter / Import AI"
+      },
+      {
+        idx:"29", title:"AI 创业十大快讯（07-07）：大模型监管新规、企业 AI 成本管控成焦点",
+        badges:[{t:"2026-07-07",c:"date"},{t:"MEDIUM 置信",c:"md"}],
+        summary:"综合创业快讯（2026-07-07）梳理十大热点：折叠屏 iPhone 推迟、Anthropic 与三星自研芯片、豆包 / 千问智能体功能调整、阿里电商架构重组、企业 AI 成本管控趋势、销售 AI Agent 获融资等，覆盖 AI 芯片、大模型、具身智能、电商 AI 与 AI 监管等方向。",
+        comment:"当『企业 AI 成本管控』和『监管新规』同时成为高频词，说明行业已过了『先用起来再说』的阶段——降本、合规与治理开始变成一把手议题。",
+        biz:"对企业，AI 支出正从『试点预算』转为『需要被管理的常态成本』；FinOps for AI（用量治理、模型分档、缓存优化）会成为刚需能力。",
+        tech:"成本管控依赖用量可观测、按任务分档路由与缓存 / 错峰调度；监管合规则要求数据留痕与可审计。",
+        chain:"上游是模型定价与监管政策；下游是企业的 AI 成本治理与合规基础设施。",
+        pred:"未来 6 个月，会涌现更多『AI 用量 / 成本治理平台』，把『看得见、管得住、能合规』的 AI 支出管理作为企业级卖点。",
+        src:"https://www.aihehuo.com/blog/9036-news-2026-07-07", srcName:"爱合伙 · 每日AI创业快讯"
+      }
+    ]
+  }
+];
+
+/* ============ RENDER ============ */
+function el(tag,cls,html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+
+function renderStats(){
+  const totalItems=SECTIONS.reduce((n,s)=>n+s.items.length,0);
+  let sig7=0,sig30=0;
+  SECTIONS.forEach(s=>s.items.forEach(it=>it.badges.forEach(b=>{if(b.c==='sig7')sig7++;if(b.c==='sig30')sig30++;})));
+  const stats=[
+    {num:totalItems,lbl:"今日资讯条目"},
+    {num:SECTIONS.length,lbl:"覆盖内容维度"},
+    {num:sig7,lbl:"🔥 7天高频信号"},
+    {num:sig30,lbl:"📈 30天持续趋势"}
+  ];
+  const strip=document.getElementById('stats-strip');
+  stats.forEach(s=>{const d=el('div','stat');d.appendChild(el('div','num',s.num));d.appendChild(el('div','lbl',s.lbl));strip.appendChild(d);});
+}
+
+function renderSections(){
+  const root=document.getElementById('sections');
+  SECTIONS.forEach(sec=>{
+    const s=el('section','sec');s.id=sec.id;
+    const head=el('div','sec-head');head.appendChild(el('span','ic',sec.ic));head.appendChild(el('h2',null,sec.title));
+    s.appendChild(head);
+    s.appendChild(el('div','sec-desc',sec.desc));
+    sec.items.forEach(it=>{
+      const c=el('div','card');
+      c.appendChild(el('div','ttl',`<span class="idx">#${it.idx}</span>${it.title}`));
+      const bd=el('div','badges');
+      it.badges.forEach(b=>bd.appendChild(el('span','bdg '+b.c,b.t)));
+      c.appendChild(bd);
+      c.appendChild(el('div','summary',it.summary));
+      const blocks=el('div','blocks');
+      const defs=[
+        ['comment','💬 点评',it.comment],
+        ['biz','🎯 业务视角',it.biz],
+        ['tech','🔬 技术背景',it.tech],
+        ['chain','🔗 上下游影响',it.chain],
+        ['pred','🚀 6 个月产品卖点预测',it.pred]
+      ];
+      defs.forEach(([cls,h,body])=>{
+        const b=el('div','blk '+cls);
+        b.appendChild(el('span','h',h));
+        b.appendChild(el('span','body',body));
+        blocks.appendChild(b);
+      });
+      c.appendChild(blocks);
+      const src=el('div','src');
+      if(it.src && it.src!=='暂无原文链接'){
+        src.innerHTML=`🔗 原文：<a href="${it.src}" target="_blank" rel="noopener">${it.srcName||it.src}</a> <span style="opacity:.6">· ${it.src}</span>`;
+      }else{
+        src.innerHTML=`🔗 <span class="no-link">暂无原文链接</span>`;
+      }
+      c.appendChild(src);
+      s.appendChild(c);
+    });
+    root.appendChild(s);
+  });
+}
+
+/* ============ STARS ============ */
+function renderStars(){
+  const box=document.getElementById('stars');
+  for(let i=0;i<40;i++){
+    const s=el('i');s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=(Math.random()*3)+'s';box.appendChild(s);
+  }
+}
+
+/* ============ NOTES (localStorage + debounce) ============ */
+const NOTE_KEY='llm_night_notes_'+REPORT_DATE;
+const area=document.getElementById('noteArea');
+const saveState=document.getElementById('saveState');
+const wordCount=document.getElementById('wordCount');
+let saveTimer=null;
+
+function updateWordCount(){
+  const len=(area.value||'').replace(/\s/g,'').length;
+  wordCount.textContent=len+' 字';
+}
+function loadNotes(){
+  const saved=localStorage.getItem(NOTE_KEY);
+  if(saved!=null){area.value=saved;saveState.textContent='已保存';saveState.classList.add('saved');}
+  updateWordCount();
+}
+function saveNotes(){
+  localStorage.setItem(NOTE_KEY,area.value);
+  saveState.textContent='✓ 已自动保存 · '+new Date().toLocaleTimeString('zh-CN');
+  saveState.classList.add('saved');
+}
+area.addEventListener('input',()=>{
+  updateWordCount();
+  saveState.textContent='输入中…';saveState.classList.remove('saved');
+  if(saveTimer)clearTimeout(saveTimer);
+  saveTimer=setTimeout(saveNotes,500); // 500ms 防抖
+});
+document.getElementById('exportBtn').addEventListener('click',()=>{
+  const blob=new Blob([area.value||''],{type:'text/plain;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='大模型夜报笔记_'+REPORT_DATE+'.txt';a.click();URL.revokeObjectURL(a.href);
+});
+document.getElementById('clearBtn').addEventListener('click',()=>{
+  if(confirm('确定清空本期笔记吗？此操作不可撤销。')){
+    area.value='';localStorage.removeItem(NOTE_KEY);updateWordCount();
+    saveState.textContent='已清空';saveState.classList.remove('saved');
+  }
+});
+
+/* ============ INIT ============ */
+renderStars();
+renderStats();
+renderSections();
+loadNotes();
+</script>
+</body>
+</html>
