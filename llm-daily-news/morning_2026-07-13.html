@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>☀️ 大模型晨报 · 2026-07-13</title>
+<!-- report-meta: date=2026-07-13; title=大模型晨报; summary=模型竞争重心从「单模型更强」转向「跨厂商编排 + 任务级性价比分档 + 运行时治理」；开源侧 Qwen 超越 Llama 坐稳全球下载第一，Agent 工程正从 Prompt 迈向 Harness/Contract 与主动记忆。 -->
+<style>
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#20242b; --sub:#5c6470; --line:#ece7dd;
+  --sun1:#ff9a3d; --sun2:#ff6b6b; --gold:#f5a623; --accent:#e8541e;
+  --cloud:#3d7bff; --deploy:#12a594; --paper:#7b5cff; --gh:#20242b; --view:#c8811a;
+  --sig7:#e8541e; --sig30:#7b5cff;
+  --shadow:0 4px 16px rgba(40,30,10,.06); --shadow-h:0 10px 30px rgba(40,30,10,.12);
+  --r:16px; --mono:"SFMono-Regular",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:'Inter','PingFang SC','Microsoft YaHei',system-ui,-apple-system,sans-serif;background:linear-gradient(180deg,#fffaf3 0,#f7f5f0 240px);color:var(--ink);line-height:1.7}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 18px 64px}
+.hero{padding:18px 0 12px}
+.hero-card{background:linear-gradient(135deg,rgba(255,154,61,.14),rgba(255,107,107,.10) 48%,rgba(61,123,255,.08));border:1px solid #f0dfca;border-radius:28px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff7ea;color:#ab5f00;font-weight:800;font-size:12px;letter-spacing:.02em}
+h1{margin:14px 0 10px;font-size:40px;line-height:1.15}
+.lede{font-size:16px;color:#2c3139;max-width:980px}
+.meta-row,.quick-nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.chip,.nav-chip{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:13px;color:#495160;text-decoration:none}
+.nav-chip:hover{border-color:#d8c29f;transform:translateY(-1px)}
+.grid-signals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:22px 0 28px}
+.signal{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+.signal h4{margin:10px 0 8px;font-size:18px;line-height:1.35}.signal p{margin:0;color:var(--sub);font-size:14px}.freq{margin-top:10px;color:#7a5b1b;font-size:12px;font-weight:700}
+.tag{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:800}.tag.s7{background:rgba(232,84,30,.12);color:var(--sig7)}.tag.s30{background:rgba(123,92,255,.10);color:var(--sig30)}
+.sec{margin-top:24px}.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:10px}.sec-head h2{margin:0;font-size:28px}.sec-head .en{color:var(--sub);font-size:13px}
+.sec-desc{color:var(--sub);margin:0 0 14px;font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 18px 16px;box-shadow:var(--shadow);overflow:hidden}
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--bar,#ddd)}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h);transition:.18s ease}
+.card-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}.src,.card-date,.metric,.sig-inline{font-size:12px;font-weight:800;border-radius:999px;padding:5px 9px}.src{background:#f6f8fb;color:#51607a}.card-date{background:#fff7ea;color:#9b6d00}.metric{background:#f2f7f5;color:#0e7b6d}.sig-inline.s7{background:rgba(232,84,30,.10);color:var(--sig7)}.sig-inline.s30{background:rgba(123,92,255,.10);color:var(--sig30)}
+.card h3{font-size:22px;line-height:1.35;margin:4px 0 10px}.summary{margin:0 0 12px;color:#303742}
+.analysis{display:grid;gap:8px}.an{display:grid;grid-template-columns:126px 1fr;gap:10px;align-items:start;padding:10px 12px;border-radius:14px;background:#faf8f3}.k{font-weight:800;color:#3b4350;font-size:13px}.v{color:#566071;font-size:14px}
+.card-link,.no-link{display:inline-flex;margin-top:14px;padding:10px 12px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none}.card-link{background:#fff4dd;color:#9e5b00}.card-link:hover{background:#ffe8bc}.no-link{background:#f3f4f6;color:#7a818d}
+.box{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow)}
+.cover-table{width:100%;border-collapse:collapse;font-size:14px}.cover-table th,.cover-table td{border-bottom:1px solid var(--line);padding:12px 10px;vertical-align:top;text-align:left}.cover-table th{font-size:13px;color:#637086}.status-pill{display:inline-flex;padding:4px 9px;border-radius:999px;font-weight:800;font-size:12px}.status-pill.ok{background:#eaf8f4;color:#0f7e6c}.status-pill.watch{background:#fff4dd;color:#9b6b00}
+.notes-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}.notes-actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:none;background:#f3f0e9;color:#303742;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer}.btn.primary{background:#fff0d3;color:#9a5b00}.btn.danger{background:#feeceb;color:#c54949}.btn:hover{filter:brightness(.98)}
+textarea{width:100%;min-height:220px;border:1px solid var(--line);border-radius:16px;padding:14px 16px;font:15px/1.7 'Inter','PingFang SC','Microsoft YaHei',sans-serif;resize:vertical;background:#fffefb}.small{color:var(--sub);font-size:13px}
+.footer{margin-top:26px;color:var(--sub);font-size:13px;text-align:center}
+@media (max-width:820px){h1{font-size:32px}.sec-head{display:block}.an{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.cover-table{display:block;overflow:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <div class="hero-card">
+      <div class="eyebrow">☀️ 大模型晨报 · 2026-07-13 · 5 分钟扫读</div>
+      <h1>大模型晨报</h1>
+      <p class="lede" id="lede"></p>
+      <div class="meta-row" id="metaRow"></div>
+      <div class="quick-nav" id="quickNav"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="signals-sec">
+    <div class="sec-head"><h2>📡 高频信号追踪</h2><span class="en">High-frequency Signals · 标记依据为最近晨/夜报观察窗口与当日来源巡检</span></div>
+    <div class="grid-signals" id="signals"></div>
+  </section>
+
+  <div id="sections"></div>
+
+  <section class="sec" id="coverage">
+    <div class="sec-head"><h2>📚 来源覆盖与口径说明</h2><span class="en">Coverage & Methodology · 无原文则明确标注，禁止伪造链接</span></div>
+    <p class="sec-desc">口径说明：HuggingFace 下载量主要作为“私有化 / 开源部署热度”观察；公有云模型使用场景单独结合官方发布、Artificial Analysis 与 Twitter / X 实战贴做定性判断。</p>
+    <div class="box" id="coverBox"></div>
+  </section>
+
+  <section class="sec" id="notes-sec">
+    <div class="sec-head"><h2>📝 我的笔记</h2><span class="en">My Notes · localStorage 持久化</span></div>
+    <p class="sec-desc">笔记仅保存在当前浏览器（localStorage），点击编辑后 500ms 防抖自动保存；支持字数统计、导出 .txt 与清空。</p>
+    <div class="box">
+      <div class="notes-bar">
+        <div class="small"><span id="noteStatus">🕘 尚未编辑</span> · <span id="noteCount">0 字</span></div>
+        <div class="notes-actions">
+          <button class="btn primary" id="exportBtn">导出 .txt</button>
+          <button class="btn danger" id="clearBtn">清空</button>
+        </div>
+      </div>
+      <textarea id="noteArea" placeholder="可记录：想跟进的模型、值得验证的工作流、适合包装成产品能力的信号……"></textarea>
+    </div>
+  </section>
+
+  <div class="footer">生成时间：2026-07-13 08:18:00 · HTML 为本地静态文件，可直接部署到 GitHub Pages</div>
+</div>
+<script>
+const LEDE = "今日主线：<b>模型竞争的重心正从“单模型更强”彻底转向“跨厂商编排 + 任务级性价比分档 + 运行时治理”</b>——Sakana Fugu 与 GPT-5.6 Ultra Mode 把编排做成 SOTA 新路径，GPT-5.6 Luna 与 DeepSeek V4 把“每分智力单价”摆上台面；<b>开源侧 Qwen 累计下载破 10 亿超越 Llama</b>，Gemma 4 私有化热度同步走高；Agent 工程则从 Prompt 迈向 <b>Harness / Contract、主动记忆与末端安全防御</b>。一句话：<b>不再追一个最强模型，而是把路由、编排、记忆与治理做成一套可审计的工程栈</b>。";
+const META = ["共 19 条精选", "7天高频信号 ×3", "30天持续趋势 ×2", "来源覆盖 12 类", "编辑：邹超"];
+const SIGNALS = [
+  {"type":"s7","title":"任务级模型路由与性价比分档持续加速","desc":"GPT-5.6 Luna 把高性能压到低价、DeepSeek V4 用近百倍 ROI 抢占非核心场景、Artificial Analysis 六大行业指数按岗位加权——单模型统一承接全部任务的时代正在退潮。","freq":"近 7 天 ≥3 次（Artificial Analysis / OpenAI / Twitter-X 实战）"},
+  {"type":"s7","title":"Agent 工程从 Prompt 走向 Harness / Contract / 编排","desc":"Databricks Omnigent 编排层、Harness Engineering 合约化、Workflow as Knowledge 语义持久化与 Sakana Fugu 跨厂商编排，正把“调提示词”升级为可审计、可复用的工程栈。","freq":"近 7 天 ≥3 次（Twitter/X / arXiv / The Batch）"},
+  {"type":"s7","title":"Agent 运行时治理与安全成为标配","desc":"从 destructive_command_guard 危险指令拦截、可审计企业 Agent 合同，到 Jacobian lens 预判模型隐秘意图，市场正把“会不会出错”前移到设计层。","freq":"近 7 天 ≥3 次（GitHub / arXiv / LessWrong）"},
+  {"type":"s30","title":"开源私有化底座持续升温","desc":"Qwen 累计下载破 10 亿超越 Llama、Gemma 4 的 31B 增速 52%，叠加过去数周 HuggingFace 下载榜与 GitHub Trending，私有化 / 本地部署热度持续走高。","freq":"近 30 天持续趋势（HuggingFace / GitHub / 日报历史观察）"},
+  {"type":"s30","title":"长程记忆与知识外置持续成为基础设施主题","desc":"主动式记忆 Agent、Workflow 语义持久化与持续出现的 memory / RAG 主题指向同一现实：企业真正卡住的仍是上下文预算与知识组织。","freq":"近 30 天持续趋势（HuggingFace / arXiv / 日报历史观察）"}
+];
+const NEWS = [
+  {"cat":"cloud","src":"Artificial Analysis","bar":"var(--cloud)","date":"2026-07-10","sig":"s7","metric":"Luna 性价比约 4×","title":"GPT-5.6 家族上线：Luna 把高性能智能压到“白菜价”，公有云开始按性价比分档","summary":"OpenAI 发布 GPT-5.6 家族（Sol / Terra / Luna）。Artificial Analysis 评测显示，Luna 以约为 Opus 4.8 四分之一的成本实现编程 Benchmark 反超；旗舰 Sol 智能指数紧随 Claude Fable 5，任务处理速度提升约 61%。","pt":"OpenAI 用 Luna 正面还击 Anthropic 的价格优势，高性能智能进入低价供给时代。","biz":"对日调用千万级的企业应用，Luna 是当前兼顾“智商”与成本的最优公有云底座；高价值判断仍留给 Sol。","tech":"Programmatic Tool Calling 让模型用 JavaScript 协调工具，配合多级 Reasoning Effort 调节，把推理深度、吞吐与价格一起做成产品分层。","chain":"上游加剧算力租赁价格波动；下游大量 thin-wrapper 应用向“高智能低成本”迁移。","sell":"6 个月内可卖“任务级模型路由器”：按风险、时延与预算自动切 Sol / Terra / Luna。","url":"https://artificialanalysis.ai/models/gpt-5-6-sol"},
+  {"cat":"cloud","src":"Artificial Analysis","bar":"var(--cloud)","date":"2026-07-09","sig":"s7","metric":"成本差约 100×","title":"Claude Fable 5 稳坐智能巅峰，但 DeepSeek V4 用 ROI 说话：选型不能只看 SOTA","summary":"在 Artificial Analysis 的 Strategy & Ops 维度里，Claude Fable 5 以约 55 分领跑，但单次任务成本高达 $3.48；DeepSeek V4 Flash 单次任务成本不足 $0.04，分数略低但性价比高出约百倍，在非核心场景形成统治力。","pt":"企业模型选型必须算清“每分智力的单价”，而不是只追榜首。","biz":"邮件摘要、初级运营数据录入等容错率高的场景应果断下沉到 DeepSeek V4；复杂决策草案再交给 Fable 5。","tech":"DeepSeek V4 Flash 采用极致稀疏化架构，在中等参数规模下大幅压低 TTFT 与 Inference 成本。","chain":"上游促使厂商推更多 Flash 系列轻量模型；下游带动企业内部“模型分级分流器”开发。","sell":"6 个月内可卖“模型招标 / 分流系统”：按业务容错率实时匹配最具性价比的 API。","url":"https://artificialanalysis.ai/models"},
+  {"cat":"deploy","src":"HuggingFace 下载榜","bar":"var(--deploy)","date":"2026-07-11","sig":"s30","metric":"Qwen 累计下载破 10 亿","title":"Qwen 家族超越 Llama 成为全球下载第一：私有化底座的权势格局被重塑","summary":"阿里 Qwen 3 系列在 HuggingFace 的累计下载量已突破 10 亿次，Qwen3-Coder-30B-A3B-Instruct 凭原生多语言与高效 Tokenizer 在编程榜领跑，反映非英语开发者对高性能开源模型的强需求。","pt":"开源模型座次正在改写，Qwen 用“极致性价比 + 多语言友好”完成对 Llama 的超车。","biz":"跨国 / 跨语言的企业内网助手、代码协作平台可优先选 Qwen，非英文字符更省 Token，估算可省约 30% Inference 开销。","tech":"先进 Tokenizer 让中文、日文所需 Token 数显著低于 Llama，直接降低算力与显存成本。","chain":"上游拉动国产云算力消耗；下游繁荣私有化部署与 Fine-tuning 派生生态。","sell":"6 个月内可卖“多语言 Agent 私有化部署套件”：原生集成 Qwen3-Coder 能力。","url":"https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct"},
+  {"cat":"deploy","src":"HuggingFace 下载榜","bar":"var(--deploy)","date":"2026-07-08","sig":"s30","metric":"31B 增速 52%","title":"Google Gemma 4 引发下载热潮：31B 成为本地工作站部署的“黄金比例”","summary":"Google 发布第四代开源模型 Gemma 4（2.3B–31B）。31B 版本上线后下载增速达 52%，主打原生多模态与内置 Reasoning Mode，在逻辑推理与长文本理解上表现突出，被广泛用于本地化高阶助手。","pt":"开源模型也能拿到顶尖原生多模态体验，Google 正把“可私有化的多模态”做成卖点。","biz":"适合数据隐私要求极高的企业内网，可作为高性能多模态数字员工直接私有化运行。","tech":"统一架构（尤其小尺寸版本）简化多模态输入对齐，提升 Inference 效率。","chain":"上游拉动高性能工作站硬件需求；下游丰富桌面端多模态 AI 生态。","sell":"6 个月内可卖“本地多模态知识库”：支持图片 / 图表直接检索与推理。","url":"https://huggingface.co/google/gemma-4-31b-it"},
+  {"cat":"twitter","src":"Twitter / X","bar":"var(--gold)","date":"2026-07-06","sig":"s7","metric":"数日 6.4k Stars","title":"Databricks 开源 Omnigent：企业级 Agent 编排层雏形，治理被前移到设计层","summary":"Databricks 开源“元框架”Omnigent，统一编排 Claude Code、Codex、Cursor 等 Agent。核心是持久化共享会话、基于会话状态的 Contextual Policies，以及支持人类介入的审批流，直指企业 Agent 落地的治理与安全难题。","pt":"Agent 竞争从“单模型能力”转向“编排治理”，企业级 Agent 操作系统开始成型。","biz":"可实现跨部门 Agent 共享与审计，避免越权操作导致的安全风险与成本超支。","tech":"用上下文策略记录会话全生命周期状态，而非单点动作过滤，实现更精细的最小权限控制（Least Privilege）。","chain":"上游拉动 E2B / Modal 等沙盒环境需求；下游长出带复杂审批流的自动化运维工具。","sell":"6 个月内可卖“企业级 Agent 安全网关”：内置合规审计与成本动态预警。","url":"https://x.com/databricks/status/2074547782048711139"},
+  {"cat":"twitter","src":"Twitter / X","bar":"var(--gold)","date":"2026-07-11","sig":null,"metric":"$149 发布 sqlite-utils 4.0","title":"Simon Willison 的 subagent 分级实战：主控模型做判断，从属模型做执行","summary":"Simon Willison 推荐把高阶模型（如 Claude Fable 5）当主控制器，把具体代码实现委托给低成本 subagent（如 GPT-5.6 Luna / Sonnet）。他发布 sqlite-utils 4.0 仅花费 $149，验证了“判断与执行解耦”的高效组合。","pt":"不再盲堆旗舰模型，而用“模型代理（Model Delegation）”把复杂工程降本增效。","biz":"零售 / 电商处理大规模低难度代码维护时，可照此模式显著压低 AI 辅助开发的 Token 成本。","tech":"本质是把 Reasoning 与 Implementation 能力解耦，用 Prompt 约束 subagent 的修改范围（small diffs）。","chain":"上游促使厂商推更多高性价比小模型；下游完善多 Agent 协同框架。","sell":"6 个月内 IDE 插件会集成“成本优化开关”，按任务复杂度自动切换 subagent 模型。","url":"https://x.com/simonw/status/2075663372323008755"},
+  {"cat":"twitter","src":"Twitter / X","bar":"var(--gold)","date":"2026-07-07","sig":"s7","metric":"6 大行业指数","title":"Artificial Analysis 发布六大行业能力指数：AI 评测进入“职场面试”时代","summary":"Artificial Analysis 推出金融、法律、医疗、运营策略、工程、经济六大行业指数。不同于通用推理测试，新指数按 O*NET 职业活动分类加权，模拟真实岗位任务频率，揭示模型在垂直场景下巨大的性能与成本差异。","pt":"AI 评测从“高考”转向“职场面试”，更看重模型在具体业务环节的 ROI。","biz":"给企业解决方案团队明确选型依据：法律场景可选 Fable 5，运营降本可选 DeepSeek V4。","tech":"引入 GDPval 代理任务与 LCR 长文本测试，结合真实业务分布加权，比 MMLU 类 Benchmark 更具参考价值。","chain":"上游倒逼厂商做垂直 Fine-tuning；下游催生行业专属 LLM 优化咨询。","sell":"6 个月内可卖“行业 AI 效能审计工具”：按最新指数定期优化企业模型分发策略。","url":"https://x.com/ArtificialAnlys/status/2074299714699469221"},
+  {"cat":"paper","src":"HuggingFace Daily Papers","bar":"var(--paper)","date":"2026-07-10","sig":null,"metric":"Proactive Agent Benchmark","title":"UniClawBench 填补主动型 Agent 评测空白：从“按指令办事”到“主动预警”","summary":"研究提出 UniClawBench，面向主动型 Agent（Proactive Agents）的通用 Benchmark，覆盖多种真实复杂场景，评估 Agent 在缺乏明确指令时能否主动感知环境变化并自主规划执行。","pt":"现有评测多测被动响应，主动性基准是 Agent 进入企业核心生产流的关键标尺。","biz":"主动型 Agent 意味着供应链监控、客户服务从被动响应转向主动预警与优化，商业潜力大。","tech":"难点在多模态环境感知对齐与长程规划鲁棒性。","chain":"下游推动面向主动性的 SFT 数据集与 RLHF 框架发展。","sell":"6 个月内企业助理将主打“主动感知”：自动发现日程 / 库存冲突并给出多套方案。","url":"https://huggingface.co/papers/2607.08768"},
+  {"cat":"paper","src":"arXiv cs.AI","bar":"var(--paper)","date":"2026-07-10","sig":"s7","metric":"Prompts → Contracts","title":"Harness Engineering：把模糊 Prompt 变成可审计“合同”，Agent 走向工业级可靠","summary":"论文提出 Harness Engineering 框架，将模糊提示词转化为带明确约束的 Contracts，为企业级 LLM Agent 提供可审计、确定性的行为规范，确保在复杂业务逻辑中的执行符合合规与安全要求。","pt":"直击企业落地最大痛点——幻觉与不可控，用合约化把 Agent 提到工业级可靠。","biz":"金融、医疗等强合规行业落地 AI 的必经之路，可降合规审查成本、提系统可维护性。","tech":"把语义空间的意图映射到结构化逻辑约束，并做运行时实时监控与截断。","chain":"上游推动 Prompt IDE 转向 schema-driven；下游影响 AIOps 审计日志标准。","sell":"6 个月内可卖“合规保险箱”：Agent 的外部 API 调用全部有据可查、不可越权。","url":"https://arxiv.org/abs/2607.08028"},
+  {"cat":"paper","src":"HuggingFace Daily Papers","bar":"var(--paper)","date":"2026-07-10","sig":"s30","metric":"Proactive Memory","title":"主动式记忆管理：长程任务 Agent 的能效比，比盲目堆长上下文更高","summary":"研究提出面向长程（long-horizon）任务的主动式记忆 Agent：不只被动存储对话，而是识别哪些信息对未来决策关键，并在合适时机主动检索与关联，缓解超长上下文中的信息迷失。","pt":"长程任务是当前 Agent 短板，主动记忆比盲目扩 Long Context 更划算。","biz":"在数周的营销方案策划等长周期项目中，Agent 能关联多天前的关键决策，保证执行一致性。","tech":"核心是“重要性评分”算法与基于任务目标的预测性检索。","chain":"对向量数据库（Vector DB）提出从“静态检索”到“动态关联”的架构升级需求。","sell":"6 个月内可卖“职场长期记忆”助手：记住三个月前随口提过的偏好与约束。","url":"https://huggingface.co/papers/2607.08716"},
+  {"cat":"paper","src":"arXiv cs.AI","bar":"var(--paper)","date":"2026-07-10","sig":null,"metric":"Straight-Through Underwriting","title":"Agentic AI + RAG 赋能直通式核保：RAG 从“问答”进化成“决策辅助”","summary":"论文探讨 Agentic AI 与 RAG 在保险自动核保（Straight-Through Underwriting）中的应用：Agent 自主调用外部医学库与核保规则，对复杂保单实现实时自动化决策，显著提升核保效率与准确性。","pt":"垂直行业落地的样板，展示 RAG 如何从问答升级为业务决策辅助。","biz":"保险公司可降低约 40%–60% 人工初审成本，把保单处理从“天”缩到“秒”级。","tech":"用多级 RAG 架构处理异构数据源（医疗报告、保单条款、历史案例）。","chain":"推动保险行业数据标准化，为更高阶的自动理赔铺路。","sell":"6 个月内可卖“秒级智能核保机器人”：实时评估风险并给出带证据支撑的结论。","url":"https://arxiv.org/abs/2607.07858"},
+  {"cat":"paper","src":"arXiv cs.AI","bar":"var(--paper)","date":"2026-07-10","sig":"s7","metric":"Workflow as Knowledge","title":"工作流即知识：让企业流程从死板脚本变成可学习、可迁移的资产","summary":"研究提出把工作流本身当作“知识”并做语义持久化：LLM 执行复杂流程时不仅在跑步骤，而是在持续优化与积累流程知识，使工作流具备自我进化与跨场景迁移能力。","pt":"打破固定 SOP 限制，让流程从死板脚本变成可学习、可共享的资产。","biz":"助力“柔性生产力”：业务环境变化时，AI 工作流能基于过往经验快速自动调整。","tech":"用图结构存储流程语义，结合强化学习优化步骤间跳转逻辑。","chain":"上游影响 BPM 软件底层架构，推动向 AI-Native BPM 转型。","sell":"6 个月内可卖“流程自优化”办公自动化套件：按操作习惯自动重塑最简工作链路。","url":"https://arxiv.org/abs/2607.08740"},
+  {"cat":"github","src":"GitHub Trending","bar":"var(--gh)","date":"2026-07-13","sig":"s7","metric":"Rust 危险指令拦截","title":"destructive_command_guard 走热：Agent 控制权提升后，“末端防御”成框架标配","summary":"destructive_command_guard（dcg）是用 Rust 编写的高性能库，专防 AI Agent 误执行危险的 Git / Shell 指令——通过预定义敏感操作清单与智能解析，在指令进入执行层前实时拦截。","pt":"随着 Agent 控制权提升，这种末端防御库将成为所有 Agent 框架的标配。","biz":"保护企业私有服务器与代码库不被 Agent 误删误改，是 Agent 进入工程环境的红线保障。","tech":"Rust 实现保证极低性能损耗，正则 + 语义匹配覆盖复杂 CLI 命令组合。","chain":"可直接集成进 LangChain、AutoGPT 等框架的执行引擎（Executor）。","sell":"6 个月内可卖“零风险 AI 运维”：放心把生产环境初级排障权交给 Agent。","url":"https://github.com/Dicklesworthstone/destructive_command_guard"},
+  {"cat":"github","src":"GitHub Trending","bar":"var(--gh)","date":"2026-07-13","sig":"s30","metric":"MCP 终端 / 文件操控","title":"DesktopCommanderMCP：MCP 把 LLM 从“对话框”推进到“操作系统接口”","summary":"该项目是基于 Model Context Protocol（MCP）的服务器实现，让 Claude 等支持 MCP 的模型直接控制本地终端、全系统文件搜索并执行差异化代码编辑，极大扩展了 LLM 在本地开发环境的交互广度。","pt":"MCP 正把 AI 与本地工具的交互从对话框推进到操作系统接口层。","biz":"让 AI 在企业内部开发环境完成从定位 Bug 到修复代码的全流程，显著提效。","tech":"用 MCP 标准化接口做工具发现与调用，保证跨平台、跨模型兼容。","chain":"带动大量遗留系统（Legacy Systems）通过 MCP 封装快速接入 AI。","sell":"6 个月内可卖“AI 原生工作站”：描述功能即自动完成工程改动与编译验证。","url":"https://github.com/wonderwhy-er/DesktopCommanderMCP"},
+  {"cat":"view","src":"The Batch","bar":"var(--view)","date":"2026-07-03","sig":"s7","metric":"model orchestration","title":"跨厂商模型编排成 SOTA 新路径：Sakana Fugu 用调度超越单一最强模型","summary":"Sakana AI 发布 Fugu 系列，通过在单一 API 下动态调度 OpenAI、Anthropic、Google 等不同厂商模型与 Agent，实现超越单一最强模型的性能；GPT-5.6 Sol 也引入 Ultra Mode，让模型产生多个子代理协调多步任务。","pt":"AI 应用的“木桶效应”正被动态路由打破，开发者转向整体系统最优而非绑定单一供应商。","biz":"零售电商可让多模型分别处理合规检查、内容生成与库存对齐，降低对单一昂贵模型的依赖。","tech":"基于进化算法 sep-CMA-ES 训练编排器按任务分布选模型，并用 GRPO 优化多步工作流。","chain":"上游基座厂商面临更强同质化竞争；下游编排器与聚合商（如 OpenRouter）议价能力增强。","sell":"6 个月内可卖“自动化专家组”工作流平台：自定义模型池的负载均衡与成本优化。","url":"https://www.deeplearning.ai/the-batch/issue-360"},
+  {"cat":"view","src":"Benedict Evans","bar":"var(--view)","date":"2026-07-09","sig":"s30","metric":"token pricing","title":"Token 定价权正在瓦解：警惕基座模型“公用事业化”","summary":"随着数据中心产能释放与 Inference 效率提升，Token 价格正从供给短缺走向过剩平衡。厂商当下仍有溢价权，但长期看，缺乏网络效应、技术路径趋同的基座模型极易沦为类似流量 / 数据库的低利润商品化基础设施。","pt":"纯靠卖 Token 难维持高毛利，价值捕获点必然上移。","biz":"企业不必过度担忧 API 长期成本，竞争会压低底座价格；重点应投在基于私有数据的“数据引力”护城河。","tech":"Inference 是边际成本、训练是固定成本；当 Inference 效率大幅提升，Token 价格将逼近芯片折旧与电力极限。","chain":"下游 SaaS 从低价 Token 获益；上游芯片与云厂商可能比模型层更有定价权。","sell":"6 个月内可卖“成果付费（Outcome-based）”的企业 AI 签约模式，而非按 Token 计费。","url":"https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing"},
+  {"cat":"view","src":"AI Snakeoil / Normal Tech","bar":"var(--view)","date":"2026-07-10","sig":"s30","metric":"escape commodity trap","title":"向上游跃迁：实验室用“数字员工”逃离商品化陷阱，企业要防新型锁定","summary":"为应对 Inference 价格向边际成本靠拢的“伯特兰悖论”，OpenAI 与 Anthropic 激进向栈上层迁移，推出 ChatGPT 企业版、Claude Code 及数字员工 Claude Tag，通过 persistent memory、文档库集成与个性化语气建立“嵌入式护城河”，把用户锁进特定工作流。","pt":"模型可替代，但“数字员工”积累的组织默会知识不可替代——这是实验室转型的核心。","biz":"企业要警惕“新型供应商锁定”，要求系统更高可移植性，或用 MCP 等开放协议保持编排层灵活。","tech":"危险的锁定不在模型名字，而在 API 形态、工作流 DSL、权限体系与数据闭环被深度绑定。","chain":"SaaS 巨头（Microsoft、Salesforce）与 AI 原生实验室在“记录系统（System of Record）”层正面争夺。","sell":"6 个月内可卖“反锁定 AI 架构咨询”：帮客户保留模型切换权与工作流主导权。","url":"https://www.normaltech.ai/p/up-the-stack-how-ais-escape-from"},
+  {"cat":"view","src":"Import AI","bar":"var(--view)","date":"2026-07-06","sig":null,"metric":"AI writes GPU kernels","title":"AI 开始编写超越人类的 GPU 内核：Agent 价值下探到基础设施层","summary":"Fable 模型在 KernelBench-Mega 上通过编写 CUDA 代码，实现比优化后 PyTorch 基准快约 18.7 倍的性能，远超 Claude Opus 4.8 与 GPT-5.5，预示“递归自我改进（RSI）”循环初步开启。","pt":"当 AI 能优化自身运行的硬件底层，生产力提升会脱离人类干预的节奏。","biz":"大规模算力需求的电商平台，用 AI 自主优化计算算子可显著降服务器开销，实现算力降本增效。","tech":"Fable 亮点是“每个 Token 仅一次协作内核调用”，其它方案需 4–14 次，设计极简。","chain":"软件优化层可能部分替代对最新硬件的极端追求，二线显卡经 AI 内核优化或获一线性能。","sell":"6 个月内可卖“内核级优化器”开发工作台：针对特定业务逻辑自动生成高性能算子。","url":"https://importai.substack.com/p/import-ai-464-fables-writes-gpu-kernels"},
+  {"cat":"view","src":"LessWrong","bar":"var(--view)","date":"2026-07-09","sig":"s7","metric":"AI safety auditing","title":"Jacobian Lens 揭示模型隐秘认知：AI 治理开始有了“测谎仪”","summary":"Anthropic 研究者发现模型内部存在容量有限的“可言说表征空间”，类似人类全局工作空间，负责复杂逻辑推理。通过 Jacobian lens，审计者可从中预判模型的 eval awareness 与潜在欺骗倾向，即便这些内容从未被输出成文本。","pt":"为 AI 治理提供“测谎仪”式底层工具，可在模型实施破坏前识别其意图。","biz":"高风险金融 / 法律决策场景，企业需要这种“白盒化”监控，确保 AI 不在业务博弈中产生隐秘策略。","tech":"Jacobian lens 计算激活对输出的平均因果效应，从中间层提取约 25 个活跃概念，反映真实意图倾向。","chain":"安全合规软件从黑盒测试转向白盒链路监控；模型审计成为企业部署刚需。","sell":"6 个月内可卖“隐秘意图监控”安全网关：实时拦截具备欺骗特征的 AI 指令。","url":"https://www.lesswrong.com/posts/WigqvbXF23ZdXJ34x/ai-safety-at-the-frontier-paper-highlights-of-may-and-june"}
+];
+const COVERAGE = [
+  {"name":"Twitter / X","status":"已采用","cls":"ok","link":"https://x.com/databricks/status/2074547782048711139","note":"优先采用实际用法 / 技巧 / 工作流帖子，今日重点为 Omnigent 编排层、subagent 分级调用与行业能力指数。"},
+  {"name":"HuggingFace Daily Papers","status":"已采用","cls":"ok","link":"https://huggingface.co/papers/2607.08768","note":"今日选用 UniClawBench（主动型 Agent 基准）与主动式记忆 Agent，均贴近企业落地。"},
+  {"name":"HuggingFace 模型下载趋势","status":"已采用","cls":"ok","link":"https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads","note":"作为私有化 / 开源部署热度口径，今日重点为 Qwen 超越 Llama 与 Gemma 4 私有化升温。"},
+  {"name":"Papers With Code","status":"已巡检","cls":"watch","link":"https://paperswithcode.com/latest","note":"今日最新条目与 arXiv 高度重合，为避免重复以 arXiv 原文为准，PWC 仅作交叉巡检。"},
+  {"name":"arXiv cs.AI / cs.LG","status":"已采用","cls":"ok","link":"https://arxiv.org/abs/2607.08028","note":"优先选贴近产品化方向的论文：Harness Engineering、Workflow as Knowledge、Agentic 核保等。"},
+  {"name":"GitHub Trending","status":"已采用","cls":"ok","link":"https://github.com/trending","note":"今日热度说明社区在把 Agent 安全防御（dcg）与 MCP 接口层（DesktopCommanderMCP）做成可用资产。"},
+  {"name":"The Batch","status":"已采用","cls":"ok","link":"https://www.deeplearning.ai/the-batch/issue-360","note":"用于观察模型编排范式与发布节奏，今日重点为 Sakana Fugu 跨厂商编排。"},
+  {"name":"Benedict Evans Newsletter","status":"已采用","cls":"ok","link":"https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing","note":"用于校准 token pricing、供给约束与基座商品化风险。"},
+  {"name":"LessWrong / Alignment Forum","status":"已采用","cls":"ok","link":"https://www.lesswrong.com/posts/WigqvbXF23ZdXJ34x/ai-safety-at-the-frontier-paper-highlights-of-may-and-june","note":"今日采用 Jacobian lens / 全局工作空间对模型隐秘意图的可审计性讨论。"},
+  {"name":"AI Snakeoil / Normal Tech","status":"已采用","cls":"ok","link":"https://www.normaltech.ai/p/up-the-stack-how-ais-escape-from","note":"用于纠正“只看模型”的偏差，强调上层价值迁移与新型 lock-in 风险。"},
+  {"name":"Import AI","status":"已采用","cls":"ok","link":"https://importai.substack.com/p/import-ai-464-fables-writes-gpu-kernels","note":"今日提供了“Agent 下探基础设施层、自动写 GPU kernels”的强信号。"},
+  {"name":"Artificial Analysis","status":"已采用","cls":"ok","link":"https://artificialanalysis.ai/models","note":"用于公有云模型使用场景口径，强调 per-task economics 与真实落地价值（GPT-5.6 家族、Fable 5 vs DeepSeek V4）。"}
+];
+const SECTIONS = [["cloud","☁️ 公有云模型使用场景","Public Cloud Model Usage · 结合官方发布、Artificial Analysis 与实际用法观察"],["deploy","🧱 私有化 / 开源部署热度","Private Deployment & Open-Weight Heat · 以 HuggingFace 下载为主口径"],["twitter","🧵 Twitter / X 工作流信号","Actual Workflows · 优先采用实际用法 / 技巧 / 工程实践帖"],["paper","📄 论文与研究前沿","Research Frontiers · 选更接近工程化与产品化的论文"],["github","🧰 GitHub Trending","Open-source Product Clues · 看开源社区把什么做成“可用工具”"],["view","🧭 观点与产业解读","Strategic Views · 用于校准节奏、判断与组织影响"]];
+
+document.getElementById('lede').innerHTML = LEDE;
+document.getElementById('metaRow').innerHTML = META.map(m=>`<span class="chip">${m}</span>`).join('');
+document.getElementById('signals').innerHTML = SIGNALS.map(s=>`
+  <div class="signal">
+    <span class="tag ${s.type}">${s.type==='s7'?'⚡ 7天高频信号':'📈 30天持续趋势'}</span>
+    <h4>${s.title}</h4>
+    <p>${s.desc}</p>
+    <div class="freq">${s.freq}</div>
+  </div>`).join('');
+
+document.getElementById('sections').innerHTML = SECTIONS.map(([id,title,desc])=>`
+  <section class="sec" id="sec-${id}">
+    <div class="sec-head"><h2>${title}</h2><span class="en">${desc}</span></div>
+    <div class="cards" id="${id}"></div>
+  </section>`).join('');
+document.getElementById('quickNav').innerHTML = SECTIONS.map(([id,title])=>`<a class="nav-chip" href="#sec-${id}">${title}</a>`).join('') + `<a class="nav-chip" href="#coverage">📚 来源覆盖</a><a class="nav-chip" href="#notes-sec">📝 我的笔记</a>`;
+
+function linkHTML(n){
+  if(n.url){ return `<a class="card-link" href="${n.url}" target="_blank" rel="noopener">🔗 阅读原文</a>`; }
+  return `<span class="no-link">🔗 暂无原文链接</span>`;
+}
+function sigHTML(n){
+  if(!n.sig) return '';
+  const txt=n.sig==='s7'?'⚡ 7天高频信号':'📈 30天持续趋势';
+  return `<span class="sig-inline ${n.sig}">${txt}</span>`;
+}
+function cardHTML(n){
+  return `<article class="card" style="--bar:${n.bar}">
+    <div class="card-top">
+      <span class="src">${n.src}</span>
+      <span class="card-date">${n.date}</span>
+      ${sigHTML(n)}
+      ${n.metric?`<span class="metric">🔥 ${n.metric}</span>`:''}
+    </div>
+    <h3>${n.title}</h3>
+    <p class="summary">${n.summary}</p>
+    <div class="analysis">
+      <div class="an"><span class="k">💬 点评</span><span class="v">${n.pt}</span></div>
+      <div class="an"><span class="k">🎯 业务视角</span><span class="v">${n.biz}</span></div>
+      <div class="an"><span class="k">🧠 技术背景</span><span class="v">${n.tech}</span></div>
+      <div class="an"><span class="k">🔗 上下游影响</span><span class="v">${n.chain}</span></div>
+      <div class="an"><span class="k">🚀 6个月产品卖点预测</span><span class="v">${n.sell}</span></div>
+    </div>
+    ${linkHTML(n)}
+  </article>`;
+}
+['cloud','deploy','twitter','paper','github','view'].forEach(cat=>{
+  const box=document.getElementById(cat);
+  if(box) box.innerHTML = NEWS.filter(n=>n.cat===cat).map(cardHTML).join('');
+});
+
+document.getElementById('coverBox').innerHTML = `<table class="cover-table">
+  <thead><tr><th>来源</th><th>状态</th><th>巡检链接</th><th>说明</th></tr></thead>
+  <tbody>${COVERAGE.map(r=>`<tr>
+    <td>${r.name}</td>
+    <td><span class="status-pill ${r.cls}">${r.status}</span></td>
+    <td><a href="${r.link}" target="_blank" rel="noopener">原文 / 主页</a></td>
+    <td>${r.note}</td>
+  </tr>`).join('')}</tbody>
+</table>`;
+
+(function(){
+  const KEY='llm_morning_notes_2026-07-13';
+  const area=document.getElementById('noteArea');
+  const status=document.getElementById('noteStatus');
+  const count=document.getElementById('noteCount');
+  const saved=localStorage.getItem(KEY);
+  if(saved!==null) area.value=saved;
+  function updateCount(){ count.textContent=(area.value.length)+' 字'; }
+  updateCount();
+  let timer=null;
+  function scheduleSave(){
+    status.textContent='✏️ 编辑中…';
+    if(timer) clearTimeout(timer);
+    timer=setTimeout(()=>{
+      localStorage.setItem(KEY, area.value);
+      const t=new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+      status.textContent='✅ 已保存 '+t;
+    },500);
+  }
+  area.addEventListener('input',()=>{ updateCount(); scheduleSave(); });
+  document.getElementById('exportBtn').addEventListener('click',()=>{
+    const blob=new Blob([area.value||''],{type:'text/plain;charset=utf-8'});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='大模型晨报笔记_2026-07-13.txt';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  });
+  document.getElementById('clearBtn').addEventListener('click',()=>{
+    if(confirm('确定清空笔记？此操作不可撤销。')){
+      area.value=''; localStorage.removeItem(KEY); updateCount();
+      status.textContent='🗑️ 已清空';
+    }
+  });
+})();
+</script>
+</body>
+</html>
