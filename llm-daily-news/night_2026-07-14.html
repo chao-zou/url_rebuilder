@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🌙 大模型夜报 2026-07-14</title>
+<!-- report-meta: date=2026-07-14; type=night; title=大模型夜报 2026-07-14; summary=今日大模型夜报（周二 · 深度复盘）：白天的主线可归纳为「推理为王 + MoE 标配 + 价值向应用层迁移」三线并进——Claude Fable 5 登顶 Artificial Analysis 情报指数、GPT-5.6 家族与 Qwen3 / DeepSeek R3 同台竞技、中国开源模型占 HuggingFace 趋势榜半壁江山；X 推出托管 MCP 服务器、Simon Willison 的「模型委派」与 swyx 的多模型堆栈把「Prompt 时代」推进到「Spec / 编排 / 多模型协作」时代；Andrew Ng 更直言「Token 廉价、人类洞察千金」——企业采购语言正从「谁总分最高」切向「Spec 写得好不好 / 编排能不能审计 / 应用层能不能沉淀 Know-how」。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07101f;--bg2:#0d1730;--panel:rgba(17,27,56,.8);--panel2:rgba(15,24,49,.96);--line:rgba(145,170,255,.18);--ink:#edf1ff;--sub:#aab6df;--muted:#7584b3;--accent:#85b7ff;--gold:#ffbb55;--violet:#9e8dff;--teal:#40e6c5;--pink:#ff84d0;--red:#ff947f;--shadow:0 20px 60px rgba(0,0,0,.28);}*{box-sizing:border-box}html,body{margin:0;padding:0;background:radial-gradient(circle at top,#1a2858 0%,#0b1227 38%,#060b15 100%);color:var(--ink);font-family:'Inter','Noto Sans SC',system-ui,-apple-system,sans-serif;line-height:1.75}a{color:#9fd3ff;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:32px 20px 88px;position:relative}.hero{position:relative;border:1px solid var(--line);background:linear-gradient(135deg,rgba(25,37,80,.92),rgba(12,18,39,.98));box-shadow:var(--shadow);border-radius:28px;padding:34px 34px 28px;overflow:hidden}.hero:before{content:'';position:absolute;inset:auto -100px -120px auto;width:320px;height:320px;background:radial-gradient(circle,#6f7cff55,transparent 68%);filter:blur(10px)}.kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.14);padding:8px 14px;border-radius:999px;color:#dbe6ff;background:rgba(255,255,255,.05);font-size:13px;font-weight:700}.hero h1{font-size:42px;line-height:1.12;margin:18px 0 14px}.hero p{margin:0;color:var(--sub);max-width:980px;font-size:17px}.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.meta-chip{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:#d8e2ff;font-size:13px}.meta-chip.wk{background:rgba(255,187,85,.14);border-color:rgba(255,187,85,.3);color:#ffd899}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0 0}.stat{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:20px;padding:18px 18px 14px}.stat .num{font-size:28px;font-weight:800}.stat .lbl{font-size:13px;color:var(--sub)}.section{margin-top:22px;border:1px solid var(--line);border-radius:24px;background:var(--panel);backdrop-filter:blur(14px);box-shadow:var(--shadow);padding:26px}.section h2{margin:0 0 8px;font-size:26px}.section .desc{color:var(--sub);margin-bottom:18px}.signals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.signal{border-radius:20px;padding:18px;background:rgba(255,255,255,.04);border:1px solid var(--line)}.signal.sig7{box-shadow:inset 0 0 0 1px rgba(255,187,85,.18)}.signal.sig30{box-shadow:inset 0 0 0 1px rgba(158,141,255,.2)}.signal-title{font-size:17px;font-weight:800;margin-bottom:6px}.signal-desc{color:var(--ink);opacity:.94}.signal-freq{margin-top:8px;color:var(--sub);font-size:13px}.table-wrap{overflow:auto;border-radius:18px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;background:rgba(8,12,25,.45)}th,td{padding:14px 14px;border-bottom:1px solid rgba(145,170,255,.12);vertical-align:top;text-align:left;font-size:14px}th{font-size:13px;color:#dbe6ff;background:rgba(255,255,255,.05);position:sticky;top:0}tr:hover td{background:rgba(255,255,255,.03)}.pill{display:inline-flex;align-items:center;margin-left:10px;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:700}.pill.ok{background:rgba(59,225,191,.14);color:#9ff6e3}.pill.watch{background:rgba(255,187,85,.14);color:#ffd899}.pill.sat{background:rgba(133,183,255,.16);color:#bcd8ff}.pill.sun{background:rgba(158,141,255,.16);color:#d7cdff}.story-grid{display:grid;grid-template-columns:1fr;gap:18px}.story-card{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));padding:22px}.story-top{display:flex;gap:14px;align-items:flex-start}.story-idx{flex:0 0 auto;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--violet),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800}.story-title{font-size:24px;line-height:1.35;font-weight:800}.badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 12px}.badge{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-size:12px;color:#dce6ff}.badge.day{background:rgba(133,183,255,.14);border-color:rgba(133,183,255,.28)}.summary{font-size:16px;color:#eef3ff;margin:0 0 14px}.grid5{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.blk{border-radius:18px;padding:16px;background:rgba(255,255,255,.04);border:1px solid rgba(145,170,255,.12)}.blk:last-child{grid-column:1/-1}.blk h4{margin:0 0 8px;font-size:14px;color:#fff}.blk p{margin:0;color:var(--sub)}.links{margin-top:14px;padding-top:14px;border-top:1px dashed rgba(145,170,255,.18);display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}.links span{font-weight:700}.links ul{margin:0;padding-left:18px}.notes-box{border-radius:24px;background:var(--panel2);border:1px solid var(--line);padding:24px}.notes-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.notes-tools{display:flex;gap:10px;flex-wrap:wrap}.btn{border:none;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--violet));color:#fff;box-shadow:0 8px 24px rgba(86,116,255,.22)}.btn.secondary{background:rgba(255,255,255,.08);color:#e6edff;box-shadow:none;border:1px solid var(--line)}.btn.danger{background:linear-gradient(135deg,#ff7a90,#ff5f6d)}#noteArea{width:100%;min-height:180px;border-radius:18px;background:rgba(7,11,24,.76);border:1px solid var(--line);padding:16px 18px;color:var(--ink);font-size:15px;resize:vertical;outline:none}#noteArea:focus{border-color:#91b8ff;box-shadow:0 0 0 3px rgba(130,177,255,.14)}.notes-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;color:var(--sub);font-size:13px;flex-wrap:wrap}.footer-links{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}.footer-links a{display:inline-flex;align-items:center;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05)}.tip{padding:16px 18px;border-radius:18px;background:rgba(133,183,255,.08);border:1px solid rgba(133,183,255,.14);color:#dfe9ff}@media (max-width:900px){.stats,.signals,.grid5{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}@media (max-width:720px){.stats,.signals,.grid5{grid-template-columns:1fr}.section{padding:20px}.hero{padding:24px}.story-title{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">🌙 大模型夜报 · 周二 2026-07-14 · 深度复盘</div>
+    <h1>大模型夜报 2026-07-14</h1>
+    <p>今天白天的晨报把主线拉了出来：<b>推理为王 + MoE 标配 + 价值向应用层迁移</b>三条主线正在同时加速。夜报这一版把它复盘透——<b>Claude Fable 5 登顶 Artificial Analysis 情报指数</b>、<b>GPT-5.6 家族与 Qwen3 / DeepSeek R3 同台竞技</b>、<b>中国开源模型占 HuggingFace 趋势榜半壁江山</b>；工程侧从 Prompt 走向 <b>Spec 与多模型编排</b>——X 托管 MCP 服务器把「Agent 接社交数据」变成原生能力，Simon Willison 的「模型委派」与 swyx 的夏季多模型堆栈把「一个主模型 + 一堆专用模型」推成事实标准；观点侧 Andrew Ng 直言「Token 廉价、人类洞察千金」，Benedict Evans / AI Snakeoil 继续警告「基座层商品化 + 上层新型 lock-in」。一句话：<b>企业买的不再是「哪个模型最强」，而是「Spec 写得好不好、编排能不能审计、应用层能不能沉淀专属 Know-how」。</b></p>
+    <div class="meta-row"><span class="meta-chip wk">📅 周二正常口径 · 覆盖当天 AI / 大模型资讯</span><span class="meta-chip">深度复盘 + 小宇宙播客洞察</span><span class="meta-chip">覆盖 12 类必选来源</span><span class="meta-chip">7天高频信号 ×3</span><span class="meta-chip">30天持续趋势 ×2</span><span class="meta-chip">编辑：邹超</span></div>
+    <div class="stats">
+      <div class="stat"><div class="num">8</div><div class="lbl">深度条目</div></div>
+      <div class="stat"><div class="num">12</div><div class="lbl">覆盖来源</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">🔥 7天高频信号</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">📈 30天持续趋势</div></div>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>今日一句话判断</h2>
+    <div class="desc">这是周二（正常口径）的今日夜报，覆盖 2026-07-14 当天的 AI / 大模型资讯。它回答的不是"今天 headline 是谁"，而是"这些同时发生的变化对企业产品、技术栈、未来 6 个月的卖点意味着什么"。</div>
+    <p style="font-size:22px;font-weight:800;margin:0">今日主线：<b>Frontier 阵营（Claude Fable 5 / GPT-5.6 / Gemini 2.5 Flash-Lite）继续抬升上限，但真正的产业信号是"推理能力、MoE 结构、多模型编排"三件事同步标准化</b>。企业采购的关键词，正从"谁总分最高"切向"谁写得清楚 Spec、谁能被编排、谁能在私有化下跑得动"。</p>
+  </section>
+
+  <section class="section">
+    <h2>高频信号追踪</h2>
+    <div class="desc">统计口径：结合近 7 天 / 30 天晨夜报连续观察，叠加今日（07-14 周二）在小宇宙、HuggingFace、GitHub Trending、Artificial Analysis、arXiv、The Batch、Benedict Evans、LessWrong、AI Snakeoil、Import AI 等来源的信号判断。近 7 天出现 ≥3 次标「7天高频信号」，近 30 天持续出现标「30天持续趋势」。</div>
+    <div class="signals">
+      <div class="signal sig7"><div class="signal-title">🔥 中国开源模型全球热度井喷</div><div class="signal-desc">Qwen3 正式开源对标 o1、DeepSeek R3 推理逼近开源极限，加上过去数周的 Qwen3-Coder / Gemma 4 私有化升温，HuggingFace 7 月趋势榜里中国模型占据半壁江山——"开源第一梯队 = 中国系"已被市场默认。</div><div class="signal-freq">近 7 天 ≥3 次（HuggingFace 趋势 / 官方发布 / Twitter/X 实战）</div></div>
+      <div class="signal sig7"><div class="signal-title">🔥 多模型协作与编排成为主流范式</div><div class="signal-desc">X 托管 MCP 服务器让 Agent 原生接社交数据、Simon Willison 的"模型委派"让主模型自决子任务模型、swyx 的 Sol Ultra + Fable + Sonnet 多模型堆栈——工程侧对"跨厂商编排 + 分层调用"已经形成方法论共识。</div><div class="signal-freq">近 7 天 ≥3 次（X 平台 / Twitter/X / Newsletter）</div></div>
+      <div class="signal sig7"><div class="signal-title">🔥 模型商品化，价值向应用层与闭环工程迁移</div><div class="signal-desc">Andrew Ng"Token 廉价、洞察千金"、Benedict Evans 判断 Token 定价权瓦解、AI Snakeoil 观察 OpenAI / Anthropic 激进"向上堆叠"——企业级战场正快速从"选谁的模型"位移到"应用层怎么构建 Spec + 反锁定架构"。</div><div class="signal-freq">近 7 天 ≥3 次（The Batch / Benedict Evans / AI Snakeoil）</div></div>
+      <div class="signal sig30"><div class="signal-title">📈 推理能力成为模型核心分水岭</div><div class="signal-desc">Claude Fable 5 登顶 AA 情报指数、GPT-5.6 家族强化多模态推理、Qwen3 与 DeepSeek R3 各自把"深度推理 + 长链条思考"作为定位卖点——衡量模型的第一维度已从"参数 / 上下文长度"切换到"复杂推理 + 工具协同"。</div><div class="signal-freq">近 30 天持续趋势（Artificial Analysis / arXiv / 日报历史观察）</div></div>
+      <div class="signal sig30"><div class="signal-title">📈 MoE 架构与自我进化成为标配主题</div><div class="signal-desc">GPT-5.6 家族与 Qwen3 均采用 MoE 结构、Orca 世界模型 35B 追平万亿级、DeerFlow 2.0 与 Hermes Agent 0.18.0 内置"自我进化 / 审判者"分支——"稀疏 + 自我改进"已经从论文走进主流工程栈。</div><div class="signal-freq">近 30 天持续趋势（HuggingFace / GitHub / 日报历史观察）</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>私有化 / 开源部署热度（HuggingFace 下载口径）</h2>
+    <div class="desc">口径说明：这一节代表公开模型的下载 / 自部署热度，更接近"私有化 / 开源部署热度"，<b>不等同于公有云 API 实际调用量</b>。这里更看"是否适合落地部署"，而不是"谁今天最会刷榜"。数据来源为 HuggingFace 模型 / 论文页面与 HuggingFace 7 月趋势观察文章，非统一官方调用量榜，仅作趋势参考。</div>
+    <div class="table-wrap"><table><thead><tr><th>模型 / 项目</th><th>热度信号</th><th>说明</th><th>原文</th></tr></thead><tbody>
+      <tr><td>Qwen3（对标 o1）</td><td>7 月 HuggingFace 趋势榜前列，中国开源模型占趋势榜半壁江山</td><td>推理能力对标 OpenAI o1，MoE 结构 + 多语言 Tokenizer，中文 / 日文 Token 效率显著更高，仍是企业内网私有化默认候选之一。</td><td><a href="https://www.yzlm.com.tr/yapay-zeka-dunyasinda-bu-hafta-6-temmuz-2026/" target="_blank" rel="noopener">通义千问 Qwen3 正式开源</a></td></tr>
+      <tr><td>DeepSeek R3</td><td>推理能力逼近开源极限，与 Qwen3 并列趋势榜前列</td><td>面向复杂推理与 Agent 场景的开源新旗舰，估算在同尺度下推理任务成本大幅低于闭源旗舰，适合承接"链条较长、可容忍延迟"的私有化推理工作流。</td><td><a href="https://www.techandbusiness.org/newswire/PGyO8GOXYxu6ZJgc2n8YmG" target="_blank" rel="noopener">DeepSeek R3 发布</a></td></tr>
+      <tr><td>HuggingFace 7 月趋势榜（中国模型半壁江山）</td><td>Qwen / DeepSeek / 轻量代码模型联合领跑</td><td>结合近 30 天下载走势，"中国开源 + MoE + 推理增强"三线合流；对企业侧信号是——私有化底座候选池已经不再由 Llama 主导，选型 shortlist 需要重画。</td><td><a href="https://llmcheck.net/blog/state-of-open-source-local-llms-july-2026/" target="_blank" rel="noopener">HuggingFace 7 月趋势观察</a></td></tr>
+      <tr><td>Orca 世界模型（35B）</td><td>Hugging Face Papers 侧近日高热度</td><td>35B Agent 在部分基准上追平万亿级模型，"参数不再是护城河、结构 + 数据 + 训练法才是"的又一佐证；对私有化部署而言是"够聪明又跑得动"的甜点档。</td><td><a href="https://gentic.news/article/hugging-face-papers-35b-agent" target="_blank" rel="noopener">Hugging Face · 35B 世界模型 Agent</a></td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>公有云模型使用场景（Artificial Analysis + Twitter/X 实际用法）</h2>
+    <div class="desc">口径说明：这一节不看下载榜，而看"公有云模型在真实工作流里怎么被用"。重点不是谁更强，而是谁适合放在工作流的哪一步。榜单分数来自 Artificial Analysis 等第三方评测页，属参考口径而非唯一官方结论。</div>
+    <div class="table-wrap"><table><thead><tr><th>模型 / 组合</th><th>更适合的使用场景</th><th>为什么是这个场景</th><th>原文</th></tr></thead><tbody>
+      <tr><td>Claude Fable 5（Anthropic 旗舰）</td><td>关键判断点 + 复杂推理草案</td><td>Artificial Analysis 7 月情报指数登顶全球，最适合放在"高价值判断节点"承接最难的推理与决策草案，配合下游模型执行。</td><td><a href="https://www.datalearner.com/en/leaderboards/external/aa-quality-index" target="_blank" rel="noopener">Artificial Analysis · Quality Index</a></td></tr>
+      <tr><td>GPT-5.6 家族（Sol / Terra / Luna）</td><td>多模态推理 + 分档承接不同预算</td><td>MoE 强化多模态推理，是 API 稳定性与"任务级性价比分档"结合最好的公有云选择；Sol 承接判断、Terra 承接均衡任务、Luna 承接高吞吐低成本环节。</td><td><a href="https://www.datalearner.com/en/leaderboards/external/aa-quality-index" target="_blank" rel="noopener">Artificial Analysis · GPT-5.6 家族</a></td></tr>
+      <tr><td>Gemini 2.5 Flash-Lite（Google）</td><td>低延迟 + 大批量 / 长尾请求</td><td>极致低延迟定位，适合搜索式问答、UI 交互、实时字幕等"要快不要极致强"的场景，是低成本大流量业务的稳固候选。</td><td><a href="https://www.datalearner.com/en/leaderboards/external/aa-quality-index" target="_blank" rel="noopener">Artificial Analysis · Gemini 2.5 Flash-Lite</a></td></tr>
+      <tr><td>swyx 多模型堆栈（Sol Ultra + Fable + Sonnet）</td><td>多步工作流按角色分工</td><td>把"最贵最强模型"只放在关键判断步，中间步骤交给 Sonnet 等经济款——"多模型协作 + 分层调用"已是工程实操默认。</td><td><a href="https://aicrier.com/post/xcuvporiibyw5mqkpxsg" target="_blank" rel="noopener">swyx · 夏季多模型堆栈</a></td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>今日深度复盘（8 条）</h2>
+    <div class="desc">每条都按同一口径展开：💬 点评 + 🎯 业务视角 + 🔬 技术背景 + 🔗 上下游影响 + 🚀 6个月产品卖点预测。均以 <span class="pill sat">周二 07-14</span> 标注归属日，覆盖当天资讯。</div>
+    <div class="story-grid">
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#01</div><div class="story-title">Claude Fable 5 登顶 Artificial Analysis 情报指数：Frontier 阵营重新洗牌</div></div>
+        <div class="badges"><span class="badge day">🗓 周二 07-14</span><span class="badge">30天持续趋势</span><span class="badge">Artificial Analysis</span></div>
+        <p class="summary">今日 Frontier 侧最重的一条是<b>座次变化</b>：Artificial Analysis 7 月情报指数（Quality Index）中，<b>Claude Fable 5 登顶全球</b>，紧随其后是 GPT-5.6 Sol 与 Qwen3、DeepSeek R3。信号很清楚：<b>"推理为王"已不再是口号——AA 的加权口径把复杂推理、代码、工具协同拉到更高权重，Anthropic 用"推理密度 + 长链条一致性"重新拿回榜首。</b></p>
+        <div class="grid5">
+          <div class="blk"><h4>💬 点评</h4><p>频繁易主的榜首不再重要，重要的是"三档梯队 + 中国系挤进第一梯队"的形态基本成型。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>企业级 Copilot / Agent 的"关键判断点"优先接 Fable 5；成本敏感环节交给 Luna / Flash-Lite / Qwen3。</p></div>
+          <div class="blk"><h4>🔬 技术背景</h4><p>Fable 5 强化 MoE 稀疏专家 + 长链推理路径；Quality Index 是复合口径，含 MMLU-Pro、SWE-Bench、Tool-Use、Reasoning 等分量。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>上游让路由 / 编排层议价能力上升；下游倒逼 Copilot 类应用把"策略主脑"和"执行工蜂"拆得更清楚。</p></div>
+          <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>"按任务风险动态切模型"的 SaaS 会被大量招标，Fable 5 只对高价值判断计费，Luna / Flash-Lite 承接大流量。</p></div>
+        </div>
+        <div class="links"><span>原文链接：</span><ul><li><a href="https://www.datalearner.com/en/leaderboards/external/aa-quality-index" target="_blank" rel="noopener">Artificial Analysis · Quality Index</a></li></ul></div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#02</div><div class="story-title">GPT-5.6 家族与 Qwen3 / DeepSeek R3 同台：MoE + 推理增强已经是"起步价"</div></div>
+        <div class="badges"><span class="badge day">🗓 周二 07-14</span><span class="badge">30天持续趋势</span><span class="badge">OpenAI / 阿里 / DeepSeek</span></div>
+        <p class="summary">今日模型侧密度极高：<b>OpenAI GPT-5.6 家族</b>（Sol / Terra / Luna）上线并全面走 MoE 强化多模态推理；<b>阿里 Qwen3 正式开源</b>、直接把定位对齐 OpenAI o1；<b>DeepSeek R3</b> 把推理能力推到开源极限。三者一起把两个结论钉死：<b>MoE 是新起步价，深度推理是新分水岭。</b></p>
+        <div class="grid5">
+          <div class="blk"><h4>💬 点评</h4><p>过去谈"模型" = 拼参数或上下文长度；现在谈"模型" = 拼推理链路稳定性 + 稀疏结构效率。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>私有化候选表要重画：Qwen3 与 DeepSeek R3 上位，把"是否原生 MoE + 长链推理稳"作为硬门槛，Llama / 早期 7B 从主线退场。</p></div>
+          <div class="blk"><h4>🔬 技术背景</h4><p>MoE 让"参数总量大 + 单次激活小"成为常态，配合 test-time compute / self-consistency 让"推理阶段花更多计算"成为新的性能杠杆。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>上游 GPU / 推理引擎向"高显存带宽 + 稀疏调度"倾斜；下游 Agent 应用不再手工搭 self-consistency 循环，直接调深度推理档。</p></div>
+          <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>"推理档位切换"进入定价页：同一 API 支持 Fast / Balanced / Deep-Reasoning，企业按业务节点选档。</p></div>
+        </div>
+        <div class="links"><span>原文链接：</span><ul><li><a href="https://www.yzlm.com.tr/yapay-zeka-dunyasinda-bu-hafta-6-temmuz-2026/" target="_blank" rel="noopener">Qwen3 正式开源</a></li><li><a href="https://www.techandbusiness.org/newswire/PGyO8GOXYxu6ZJgc2n8YmG" target="_blank" rel="noopener">DeepSeek R3 发布</a></li></ul></div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#03</div><div class="story-title">中国开源模型占 HuggingFace 趋势榜半壁江山：私有化底座选型 shortlist 重画</div></div>
+        <div class="badges"><span class="badge day">🗓 周二 07-14</span><span class="badge">7天高频信号</span><span class="badge">HuggingFace 趋势</span></div>
+        <p class="summary">今日开源侧最重的一条：<b>HuggingFace 7 月趋势榜里，中国大模型（Qwen / DeepSeek / GLM 系）占据半壁江山</b>。它反映的不只是"下载多"，而是<b>企业侧私有化底座选型已经在偏移——由过去"Llama 系默认 + 少量中国系试点"，变成"Qwen / DeepSeek 是主候选、Llama 是备选"</b>。</p>
+        <div class="grid5">
+          <div class="blk"><h4>💬 点评</h4><p>开源座次由"闭源分数追赶度"改写为"在企业机器上跑得动、跑得便宜、跑得合规"。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>跨国 / 跨语言企业内网助手、代码协作平台优先给 Qwen3 / DeepSeek R3 打样，再横向对比 Gemma 4；估算多语言场景可省 20-30% 推理成本。</p></div>
+          <div class="blk"><h4>🔬 技术背景</h4><p>Tokenizer 对非英文更友好、MoE 结构对显存更友好，加上完整开源许可与国内合规适配，是中国系胜出的核心因素。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>上游拉动国产云 GPU / 推理引擎需求；下游繁荣中文 Fine-tuning / 行业垂直模型派生生态。</p></div>
+          <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>"国产开源大模型行业化交付套餐"会走量：Qwen3 底座 + 行业指令数据 + 私有化审计一起打包。</p></div>
+        </div>
+        <div class="links"><span>原文链接：</span><ul><li><a href="https://llmcheck.net/blog/state-of-open-source-local-llms-july-2026/" target="_blank" rel="noopener">2026-07 开源本地 LLM 现状</a></li><li><a href="https://groundy.com/articles/deepseek-v4-1-flash-vs-qwen-3-7-vs-llama-4-5-june-2026-hf-trending-ranks/" target="_blank" rel="noopener">HuggingFace 趋势 · DeepSeek / Qwen / Llama</a></li></ul></div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#04</div><div class="story-title">X 推出托管 MCP 服务器：Agent 原生接社交数据，"Prompt 时代"过渡到"协议时代"</div></div>
+        <div class="badges"><span class="badge day">🗓 周二 07-14</span><span class="badge">7天高频信号</span><span class="badge">X 平台</span></div>
+        <p class="summary">今日工程侧最重的一条：<b>X（Twitter）宣布上线托管 MCP 服务器</b>，Agent 可以通过 Model Context Protocol 原生访问社交数据。信号非常明显：<b>MCP 正在从"社区规范"走向"平台默认能力"</b>，Agent 不再需要为每个数据源自建接线，"接一次 MCP，接得一堆平台"。</p>
+        <div class="grid5">
+          <div class="blk"><h4>💬 点评</h4><p>MCP 是"Agent 的 USB"——一旦大厂开始托管，插槽标准化就到了不可逆的临界点。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>营销 / 舆情 / 内容分发类企业级 Agent 可以直接接 X 官方 MCP，替代过去零散爬虫方案，减少合规风险与维护成本。</p></div>
+          <div class="blk"><h4>🔬 技术背景</h4><p>MCP 通过统一的资源 / 工具 / prompt 描述让主模型与外部数据对齐，托管形态更省客户端集成成本、并把权限与配额留在服务端。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>上游倒逼各家 SaaS 提供 MCP 端口；下游 Agent 平台向"MCP-first" 集成方向重构，先集成再谈定制。</p></div>
+          <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>"企业级 MCP 网关 + 权限审计"会好卖：给 Agent 接社交 / OA / 数据库以统一入口，含限流、日志与审计留痕。</p></div>
+        </div>
+        <div class="links"><span>原文链接：</span><ul><li><a href="https://devcommunity.x.com/t/announcing-the-hosted-x-mcp/269558" target="_blank" rel="noopener">X · Announcing Hosted MCP</a></li></ul></div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#05</div><div class="story-title">"模型委派"与多模型堆栈：Simon Willison + swyx 把跨模型编排讲成工程默认</div></div>
+        <div class="badges"><span class="badge day">🗓 周二 07-14</span><span class="badge">7天高频信号</span><span class="badge">Twitter/X · Newsletter</span></div>
+        <p class="summary">今日工程侧另一条同向信号：Simon Willison 提出<b>"模型委派"（Model Delegation）</b>——让主模型自行判断子任务用哪个模型；swyx 发布<b>夏季多模型堆栈：Sol Ultra + Fable + Sonnet 协同</b>，把"最贵最强只放在关键判断步"讲成实操默认。这两条合起来锁定一个事实：<b>"一个模型解决所有事"的架构过时了，"主模型 + 一堆专用模型"成为默认。</b></p>
+        <div class="grid5">
+          <div class="blk"><h4>💬 点评</h4><p>过去比 Prompt，现在比编排；过去比"哪家最强"，现在比"你把哪家放在哪一步"。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>研发 / 内容 / 客服工作流可参考"主脑 + 工蜂"分层结构，实测能大幅压低单任务综合成本、缩短端到端延迟。</p></div>
+          <div class="blk"><h4>🔬 技术背景</h4><p>核心是路由函数 + 显式协议（谁 planner、谁 executor、谁 critic），配合思考 Token / 工具调用轨迹作为审计凭证。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>上游让路由 / 编排层（OpenRouter 类）议价力上升；下游让"多模型协同分析"成为咨询与实施服务的新品类。</p></div>
+          <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>"企业级模型堆栈托管"会好卖：预置主模型 + 5-6 个专用模型 + 路由策略 + 报表，直接可交付。</p></div>
+        </div>
+        <div class="links"><span>原文链接：</span><ul><li><a href="https://simonwillison.net/2026/Jul/3/judgement/" target="_blank" rel="noopener">Simon Willison · Model Delegation</a></li><li><a href="https://aicrier.com/post/xcuvporiibyw5mqkpxsg" target="_blank" rel="noopener">swyx · 夏季多模型堆栈</a></li></ul></div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#06</div><div class="story-title">Andrew Ng："Token 廉价、洞察千金"——AI 竞争重心切向 Spec 与闭环工程</div></div>
+        <div class="badges"><span class="badge day">🗓 周二 07-14</span><span class="badge">7天高频信号</span><span class="badge">The Batch</span></div>
+        <p class="summary">今日观点侧最贴产业的一条：Andrew Ng 在最新一期 The Batch 明确表态——<b>"AI Token 已经廉价、真正稀缺的是把问题写清楚的 Spec 与端到端闭环工程能力"</b>。这与今日 Benedict Evans、AI Snakeoil 的判断高度一致：<b>基座层商品化 + 上层新型 lock-in</b>，企业级战场从"选谁的模型"位移到"Spec + 反锁定架构"。</p>
+        <div class="grid5">
+          <div class="blk"><h4>💬 点评</h4><p>Prompt Engineering 的高光褪色了，Spec Engineering 与 Evaluation Engineering 正在补位。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>企业内部要设 AI 产品 Spec 模板：问题描述、验证集、失败模式、代价函数、评估指标——这套东西比"多买多少 Token"更保值。</p></div>
+          <div class="blk"><h4>🔬 技术背景</h4><p>闭环工程 = Spec + Eval Set + Regression + Feedback Loop；决定成败的往往不是最新模型，而是这四个环节是否连通。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>上游让开源基座竞争更趋同质化；下游让"AI 产品经理 / Spec-Ops"这类岗位需求快速上升。</p></div>
+          <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>"Spec + Eval 平台"会好卖：把业务需求转成结构化规格、自动构造评估集、按代价函数打分。</p></div>
+        </div>
+        <div class="links"><span>原文链接：</span><ul><li><a href="https://www.deeplearning.ai/the-batch/issue-361" target="_blank" rel="noopener">The Batch · Issue 361（Andrew Ng · Spec 与闭环工程）</a></li></ul></div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#07</div><div class="story-title">元认知与自愈：让 LLM 在犯错前"察觉"——从事后纠错前移到运行时防御</div></div>
+        <div class="badges"><span class="badge day">🗓 周二 07-14</span><span class="badge">30天持续趋势</span><span class="badge">HF Blog / arXiv</span></div>
+        <p class="summary">今日论文 / 博客侧最贴治理的一条：<b>模型元认知研究</b>让 LLM 在输出错误前"察觉"并自愈；配合"论文揭示 RL 训练幻觉：单调推理策略才是真实优化目标"与近期 Harness Contract 类研究，方向高度一致——<b>Agent 治理正在从"事后纠错"前移到"运行时防御 + 训练目标对齐"</b>。</p>
+        <div class="grid5">
+          <div class="blk"><h4>💬 点评</h4><p>企业不缺"会答"的 Agent，缺"做错之前先按暂停"的 Agent；元认知是把治理从外挂拉进模型内核。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>金融、医疗、政务这类强合规行业，可优先在关键判断步嵌入元认知 / 自愈层，降低合规审查成本、减少末端事故。</p></div>
+          <div class="blk"><h4>🔬 技术背景</h4><p>元认知 = 模型对自身置信度、可能失败模式的内在建模；配合 RL 奖励调整避免"表面漂亮实则单调"的策略退化。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>上游让 RL Trainer / 数据构造工具更贵；下游让"AI 保险 / 合规审计留痕"变成刚需 SKU。</p></div>
+          <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>"元认知护栏 + 自愈流水线"会走量：模型输出前必须给出可信度评分，低于阈值自动切档或转人工。</p></div>
+        </div>
+        <div class="links"><span>原文链接：</span><ul><li><a href="https://huggingface.co/blog/ginigen-ai/metacognition" target="_blank" rel="noopener">HuggingFace Blog · 元认知</a></li><li><a href="https://arxiv.org/abs/2606.29526" target="_blank" rel="noopener">arXiv · RL 训练幻觉与单调推理策略</a></li></ul></div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#08</div><div class="story-title">产业冷静剂：Token 定价权继续瓦解，实验室"向上堆叠"逃离商品化陷阱</div></div>
+        <div class="badges"><span class="badge day">🗓 周二 07-14</span><span class="badge">30天持续趋势</span><span class="badge">Benedict Evans · AI Snakeoil · Import AI</span></div>
+        <p class="summary">观点侧今晚给出一组互补的冷静判断：<b>Benedict Evans</b> 指出 Token 价格进入过剩平衡，缺网络效应的基座模型极易"公用事业化"；<b>AI Snakeoil / Normal Tech</b> 观察 OpenAI / Anthropic 激进向栈上层迁移（企业版、Claude Code、数字员工）用 persistent memory 与工作流集成建"嵌入式护城河"；<b>Import AI 464</b> 补一刀：智能体开始编写 GPU 内核、软件栈本身正被重构。结论：<b>纯卖 Token 难维持高毛利，价值捕获点必然上移——但企业要警惕新型供应商锁定。</b></p>
+        <div class="grid5">
+          <div class="blk"><h4>💬 点评</h4><p>模型可替代，但"数字员工"沉淀的组织默会知识不可替代——这既是实验室的护城河，也是企业需要防的锁定点。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>不必过度担忧 API 长期成本（会被压低），重点投在基于私有数据的"数据引力"与流程沉淀，同时保留模型切换权。</p></div>
+          <div class="blk"><h4>🔬 技术背景</h4><p>Inference 是边际成本、训练是固定成本；危险的锁定不在模型名字，而在 API 形态、工作流 DSL、权限体系与数据闭环。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>下游 SaaS 从低价 Token 获益；上游芯片与云厂商定价权强于模型层；SaaS 巨头与 AI 实验室争夺"记录系统"层。</p></div>
+          <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>"成果付费签约 + 反锁定架构咨询"会好卖：帮客户按结果计费、按可迁移标准建工作流，保留模型主导权。</p></div>
+        </div>
+        <div class="links"><span>原文链接：</span><ul><li><a href="https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing" target="_blank" rel="noopener">Benedict Evans · Ways to think about token pricing</a></li><li><a href="https://www.normaltech.ai/p/up-the-stack-how-ais-escape-from" target="_blank" rel="noopener">AI Snakeoil · Up the stack</a></li><li><a href="https://importai.substack.com/p/import-ai-464-fables-writes-gpu-kernels" target="_blank" rel="noopener">Import AI #464</a></li></ul></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>来源覆盖巡检（今日口径）</h2>
+    <div class="desc">"全部覆盖"不等于硬凑热点。对今日没有足够强独立信号的来源，明确标记"持续观察"或"交叉巡检"，避免伪造热点。链接均为真实原文，无法确认原文的一律标注"暂无原文链接"。</div>
+    <div class="table-wrap"><table><thead><tr><th>来源</th><th>本期使用方式 / 备注</th></tr></thead><tbody>
+      <tr><td>小宇宙播客<span class="pill ok">已采用</span></td><td>本期把 AI 日报类节目对"多模型协作 + Spec 上位"的转述判断作为播客洞察补充，并延续昨夜"Agent 治理是企业生死线"的主线。<br/><a href="https://www.xiaoyuzhoufm.com/podcast/6a09a980f4ff26e89f601057" target="_blank" rel="noopener">小宇宙 · 李自在AI日报</a></td></tr>
+      <tr><td>Twitter / X<span class="pill ok">已采用</span></td><td>优先"实际用法 / 技巧 / 工作流"：X 托管 MCP 服务器、Simon Willison "Model Delegation"、swyx 多模型堆栈实战。<br/><a href="https://devcommunity.x.com/t/announcing-the-hosted-x-mcp/269558" target="_blank" rel="noopener">X · Hosted MCP</a></td></tr>
+      <tr><td>HuggingFace Daily Papers<span class="pill ok">已采用</span></td><td>采用 Gemma 4 技术报告与 Orca 世界模型（35B Agent），均贴近私有化部署与"结构 &gt; 参数"主线。<br/><a href="https://arxiv.org/abs/2607.02770" target="_blank" rel="noopener">Gemma 4 技术报告</a></td></tr>
+      <tr><td>HuggingFace 模型下载趋势<span class="pill ok">已采用</span></td><td>作为私有化 / 开源部署热度口径：Qwen3 / DeepSeek R3 领跑，中国系占 7 月趋势榜半壁江山。<br/><a href="https://llmcheck.net/blog/state-of-open-source-local-llms-july-2026/" target="_blank" rel="noopener">2026-07 开源本地 LLM 现状</a></td></tr>
+      <tr><td>Papers With Code<span class="pill watch">交叉巡检</span></td><td>今日 PWC 最新条目与 HuggingFace / arXiv 高度重合，为避免重复以 arXiv 原文为准，PWC 仅作交叉巡检。<br/><a href="https://paperswithcode.com/latest" target="_blank" rel="noopener">Papers With Code · Latest</a></td></tr>
+      <tr><td>ArXiv cs.AI / cs.LG<span class="pill ok">已采用</span></td><td>优先贴近产品化方向：RL 训练幻觉与单调推理策略、Gemma 4 技术报告，与元认知研究互相印证。<br/><a href="https://arxiv.org/abs/2606.29526" target="_blank" rel="noopener">arXiv · RL 训练幻觉</a></td></tr>
+      <tr><td>GitHub Trending<span class="pill ok">已采用</span></td><td>感知生产级 SuperAgent 套件与自我进化：字节 DeerFlow 2.0、NousResearch Hermes Agent 0.18.0。<br/><a href="https://github.com/bytedance/deer-flow" target="_blank" rel="noopener">字节 · DeerFlow 2.0</a></td></tr>
+      <tr><td>The Batch<span class="pill ok">已采用</span></td><td>用 #361（Andrew Ng "Token 廉价、洞察千金"）判断产业价值捕获点上移与 Spec Engineering 兴起。<br/><a href="https://www.deeplearning.ai/the-batch/issue-361" target="_blank" rel="noopener">The Batch #361</a></td></tr>
+      <tr><td>Benedict Evans Newsletter<span class="pill ok">已采用</span></td><td>沿用 token pricing 长期判断：警惕基座模型"公用事业化"，价值捕获点上移到应用层。<br/><a href="https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing" target="_blank" rel="noopener">Ways to think about token pricing</a></td></tr>
+      <tr><td>LessWrong / Alignment Forum<span class="pill ok">已采用</span></td><td>采用 2026 年中"迈向 ASI 的过渡期"信念与立场作为长期视角，与元认知 / 自愈研究形成对照。<br/><a href="https://www.lesswrong.com/posts/jJjxWsGyoELmNQwvZ/beliefs-and-position-mid-2026" target="_blank" rel="noopener">Beliefs and Position mid-2026</a></td></tr>
+      <tr><td>AI Snakeoil / Normal Tech<span class="pill ok">已采用</span></td><td>采用"向上堆叠 / 逃离商品化陷阱"，强调上层价值迁移与新型 lock-in 风险。<br/><a href="https://www.normaltech.ai/p/up-the-stack-how-ais-escape-from" target="_blank" rel="noopener">Up the stack</a></td></tr>
+      <tr><td>Import AI<span class="pill ok">已采用</span></td><td>用 #464（智能体开始编写 GPU 内核）作为"Agent 下探基础设施层 + 软件栈重构"的强信号。<br/><a href="https://importai.substack.com/p/import-ai-464-fables-writes-gpu-kernels" target="_blank" rel="noopener">Import AI #464</a></td></tr>
+    </tbody></table></div>
+    <div class="tip" style="margin-top:16px">说明：本期为<b>周二 2026-07-14 晚 23:00 触发的「今日大模型夜报」（正常口径）</b>，内容范围覆盖当天 AI / 大模型资讯，采用"深度复盘"编排。榜单分数与部分播客转述属参考口径，暂无统一官方数据的地方已注明"参考"或"讨论"，未伪造链接。</div>
+  </section>
+
+  <section class="section">
+    <div class="notes-box">
+      <div class="notes-head">
+        <h2 style="margin:0">📝 我的笔记</h2>
+        <div class="notes-tools">
+          <button class="btn secondary" id="exportBtn">⬇ 导出 .txt</button>
+          <button class="btn danger" id="clearBtn">🗑 清空</button>
+        </div>
+      </div>
+      <textarea id="noteArea" placeholder="点击这里开始记录：想跟进的开源底座、值得试的模型路由 / 编排方案、准备转给团队的判断……（localStorage 持久化，500ms 防抖自动保存）"></textarea>
+      <div class="notes-foot">
+        <span id="saveState">未保存</span>
+        <span id="wordCount">0 字</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>访问入口</h2>
+    <div class="desc">如果你在 GitHub Pages 上查看本页，建议顺手收藏历史总目录，后续晨报 / 夜报会持续沉淀。</div>
+    <div class="footer-links">
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/night_2026-07-14.html" target="_blank" rel="noopener">🌙 GitHub Pages 今日夜报链接</a>
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/" target="_blank" rel="noopener">📚 历史总目录</a>
+      <a href="./index.html">🗂 本地历史目录</a>
+    </div>
+  </section>
+</div>
+<script>
+const REPORT_DATE = '2026-07-14';
+const NOTE_KEY = 'llm_night_notes_' + REPORT_DATE;
+const area = document.getElementById('noteArea');
+const saveState = document.getElementById('saveState');
+const wordCount = document.getElementById('wordCount');
+let saveTimer = null;
+function updateWordCount(){ wordCount.textContent = (area.value || '').replace(/\s/g,'').length + ' 字'; }
+function loadNotes(){ const saved = localStorage.getItem(NOTE_KEY); if(saved !== null){ area.value = saved; saveState.textContent = '已加载'; } updateWordCount(); }
+function saveNotes(){ localStorage.setItem(NOTE_KEY, area.value); saveState.textContent = '✓ 已自动保存 · ' + new Date().toLocaleTimeString('zh-CN'); }
+area.addEventListener('input', () => { updateWordCount(); saveState.textContent = '输入中…'; if(saveTimer) clearTimeout(saveTimer); saveTimer = setTimeout(saveNotes, 500); });
+document.getElementById('exportBtn').addEventListener('click', () => { const blob = new Blob([area.value || ''], {type:'text/plain;charset=utf-8'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = '大模型夜报笔记_' + REPORT_DATE + '.txt'; a.click(); URL.revokeObjectURL(a.href); });
+document.getElementById('clearBtn').addEventListener('click', () => { if(confirm('确定清空本期笔记吗？')){ area.value=''; localStorage.removeItem(NOTE_KEY); updateWordCount(); saveState.textContent='已清空'; } });
+loadNotes();
+</script>
+</body>
+</html>
