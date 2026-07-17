@@ -24,7 +24,6 @@
     .type { display:inline-flex; align-items:center; padding:5px 10px; border-radius:999px; font-weight:700; }
     .type.morning { background:rgba(255,188,92,.16); color:#ffd28d; }
     .type.night { background:rgba(140,150,255,.16); color:#c9d0ff; }
-    .type.other { background:rgba(160,192,255,.12); color:#cfe4ff; }
     .card-top .date { margin-left:2px; }
     .card-top .jump { margin-left:auto; color:var(--accent); }
     .card h3 { margin:0 0 12px; font-size:20px; line-height:1.4; font-weight:700; }
@@ -39,12 +38,21 @@
       <h1>大模型晨报 / 夜报 历史总目录</h1>
       <p>整张卡片可点击，自动区分晨报 / 夜报类型；适合放在 GitHub Pages 作为统一入口，供团队快速回看每日 LLM 新闻与观点沉淀。</p>
       <div class="badges">
-        <div class="badge">共 31 份报告</div>
-        <div class="badge">🌙 夜报 16 份</div>
-        <div class="badge">☀️ 晨报 15 份</div>
+        <div class="badge">共 34 份报告</div>
+        <div class="badge">🌙 夜报 18 份</div>
+        <div class="badge">☀️ 晨报 16 份</div>
       </div>
     </section>
     <section class="grid">
+      <a class="card" href="night_2026-07-17.html">
+        <div class="card-top">
+          <span class="type night">🌙 夜报</span>
+          <span class="date">2026-07-17</span>
+          <span class="jump">点击进入 →</span>
+        </div>
+        <h3>大模型夜报 2026-07-17</h3>
+        <p>今晚最值得复盘的，不是又多了一个更强模型，而是 Agent 栈正式从“会写几段代码”迈向“能接管复杂生产任务”：旗舰公有云在拼 coding-agent 上限，开源底座在拼私有化部署与多档位路由，开发者生态则开始把 Harness、Memory、Spec、Governance 一起产品化。</p>
+      </a>
       <a class="card" href="morning_2026-07-17.html">
         <div class="card-top">
           <span class="type morning">☀️ 晨报</span>
@@ -70,7 +78,7 @@
           <span class="jump">点击进入 →</span>
         </div>
         <h3>大模型晨报</h3>
-        <p>开源逼近前沿 × 模型商品化：GLM-5.2 以约 1/6 成本逼近 Opus 4.8、Qwen3.6 霸榜 HuggingFace，Artificial Analysis 榜单 Claude Fable 5 登顶（约 60）；The Batch / Benedict Evans / AI Snakeoil 三方共振，价值加速向 Spec 工程与应用层迁移，同时警惕『逃离商品化陷阱』带来的企业锁定风险；Agent 工程化转向长程执行、复杂度感知与端侧化。</p>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="night_2026-07-15.html">
         <div class="card-top">
@@ -88,7 +96,7 @@
           <span class="jump">点击进入 →</span>
         </div>
         <h3>大模型晨报</h3>
-        <p>Agent 竞争进入「自动路由 + 元认知自省」的工程化下半场：学术界（GRADE 门控路由、华为诺亚 Agentic Routing 数据飞轮）与工程界（Simon Willison 模型委派、Vivek Haldar 技能编译降 94% Token）殊途同归——Agent 学会自己选模型、自己纠错、自己压成本；同时 The Batch / Benedict Evans / AI Snakeoil 三方共振，底层模型加速商品化，价值向 Spec 工程与应用层迁移。</p>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="night_2026-07-14.html">
         <div class="card-top">
@@ -106,7 +114,7 @@
           <span class="jump">点击进入 →</span>
         </div>
         <h3>大模型晨报</h3>
-        <p>推理为王 + MoE 标配成为新阶段：Claude Fable 5 登顶、GPT-5.6 与 Qwen3 / DeepSeek R3 同台竞技；中国开源模型占 HuggingFace 趋势榜半壁江山；工程侧从 Prompt 迈向 Spec / 编排与多模型协作，价值向应用层迁移。</p>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="night_2026-07-13.html">
         <div class="card-top">
@@ -124,7 +132,7 @@
           <span class="jump">点击进入 →</span>
         </div>
         <h3>大模型晨报</h3>
-        <p>模型竞争重心从「单模型更强」转向「跨厂商编排 + 任务级性价比分档 + 运行时治理」；开源侧 Qwen 超越 Llama 坐稳全球下载第一，Agent 工程正从 Prompt 迈向 Harness/Contract 与主动记忆。</p>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="night_2026-07-12.html">
         <div class="card-top">
@@ -133,7 +141,7 @@
           <span class="jump">点击进入 →</span>
         </div>
         <h3>周末汇总夜报 2026-07-12</h3>
-        <p>周末汇总夜报（覆盖周六 2026-07-11 + 周日 2026-07-12 两天）：模型继续上冲（Claude Fable 5 登顶、GPT-5.6 Sol），但周末真正的主线是"开源提速 + Agent 执行力模块化 + 治理成为生死线"——AI 竞争正从"更强"切向"更快、更能执行、更可信"。</p>
+        <p>周末汇总夜报（覆盖周六 2026-07-11 + 周日 2026-07-12 两天）：模型继续上冲（Claude Fable 5 登顶、GPT-5.6 Sol），但周末真正的主线是&quot;开源提速 + Agent 执行力模块化 + 治理成为生死线&quot;——AI 竞争正从&quot;更强&quot;切向&quot;更快、更能执行、更可信&quot;。</p>
       </a>
       <a class="card" href="night_2026-07-10.html">
         <div class="card-top">
@@ -141,8 +149,8 @@
           <span class="date">2026-07-10</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型夜报 2026-07-10</h3>
-        <p>今晚主线：模型能力继续上冲，但真正开始决定企业成败的，已经是任务级路由、技能资产化、运行时审计与可迁移工作流——大模型正在从“更强”走向“更能接业务流”。</p>
+        <h3>大模型夜报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="morning_2026-07-10.html">
         <div class="card-top">
@@ -151,7 +159,7 @@
           <span class="jump">点击进入 →</span>
         </div>
         <h3>大模型晨报</h3>
-        <p>模型家族公开分层、技能文档开始被当作可训练资产、上下文与运行时治理重新成为 Agent 成败关键；企业接下来最值得投入的是模型路由、技能库优化、上下文治理与双层复核。</p>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="night_2026-07-09.html">
         <div class="card-top">
@@ -159,8 +167,8 @@
           <span class="date">2026-07-09</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型夜报 2026-07-09</h3>
-        <p>今晚主线：Token economics、世界模型、私有化部署与 Agent 可靠性开始汇成一条线——模型更强之外，企业更在意成本结构、可验证性和可落地工作流。</p>
+        <h3>大模型夜报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="morning_2026-07-09.html">
         <div class="card-top">
@@ -169,7 +177,7 @@
           <span class="jump">点击进入 →</span>
         </div>
         <h3>大模型晨报</h3>
-        <p>公有云模型开始按任务分层，开源侧继续按场景固化工具链；Agent 的胜负手已从单模型能力转向路由、复核、弃权与成本治理，企业最该盯的是三档模型调度、私有化底座、工具预筛选与可靠性工程。</p>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="night_2026-07-08.html">
         <div class="card-top">
@@ -177,8 +185,8 @@
           <span class="date">2026-07-08</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型夜报 2026-07-08</h3>
-        <p>今晚主线：模型选择开始像云实例选择，Agent 可靠性从“会做”转向“会弃权、会复核、会回归”，私有化底座与 Agent DevOps 继续升温。</p>
+        <h3>大模型夜报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="morning_2026-07-08.html">
         <div class="card-top">
@@ -187,7 +195,7 @@
           <span class="jump">点击进入 →</span>
         </div>
         <h3>大模型晨报</h3>
-        <p>今日主线：Agent 正从“会回答”升级到“会分工、会弃权、会自优化”，模型市场则从拼参数转向拼档位、拼真实成本与拼可靠性；企业侧最值得盯的是模型级联、Agentic RAG、长程任务稳定性，以及私有化部署工具链继续升温。</p>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="night_2026-07-07.html">
         <div class="card-top">
@@ -195,8 +203,8 @@
           <span class="date">2026-07-07</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型夜报 2026-07-07</h3>
-        <p>GPT-5.6 定档发布日与三档定价、Claude Fable 5 回归引「静默降智」争议、美团 LongCat-2.0 国产算力开源、WAIC 2026 前瞻 300+ 全球首发、可灵 30 亿美元融资，构成今日五条主线。</p>
+        <h3>大模型夜报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="morning_2026-07-07.html">
         <div class="card-top">
@@ -205,7 +213,16 @@
           <span class="jump">点击进入 →</span>
         </div>
         <h3>大模型晨报</h3>
-        <p>今日主线：OpenAI GPT-5.6（Sol/Terra/Luna）与 Anthropic Claude Fable 5 正面对垒，把「旗舰+均衡+轻量」分层定价推成行业标配；Agent 自主工作流与上下文压缩/本地部署成为落地侧最热的两条主线。模型分层化、Agent 长链路化、部署两条腿（公有云调用+私有化自建）并行加速。本期覆盖 Twitter/X、HuggingFace Daily Papers、HuggingFace 下载趋势、Papers With Code、arXiv cs.AI/cs.LG、GitHub Trending、The Batch、Benedict Evans、LessWrong/Alignment Forum、AI Snakeoil、Import AI，并单列公有云使用场景与私有化部署热度两个维度。</p>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
+      </a>
+      <a class="card" href="night_2026-07-06.html">
+        <div class="card-top">
+          <span class="type night">🌙 夜报</span>
+          <span class="date">2026-07-06</span>
+          <span class="jump">点击进入 →</span>
+        </div>
+        <h3>大模型夜报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="morning_2026-07-06.html">
         <div class="card-top">
@@ -213,8 +230,8 @@
           <span class="date">2026-07-06</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型晨报｜2026-07-06 早8点版</h3>
-        <p>今日主线是“Agent 工程栈从‘调 Prompt’走向‘装技能 + 稳循环 + 带记忆’：Agent Skills 成为可复用操作层的新范式”。GitHub Trending 的 Skill/Loop 仓库、HF 论文 SkillCoach 与 Program-as-Weights、Agent Memory 独立成层、长程 Agent 可靠性评测扎堆共同印证。本期覆盖 Twitter/X、HuggingFace Daily Papers、HuggingFace 下载趋势、Papers With Code、arXiv cs.AI/cs.LG、GitHub Trending、The Batch、Benedict Evans Newsletter、LessWrong/Alignment Forum、AI Snakeoil、Import AI；并单列公有云模型使用场景与来源覆盖说明。</p>
+        <h3>大模型晨报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="night_2026-07-05.html">
         <div class="card-top">
@@ -222,8 +239,8 @@
           <span class="date">2026-07-05</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型夜报 · 2026-07-05 晚11点深度复盘版</h3>
-        <p>深度复盘 2026-07-05：承接今早晨报「从 Prompt Engineering 到 Loop Engineering，Agent 竞争重心转向把『思考-执行-验证』循环工程化，MCP 成为跨平台连接标准」，今晚三条主线是「Loop Engineering 不再是概念，GitHub 上已经长出实物：loop-engineering / loopy / Agent Skills 生态批量登榜」「循环要跑得稳，靠的是记忆与想清楚，而非更多工具：mem0 记忆层 60k★ + headroom 上下文压缩 + AutoMem/DuoMem/AgenticSTS + arXiv 2607.02436 推理预算>工具权限」「最冷静的一条——循环再顺，AI 也不会自动替代人、自动降本：AI Snakeoil 祛魅三连 + Human Capital>Benchmark(2607.02467) + 对齐安全 arXiv 三连」。覆盖小宇宙播客、Twitter/X、HF Daily Papers、HF 下载趋势(私有化部署热度)、单列公有云使用场景维度、arXiv cs.AI/cs.LG、Papers With Code、GitHub Trending、The Batch、Benedict Evans、AI Snakeoil、LessWrong/Alignment Forum、Import AI 463。每条含 💬点评+🎯业务视角+技术背景+🔗上下游影响+🚀6个月产品卖点预测，附真实原文链接，含可编辑「我的笔记」与模型热度趋势图。主线：循环工程化落地，胜负手在记忆、判断力与治理。</p>
+        <h3>大模型夜报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="morning_2026-07-05.html">
         <div class="card-top">
@@ -231,8 +248,8 @@
           <span class="date">2026-07-05</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型晨报｜2026-07-05 早8点版</h3>
-        <p>今日主线是“从 Prompt Engineering 到 Loop Engineering：Agent 竞争重心转向把‘思考-执行-验证’循环工程化，MCP 成为跨平台连接标准”。本期覆盖 Twitter/X、HuggingFace Daily Papers、HuggingFace 下载趋势、Papers With Code、arXiv cs.AI/cs.LG、GitHub Trending、The Batch、Benedict Evans Newsletter、LessWrong/Alignment Forum、AI Snakeoil、Import AI；并单列公有云模型使用场景与来源覆盖说明。</p>
+        <h3>大模型晨报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="night_2026-07-04.html">
         <div class="card-top">
@@ -240,8 +257,8 @@
           <span class="date">2026-07-04</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型夜报 · 2026-07-04 晚11点深度复盘版</h3>
-        <p>深度复盘 2026-07-04：承接今早晨报「Agent 从比谁更聪明，转向比谁能被编排、被治理、被低成本自运行」，今晚三条主线是「编排的下半场是记忆：AutoMem/DuoMem/AgenticSTS/WorldDirector 一整排给记忆造尺子与引擎」「可靠性的新答案不是更多工具、而是想清楚再动手：arXiv 2607.02436 Reasoning effort > tool access + PACE + DiscoBench」「AI 不会自动替代人也不会自动降本：AI Snakeoil 三连祛魅 + Human Capital>Benchmark + 高可靠工程对齐借鉴」。覆盖小宇宙播客、Twitter/X、HF Daily Papers、HF 下载趋势(私有化部署热度)、单列公有云使用场景维度、arXiv cs.AI/cs.LG、Papers With Code、GitHub Trending、The Batch、Benedict Evans、AI Snakeoil、LessWrong/Alignment Forum、Import AI 463。每条含 💬点评+🎯业务视角+技术背景+🔗上下游影响+🚀6个月产品卖点预测，附真实原文链接，含可编辑「我的笔记」与模型热度趋势图。主线：编排热之后，真正的卡点是记忆、想清楚与治理。</p>
+        <h3>大模型夜报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="morning_2026-07-04.html">
         <div class="card-top">
@@ -249,8 +266,8 @@
           <span class="date">2026-07-04</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型晨报｜2026-07-04 早8点版</h3>
-        <p>今日主线是“Agent 从比谁更聪明，转向比谁能被编排、被治理、被低成本自运行”。本期覆盖 Twitter/X、HuggingFace Daily Papers、HuggingFace 下载趋势、Papers With Code、arXiv cs.AI/cs.LG、GitHub Trending、The Batch、Benedict Evans Newsletter、LessWrong/Alignment Forum、AI Snakeoil、Import AI；并单列公有云模型使用场景与来源覆盖说明。</p>
+        <h3>大模型晨报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="night_2026-07-03.html">
         <div class="card-top">
@@ -258,8 +275,8 @@
           <span class="date">2026-07-03</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型夜报 · 2026-07-03 晚11点深度复盘版</h3>
-        <p>深度复盘 2026-07-03：承接今早晨报「从比模型分数与单价，转向比每任务真实成本、交付可靠性与可审计性」，今晚三条主线是「Agent 可靠性正在变成一门科学：AI Snakeoil 提出『Agent reliability 科学化』+ HF Daily 的 AgenticSTS(长程记忆) / AgenticDataBench / SkillCoach」「评测与成本双重打假从学术蔓延到现实：arXiv『Human Capital 而非 Benchmark 预测混合智能』+ TestEvo-Bench + AI Snakeoil 拷问『Google Agent 真花 916 美元造了个 OS？』」「没人看着时 AI 会怎样：部署对齐 + 运行时监控 + 持久状态攻击(2607.02507/02510/02514)」。覆盖小宇宙播客、Twitter/X、HF Daily Papers、HF 下载趋势(私有化部署热度)、单列公有云使用场景维度、arXiv cs.AI/cs.LG、Papers With Code、GitHub Trending、The Batch、Benedict Evans、AI Snakeoil、LessWrong/Alignment Forum、Import AI 463。每条含 💬点评+🎯业务视角+技术背景+🔗上下游影响+🚀6个月产品卖点预测，附真实原文链接，含可编辑「我的笔记」与模型热度趋势图。主线：能力还在涨，但稀缺资源已从「模型能力」转向「可被证明的可靠性」。</p>
+        <h3>大模型夜报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="morning_2026-07-03.html">
         <div class="card-top">
@@ -267,8 +284,8 @@
           <span class="date">2026-07-03</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型晨报｜2026-07-03 早8点版</h3>
-        <p>今日主线是“从分数和单价，转向每任务真实成本、交付可靠性与可审计性”。本期覆盖 Twitter/X、HuggingFace Daily Papers、HuggingFace 下载趋势、Papers With Code、arXiv cs.AI/cs.LG、GitHub Trending、The Batch、Benedict Evans Newsletter、LessWrong/Alignment Forum、AI Snakeoil、Import AI；并单列公有云模型使用场景与来源覆盖说明。</p>
+        <h3>大模型晨报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="night_2026-07-02.html">
         <div class="card-top">
@@ -276,8 +293,8 @@
           <span class="date">2026-07-02</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型夜报 · 2026-07-02 晚11点深度复盘版</h3>
-        <p>深度复盘 2026-07-02：承接晨报「开源权重 GLM-5.2 登顶、Claude Sonnet 5 拼性价比、Amazon 押注 FDE」，今晚三条主线是「能力平民化：开源登顶+端侧 AFM3+DeepSeek V4 上架 HF」「护城河转向 Agent 可靠性工程：记忆(AutoMem/MemSyco-Bench)+评测打假(2607.01211)+技能供应链风险(2607.01136)」「从能力到可信交付：FDE+高可靠工程+部署对齐」。覆盖小宇宙播客、HF Daily Papers、HF 下载趋势(私有化部署热度)、单列公有云使用场景维度、arXiv cs.AI/cs.LG、Papers With Code、GitHub Trending、The Batch、Benedict Evans、AI Snakeoil、LessWrong/Alignment Forum、Import AI 463。每条含 💬点评+🎯业务视角+技术背景+🔗上下游影响+🚀6个月产品卖点预测，附真实原文链接，含可编辑「我的笔记」与模型热度趋势图。主线：当能力人人可得，稀缺资源正从「模型能力」转向「Agent 的可靠性工程」。</p>
+        <h3>大模型夜报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="morning_2026-07-02.html">
         <div class="card-top">
@@ -285,8 +302,8 @@
           <span class="date">2026-07-02</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型晨报｜2026-07-02 早8点版</h3>
-        <p>开源权重 GLM-5.2 登顶 Artificial Analysis Intelligence Index、Claude Sonnet 5 以 53 分重定义公有云性价比、Forward Deployed Engineer(FDE) 成资本与人才峰值热点(Amazon 承诺 10 亿美元)、编码 Agent 评测从单轮转向交互式长程会话(SWE-INTERACT)、对齐社区提出“部署感知(Deployment Awareness)比评估感知更危险”、Apple 第三代端侧基础模型 AFM3。本期覆盖 X、HF Daily Papers、HF 下载趋势、Papers With Code、arXiv、GitHub Trending、The Batch、Benedict Evans、Import AI、LessWrong/Alignment Forum、AI Snakeoil，并单列“公有云模型使用场景”维度，每条含点评、业务视角、上下游影响与 6 个月产品卖点预测。</p>
+        <h3>大模型晨报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="night_2026-07-01.html">
         <div class="card-top">
@@ -294,8 +311,8 @@
           <span class="date">2026-07-01</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型夜报 · 2026-07-01 晚11点深度复盘版</h3>
-        <p>深度复盘 2026-07-01：三条主线是「GPT-5.6 Sol 受控放量+分层准入」「DeepSeek V4 错峰经济学把 API 定价做成产品能力」「WORLDEVOLVER 自进化世界模型让冻结参数的 Agent 越用越准」。覆盖小宇宙播客（硅谷101/AI每日热搜）、HF Daily Papers、HF 下载趋势（私有化部署热度）、单列公有云使用场景维度、arXiv cs.AI/cs.LG、Papers With Code、GitHub Trending、The Batch #359、Andrew Ng Agentic 四设计模式、Benedict Evans、AI Snakeoil、LessWrong/Alignment Forum（评估感知 eval-aware）、Import AI。每条含 💬点评+🎯业务视角+技术背景+🔗上下游影响+🚀6个月产品卖点预测，附真实原文链接，含可编辑「我的笔记」与模型热度趋势图。主线：AI 竞争的稀缺资源正从「能力上限」转向「可获得性+可靠性+单位推理成本」。</p>
+        <h3>大模型夜报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="morning_2026-07-01.html">
         <div class="card-top">
@@ -303,17 +320,8 @@
           <span class="date">2026-07-01</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型晨报｜2026-07-01 早8点版</h3>
-        <p>GPT-5.6 Sol/Terra/Luna 受控发布、Anthropic 完成约 650 亿美元融资逼近万亿估值、DeepSeek V4 预告错峰定价、编码 Agent 集体“打假”（SWE-Together/Multi-LCB/微软弃用 Claude Code）、开源权重 GLM-5.2 登顶、以及“评估感知”与 reward hacking 引发的对齐风险。本期覆盖 X、HF Daily Papers、HF 下载趋势、Papers With Code、arXiv、GitHub Trending、The Batch、Benedict Evans、LessWrong/Alignment Forum、AI Snakeoil，每条含点评、业务视角、上下游影响与 6 个月产品卖点预测。</p>
-      </a>
-      <a class="card" href="night_v2_2026-06-30.html">
-        <div class="card-top">
-          <span class="type night">🌙 夜报</span>
-          <span class="date">2026-06-30</span>
-          <span class="jump">点击进入 →</span>
-        </div>
-        <h3>升级版大模型夜报｜2026-06-30 晚11点版</h3>
-        <p>这是一版偏深度复盘的大模型夜报，重点拆开“私有化部署热度”与“公有云调用场景”两个维度来观察 2026 年 6 月末的模型生态变化。报告同时覆盖论文、开源仓库、newsletter、播客与对齐讨论，并给出业务判断、上下游影响与未来 6 个月产品卖点预测。</p>
+        <h3>大模型晨报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
       <a class="card" href="night_2026-06-30.html">
         <div class="card-top">
@@ -321,11 +329,29 @@
           <span class="date">2026-06-30</span>
           <span class="jump">点击进入 →</span>
         </div>
-        <h3>大模型夜报 · 2026-06-30 晚11点深度复盘版</h3>
-        <p>覆盖小宇宙播客、HF Daily Papers、HF模型下载趋势、ArXiv、GitHub Trending、Medium/Substack、The Batch、Benedict Evans、LessWrong/Alignment Forum等全量来源。本期主线是「Agent 从对话框走向自动化循环（Loop）+ Skills 范式」，并深度拆解 GLM-5.2、Self-Evolving World Model、MCP 代理治理与对齐风险。含可编辑「我的笔记」与模型热度趋势图。</p>
+        <h3>大模型夜报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
+      </a>
+      <a class="card" href="morning_2026-06-30.html">
+        <div class="card-top">
+          <span class="type morning">☀️ 晨报</span>
+          <span class="date">2026-06-30</span>
+          <span class="jump">点击进入 →</span>
+        </div>
+        <h3>大模型晨报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
+      </a>
+      <a class="card" href="night_2026-06-29.html">
+        <div class="card-top">
+          <span class="type night">🌙 夜报</span>
+          <span class="date">2026-06-29</span>
+          <span class="jump">点击进入 →</span>
+        </div>
+        <h3>大模型夜报</h3>
+        <p>覆盖模型发布、论文、开源项目与产业信号。</p>
       </a>
     </section>
-    <div class="footer">最后更新时间：2026-07-17 08:06:45</div>
+    <div class="footer">自动扫描 output/daily_llm_news/ 生成目录 · 最后更新：2026-07-17 夜报</div>
   </div>
 </body>
 </html>
