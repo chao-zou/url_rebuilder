@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🌙 大模型夜报 2026-07-20</title>
+<!-- report-meta: date=2026-07-20; type=night; title=大模型夜报 2026-07-20; summary=本期为周一（2026-07-20）触发的「今日大模型夜报」，覆盖当天 AI / 大模型资讯。全天最强主线是 WAIC 2026 收官日：一边是 WAICO（世界人工智能合作组织）29 国治理框架落地、Xi 关于“公平公正”AI 治理的表态与联合国秘书长背书，另一边是国产厂商在收官日集中放出「基座+Agent 平台」组合拳——Qwen3.8-Max Preview（2.4T）压轴亮相、Alibaba Cloud 亮出 agent-native 架构、Siemens Eigen 工业智能体拿下 SAIL 之星、Scholar Puyu 20B 开源、气象大模型「风和」全球开源计划。全球开发者侧则继续被 Kimi K3、GLM-5.2、Gemma 4 三条开源主线牵着走，Token 价格战与 Agent 框架取代模型库的两条 30 天趋势也在同步加速。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>:root{--bg:#07101f;--bg2:#0d1730;--panel:rgba(17,27,56,.8);--panel2:rgba(15,24,49,.96);--line:rgba(145,170,255,.18);--ink:#edf1ff;--sub:#aab6df;--muted:#7584b3;--accent:#85b7ff;--gold:#ffbb55;--violet:#9e8dff;--teal:#40e6c5;--pink:#ff84d0;--red:#ff947f;--shadow:0 20px 60px rgba(0,0,0,.28);}*{box-sizing:border-box}html,body{margin:0;padding:0;background:radial-gradient(circle at top,#1a2858 0%,#0b1227 38%,#060b15 100%);color:var(--ink);font-family:'Inter','Noto Sans SC',system-ui,-apple-system,sans-serif;line-height:1.75}a{color:#9fd3ff;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:32px 20px 88px;position:relative}.hero{position:relative;border:1px solid var(--line);background:linear-gradient(135deg,rgba(25,37,80,.92),rgba(12,18,39,.98));box-shadow:var(--shadow);border-radius:28px;padding:34px 34px 28px;overflow:hidden}.hero:before{content:'';position:absolute;inset:auto -100px -120px auto;width:320px;height:320px;background:radial-gradient(circle,#6f7cff55,transparent 68%);filter:blur(10px)}.kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.14);padding:8px 14px;border-radius:999px;color:#dbe6ff;background:rgba(255,255,255,.05);font-size:13px;font-weight:700}.hero h1{font-size:42px;line-height:1.12;margin:18px 0 14px}.hero p{margin:0;color:var(--sub);max-width:980px;font-size:17px}.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.meta-chip{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:#d8e2ff;font-size:13px}.meta-chip.wk{background:rgba(255,187,85,.14);border-color:rgba(255,187,85,.3);color:#ffd899}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0 0}.stat{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:20px;padding:18px 18px 14px}.stat .num{font-size:28px;font-weight:800}.stat .lbl{font-size:13px;color:var(--sub)}.section{margin-top:22px;border:1px solid var(--line);border-radius:24px;background:var(--panel);backdrop-filter:blur(14px);box-shadow:var(--shadow);padding:26px}.section h2{margin:0 0 8px;font-size:26px}.section .desc{color:var(--sub);margin-bottom:18px}.signals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.signal{border-radius:20px;padding:18px;background:rgba(255,255,255,.04);border:1px solid var(--line)}.signal.sig7{box-shadow:inset 0 0 0 1px rgba(255,187,85,.18)}.signal.sig30{box-shadow:inset 0 0 0 1px rgba(158,141,255,.2)}.signal-title{font-size:17px;font-weight:800;margin-bottom:6px}.signal-desc{color:var(--ink);opacity:.94}.signal-freq{margin-top:8px;color:var(--sub);font-size:13px}.table-wrap{overflow:auto;border-radius:18px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;background:rgba(8,12,25,.45)}th,td{padding:14px 14px;border-bottom:1px solid rgba(145,170,255,.12);vertical-align:top;text-align:left;font-size:14px}th{font-size:13px;color:#dbe6ff;background:rgba(255,255,255,.05);position:sticky;top:0}tr:hover td{background:rgba(255,255,255,.03)}.pill{display:inline-flex;align-items:center;margin-left:10px;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:700}.pill.ok{background:rgba(59,225,191,.14);color:#9ff6e3}.pill.watch{background:rgba(255,187,85,.14);color:#ffd899}.story-grid{display:grid;grid-template-columns:1fr;gap:18px}.story-card{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));padding:22px}.story-top{display:flex;gap:14px;align-items:flex-start}.story-idx{flex:0 0 auto;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--violet),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800}.story-title{font-size:24px;line-height:1.35;font-weight:800}.badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 12px}.badge{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-size:12px;color:#dce6ff}.badge.day{background:rgba(133,183,255,.14);border-color:rgba(133,183,255,.28)}.summary{font-size:16px;color:#eef3ff;margin:0 0 14px}.grid5{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.blk{border-radius:18px;padding:16px;background:rgba(255,255,255,.04);border:1px solid rgba(145,170,255,.12)}.blk:last-child{grid-column:1/-1}.blk h4{margin:0 0 8px;font-size:14px;color:#fff}.blk p{margin:0;color:var(--sub)}.links{margin-top:14px;padding-top:14px;border-top:1px dashed rgba(145,170,255,.18);display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}.links span{font-weight:700}.links ul{margin:0;padding-left:18px}.notes-box{border-radius:24px;background:var(--panel2);border:1px solid var(--line);padding:24px}.notes-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.notes-tools{display:flex;gap:10px;flex-wrap:wrap}.btn{border:none;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--violet));color:#fff;box-shadow:0 8px 24px rgba(86,116,255,.22)}.btn.secondary{background:rgba(255,255,255,.08);color:#e6edff;box-shadow:none;border:1px solid var(--line)}.btn.danger{background:linear-gradient(135deg,#ff7a90,#ff5f6d)}#noteArea{width:100%;min-height:180px;border-radius:18px;background:rgba(7,11,24,.76);border:1px solid var(--line);padding:16px 18px;color:var(--ink);font-size:15px;resize:vertical;outline:none}#noteArea:focus{border-color:#91b8ff;box-shadow:0 0 0 3px rgba(130,177,255,.14)}.notes-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;color:var(--sub);font-size:13px;flex-wrap:wrap}.footer-links{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}.footer-links a{display:inline-flex;align-items:center;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05)}.tip{padding:16px 18px;border-radius:18px;background:rgba(133,183,255,.08);border:1px solid rgba(133,183,255,.14);color:#dfe9ff}@media (max-width:900px){.stats,.signals,.grid5{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}@media (max-width:720px){.stats,.signals,.grid5{grid-template-columns:1fr}.section{padding:20px}.hero{padding:24px}.story-title{font-size:21px}}</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">🌙 大模型夜报 · 周一 2026-07-20 · WAIC 2026 收官日</div>
+    <h1>大模型夜报 2026-07-20</h1>
+    <p>本期为周一（2026-07-20）触发的「今日大模型夜报」，覆盖当天 AI / 大模型资讯。全天最强主线是 WAIC 2026 收官日：一边是 WAICO（世界人工智能合作组织）29 国治理框架落地、Xi 关于“公平公正”AI 治理的表态与联合国秘书长背书，另一边是国产厂商在收官日集中放出「基座+Agent 平台」组合拳——Qwen3.8-Max Preview（2.4T）压轴亮相、Alibaba Cloud 亮出 agent-native 架构、Siemens Eigen 工业智能体拿下 SAIL 之星、Scholar Puyu 20B 开源、气象大模型「风和」全球开源计划。全球开发者侧则继续被 Kimi K3、GLM-5.2、Gemma 4 三条开源主线牵着走，Token 价格战与 Agent 框架取代模型库的两条 30 天趋势也在同步加速。<b>一句话：今晚，WAIC 2026 用治理分家 + 万亿参数旗舰 + 工业 Agent 三件事，把 AI 的“行业级现实”钉在了 2026 下半年的地基上。</b></p>
+    <div class="meta-row"><span class="meta-chip wk">📅 今日夜报口径 · 周一 07-20 · WAIC 收官日</span><span class="meta-chip">主线锚点：WAICO 治理 + Qwen3.8-Max 预览 + Eigen 工业 Agent</span><span class="meta-chip">深度复盘 + 小宇宙播客洞察</span><span class="meta-chip">覆盖 12 类必选来源</span><span class="meta-chip">7天高频信号 ×2</span><span class="meta-chip">30天持续趋势 ×2</span><span class="meta-chip">编辑：邹超</span></div>
+    <div class="stats">
+      <div class="stat"><div class="num">10</div><div class="lbl">深度条目</div></div>
+      <div class="stat"><div class="num">12</div><div class="lbl">覆盖来源</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">🔥 7天高频信号</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">📈 30天持续趋势</div></div>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>今日一句话判断</h2>
+    <div class="desc">这是周一（2026-07-20）晚 23:00 口径的「今日大模型夜报」，覆盖 WAIC 2026 收官日与全球 AI / 大模型资讯，采用“主线合并 + 深度复盘”的方式编排。</h></div>
+    <p style="font-size:22px;font-weight:800;margin:0">今日主线：<b>WAIC 2026 收官日给出全球 AI 治理分家的条约级现实</b>，同时 <b>Qwen3.8-Max Preview（2.4T）、Alibaba Cloud agent-native 架构、Siemens Eigen 工业 Agent、Scholar Puyu 20B、风和气象大模型</b> 集中亮相；开发者侧继续被 <b>Kimi K3、GLM-5.2、Qwen3.8-Max</b> 三条开源主线牵着走，全球讨论仍聚焦到 <b>token 定价与合规双轨</b>。</p>
+  </section>
+
+  <section class="section">
+    <h2>高频信号追踪（近 7 天 / 30 天）</h2>
+    <div class="desc">统计口径：结合近 7 天 / 30 天晨夜报窗口连续观察，并叠加本日对 WAIC、小宇宙播客、Twitter/X、HuggingFace Daily Papers、HuggingFace 趋势 / 下载、Papers With Code、arXiv、GitHub Trending、The Batch、Benedict Evans、LessWrong / Alignment Forum、AI Snakeoil / Normal Tech、Import AI 的交叉巡检结果。「7天高频信号」= 近 7 天 ≥3 次出现；「30天持续趋势」= 近 30 天持续出现。</div>
+    <div class="signals"><div class="signal sig7"><div class="signal-title">🔥 “Agent-native / 工程级 Agent”正在替代“模型旗舰”成为发布会主角</div><div class="signal-desc">收官日 Alibaba Cloud 提出 agent-native 架构、Siemens Eigen 工程智能体拿下 WAIC 2026 SAIL 之星、腾讯具身 Agent 系列开源；再叠加 GitHub Trending 已被 xai-org/grok-build、Moonshot kimi-code、agency-agents 等 Agent 相关仓占据，「基座即执行体」在 7 天里被 ≥3 次高强度重述。</div><div class="signal-freq">近 7 天 ≥3 次（WAIC / Alibaba Cloud / Siemens / GitHub Trending）</div></div><div class="signal sig7"><div class="signal-title">🔥 万亿参数级“开放/半开放旗舰”密集上桌：Kimi K3 → GLM-5.2 → Qwen3.8-Max</div><div class="signal-desc">7 月 16-19 日短短一周内，Moonshot Kimi K3（2.8T 开放权重，权重 7 月 27 日交付）、Zhipu GLM-5.2（744B 权重已上 HuggingFace MIT）与 Alibaba Qwen3.8-Max-Preview（2.4T，官方称“仅次于 Fable 5”，权重“即将开源”）先后落地，把“开源可以打进第一梯队”变成周度高频事件。</div><div class="signal-freq">近 7 天 ≥3 次（Moonshot / Zhipu / Alibaba；MarkTechPost / Alibaba Cloud 官方等交叉验证）</div></div><div class="signal sig30"><div class="signal-title">📈 全球 AI 治理正式“分家”：WAICO vs 西方框架，企业合规必须双轨</div><div class="signal-desc">7 月 16 日 29 国签署 WAICO 协议，联合国秘书长 Guterres 出席；7 月 20 日 WAIC 收官日媒体普遍将其解读为“两套不可兼容的治理秩序”对企业合规、供应链、模型出海产生实际约束。近 30 天从欧盟 AI Act 二阶段落地到 WAICO 成立，治理分家从口水战升级到条约级。</div><div class="signal-freq">近 30 天持续出现（Xi 讲话 / WAICO 条约 / Wikipedia / TechTimes 收官分析）</div></div><div class="signal sig30"><div class="signal-title">📈 Token 价格战与“默认更便宜模型”策略持续压价</div><div class="signal-desc">Meta Muse Spark 1.1（约 $1.25/$4.25 每百万 token）、Grok 4.5、GPT-5.6 Luna 在 7 月接连以更低价格入场；GLM-5.2 挂出约 $1/$3 档位，Kimi K3 也走 $3/$15 中价档，企业普遍采用“默认便宜 + 关键任务再升档”的多档编队，近 30 天的“token 定价 / 效果计费”讨论持续升温。</div><div class="signal-freq">近 30 天持续出现（llmhire / morphllm 对比 / writingmate 价格表 / Benedict Evans 分析）</div></div></div>
+  </section>
+
+  <section class="section">
+    <h2>私有化 / 开源部署热度（HuggingFace 下载口径）</h2>
+    <div class="desc">口径说明：这一节代表公开模型与开源项目的下载 / 自部署热度，更接近“私有化 / 开源部署热度”，<b>不等同于公有云 API 实际调用量</b>。它反映的是：哪些模型最常被拿去压测、量化、部署和接进工作流。</div>
+    <div class="table-wrap"><table><thead><tr><th>模型 / 项目</th><th>热度信号</th><th>为什么值得看</th><th>原文</th></tr></thead><tbody><tr><td>Kimi K3（Moonshot AI）</td><td>2.8T 开放权重旗舰；权重 7 月 27 日交付，API 已开放</td><td>首个 3T 参数级开放权重方向，1M context + 原生视觉 + Kimi Delta Attention；Artificial Analysis Intelligence Index 报约 57 分。适合作为长文档 / 长程 Agent 私有化评估名单头号候选。</td><td><a href="https://www.marktechpost.com/2026/07/18/kimi-k3-vs-deepseek-v4-pro-vs-glm-5-2-open-trillion-scale-moe-models-compared-on-benchmarks-license-and-serving-cost/" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>GLM-5.2（zai-org / Zhipu）</td><td>HuggingFace MIT 权重，FP8 / GGUF 量化就绪</td><td>744B MoE / ~40B 激活 / 1M context，Artificial Analysis 报约 51 分；被列为“长上下文编码 / 推理 / agentic 最佳整体开源模型”，私有化性价比最强的默认档。</td><td><a href="https://huggingface.co/zai-org/GLM-5.2" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Qwen3.8-Max（Alibaba）</td><td>Preview 已上线 Token Plan / Qoder；官方称“即将开源”</td><td>2.4T 参数、原生多模态、agent-native 架构；权重与 model card 未发布，官方“仅次于 Fable 5”的自评暂缺独立验证，但作为“未来 30 天最可能的旗舰开源”值得提前进入候选。</td><td><a href="https://www.alibabacloud.com/blog/alibaba-cloud-unveils-agent-native-innovations-at-waic-2026_603377" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Scholar Puyu 20B（上海 AI Lab + 商汤 + 港中文 + 复旦）</td><td>本日新发布的开源中量模型，消费级显卡单卡可跑</td><td>基于 2.3T Token 从头预训练，作为“20B 段位的中量开源标杆”，非常适合企业内网 Agent、行业微调与教育实训场景。</td><td><a href="https://www.shulou.com/a603331" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Fenghe（风和）气象大模型</td><td>中国气象局 WAIC 收官日发布，启动全球开源计划</td><td>被称为“全球首个千亿参数级气象大模型”，是垂直科学 / 行业大模型开源化的重要样本，供气象、能源、保险等场景做二次训练。</td><td><a href="https://chinangin.fifthestate.nz/2026/07/20/china-launches-global-open-source-initiative-for-ai-weather-model/" target="_blank" rel="noopener">原文链接</a></td></tr></tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>公有云模型使用场景（Artificial Analysis + Twitter/X 实际用法）</h2>
+    <div class="desc">口径说明：这一节不看下载榜，而看“真实工作流里应该把哪个模型放在哪一段”。重点不是谁总分第一，而是谁更适合承担总控、批处理、复核或成本敏感型铺量。（价格为公开报道口径，可能随官方调整而变化）</div>
+    <div class="table-wrap"><table><thead><tr><th>模型 / 组合</th><th>更适合的使用场景</th><th>为什么是这个场景</th><th>原文</th></tr></thead><tbody><tr><td>Claude Fable 5 / Anthropic 旗舰</td><td>复杂长链条工程、关键判断、合规敏感的总控步骤</td><td>Artificial Analysis Intelligence Index 仍处第一梯队，公开报道约 $5/$25 每百万 token；适合放在“最贵的一步”，不适合承担全部流量。</td><td><a href="https://theaicareerlab.com/blog/ai-model-launch-scorecard-2026" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>GPT-5.6 系列 / OpenAI</td><td>Agent 编排大脑 + 多工具调用总控</td><td>公开报道 GPT-5.6 Luna 档位定价明显低于 GPT-5.5，适合承担高价值步骤总控；高频流水线应下沉到更便宜档位。</td><td><a href="https://llmhire.com/blog/grok-4-5-gpt-5-6-muse-spark-price-war-ai-hiring-2026" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>GLM-5.2 / Kimi K3 公有云 API</td><td>客服 / 摘要 / 批处理 / 中长上下文默认档</td><td>公开报道 GLM-5.2 约 $0.97/$3.06、Kimi K3 约 $3/$15 每百万 token，是近 30 天“默认更便宜”策略最常被换上的档位。</td><td><a href="https://writingmate.ai/blog/kimi-k3-writingmate-opencode-2026" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Qwen3.8-Max-Preview（阿里云 Token Plan）</td><td>agent-native 场景 + 阿里云 Qoder / QoderWork 代码工程</td><td>2.4T 参数原生多模态，preview 期有折扣定价，适合在阿里云生态内做 agent-native POC 与代码工程实验；官方性能自评待独立验证。</td><td><a href="https://dataconomy.com/2026/07/20/qwen3-8-24t-parameters-alibaba-ai-model-launch/" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Meta Muse Spark 1.1 / xAI Grok 4.5</td><td>成本敏感的规模化铺量与批处理</td><td>Muse Spark 1.1 首个付费 API 定价约 $1.25/$4.25 每百万 token，是当前压价档头号选项；Grok 4.5 与其在同一价格窗口内竞争。</td><td><a href="https://llmhire.com/blog/grok-4-5-gpt-5-6-muse-spark-price-war-ai-hiring-2026" target="_blank" rel="noopener">原文链接</a></td></tr></tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>今日深度复盘（10 条 · WAIC 2026 收官日主线）</h2>
+    <div class="desc">每条都按同一口径展开：💬 点评 + 🎯 业务视角 + 🔬 技术背景 + 🔗 上下游影响 + 🚀 6个月产品卖点预测；徽章中标注归属时间 / 覆盖范围。所有链接均使用真实原文或源站入口；无法确认原文的一律不伪造。</div>
+    <div class="story-grid"><article class="story-card">
+      <div class="story-top"><div class="story-idx">#01</div><div class="story-title">WAIC 2026 收官日：29 国 WAICO 落定，全球 AI 治理正式“分家”</div></div>
+      <div class="badges"><span class="badge">WAIC 2026 收官</span><span class="badge day">周一 07-20</span><span class="badge">30天持续趋势</span></div>
+      <p class="summary">WAIC 2026 在收官日给出的最大结论，不是任何一款产品，而是治理秩序的正式分家。7 月 16 日，29 国在上海签署协议成立世界人工智能合作组织（WAICO），总部设在上海，创始成员包括俄罗斯、巴西、印尼、巴基斯坦、马来西亚、南非等，联合国秘书长 Guterres 出席签字仪式；美欧日等主要西方经济体没有加入。TechTimes 在 7 月 20 日的收官报道中直接指出，全球出现“两套不可兼容的 AI 治理秩序”，企业不能再把治理割裂当作外交抽象概念。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>当条约级的分家出现后，AI 出海、模型合规、跨境数据都要从“选一个体系跑通”变成“默认双轨、按客户所在体系切换”。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对企业解决方案团队，POC 阶段就应把“治理归属”当作必选变量：本土客户走 WAICO / 中国信通院口径，跨境客户单独准备欧盟 AI Act 与美国出口管制配置。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>治理分家意味着模型能力、数据留痕、评测口径、审计接口都要分体系维护；模型网关、路由与审计层要具备“按 tenant 切换合规策略”的能力。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会持续利好 AI 网关、审计留痕、模型出海合规咨询与双体系评测服务；对纯国产 Agent 平台是长期利好。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“WAICO 合规模板 + 欧盟 AI Act 双体系配置包”会成为出海客户高价值增购项。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.techtimes.com/articles/320997/20260720/waic-ends-two-incompatible-ai-governance-orders-locked-enterprises.htm" target="_blank" rel="noopener">TechTimes · WAIC Ends With Two Incompatible AI Governance Orders Locked In for Enterprises</a></li><li><a href="https://en.wikipedia.org/wiki/World_Artificial_Intelligence_Cooperation_Organization" target="_blank" rel="noopener">Wikipedia · World Artificial Intelligence Cooperation Organization</a></li><li><a href="http://www.english.www.gov.cn/news/202607/18/content_WS6a5c27e1c6d00ca5f9a0c4d8.html" target="_blank" rel="noopener">gov.cn · Xi calls for equitable global AI governance, unveils new cooperation body</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#02</div><div class="story-title">WAIC 2026 收官日：Shanghai Institute for Physical AI and Robotics 挂牌，UniAI 与具身智能赛道升级</div></div>
+      <div class="badges"><span class="badge">WAIC 2026 收官</span><span class="badge day">周一 07-20</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">据 Shanghai Daily 官方报道，WAIC 2026 闭幕式上正式成立“Shanghai Institute for Physical AI and Robotics”，启动 2026 Shanghai International Embodied Intelligence Competition，同时发布 UniAI 计划连接上海与前沿 AI 项目，并推出面向创新企业的 2026-2030 一站式融资支持平台。这与前一日腾讯 Robotics X 开源具身模型、周日 ASL 智能体安全互联协议共同构成“具身智能与 Agent 治理”这条 7 天高频主线。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>当上海把“具身智能 + Agent 治理”做成研究院、赛事、投融资三位一体，说明这不是一次会展叙事，而是被政策与资本一起推进的中长期赛道。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对制造、零售、服务等有物理交互场景的鞋服 / 家居客户，具身 Agent 值得进入未来 12 个月技术雷达；短期可通过“评测 + 场景验证”方式合作，而非立刻替换现网。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>具身能力将围绕 VLM + 动作策略 + 仿真评测三条主线继续演进；Institute 挂牌意味着标准评测与数据集会集中沉淀。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会带动机器人本体、仿真评测、动作数据采集与具身微调服务的协同需求，也利好行业 VLA 数据平台。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“具身智能场景验证包 + 行业动作模板 + 评测报告”会成为制造 / 服务客户新增长点。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.citynewsservice.cn/articles/shanghaidaily/news/waic-2026-closes-with-record-attendance-major-upgrades-5nq5797n" target="_blank" rel="noopener">CityNewsService · WAIC 2026 Closes With Record Attendance, Major Upgrades</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#03</div><div class="story-title">Alibaba 收官日祭出 Qwen3.8-Max-Preview（2.4T）：官方称“仅次于 Fable 5”，但基准与权重未同步</div></div>
+      <div class="badges"><span class="badge">Alibaba / Qwen</span><span class="badge day">周一 07-20 前后</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">7 月 19 日 WAIC 期间，Alibaba Cloud 预览 Qwen3.8-Max-Preview——2.4 万亿参数原生多模态旗舰，官方称“仅次于 Fable 5”，preview 已开放 Token Plan / Qoder / QoderWork 使用；20 日 Alibaba Cloud 博客同时发布 agent-native 架构说明并称权重“即将开源”。但正如 MarkTechPost、Dataconomy、Unite.AI 等指出的：官方目前未发布 benchmark 明细、model card、license 与独立测评，“第二名”自评仍需交叉验证。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>一个规模压过 Kimi K3 的“preview”宣布方式说明：当模型进入万亿参数段，营销节奏比权重发布更早，企业需要用“已开放 preview / 已上 HF / 已有独立测评”三级门槛来判断真实可用性。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>企业 POC 阶段可以在阿里云生态跑 Qwen3.8-Max-Preview 的能力画像，但采购与合同不宜以官方自评作为唯一依据，应等待独立 benchmark 与开源权重再确定档位。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>2.4T 原生多模态 + agent-native 架构，工程重点将落在 KV cache、MoE 路由、长上下文推理与视觉指令，多模态一致性和 tool-use 稳定性是关键。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会拉动阿里云 agent 产品栈（Qoder / QoderWork / Token Plan）与推理框架、量化工具链的需求，同时给 Kimi K3、GLM-5.2 制造新的对齐点。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“万亿参数旗舰快速能力画像 + 独立测评报告”会是方案咨询里非常抢手的加购项。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.alibabacloud.com/blog/alibaba-cloud-unveils-agent-native-innovations-at-waic-2026_603377" target="_blank" rel="noopener">Alibaba Cloud · Agent-Native Innovations at WAIC 2026</a></li><li><a href="https://www.marktechpost.com/2026/07/19/alibaba-previews-qwen3-8-max-a-2-4-trillion-parameter-multimodal-model-days-after-moonshots-kimi-k3-open-weight-launch/" target="_blank" rel="noopener">MarkTechPost · Alibaba Previews Qwen3.8-Max, 2.4T Multimodal</a></li><li><a href="https://www.unite.ai/alibaba-claims-qwen3-8-trails-only-anthropics-fable-5/" target="_blank" rel="noopener">Unite.AI · Alibaba Claims Qwen3.8 Trails Only Anthropic’s Fable 5</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#04</div><div class="story-title">Siemens Eigen 工程智能体拿下 WAIC 2026 SAIL 之星，工业 Agent 从“辅助”跳到“自主执行”</div></div>
+      <div class="badges"><span class="badge">Siemens / 工业 Agent</span><span class="badge day">周一 07-20 前后</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">7 月 18 日 WAIC 现场，Siemens 面向中国市场首发全球首款工业自动化工程 AI 智能体 Eigen Engineering Agent，并于收官周期斩获 2026 WAIC SAIL 之星奖。Siemens 明确将 Eigen 与“仅能提供建议的 AI 辅助工具”对立，主张其可端到端自主完成工业自动化工程任务的规划、执行与验证。同时也需要注意，20 日已有观点提醒早期版本仍需在非常规任务中依赖人工介入——“自主执行”落地还需要真实工厂验证。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>工业 Agent 的门槛不是“会不会调用工具”，而是“能不能在真实工厂里安全地长程执行”，Eigen 用一款获奖产品把这条门槛具体化了。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对制造类客户，Siemens Eigen 会成为未来 12 个月最强的对标锚点：企业方案要么围绕 Eigen 做互补（数据采集、行业适配、安全网关），要么找准 Eigen 短板差异化竞争。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>工业 Agent 需要“规划 + 执行 + 验证”闭环，加上 PLC 兼容、状态机、审计留痕与失败回退，这些都是通用 Chat Agent 目前较弱的地方。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会带动工业数据平台、仿真评测、PLC / MES 集成、工业安全审计的整套需求；也倒逼国产工业 Agent 加速。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“工业场景 Agent 落地评测 + 与 Eigen 的能力互补方案”会成为制造类客户高价值增购项。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.citynewsservice.cn/articles/shanghaidaily/news/waic-2026-highlights-global-cooperation-on-ai-development-governance-4m3xe83m" target="_blank" rel="noopener">CityNewsService · WAIC 2026 Highlights Global Cooperation</a></li><li><a href="https://wap.eastmoney.com/a/202607183811688573.html" target="_blank" rel="noopener">东方财富网 · 西门子面向中国市场全面发售 Eigen 工程智能体</a></li><li><a href="http://cnmobile.prnasia.com/story/541133-1.shtml" target="_blank" rel="noopener">美通社 · 西门子 Eigen 工程智能体中国首发首展，荣获 2026 WAIC SAIL 之星奖</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#05</div><div class="story-title">中国气象局“风和”气象大模型全球开源计划：垂直科学大模型加入开源军团</div></div>
+      <div class="badges"><span class="badge">WAIC 2026 收官</span><span class="badge day">周一 07-20</span><span class="badge">30天持续趋势</span></div>
+      <p class="summary">收官日的另一条硬新闻，是中国气象局（CMA）在 WAIC 气象论坛发布“风和（Fenghe）”气象大语言模型，并启动全球开源计划。多家海外媒体将其描述为面向气象服务的开源大模型，是继此前“伏羲 / 盘古气象”之后，把千亿参数级气象模型直接推向全球开源的样本。这与 Scholar Puyu 20B、Gemma 4 等一起，把“开源阵营”从通用文本 / 视觉扩展到垂直科学领域。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>当垂直科学大模型开始走全球开源路线，行业解决方案的战场就从“API 接入”转向“预训练权重 + 行业数据微调”，护城河在数据侧而不是模型侧。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>气象、能源、保险、供应链等行业客户可以把“风和”纳入未来 12 个月的评估名单，用行业数据做 continued pretraining 与检索增强，而不再依赖闭源 API 的天花板。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>气象大模型强调高维时空数据、物理约束与长时序推理，与传统语言模型架构差异大；后续会带动 SciML、可微仿真、时空 Transformer 的工程化。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会拉动行业数据平台、时空推理框架、气象数据资产化服务，也利好保险 / 能源 / 供应链解决方案商。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“垂直行业大模型评测 + 行业数据微调 + 生产化部署”会成为高毛利方案套餐。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://chinangin.fifthestate.nz/2026/07/20/china-launches-global-open-source-initiative-for-ai-weather-model/" target="_blank" rel="noopener">China Ministry / CMA via Fifth Estate · Fenghe global open-source initiative</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#06</div><div class="story-title">Scholar Puyu 20B 开源：消费级显卡单卡可跑的中量段位新标杆</div></div>
+      <div class="badges"><span class="badge">开源模型</span><span class="badge day">周一 07-20</span><span class="badge">私有化 / 开源部署热度</span></div>
+      <p class="summary">据 shulou.com 汇总，上海 AI Lab、商汤、香港中文大学与复旦大学在近日联合发布 Scholar Puyu 20B（书生·浦语 20B 版），号称基于 2.3T Token 从头预训练，主打“消费级显卡单卡可跑”的中量段位。它填补了 7B 与 70B 之间的部署空档，特别适合企业内网 Agent、行业微调与教育实训。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>20B 段位的价值不在“最强”，而在“最容易被大量企业单卡部署起来”——这类模型才是真正拉动私有化落地曲线的关键。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对企业解决方案团队，Scholar Puyu 20B 是内网 Agent / 客服 / 摘要类 POC 的默认候选之一，尤其适合客户没有 A100/H100 卡的场景。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>20B 级模型对量化、KV Cache、单卡推理与 LoRA 微调都非常友好，是落地成本最低的通用底盘之一。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会拉动量化工具链、单卡推理服务、行业微调与教育实训市场；对私有部署商是长期利好。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“Scholar Puyu 20B 私有化预置包 + 行业微调套件”可作为消费级显卡客户的入门方案。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.shulou.com/a603331" target="_blank" rel="noopener">shulou · Scholar Puyu 20B open source, consumer GPU single card</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#07</div><div class="story-title">Kimi K3 / GLM-5.2 / Qwen3.8-Max 三条开源主线并行：企业选型进入“组合押注”阶段</div></div>
+      <div class="badges"><span class="badge">开源三巨头</span><span class="badge day">过去 7 天</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">把过去 7 天纵向串起来：Moonshot Kimi K3（2.8T 开放权重，权重 7 月 27 日交付、API 已开放）、Zhipu GLM-5.2（744B、MIT 权重已在 HuggingFace）、Alibaba Qwen3.8-Max-Preview（2.4T，权重“即将开源”）依次登台。MarkTechPost、morphllm、Medium、writingmate 等多家平台已给出跨模型基准与价格对比。三条开源主线在同一周窗口内密集出现，行业主流的做法开始变成“组合押注”而不是“单选一家”。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>开源阵营已经从“便宜替代”演化成“组合押注”：模型策略默认是多档编队 + 供应商切换权，而不是把宝押在某一家。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>企业采购应把“默认便宜 + 关键任务升档 + 供应商可切换”作为标准策略，同时预留 Qwen3.8-Max 开源之后再评估的窗口，不要过早锁定单一供应商。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>要吃下真实流量，模型网关、路由、量化、可观测性与合同层供应商切换都要跟上，否则“便宜模型”会被运维成本反噬。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会持续利好模型路由器、推理网关、成本监控与多云部署能力，是未来 12 个月最硬的中间层机会。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“按任务类型自动分配模型档位的企业级路由器 + 合同层切换开关”会是最容易成交的卖点之一。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.marktechpost.com/2026/07/18/kimi-k3-vs-deepseek-v4-pro-vs-glm-5-2-open-trillion-scale-moe-models-compared-on-benchmarks-license-and-serving-cost/" target="_blank" rel="noopener">MarkTechPost · Kimi K3 vs DeepSeek V4 Pro vs GLM-5.2</a></li><li><a href="https://www.morphllm.com/glm-5-2-vs-kimi-k3" target="_blank" rel="noopener">MorphLLM · GLM-5.2 vs Kimi K3: Benchmarks, Price, Open Weights</a></li><li><a href="https://www.alibabacloud.com/blog/alibaba-cloud-unveils-agent-native-innovations-at-waic-2026_603377" target="_blank" rel="noopener">Alibaba Cloud · Agent-Native Innovations at WAIC 2026</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#08</div><div class="story-title">Token 价格战继续：Grok 4.5 / GPT-5.6 Luna / Muse Spark 1.1 三雄同价格窗对撞</div></div>
+      <div class="badges"><span class="badge">Token 定价 / 成本</span><span class="badge day">过去 7 天</span><span class="badge">30天持续趋势</span></div>
+      <p class="summary">llmhire 与 The AI Career Lab 的“Mid-2026 Scorecard”指出，7 月 8 日起，xAI Grok 4.5、OpenAI GPT-5.6 Luna 与 Meta Muse Spark 1.1 在约 24 小时窗口内先后落地，且几乎同价格档位；Muse Spark 1.1 首个付费 API 定价约 $1.25/$4.25 每百万 token，明显低于 OpenAI / Anthropic 旗舰。这与前一日 Coinbase 靠默认切换 GLM-5.2、Kimi 把 AI 支出砍掉近一半的报道相互印证，形成过去 30 天最强的成本治理趋势。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>价格战的真正含义不是“便宜了”，而是“便宜档位的能力越过了大多数业务的最低要求线”——这才是企业敢默认切换的前提。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>企业应建立“默认更便宜、按需升档、按供应商可切换”的三级模型策略，并配套 ROI 看板与成本护栏；不建议把预算全押在一家旗舰。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>价格战会持续挤压推理成本，量化、KV Cache 共享、批处理与结果缓存的价值被放大，router / cost-cap / fallback 会成为标配。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会拉动模型路由器、成本监控、结果计费与供应商切换能力的需求；对企业 Agent 平台是核心中间层机会。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“Agent ROI 看板 + 成本护栏 + 供应商切换开关”会从咨询建议变成实际软件模块。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://llmhire.com/blog/grok-4-5-gpt-5-6-muse-spark-price-war-ai-hiring-2026" target="_blank" rel="noopener">llmhire · Three Frontier Models, One Week, 80% Cheaper</a></li><li><a href="https://theaicareerlab.com/blog/ai-model-launch-scorecard-2026" target="_blank" rel="noopener">The AI Career Lab · Mid-2026 Scorecard</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#09</div><div class="story-title">GitHub Trending 7 月主线：Agent 框架 / MCP 服务器 / AI 网关取代模型库</div></div>
+      <div class="badges"><span class="badge">GitHub Trending</span><span class="badge day">过去 7 天</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">Analytics Vidhya、GeekFence、GitTimes 三家在过去一周的 GitHub Trending 复盘均指出：7 月最强的不是新模型库，而是围绕 Agent 的“框架 + MCP + 网关 + 记忆”组合。xai-org/grok-build、MoonshotAI/kimi-code、langchain-ai/openwiki、stablyai/orca（ADE）、vamplabAI/sgr-agent-core、agency-agents（200+ persona 定义）等仓库集中冒头；同时 Open Interpreter 借私有化开发助手需求再次冲上趋势榜。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>当 GitHub Trending 长时间被 Agent 框架和 MCP 服务器占据，说明开发者已经默认：模型是配件，编排 + 治理 + Harness 才是主角。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>企业采购应把“带 harness / 带 MCP / 带治理面板”的 Agent 底盘作为方案的核心，而不是继续在模型 API 上做浅集成。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>Harness 负责工具状态机、终端交互、人工接管与日志回放；MCP 是工具契约层；治理层负责审批、审计与配置漂移检测。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会上拉日志回放、权限审计、任务状态机、配置体检与契约校验能力的需求。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“企业 Agent Harness 模板库 + MCP 工具契约 + 治理 / 审批面板”会成为高频组合包。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.analyticsvidhya.com/blog/2026/07/trending-ai-github-repositories/" target="_blank" rel="noopener">Analytics Vidhya · Top 10 GitHub AI Repos Trending July 2026</a></li><li><a href="https://gittimes.com/editions/2026-07-15/ai-agents-evolve-from-assistants-to-autonomous-specialists/" target="_blank" rel="noopener">GitTimes · AI Agents Evolve from Assistants to Autonomous Specialists</a></li><li><a href="https://github.com/moonshotai" target="_blank" rel="noopener">MoonshotAI/kimi-code · Kimi Code CLI</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#10</div><div class="story-title">研究前沿：交互式世界模型作为“游戏引擎”成为 HF Papers 本周主题</div></div>
+      <div class="badges"><span class="badge">arXiv / HF Papers</span><span class="badge day">本周新论文</span><span class="badge">工程研究</span></div>
+      <p class="summary">HuggingFace / arxiv.deeppaper.ai 本周 Featured Survey 是《From Pixels to States: Rethinking Interactive World Models as Game Engines》，把视频生成模型 + 世界模型重新定义为“数据驱动的游戏引擎”，讨论如何在玩家动作条件下预测未来观测；同一时间窗内，cs.AI recent 收录大量围绕 agentic reasoning、可验证推理、工业自动化 AI 的工作。这条“世界模型 = 数据驱动引擎”的叙事，与 WAIC 上的具身智能、Agent 长程执行主线互相呼应。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>当研究方向把世界模型说成“数据驱动的游戏引擎”，具身智能、Agent 长程执行、模拟评测就在概念层被打成同一条线——未来 12 个月的产品叙事会顺着这条线走。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对产品团队，可以把“世界模型 / 交互引擎”当作 12 个月技术雷达上的中远期机会，短期先用它做仿真评测和 Agent 训练数据生成。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>交互式世界模型强调因果性、玩家动作条件与长时一致性，工程上需要视频扩散 + 状态记忆 + tokenizer 一体化。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会带动仿真评测、Agent 训练数据、具身智能与游戏引擎侧的技术融合。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“Agent 仿真评测服务 + 世界模型驱动的合成训练数据”会是研究型 / 高价值 B 端客户新增量项。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://arxiv.deeppaper.ai/papers/weekly?week=20260720" target="_blank" rel="noopener">arxiv.deeppaper.ai · Papers from Jul 20 - Jul 26, 2026 (Featured Survey)</a></li><li><a href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener">arXiv · cs.AI recent</a></li></ul></div>
+    </article></div>
+  </section>
+
+  <section class="section">
+    <h2>来源覆盖巡检（今日口径）</h2>
+    <div class="desc">“全部覆盖”不等于硬凑热点。对于本日没有比 WAIC 收官 / Qwen3.8-Max / Eigen 主线更强的独立新增信号的来源，会明确标记为“持续观察 / 背景校准”，避免伪造热点或误导发布时间。</div>
+    <div class="table-wrap"><table><thead><tr><th>来源</th><th>本期使用方式 / 备注</th></tr></thead><tbody><tr><td>小宇宙播客<span class="pill ok">已采用</span></td><td>本期以《HuggingFace 每日AI论文速递》等 AI 播客节目主页作为“行为定位 / 高效多模态 / 开源追赶闭源”的持续观察源；今日无比 WAIC 收官 / Qwen3.8-Max 更强的独立单集。<br/><a href="https://podcasts.apple.com/cn/podcast/huggingface-%E6%AF%8F%E6%97%A5ai%E8%AE%BA%E6%96%87%E9%80%9F%E9%80%92/id1759487002" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Twitter / X<span class="pill ok">已采用</span></td><td>Qwen 团队在 X 官方账号上直接抛出“仅次于 Fable 5”的自评，是本日争议最强的一条 X 帖子，供交叉验证使用。<br/><a href="https://www.marktechpost.com/2026/07/19/alibaba-previews-qwen3-8-max-a-2-4-trillion-parameter-multimodal-model-days-after-moonshots-kimi-k3-open-weight-launch/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>HuggingFace Daily Papers<span class="pill ok">已采用</span></td><td>采用本周 Featured Survey《From Pixels to States: Rethinking Interactive World Models as Game Engines》，与 WAIC 具身智能主线互相呼应。<br/><a href="https://arxiv.deeppaper.ai/papers/weekly?week=20260720" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>HuggingFace 模型下载趋势<span class="pill ok">已采用</span></td><td>作为“私有化 / 开源部署热度”口径，本期重点观察 GLM-5.2、Gemma 4、Kimi K3（权重 7/27 交付）、Scholar Puyu 20B。<br/><a href="https://huggingface.co/models?pipeline_tag=text-generation&amp;sort=downloads" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Papers With Code<span class="pill ok">已采用</span></td><td>与 arXiv cs.AI recent 一起做真实工程 benchmark 与方法演进的交叉观察。<br/><a href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>arXiv cs.AI / cs.LG<span class="pill ok">已采用</span></td><td>本期采用 cs.AI recent，重点关注 agentic reasoning、可验证推理与工业自动化 AI 相关工作。<br/><a href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>GitHub Trending<span class="pill ok">已采用</span></td><td>本期最值得看的是 Agent 框架 / MCP 服务器 / AI 网关组合：grok-build、kimi-code、openwiki、orca、sgr-agent-core、agency-agents 等。<br/><a href="https://www.analyticsvidhya.com/blog/2026/07/trending-ai-github-repositories/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>The Batch<span class="pill watch">持续观察</span></td><td>用于校准 Spec / Eval / 治理正在替代单点 Prompt Engineering 的长期趋势；今日无比 WAIC 更强的独立单点，作为背景校准。<br/><a href="https://www.deeplearning.ai/the-batch/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Benedict Evans Newsletter<span class="pill ok">已采用</span></td><td>继续作为长期商业化视角来源，帮助判断 token pricing 与价值捕获迁移；与本期价格战主线互相印证。<br/><a href="https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>LessWrong / Alignment Forum<span class="pill watch">持续观察</span></td><td>今日未见强于 WAIC / 治理分家主线的新增单点；继续作为对齐与安全边界的长期观察入口。<br/><a href="https://www.lesswrong.com/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>AI Snakeoil / Normal Tech<span class="pill watch">持续观察</span></td><td>继续提供“技术会更强，但组织边界也要重画”的冷静视角，作为背景校准。<br/><a href="https://www.normaltech.ai/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Import AI<span class="pill watch">持续观察</span></td><td>作为“AI 自动化持续反哺系统研发”的长期背景校准来源使用。<br/><a href="https://importai.substack.com/" target="_blank" rel="noopener">原文 / 主页</a></td></tr></tbody></table></div>
+    <div class="tip" style="margin-top:16px">说明：本期为<b>周一 2026-07-20 晚 23:00 口径的「今日大模型夜报」，覆盖 WAIC 2026 收官日与全球 AI / 大模型资讯</b>。对没有统一公开口径的数据（如各家 token 定价、benchmark 分数、Qwen3.8-Max 官方自评），已标注为“公开报道口径 / 官方自评待独立验证”并避免写入虚构数字；对“持续观察”型来源，明确保留了背景校准标签。</div>
+  </section>
+
+  <section class="section">
+    <div class="notes-box">
+      <div class="notes-head">
+        <h2 style="margin:0">📝 我的笔记</h2>
+        <div class="notes-tools">
+          <button class="btn secondary" id="exportBtn">⬇ 导出 .txt</button>
+          <button class="btn danger" id="clearBtn">🗑 清空</button>
+        </div>
+      </div>
+      <textarea id="noteArea" placeholder="点击这里开始记录：WAICO 治理分家对我们的鞋服 / 家居客户出海方案有什么影响？Qwen3.8-Max 与 Kimi K3 / GLM-5.2 在店端 Agent、直播销讲、导购工作流里该怎么分档？Siemens Eigen 的“自主执行”能不能迁移到零售运营？（localStorage 持久化，500ms 防抖自动保存）"></textarea>
+      <div class="notes-foot">
+        <span id="saveState">未保存</span>
+        <span id="wordCount">0 字</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>访问入口</h2>
+    <div class="desc">如果你在 GitHub Pages 上查看本页，建议顺手收藏历史总目录，后续晨报 / 夜报会持续沉淀。</div>
+    <div class="footer-links">
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/night_2026-07-20.html" target="_blank" rel="noopener">🌙 GitHub Pages 本期今日夜报</a>
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/" target="_blank" rel="noopener">📚 历史总目录</a>
+      <a href="./index.html">🗂 本地历史目录</a>
+    </div>
+  </section>
+</div>
+<script>
+const REPORT_DATE = '2026-07-20';
+const NOTE_KEY = 'llm_night_notes_' + REPORT_DATE;
+const area = document.getElementById('noteArea');
+const saveState = document.getElementById('saveState');
+const wordCount = document.getElementById('wordCount');
+let saveTimer = null;
+function updateWordCount(){ wordCount.textContent = (area.value || '').replace(/\s/g,'').length + ' 字'; }
+function loadNotes(){ const saved = localStorage.getItem(NOTE_KEY); if(saved !== null){ area.value = saved; saveState.textContent = '已加载'; } updateWordCount(); }
+function saveNotes(){ localStorage.setItem(NOTE_KEY, area.value); saveState.textContent = '✓ 已自动保存 · ' + new Date().toLocaleTimeString('zh-CN'); }
+area.addEventListener('input', () => { updateWordCount(); saveState.textContent = '输入中…'; if(saveTimer) clearTimeout(saveTimer); saveTimer = setTimeout(saveNotes, 500); });
+document.getElementById('exportBtn').addEventListener('click', () => { const blob = new Blob([area.value || ''], {type:'text/plain;charset=utf-8'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = '大模型夜报笔记_' + REPORT_DATE + '.txt'; a.click(); URL.revokeObjectURL(a.href); });
+document.getElementById('clearBtn').addEventListener('click', () => { if(confirm('确定清空本期笔记吗？')){ area.value=''; localStorage.removeItem(NOTE_KEY); updateWordCount(); saveState.textContent='已清空'; } });
+loadNotes();
+</script>
+</body>
+</html>
