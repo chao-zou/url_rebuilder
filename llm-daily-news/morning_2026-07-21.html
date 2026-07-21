@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>☀️ 大模型晨报 2026-07-21</title>
+<!-- report-meta: date=2026-07-21; type=morning; title=大模型晨报 2026-07-21; summary=本期为周二（2026-07-21）早间触发的「今日大模型晨报」，定位快讯 + 5 分钟扫读，覆盖 WAIC 2026 收官次日的全球 AI / 大模型资讯。今晨最强主线有两条：一是「开源万亿参数旗舰供不应求」——Moonshot 因算力紧缺于 7 月 19 日暂停 Kimi K3（2.8T 开放权重）新 C 端订阅，同期 Zhipu GLM-5.2 登顶开源榜、Alibaba Qwen3.8-Max-Preview（2.4T）压轴亮相，「开源可以打进第一梯队」变成周度高频事件；二是「前沿模型商品化」——Benedict Evans 判断 frontier model 正变成 commodity infrastructure，价值向产品层迁移，叠加 GPT-5.6 Sol/Terra/Luna 正式 GA、Grok 4.5 以约 1/4 价格做到 Opus 级、GPT-5.6 Luna 在「智能 vs 单任务成本」曲线登顶，Token 价格战继续压价。研究侧 World Models / 物理智能与推理降本（Seer 自一致性省 47% Token、KronQ 2-bit 量化）延续 30 天热度；Import AI 的 Remote Labor Index 从 2.5% 抬到 16.1%，AI 真实劳动替代能力肉眼可见地上台阶。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>:root{--bg:#fff7ec;--panel:rgba(255,255,255,.92);--panel2:#fffaf2;--line:rgba(214,140,60,.22);--ink:#2b1f14;--sub:#7a6650;--muted:#a08a70;--accent:#e9820e;--gold:#ffb020;--violet:#ff7a59;--teal:#e06a2c;--shadow:0 20px 60px rgba(180,110,40,.14);}*{box-sizing:border-box}html,body{margin:0;padding:0;background:radial-gradient(circle at 50% -8%,#ffe6b8 0%,#fff2df 40%,#fff7ec 100%);color:var(--ink);font-family:'Inter','Noto Sans SC',system-ui,-apple-system,sans-serif;line-height:1.75}a{color:#c85a10;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:32px 20px 88px;position:relative}.hero{position:relative;border:1px solid var(--line);background:linear-gradient(135deg,#fff3dc,#ffe9c9);box-shadow:var(--shadow);border-radius:28px;padding:34px 34px 28px;overflow:hidden}.hero:before{content:'';position:absolute;inset:auto -100px -120px auto;width:320px;height:320px;background:radial-gradient(circle,#ffbb5566,transparent 68%);filter:blur(10px)}.kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(233,130,14,.28);padding:8px 14px;border-radius:999px;color:#a2560a;background:rgba(255,255,255,.6);font-size:13px;font-weight:700}.hero h1{font-size:42px;line-height:1.12;margin:18px 0 14px;color:#3a2a17}.hero p{margin:0;color:#6c5a44;max-width:980px;font-size:16px}.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.meta-chip{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--line);color:#7a6044;font-size:13px}.meta-chip.wk{background:rgba(255,176,32,.2);border-color:rgba(233,130,14,.35);color:#9a5a06}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0 0}.stat{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:20px;padding:18px 18px 14px}.stat .num{font-size:28px;font-weight:800;color:#c85a10}.stat .lbl{font-size:13px;color:var(--sub)}.section{margin-top:22px;border:1px solid var(--line);border-radius:24px;background:var(--panel);backdrop-filter:blur(14px);box-shadow:var(--shadow);padding:26px}.section h2{margin:0 0 8px;font-size:26px;color:#3a2a17}.section .desc{color:var(--sub);margin-bottom:18px}.signals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.signal{border-radius:20px;padding:18px;background:#fffaf2;border:1px solid var(--line)}.signal.sig7{box-shadow:inset 0 0 0 1px rgba(233,130,14,.28)}.signal.sig30{box-shadow:inset 0 0 0 1px rgba(255,122,89,.3)}.signal-title{font-size:17px;font-weight:800;margin-bottom:6px}.signal-desc{color:#4a3a28;opacity:.96}.signal-freq{margin-top:8px;color:var(--sub);font-size:13px}.table-wrap{overflow:auto;border-radius:18px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;background:#fffdf9}th,td{padding:14px 14px;border-bottom:1px solid rgba(214,140,60,.16);vertical-align:top;text-align:left;font-size:14px}th{font-size:13px;color:#7a5222;background:rgba(255,240,214,.9);position:sticky;top:0}tr:hover td{background:rgba(255,244,224,.6)}.pill{display:inline-flex;align-items:center;margin-left:10px;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:700}.pill.ok{background:rgba(56,178,120,.16);color:#1f7a4d}.pill.watch{background:rgba(255,176,32,.2);color:#9a5a06}.tw-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.tw-card{border:1px solid var(--line);border-radius:20px;background:#fffaf2;padding:18px}.tw-card h4{margin:0 0 6px;font-size:16px;color:#3a2a17}.tw-src{color:#a2560a;font-size:12.5px;font-weight:700;margin-bottom:8px}.tw-card p{margin:0 0 12px;color:#5a4936;font-size:14px}.story-grid{display:grid;grid-template-columns:1fr;gap:18px}.story-card{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,#fffdf9,#fff7ec);padding:22px}.story-top{display:flex;gap:14px;align-items:flex-start}.story-idx{flex:0 0 auto;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}.story-title{font-size:23px;line-height:1.35;font-weight:800;color:#33241590}.story-title{color:#332415}.badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 12px}.badge{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--line);font-size:12px;color:#7a6044}.badge.day{background:rgba(233,130,14,.14);border-color:rgba(233,130,14,.3);color:#a2560a}.summary{font-size:15.5px;color:#4a3a28;margin:0 0 14px}.grid5{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.blk{border-radius:18px;padding:16px;background:#fffaf2;border:1px solid rgba(214,140,60,.16)}.blk:last-child{grid-column:1/-1}.blk h4{margin:0 0 8px;font-size:14px;color:#33241590}.blk h4{color:#332415}.blk p{margin:0;color:#5a4936}.links{margin-top:14px;padding-top:14px;border-top:1px dashed rgba(214,140,60,.28);display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}.links span{font-weight:700}.links ul{margin:0;padding-left:18px}.notes-box{border-radius:24px;background:var(--panel2);border:1px solid var(--line);padding:24px}.notes-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.notes-tools{display:flex;gap:10px;flex-wrap:wrap}.btn{border:none;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--gold),var(--accent));color:#fff;box-shadow:0 8px 24px rgba(233,130,14,.25)}.btn.secondary{background:rgba(255,255,255,.85);color:#a2560a;box-shadow:none;border:1px solid var(--line)}.btn.danger{background:linear-gradient(135deg,#ff8a5c,#ff5f57)}#noteArea{width:100%;min-height:180px;border-radius:18px;background:#fffdf9;border:1px solid var(--line);padding:16px 18px;color:var(--ink);font-size:15px;resize:vertical;outline:none}#noteArea:focus{border-color:#e9820e;box-shadow:0 0 0 3px rgba(233,130,14,.16)}.notes-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;color:var(--sub);font-size:13px;flex-wrap:wrap}.footer-links{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}.footer-links a{display:inline-flex;align-items:center;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.7)}.tip{padding:16px 18px;border-radius:18px;background:rgba(255,176,32,.12);border:1px solid rgba(233,130,14,.2);color:#6c5236}@media (max-width:900px){.stats,.signals,.grid5,.tw-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}@media (max-width:720px){.stats,.signals,.grid5,.tw-grid{grid-template-columns:1fr}.section{padding:20px}.hero{padding:24px}.story-title{font-size:21px}}</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">☀️ 大模型晨报 · 周二 2026-07-21 · 快讯 + 5 分钟扫读</div>
+    <h1>大模型晨报 2026-07-21</h1>
+    <p>本期为周二（2026-07-21）早间触发的「今日大模型晨报」，定位快讯 + 5 分钟扫读，覆盖 WAIC 2026 收官次日的全球 AI / 大模型资讯。今晨最强主线有两条：一是「开源万亿参数旗舰供不应求」——Moonshot 因算力紧缺于 7 月 19 日暂停 Kimi K3（2.8T 开放权重）新 C 端订阅，同期 Zhipu GLM-5.2 登顶开源榜、Alibaba Qwen3.8-Max-Preview（2.4T）压轴亮相，「开源可以打进第一梯队」变成周度高频事件；二是「前沿模型商品化」——Benedict Evans 判断 frontier model 正变成 commodity infrastructure，价值向产品层迁移，叠加 GPT-5.6 Sol/Terra/Luna 正式 GA、Grok 4.5 以约 1/4 价格做到 Opus 级、GPT-5.6 Luna 在「智能 vs 单任务成本」曲线登顶，Token 价格战继续压价。研究侧 World Models / 物理智能与推理降本（Seer 自一致性省 47% Token、KronQ 2-bit 量化）延续 30 天热度；Import AI 的 Remote Labor Index 从 2.5% 抬到 16.1%，AI 真实劳动替代能力肉眼可见地上台阶。<b>一句话：今晨主线 = 开源万亿旗舰供不应求（Kimi K3 缺货）+ 前沿模型商品化（价值向产品层迁移），叠加 GPT-5.6 GA、价格战与 World Models 研究热。</b></p>
+    <div class="meta-row"><span class="meta-chip wk">📅 晨报口径 · 周二 07-21 · WAIC 收官次日</span><span class="meta-chip">主线锚点：Kimi K3 缺货 + 前沿模型商品化</span><span class="meta-chip">快讯 + 5 分钟扫读</span><span class="meta-chip">覆盖 11 类必选来源</span><span class="meta-chip">🔥 7天高频信号 ×2</span><span class="meta-chip">📈 30天持续趋势 ×2</span><span class="meta-chip">编辑：邹超</span></div>
+    <div class="stats">
+      <div class="stat"><div class="num">13</div><div class="lbl">快讯条目</div></div>
+      <div class="stat"><div class="num">11</div><div class="lbl">覆盖来源</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">🔥 7天高频信号</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">📈 30天持续趋势</div></div>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>今日一句话判断</h2>
+    <div class="desc">这是周二（2026-07-21）早间口径的「今日大模型晨报」，定位快讯 + 5 分钟扫读，覆盖 WAIC 2026 收官次日的全球 AI / 大模型资讯。</div>
+    <p style="font-size:21px;font-weight:800;margin:0;color:#3a2a17">今晨主线：<b>开源万亿参数旗舰供不应求</b>（Moonshot 因算力紧缺暂停 Kimi K3 新订阅、GLM-5.2 登顶开源榜、Qwen3.8-Max 预览），同时 <b>Benedict Evans「前沿模型商品化、价值向产品层迁移」</b>被本周价格战与 GPT-5.6 Sol/Terra/Luna GA 反复印证；研究侧 <b>World Models / 物理智能 + 推理降本</b> 延续热度，<b>Import AI 的 Remote Labor Index 从 2.5% 抬到 16.1%</b>。</p>
+  </section>
+
+  <section class="section" id="signal-sec">
+    <h2>🔥 高频信号追踪（近 7 天 / 30 天）</h2>
+    <div class="desc">统计口径：结合近 7 天 / 30 天晨夜报窗口连续观察，并叠加本日对 Twitter/X、HuggingFace Daily Papers、HuggingFace 趋势 / 下载、Papers With Code、arXiv、GitHub Trending、The Batch、Benedict Evans、LessWrong / Alignment Forum、AI Snakeoil、Import AI 的交叉巡检。「7天高频信号」= 近 7 天 ≥3 次出现；「30天持续趋势」= 近 30 天持续出现。</div>
+    <div class="signals"><div class="signal sig7"><div class="signal-title">🔥 万亿参数级“开放/半开放旗舰”密集上桌且供不应求：Kimi K3 → GLM-5.2 → Qwen3.8-Max</div><div class="signal-desc">7 月 16-20 一周内，Moonshot Kimi K3（2.8T 开放权重）、Zhipu GLM-5.2（登顶开源榜、MIT、1M context）、Alibaba Qwen3.8-Max-Preview（2.4T，官方称“仅次于 Fable 5”）连续登台；更关键的是 Kimi K3 因需求暴涨、算力紧缺被迫于 7 月 19 日暂停新 C 端订阅——“开源打进第一梯队”不仅是发布事件，更已出现真实产能瓶颈。</div><div class="signal-freq">近 7 天 ≥3 次（Moonshot / Zhipu / Alibaba；Global Times、Securities Times、Alibaba Cloud、Taskade/Artificial Analysis 交叉验证）</div></div><div class="signal sig7"><div class="signal-title">🔥 Agent-native / MCP / 世界模型：编排层与“通用工具契约”正取代模型库成为主角</div><div class="signal-desc">X 上 MCP 被反复称作“AI 界的 USB-C”，GitHub Trending 被 OpenClaw（本地个人 AI 助手，约 35.5 万 star）、OpenMontage（Agent 转视频工作室，单周 +8500 star）等 Agent 应用占据，研究侧 World Models 定义/路线图、DriftWorld、交互式世界模型密集出现——“模型是配件，编排 + 工具契约 + 世界建模才是主线”在 7 天里被多次重述。</div><div class="signal-freq">近 7 天 ≥3 次（X/MCP、GitHub Trending、arXiv World Models 多篇）</div></div><div class="signal sig30"><div class="signal-title">📈 前沿模型“商品化” + Token 价格战：价值持续从模型层迁移到产品层</div><div class="signal-desc">Benedict Evans 判断 frontier model 正变成 commodity infrastructure、token crunch 缓解、价值向上层产品迁移；同期 GPT-5.6 Luna 在“智能 vs 单任务成本”曲线登顶、Grok 4.5 以约 1/4 价格做到 Opus 级 agentic tool use、GLM-5.2/Kimi K3 API 走低价默认档，近 30 天“默认更便宜 + 关键任务升档”的多档编队持续升温。</div><div class="signal-freq">近 30 天持续出现（Benedict Evans / Artificial Analysis Index v4.1 / VC.ru / Taskade 对比）</div></div><div class="signal sig30"><div class="signal-title">📈 AI 真实劳动替代能力上台阶：Remote Labor Index 从 2.5% 抬到 16.1%</div><div class="signal-desc">Import AI（Jack Clark）披露：在 Remote Labor Index 上，AI 系统自动完成线上自由职业项目的成功率从 2025 年 10 月的 2.5% 升到 2026 年 7 月的 16.1%；叠加 Fables 已能自写 GPU kernel 自优化、The Batch 观察到“全周期角色”崛起，AI 自动化正从演示走向可计量的生产力。</div><div class="signal-freq">近 30 天持续出现（Import AI RLI / Fables GPU kernel / The Batch 2026-07-17）</div></div></div>
+  </section>
+
+  <section class="section" id="deploy-sec">
+    <h2>🏠 私有化 / 开源部署热度（HuggingFace 下载口径）</h2>
+    <div class="desc">口径说明：这一节代表公开模型与开源项目的下载 / 自部署热度，更接近“私有化 / 开源部署热度”，<b>不等同于公有云 API 实际调用量</b>。它反映的是：哪些模型最常被拿去压测、量化、部署和接进工作流。</div>
+    <div class="table-wrap"><table><thead><tr><th>模型 / 项目</th><th>热度信号</th><th>为什么值得看</th><th>原文</th></tr></thead><tbody><tr><td>GLM-5.2（zai-org / Zhipu）</td><td>2026-07 开源榜 #1；MIT 协议、1M context、FP8/GGUF 量化就绪</td><td>被 Taskade / Artificial Analysis 列为“7 月最强开源模型（长上下文编码 / 推理 / agentic 最佳整体开源）”，是私有化性价比最强的默认档首选。</td><td><a href="https://www.taskade.com/blog/open-source-llms" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Kimi K3（Moonshot AI）</td><td>2.8T 开放权重旗舰；因算力紧缺 7/19 暂停新 C 端订阅、API 仍开放</td><td>首个 3T 参数级开放权重方向，1M context + 原生视觉；真实需求已超过产能，是长文档 / 长程 Agent 私有化评估名单头号候选，但要评估交付与算力约束。</td><td><a href="http://www.globaltimes.cn/page/202607/1366364.shtml" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Qwen3.6-35B-A3B（Alibaba）</td><td>HuggingFace 走红：8GB 显存即可本地多模态部署 + Agent</td><td>A3B MoE 激活极小，消费级显卡单卡可跑的多模态中量模型，非常适合企业内网 Agent、边缘多模态与低成本 POC。</td><td><a href="https://nnets.ru/news/qwen3-6-35b-a3b-lokal-nyj-mul-timodal-nyj-ii-bez-tsenzury-dlja-8-gb-vram" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>VideoChat3（4B）</td><td>HuggingFace 趋势论文 / 模型榜前列</td><td>仅 4B 参数即超越更大参数量的开源视频理解模型，效率更高，适合做私有化视频理解 / 质检 / 内容审核底盘。</td><td><a href="https://huggingface.co/papers/trending" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>OpenClaw（本地个人 AI 助手）</td><td>GitHub 约 35.5 万 star，平台历史最高 star 软件仓</td><td>完全在本地设备运行的个人 AI 助手，是“数据不出端 + 私有化助理”热度的代表，适合作为端侧 / 内网助理的参考架构。</td><td><a href="https://www.nxplace.com/post/githubs-ai-gold-rush-the-open-source-projects-reshaping-development-in-2026-783568066011" target="_blank" rel="noopener">原文链接</a></td></tr></tbody></table></div>
+  </section>
+
+  <section class="section" id="cloud-sec">
+    <h2>☁️ 公有云模型使用场景（Artificial Analysis + Twitter/X 实际用法）</h2>
+    <div class="desc">口径说明：这一节不看下载榜，而看“真实工作流里应该把哪个模型放在哪一段”。重点不是谁总分第一，而是谁更适合承担总控、批处理、复核或成本敏感型铺量。（价格 / 排名为公开报道口径，可能随官方调整而变化）</div>
+    <div class="table-wrap"><table><thead><tr><th>模型 / 组合</th><th>更适合的使用场景</th><th>为什么是这个场景</th><th>原文</th></tr></thead><tbody><tr><td>Claude Fable 5 / Anthropic 旗舰</td><td>复杂长链条工程、关键判断、合规敏感的总控步骤</td><td>Artificial Analysis 综合质量指数 100/100 登顶；适合放在“最贵、最关键的一步”，不适合承担全部流量。</td><td><a href="https://www.swfte.com/ai/leaderboard" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>GPT-5.6 Sol / OpenAI</td><td>企业级工作主力（workhorse）+ Agent 编排大脑</td><td>GPT-5.6 Sol/Terra/Luna 已正式 GA，官方把 Sol 定位为企业工作的主力档，适合承担高价值步骤总控。</td><td><a href="https://www.cnbc.com/2026/07/08/openai-expanding-gpt-5point6-ai-model-release-ending-government-limits.html" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>GPT-5.6 Luna / OpenAI</td><td>成本敏感的规模化铺量与批处理</td><td>Artificial Analysis Index v4.1 指出 Luna 在“智能 vs 单任务成本”曲线上表现最优、优于 Terra，适合高频流水线下沉。</td><td><a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-1" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Grok 4.5 / xAI</td><td>Agent 工具调用（agentic tool use）+ 高性价比铺量</td><td>被评为“Opus 级能力、约 1/4 价格”，agentic tool use 位列第一，适合成本敏感的 Agent 场景。</td><td><a href="https://vc.ru/ai/3023720-obzor-llm-kakie-modeli-vybrat-dlya-razlichnyh-zadach" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>GLM-5.2 / Kimi K3 公有云 API</td><td>客服 / 摘要 / 批处理 / 中长上下文默认档</td><td>开源双雄的托管 API 是近 30 天“默认更便宜”策略最常被换上的档位；GLM-5.2 长上下文性价比突出，Kimi K3 走中价长文档档。</td><td><a href="https://www.taskade.com/blog/open-source-llms" target="_blank" rel="noopener">原文链接</a></td></tr></tbody></table></div>
+  </section>
+
+  <section class="section" id="twitter-sec">
+    <h2>🐦 Twitter/X 实用技巧与工作流</h2>
+    <div class="desc">优先挑“互动多、能直接抄作业”的实际用法 / 技巧 / 工作流帖子。仅收录有真实来源链接的条目；无法确认原帖的一律不伪造。</div>
+    <div class="tw-grid"><div class="tw-card"><h4>MCP = “AI 界的 USB-C”：把工具接入标准化，Agent 才好规模化</h4><div class="tw-src">X · @femke_plantinga（2026-07-20）</div><p>把 Model Context Protocol 当作连接 AI 应用与外部数据/工具的“通用口”：一次实现工具契约，多个 Agent / 模型复用。落到企业侧，就是先把内部系统包成 MCP server，再让不同模型即插即用，避免每换一次模型就重写一遍工具集成。</p><a href="https://x.com/femke_plantinga/status/2037122677522022475" target="_blank" rel="noopener">查看原帖 / 来源 →</a></div><div class="tw-card"><h4>“默认便宜 + 关键升档”的多模型工作流已成社区共识</h4><div class="tw-src">Artificial Analysis Index v4.1 / 社区实测（2026-07-15）</div><p>实际用法里越来越多人把流水线拆成两档：高频、低风险步骤走 GPT-5.6 Luna / Grok 4.5 / GLM-5.2 铺量，关键判断与合规步骤再升档到 Claude Fable 5 / GPT-5.6 Sol。配一个模型路由 + 成本护栏，是当前最容易复制的降本工作流。</p><a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-1" target="_blank" rel="noopener">查看原帖 / 来源 →</a></div><div class="tw-card"><h4>把 Agent 变成“视频工作室”：OpenMontage 式的自动剪辑工作流走红</h4><div class="tw-src">GitHub Trending / 社区复盘（2026-07 上旬）</div><p>OpenMontage 让 AI Agent 直接驱动视频生产（脚本→镜头→剪辑），单周涨 8500+ star。对鞋服电商内容团队的启发：可以把“选题 + 卖点脚本 + 素材拼接”做成一条 Agent 工作流，人只做终审，把短视频产能规模化。</p><a href="https://hdvma.fr/openmontage-github-depot-tendance-video-ia-2026/" target="_blank" rel="noopener">查看原帖 / 来源 →</a></div></div>
+  </section>
+
+  <section class="section" id="story-sec">
+    <h2>今日深度快讯（13 条 · 快讯 + 5 分钟扫读）</h2>
+    <div class="desc">每条都按同一口径展开：💬 点评 + 🎯 业务视角 + 🔬 技术背景 + 🔗 上下游影响 + 🚀 6个月产品卖点预测；徽章中标注归属时间 / 覆盖范围。所有链接均使用真实原文或源站入口；无法确认原文的一律不伪造。</div>
+    <div class="story-grid"><article class="story-card">
+      <div class="story-top"><div class="story-idx">#01</div><div class="story-title">Moonshot 因算力紧缺暂停 Kimi K3 新订阅：开源万亿旗舰第一次“卖到缺货”</div></div>
+      <div class="badges"><span class="badge">Moonshot / Kimi K3</span><span class="badge day">周日 07-19 起</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">Global Times、Securities Times 报道：Moonshot 于 7 月 16 日发布 2.8 万亿参数开源大模型 Kimi K3，因用户请求暴涨、算力紧缺，7 月 19 日起暂停新 C 端订阅。这是开源万亿参数旗舰首次因真实需求而出现产能瓶颈，也侧面印证“开源已能承接一线流量”。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>“卖到缺货”比任何 benchmark 都更能说明问题：开源旗舰的真实需求已经超过了算力供给，这是市场投票。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>给客户做选型时，除了看分数，必须把“可获得性 / 交付确定性 / 算力供给”写进评估：优先能稳定拿到权重或稳定 API 的开源档，避免押注一个买不到算力的“最强模型”。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>2.8T MoE + 1M context + 原生视觉，推理侧对 KV cache、MoE 路由、长上下文显存与批处理调度要求极高，算力紧缺本质是服务侧的吞吐/显存瓶颈。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好推理框架、量化、KV cache 共享、多云弹性调度与“模型可切换”的中间层；也倒逼企业做供应商冗余。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“开源旗舰私有化交付包 + 弹性算力调度 + 供应商切换开关”会成为高价值增购项。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="http://www.globaltimes.cn/page/202607/1366364.shtml" target="_blank" rel="noopener">Global Times · Moonshot suspends new C-end subscriptions amid compute crunch</a></li><li><a href="http://m.toutiao.com/group/7664492109013041702/" target="_blank" rel="noopener">Securities Times · 月之暗面 Kimi K3 因算力紧缺暂停新用户订阅</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#02</div><div class="story-title">Alibaba Qwen3.8-Max-Preview（2.4T）：官方称“仅次于 Fable 5”，权重与基准待补</div></div>
+      <div class="badges"><span class="badge">Alibaba / Qwen</span><span class="badge day">WAIC 收官前后</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">Alibaba Cloud 官方博客发布 agent-native 创新，并预览 Qwen3.8-Max-Preview——2.4 万亿参数原生多模态旗舰，初测“仅次于 Fable 5”，preview 已开放 Token Plan / Qoder 使用，权重“即将开源”。但官方目前未同步 benchmark 明细、model card 与独立测评，“第二名”自评仍需交叉验证。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>进入万亿参数段后，营销节奏往往早于权重发布；企业要用“已开放 preview / 已上 HF / 已有独立测评”三级门槛判断真实可用性。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>POC 阶段可在阿里云生态跑能力画像，但采购不宜以官方自评为唯一依据，等待独立 benchmark 与开源权重再定档位。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>2.4T 原生多模态 + agent-native 架构，工程重点在 MoE 路由、长上下文推理、视觉指令一致性与 tool-use 稳定性。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>拉动阿里云 agent 产品栈（Qoder / Token Plan）与推理、量化工具链需求，也给 Kimi K3 / GLM-5.2 制造新的对齐点。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“万亿旗舰快速能力画像 + 独立测评报告”会是方案咨询里抢手的加购项。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.alibabacloud.com/blog/alibaba-cloud-unveils-agent-native-innovations-at-waic-2026_603377" target="_blank" rel="noopener">Alibaba Cloud · Agent-Native Innovations at WAIC 2026</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#03</div><div class="story-title">OpenAI GPT-5.6 Sol / Terra / Luna 正式 GA：企业主力 + 成本档一次配齐</div></div>
+      <div class="badges"><span class="badge">OpenAI / GPT-5.6</span><span class="badge day">2026-07-08 GA</span><span class="badge">公有云使用</span></div>
+      <p class="summary">CNBC 报道：OpenAI 公开发布 GPT-5.6 Sol、Terra、Luna 三档模型，并结束此前的政企使用限制；官方将 Sol 定位为“企业工作主力（workhorse）”。结合 Artificial Analysis Index v4.1，Luna 在“智能 vs 单任务成本”曲线上性价比最优。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>一次放出“旗舰主力 + 均衡 + 成本档”的分层组合，说明厂商默认企业会做多档编队，而不是单选一款。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>建议按任务价值分配：关键总控用 Sol，均衡任务用 Terra，高频铺量用 Luna，并配 ROI 看板；避免把预算全押在旗舰。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>分层定价背后是同族模型的能力/成本梯度，路由层需按任务类型、风险等级、上下文长度自动选档。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>强化“模型路由器 + 成本护栏 + 可观测性”中间层需求，对 Agent 平台是核心机会。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“按任务自动分档的企业级路由器 + 成本看板”会从建议变成可交付软件模块。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.cnbc.com/2026/07/08/openai-expanding-gpt-5point6-ai-model-release-ending-government-limits.html" target="_blank" rel="noopener">CNBC · OpenAI to publicly release GPT-5.6 Sol/Terra/Luna, ending government limits</a></li><li><a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-1" target="_blank" rel="noopener">Artificial Analysis · Intelligence Index v4.1</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#04</div><div class="story-title">GLM-5.2 登顶 2026-07 开源榜：MIT + 1M context，私有化默认档换人</div></div>
+      <div class="badges"><span class="badge">Zhipu / GLM-5.2</span><span class="badge day">2026-07-16</span><span class="badge">私有化 / 开源部署热度</span></div>
+      <p class="summary">Taskade / Artificial Analysis 汇总指出，GLM-5.2 成为 2026 年 7 月最强开源 LLM（新 #1）：MIT 协议、1M 上下文，被列为“长上下文编码 / 推理 / agentic 最佳整体开源模型”。它把“开源默认档”从上一代直接换成了 GLM-5.2。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>当开源 #1 同时给到 MIT + 1M context + agentic 能力，私有化选型的“默认起点”就被重置了。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>内网 Agent / 长文档 RAG / 代码工程类 POC 可把 GLM-5.2 设为默认基线，再按需与闭源旗舰做关键步骤对比。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>MoE + 长上下文，落地重点在 FP8/GGUF 量化、KV cache 与长文档检索增强的工程组合。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好量化工具链、单/多卡推理服务、长上下文 RAG 中间件与私有部署商。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“GLM-5.2 私有化预置包 + 长上下文 RAG 套件”可作为企业内网知识库的入门方案。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.taskade.com/blog/open-source-llms" target="_blank" rel="noopener">Taskade · Strongest Open-Source LLMs (July 2026)</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#05</div><div class="story-title">Benedict Evans：前沿模型正变成“商品化基础设施”，价值向产品层迁移</div></div>
+      <div class="badges"><span class="badge">Benedict Evans</span><span class="badge day">2026-07-12</span><span class="badge">30天持续趋势</span></div>
+      <p class="summary">据 SB Tech News 转述，Benedict Evans 判断当前 AI 市场动态显示：frontier model 正在变成 commodity infrastructure，随着 token crunch 缓解，价值正从模型本身迁移到“建立在模型之上的产品”。这与本周价格战、开源登顶互相印证。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>模型越来越像水电，谁能把水电变成好用的产品、稳定的工作流和可交付的 ROI，谁才拿走利润。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对解决方案团队，这是明确信号：不要卖“接了哪个模型”，要卖“端到端工作流 + 行业 know-how + 可量化收益”。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>商品化意味着模型可替换，产品护城河转向数据、编排、评测、治理与集成深度。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好应用层、垂直 Agent、评测/治理中间件与行业数据资产；压缩纯 API 转售的空间。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“行业工作流 + 私有数据资产 + ROI 看板”打包方案会比“模型接入”更好卖。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://sbtecnews.com/current-ai-market-dynamics-point-to-frontier-models-becoming-commodity-infrastructure-as-the-token-crunch-eases-with-value-shifting-to-products-built-on-top-benedict-evans/" target="_blank" rel="noopener">SB Tech News · Frontier models becoming commodity infrastructure (Benedict Evans)</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#06</div><div class="story-title">Import AI：Remote Labor Index 从 2.5% 抬到 16.1%，AI 自动化开始“可计量”</div></div>
+      <div class="badges"><span class="badge">Import AI / Jack Clark</span><span class="badge day">2026-07-20</span><span class="badge">30天持续趋势</span></div>
+      <p class="summary">Import AI 披露：在 Remote Labor Index 上，AI 系统自动完成线上自由职业项目的成功率，从 2025 年 10 月发布时的 2.5% 升到 2026 年 7 月的 16.1%。同期 Fables 系统已能自写 GPU kernel 优化自身性能，AI 自动化正从“演示”走向“可计量的生产力”。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>16.1% 不是“取代人”，而是“AI 已经能独立跑完约六分之一的真实远程任务”——这是最值得盯的自动化斜率。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>建议把“哪些任务已可交给 Agent 端到端完成、哪些仍需人复核”做成能力矩阵，按季度更新，指导交付与报价。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>RLI 度量的是端到端任务成功率，背后是工具使用、长程规划与自我验证能力的联合提升；Fables 自写 kernel 是“AI 反哺系统研发”的信号。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好 Agent 评测、任务分解、人机协作编排与“自动化 ROI 度量”服务。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“任务自动化可行性评估 + Agent 端到端交付率看板”会成为咨询高价值项。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://jack-clark.net/" target="_blank" rel="noopener">Import AI · Jack Clark (Remote Labor Index 16.1%)</a></li><li><a href="https://www.aiforesights.com/article/import-ai-464-fables-writes-gpu-kernels-ai-automation-and-analog-computation-mr9f3wbj" target="_blank" rel="noopener">Import AI 464 · Fables writes its own GPU kernels</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#07</div><div class="story-title">The Batch：GPT-Live 全双工语音 + 推理后端；AI 让“全周期角色”崛起</div></div>
+      <div class="badges"><span class="badge">The Batch / deeplearning.ai</span><span class="badge day">2026-07-17</span><span class="badge">行业观点</span></div>
+      <p class="summary">The Batch（7 月 17 日）两条要点：一是 GPT-Live 把全双工语音模型与后端推理模型（GPT-5.5）配对，做到低延迟的“边听边想边说”；二是随着 AI 助力，除了全栈工程师，还出现了“全周期招聘官、全流程营销人”等一人多角的“全周期角色”。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>语音从“听清”走向“边想边说”，岗位从“全栈”走向“全周期”——AI 正在同时改写产品形态和组织形态。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>语音场景（导购、客服、直播）可评估全双工 + 后端推理的组合；组织侧可用 Agent 把“一人多角”落到实际 SOP。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>全双工语音的关键在低延迟流式 ASR/TTS 与后端推理模型解耦，边说边改口需要打断/回退机制。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好实时语音中间件、Agent 编排与岗位级工作流工具。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“全双工语音导购 Agent + 岗位级工作流模板”是零售/直播场景的新卖点。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.deeplearning.ai/the-batch/tag/jul-17-2026" target="_blank" rel="noopener">The Batch · Jul 17, 2026</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#08</div><div class="story-title">Apple × Google：约 10 亿美元/年让 Gemini 成为 Siri 底座，覆盖 20 亿设备</div></div>
+      <div class="badges"><span class="badge">Apple / Google</span><span class="badge day">2026-07-01</span><span class="badge">产业格局</span></div>
+      <p class="summary">据 Machine Brief，Apple 确认与 Google 达成约 10 亿美元/年的协议，用 Gemini 作为 Siri 的底层模型，覆盖约 20 亿台设备，并结束了此前与 OpenAI 的合作。这是端侧超级入口与前沿模型绑定的标志性事件。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>当最大的端侧入口选择“租用”前沿模型而非自研，进一步印证“模型是基础设施、入口与产品才是价值”。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对做端侧 / 助理类方案的客户，这是背书：端侧超级入口 + 云端强模型的混合架构会成为主流参考。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>端云协同：端侧做隐私敏感与低延迟意图，云端强模型做复杂推理，路由与隐私边界是关键。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好端云协同框架、隐私计算、模型路由与设备端推理优化。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“端云协同助理架构 + 隐私边界配置”可作为消费/终端客户参考方案。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.machinebrief.com/news/apple-google-gemini-siri-deal-2026-openai-partnership-guide" target="_blank" rel="noopener">Machine Brief · Apple confirms Google Gemini as Siri foundation</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#09</div><div class="story-title">研究前沿：World Models 定义与路线图 + DriftWorld，物理智能加速工程化</div></div>
+      <div class="badges"><span class="badge">arXiv cs.AI / cs.LG</span><span class="badge day">2026-07 新论文</span><span class="badge">30天持续趋势</span></div>
+      <p class="summary">上海 AI Lab《A Definition and Roadmap for World Models》为“世界模型”给出科学定义与多阶段路线图（物理因果、环境预测）；MIT CSAIL 的《DriftWorld: Fast World Modeling through Drifting》用漂变生成模型做动作条件世界建模，单一漂变过程替代迭代去噪、大幅提升决策智能体推理效率。World Models 正从概念走向工程。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>当“世界模型”开始有定义、有路线图、有更快的实现，它就从论文名词变成了 12 个月技术雷达上的中远期机会。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>短期可用世界模型做仿真评测与 Agent 训练数据生成；中期关注具身、机器人与高价值 B 端场景。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>世界模型强调因果性、动作条件与长时一致性；DriftWorld 的价值在于用漂变过程降低推理成本。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>带动仿真评测、合成训练数据、具身智能与视频扩散侧的技术融合。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“Agent 仿真评测服务 + 世界模型驱动的合成训练数据”是研究型客户新增量。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://arxiv.org/abs/2607.06401" target="_blank" rel="noopener">arXiv · A Definition and Roadmap for World Models</a></li><li><a href="https://arxiv.org/abs/2607.15065" target="_blank" rel="noopener">arXiv · DriftWorld: Fast World Modeling through Drifting</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#10</div><div class="story-title">推理降本研究：Seer 自一致性省 47% Token + KronQ 2-bit 量化</div></div>
+      <div class="badges"><span class="badge">ACL 2026 / arXiv</span><span class="badge day">2026-07 新论文</span><span class="badge">成本治理</span></div>
+      <p class="summary">《Seer Self-Consistency》（ACL 2026 Findings）提出自适应计算预算估算，用于控制推理阶段计算规模，在保持相当性能的同时减少约 47% Token 消耗；《KronQ》用 Kronecker 分解 Hessian 优化量化，在 LLaMA-3-70B 上 2-bit 权重显著优于 GPTQ / AWQ。两条都是把“更便宜”做成工程能力。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>价格战之外，真正的降本正来自“自适应算力 + 极限量化”这类工程方法，能直接改写单位任务成本。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对高频推理场景，先上自适应 test-time 预算 + 低比特量化，可在不换模型的情况下压出可观成本空间。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>Seer 用预算估算决定采样/自一致性次数；KronQ 用 Kronecker-Factored Hessian 降低 2-bit 量化精度损失。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好推理优化、量化工具链、成本护栏与结果缓存中间件。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“自适应推理预算 + 2-bit 量化部署包”会成为降本方案的核心模块。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://aclanthology.org/2026.findings-acl.2120/" target="_blank" rel="noopener">ACL 2026 Findings · Seer Self-Consistency</a></li><li><a href="https://arxiv.org/abs/2607.07964" target="_blank" rel="noopener">arXiv · KronQ: LLM Quantization via Kronecker-Factored Hessian</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#11</div><div class="story-title">Agentic RAG 与长程 Agent 评测：GRASP 粒度感知检索 + LHTB 长程终端基准</div></div>
+      <div class="badges"><span class="badge">HuggingFace Papers</span><span class="badge day">2026-07 新论文</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">HuggingFace 近期热门：GRASP（GRanularity-Aware Search Policy）用 RL 训练 Agent 在多步推理中动态协调词法/语义检索，缓解检索噪声干扰推理；Long-Horizon-Terminal-Bench（LHTB）用 46 个平均数百步的复杂终端任务 + 密集分级奖励，揭示当前主流 Agent 在持久化环境中的核心瓶颈。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>RAG 的下一步是“会挑粒度的检索”，Agent 的下一关是“数百步不崩”——两篇论文正好点在企业最痛的两处。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>企业 RAG 可引入粒度感知检索降低噪声；上线长程 Agent 前，用类 LHTB 的长程基准做压力测试再交付。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>GRASP 把检索工具选择做成 RL 策略；LHTB 用密集奖励度量长程执行稳定性，暴露状态漂移与恢复能力短板。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好 Agent harness、评测/回放、检索中间件与工具契约（MCP）能力。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“Agent 上线前长程压力测试 + 粒度感知 RAG 组件”是可售卖的交付项。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://huggingface.co/papers/2607.10463" target="_blank" rel="noopener">HuggingFace · GRASP: Granularity-Aware Search Policy for Agentic RAG</a></li><li><a href="https://huggingface.co/papers/2607.08964" target="_blank" rel="noopener">HuggingFace · Long-Horizon-Terminal-Bench (LHTB)</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#12</div><div class="story-title">GitHub Trending：OpenClaw / OpenMontage 领跑，Agent 应用取代模型库</div></div>
+      <div class="badges"><span class="badge">GitHub Trending</span><span class="badge day">过去 7 天</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">GitHub Trending 复盘：本地个人 AI 助手 OpenClaw 约 35.5 万 star、成为平台历史最高 star 软件仓；智能视频制作框架 OpenMontage 单周新增 8500+ star、总数破 3.3 万。7 月的主线不是新模型库，而是“把模型用起来”的 Agent 应用与工作流。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>开发者用脚投票：模型是配件，能落地的 Agent 应用（本地助手、视频工作室、工具编排）才是主角。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>企业采购应把“带 harness / 带工具契约 / 带治理面板”的 Agent 应用作为方案核心，而非在模型 API 上做浅集成。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>OpenClaw 代表端侧/私有化助理，OpenMontage 代表 Agent 驱动的多模态生产，都强调工具编排与本地运行。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>上拉日志回放、权限审计、任务状态机与工具契约（MCP）能力需求。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“企业 Agent 应用模板库（本地助手 / 内容工作室）+ 治理面板”是高频组合包。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.nxplace.com/post/githubs-ai-gold-rush-the-open-source-projects-reshaping-development-in-2026-783568066011" target="_blank" rel="noopener">NXPlace · GitHub AI Gold Rush 2026 (OpenClaw ~355K stars)</a></li><li><a href="https://hdvma.fr/openmontage-github-depot-tendance-video-ia-2026/" target="_blank" rel="noopener">HDVMA · OpenMontage GitHub trending (AI video)</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#13</div><div class="story-title">AI 安全与观点：LessWrong“瓶颈是政治意愿” + Narayanan“AI 是常态技术”</div></div>
+      <div class="badges"><span class="badge">LessWrong / ICML 2026</span><span class="badge day">2026-07</span><span class="badge">行业观点</span></div>
+      <p class="summary">LessWrong 热门讨论认为当前 AI 安全的瓶颈是政治意愿与执行、而非研究——“最佳实践已存在，只是没被采用/强制执行”；同时也有《Risk-Averse AIs》把“风险规避型 AI”当作对齐可能失败时的备用方案。另一侧，Arvind Narayanan 在 ICML 2026 主旨演讲主张把 AI 当作“常态技术（normal technology）”，聚焦适应而非骤然的大规模失业。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>一边强调“治理执行比技术更难”，一边强调“别被叙事吓到、按常态技术推进”——两种冷静视角对企业落地都很有用。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>给客户做 AI 落地时，把“合规执行 + 渐进适应”写进方案节奏，而不是被 AGI 叙事牵着做过度承诺。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>安全侧关注可执行的最佳实践（评测、红队、审计），而非只做前沿研究；“风险规避型 AI”是保守对齐思路。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好合规执行、审计留痕、评测/红队与治理咨询服务。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，“AI 治理落地包（评测 + 审计 + 合规执行清单）”可作为企业稳态增购项。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.lesswrong.com/posts/EexsebbYhbe2gXkPP/the-current-bottleneck-is-political-will-not-research" target="_blank" rel="noopener">LessWrong · The current bottleneck is political will, not research</a></li><li><a href="https://www.greaterwrong.com/posts/Zpsk35WgJRfQ2exjL/risk-averse-ais" target="_blank" rel="noopener">LessWrong · Risk-Averse AIs</a></li><li><a href="https://www.kucoin.com/news/flash/princeton-professor-narayanan-speaks-at-icml-2026-on-ai-as-normal-technology" target="_blank" rel="noopener">ICML 2026 · Narayanan: AI as normal technology</a></li></ul></div>
+    </article></div>
+  </section>
+
+  <section class="section">
+    <h2>来源覆盖巡检（今日口径）</h2>
+    <div class="desc">“全部覆盖”不等于硬凑热点。对本日缺乏独立强信号的来源，会明确标注使用方式，避免伪造热点或误导发布时间。部分海外一手观点采用可核验的转述来源，观点归属已注明原作者。</div>
+    <div class="table-wrap"><table><thead><tr><th>来源</th><th>本期使用方式 / 备注</th></tr></thead><tbody><tr><td>Twitter / X<span class="pill ok">已采用</span></td><td>优先互动多的实际用法/工作流帖子：本期以 MCP“AI 界 USB-C”与多档模型工作流、Agent 转视频工作流为主。<br/><a href="https://x.com/femke_plantinga/status/2037122677522022475" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>HuggingFace Daily Papers<span class="pill ok">已采用</span></td><td>采用 GRASP（Agentic RAG）、LHTB（长程终端基准）、VideoChat3（4B 视频理解）等本周热门论文。<br/><a href="https://huggingface.co/papers/trending" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>HuggingFace 模型下载趋势<span class="pill ok">已采用</span></td><td>作为“私有化 / 开源部署热度”口径：GLM-5.2 登顶、Kimi K3 供不应求、Qwen3.6-35B-A3B 8GB 本地跑。<br/><a href="https://www.taskade.com/blog/open-source-llms" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Papers With Code<span class="pill ok">已采用</span></td><td>与 arXiv 一起做真实工程 benchmark / 降本方法交叉观察：Seer 自一致性（-47% Token）、AgentKGV 事实核查。<br/><a href="https://aclanthology.org/2026.findings-acl.2120/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>arXiv cs.AI / cs.LG<span class="pill ok">已采用</span></td><td>本期重点：World Models 定义与路线图、DriftWorld、KronQ 2-bit 量化、长上下文 TTT 等。<br/><a href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>GitHub Trending<span class="pill ok">已采用</span></td><td>本期主线是 Agent 应用取代模型库：OpenClaw（~35.5 万 star）、OpenMontage（单周 +8500 star）。<br/><a href="https://www.nxplace.com/post/githubs-ai-gold-rush-the-open-source-projects-reshaping-development-in-2026-783568066011" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>The Batch<span class="pill ok">已采用</span></td><td>采用 7-17 期：GPT-Live 全双工语音 + 推理后端、AI 催生“全周期角色”。<br/><a href="https://www.deeplearning.ai/the-batch/tag/jul-17-2026" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Benedict Evans Newsletter<span class="pill ok">已采用</span></td><td>采用其“前沿模型商品化、价值向产品层迁移”核心判断，与价格战主线互相印证（转述来源，观点归属 Benedict Evans）。<br/><a href="https://sbtecnews.com/current-ai-market-dynamics-point-to-frontier-models-becoming-commodity-infrastructure-as-the-token-crunch-eases-with-value-shifting-to-products-built-on-top-benedict-evans/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>LessWrong / Alignment Forum<span class="pill ok">已采用</span></td><td>采用“安全瓶颈是政治意愿而非研究”与《Risk-Averse AIs》两条讨论。<br/><a href="https://www.lesswrong.com/posts/EexsebbYhbe2gXkPP/the-current-bottleneck-is-political-will-not-research" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>AI Snakeoil / Normal Tech<span class="pill ok">已采用</span></td><td>Arvind Narayanan（AI Snakeoil 作者）ICML 2026 主旨：把 AI 当作常态技术、聚焦适应（快讯转述口径）。<br/><a href="https://www.kucoin.com/news/flash/princeton-professor-narayanan-speaks-at-icml-2026-on-ai-as-normal-technology" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Import AI<span class="pill ok">已采用</span></td><td>采用 Remote Labor Index 从 2.5% 升至 16.1%、Fables 自写 GPU kernel 两条要点。<br/><a href="https://jack-clark.net/" target="_blank" rel="noopener">原文 / 主页</a></td></tr></tbody></table></div>
+    <div class="tip" style="margin-top:16px">说明：本期为<b>周二 2026-07-21 早间口径的「今日大模型晨报」</b>。对没有统一公开口径的数据（如各家 token 定价、benchmark 分数、star / 下载量、Qwen3.8-Max 官方自评），已标注为“公开报道口径 / 官方自评待独立验证”并避免写入虚构数字；部分论文 arXiv 编号以来源页为准。本晨报为公开资料整理 + 编辑点评，业务视角与预测仅供参考。</div>
+  </section>
+
+  <section class="section" id="notes-sec">
+    <div class="notes-box">
+      <div class="notes-head">
+        <h2 style="margin:0">📝 我的笔记</h2>
+        <div class="notes-tools">
+          <button class="btn secondary" id="exportBtn">⬇ 导出 .txt</button>
+          <button class="btn danger" id="clearBtn">🗑 清空</button>
+        </div>
+      </div>
+      <textarea id="noteArea" placeholder="点击这里开始记录：Kimi K3 缺货 / GLM-5.2 登顶对鞋服 & 家居客户的私有化选型意味着什么？“前沿模型商品化”后，我们该主推哪种工作流 + ROI 卖点？OpenMontage 式 Agent 转视频能不能迁移到鞋服短视频提示词工作流？（localStorage 持久化，500ms 防抖自动保存）"></textarea>
+      <div class="notes-foot">
+        <span id="saveState">未保存</span>
+        <span id="wordCount">0 字</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>访问入口</h2>
+    <div class="desc">如果你在 GitHub Pages 上查看本页，建议顺手收藏历史总目录，后续晨报 / 夜报会持续沉淀。</div>
+    <div class="footer-links">
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/morning_2026-07-21.html" target="_blank" rel="noopener">☀️ GitHub Pages 本期今日晨报</a>
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/" target="_blank" rel="noopener">📚 历史总目录</a>
+      <a href="./index.html">🗂 本地历史目录</a>
+    </div>
+  </section>
+</div>
+<script>
+const REPORT_DATE = '2026-07-21';
+const NOTE_KEY = 'llm_morning_notes_' + REPORT_DATE;
+const area = document.getElementById('noteArea');
+const saveState = document.getElementById('saveState');
+const wordCount = document.getElementById('wordCount');
+let saveTimer = null;
+function updateWordCount(){ wordCount.textContent = (area.value || '').replace(/\s/g,'').length + ' 字'; }
+function loadNotes(){ const saved = localStorage.getItem(NOTE_KEY); if(saved !== null){ area.value = saved; saveState.textContent = '已加载'; } updateWordCount(); }
+function saveNotes(){ localStorage.setItem(NOTE_KEY, area.value); saveState.textContent = '✓ 已自动保存 · ' + new Date().toLocaleTimeString('zh-CN'); }
+area.addEventListener('input', () => { updateWordCount(); saveState.textContent = '输入中…'; if(saveTimer) clearTimeout(saveTimer); saveTimer = setTimeout(saveNotes, 500); });
+document.getElementById('exportBtn').addEventListener('click', () => { const blob = new Blob([area.value || ''], {type:'text/plain;charset=utf-8'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = '大模型晨报笔记_' + REPORT_DATE + '.txt'; a.click(); URL.revokeObjectURL(a.href); });
+document.getElementById('clearBtn').addEventListener('click', () => { if(confirm('确定清空本期笔记吗？')){ area.value=''; localStorage.removeItem(NOTE_KEY); updateWordCount(); saveState.textContent='已清空'; } });
+loadNotes();
+</script>
+</body>
+</html>
