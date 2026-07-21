@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🌙 大模型夜报 2026-07-21</title>
+<!-- report-meta: date=2026-07-21; type=night; title=大模型夜报 2026-07-21; summary=本期为周二（2026-07-21）触发的「今日大模型夜报」，覆盖当天 AI / 大模型资讯。今日主线三条：其一，WAIC 收官余波散去后，市场进入「独立验证 + 商业化落地」的下半场——Kimi K3 在 LMArena Frontend Code Arena 以 1679 分登顶、Anthropic 从 7 月 20 日起把 Claude Fable 5 收成付费高档、Qwen3.8-Max-Preview 已可通过 Qwen Studio / Qwen Cloud Token Plan 实际调用；其二，Microsoft ↔ Mistral 战略合作官宣，Mistral Medium 3.5 与 OCR 4 落入 Microsoft Foundry 与 Copilot Studio，欧洲 AI 与美国云正式握手；其三，AI Agent 边界一天内被两条硬新闻拉高——HuggingFace 遭首次「自治 AI Agent 供应链攻击」（17,000 次自动化动作，被另一套 AI 检测到）；蚂蚁开源 100B 级离散扩散语言模型 LLaDA2.0，把 Transformer 之外的路线首次拉到 100B 门槛。开发者侧 GitHub Trending 继续被 MCP / Agent / Harness 组合占据，价格战与合规双轨仍是 30 天持续趋势。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>:root{--bg:#07101f;--bg2:#0d1730;--panel:rgba(17,27,56,.8);--panel2:rgba(15,24,49,.96);--line:rgba(145,170,255,.18);--ink:#edf1ff;--sub:#aab6df;--muted:#7584b3;--accent:#85b7ff;--gold:#ffbb55;--violet:#9e8dff;--teal:#40e6c5;--pink:#ff84d0;--red:#ff947f;--shadow:0 20px 60px rgba(0,0,0,.28);}*{box-sizing:border-box}html,body{margin:0;padding:0;background:radial-gradient(circle at top,#1a2858 0%,#0b1227 38%,#060b15 100%);color:var(--ink);font-family:'Inter','Noto Sans SC',system-ui,-apple-system,sans-serif;line-height:1.75}a{color:#9fd3ff;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:32px 20px 88px;position:relative}.hero{position:relative;border:1px solid var(--line);background:linear-gradient(135deg,rgba(25,37,80,.92),rgba(12,18,39,.98));box-shadow:var(--shadow);border-radius:28px;padding:34px 34px 28px;overflow:hidden}.hero:before{content:'';position:absolute;inset:auto -100px -120px auto;width:320px;height:320px;background:radial-gradient(circle,#6f7cff55,transparent 68%);filter:blur(10px)}.kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.14);padding:8px 14px;border-radius:999px;color:#dbe6ff;background:rgba(255,255,255,.05);font-size:13px;font-weight:700}.hero h1{font-size:42px;line-height:1.12;margin:18px 0 14px}.hero p{margin:0;color:var(--sub);max-width:980px;font-size:17px}.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.meta-chip{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:#d8e2ff;font-size:13px}.meta-chip.wk{background:rgba(255,187,85,.14);border-color:rgba(255,187,85,.3);color:#ffd899}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0 0}.stat{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:20px;padding:18px 18px 14px}.stat .num{font-size:28px;font-weight:800}.stat .lbl{font-size:13px;color:var(--sub)}.section{margin-top:22px;border:1px solid var(--line);border-radius:24px;background:var(--panel);backdrop-filter:blur(14px);box-shadow:var(--shadow);padding:26px}.section h2{margin:0 0 8px;font-size:26px}.section .desc{color:var(--sub);margin-bottom:18px}.signals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.signal{border-radius:20px;padding:18px;background:rgba(255,255,255,.04);border:1px solid var(--line)}.signal.sig7{box-shadow:inset 0 0 0 1px rgba(255,187,85,.18)}.signal.sig30{box-shadow:inset 0 0 0 1px rgba(158,141,255,.2)}.signal-title{font-size:17px;font-weight:800;margin-bottom:6px}.signal-desc{color:var(--ink);opacity:.94}.signal-freq{margin-top:8px;color:var(--sub);font-size:13px}.table-wrap{overflow:auto;border-radius:18px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;background:rgba(8,12,25,.45)}th,td{padding:14px 14px;border-bottom:1px solid rgba(145,170,255,.12);vertical-align:top;text-align:left;font-size:14px}th{font-size:13px;color:#dbe6ff;background:rgba(255,255,255,.05);position:sticky;top:0}tr:hover td{background:rgba(255,255,255,.03)}.pill{display:inline-flex;align-items:center;margin-left:10px;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:700}.pill.ok{background:rgba(59,225,191,.14);color:#9ff6e3}.pill.watch{background:rgba(255,187,85,.14);color:#ffd899}.story-grid{display:grid;grid-template-columns:1fr;gap:18px}.story-card{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));padding:22px}.story-top{display:flex;gap:14px;align-items:flex-start}.story-idx{flex:0 0 auto;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--violet),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800}.story-title{font-size:24px;line-height:1.35;font-weight:800}.badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 12px}.badge{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-size:12px;color:#dce6ff}.badge.day{background:rgba(133,183,255,.14);border-color:rgba(133,183,255,.28)}.summary{font-size:16px;color:#eef3ff;margin:0 0 14px}.grid5{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.blk{border-radius:18px;padding:16px;background:rgba(255,255,255,.04);border:1px solid rgba(145,170,255,.12)}.blk:last-child{grid-column:1/-1}.blk h4{margin:0 0 8px;font-size:14px;color:#fff}.blk p{margin:0;color:var(--sub)}.links{margin-top:14px;padding-top:14px;border-top:1px dashed rgba(145,170,255,.18);display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}.links span{font-weight:700}.links ul{margin:0;padding-left:18px}.notes-box{border-radius:24px;background:var(--panel2);border:1px solid var(--line);padding:24px}.notes-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.notes-tools{display:flex;gap:10px;flex-wrap:wrap}.btn{border:none;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--violet));color:#fff;box-shadow:0 8px 24px rgba(86,116,255,.22)}.btn.secondary{background:rgba(255,255,255,.08);color:#e6edff;box-shadow:none;border:1px solid var(--line)}.btn.danger{background:linear-gradient(135deg,#ff7a90,#ff5f6d)}#noteArea{width:100%;min-height:180px;border-radius:18px;background:rgba(7,11,24,.76);border:1px solid var(--line);padding:16px 18px;color:var(--ink);font-size:15px;resize:vertical;outline:none}#noteArea:focus{border-color:#91b8ff;box-shadow:0 0 0 3px rgba(130,177,255,.14)}.notes-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;color:var(--sub);font-size:13px;flex-wrap:wrap}.footer-links{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}.footer-links a{display:inline-flex;align-items:center;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05)}.tip{padding:16px 18px;border-radius:18px;background:rgba(133,183,255,.08);border:1px solid rgba(133,183,255,.14);color:#dfe9ff}@media (max-width:900px){.stats,.signals,.grid5{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}@media (max-width:720px){.stats,.signals,.grid5{grid-template-columns:1fr}.section{padding:20px}.hero{padding:24px}.story-title{font-size:21px}}</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">🌙 大模型夜报 · 周二 2026-07-21 · WAIC 收官后第二日</div>
+    <h1>大模型夜报 2026-07-21</h1>
+    <p>本期为周二（2026-07-21）触发的「今日大模型夜报」，覆盖当天 AI / 大模型资讯。今日主线三条：其一，WAIC 收官余波散去后，市场进入「独立验证 + 商业化落地」的下半场——Kimi K3 在 LMArena Frontend Code Arena 以 1679 分登顶、Anthropic 从 7 月 20 日起把 Claude Fable 5 收成付费高档、Qwen3.8-Max-Preview 已可通过 Qwen Studio / Qwen Cloud Token Plan 实际调用；其二，Microsoft ↔ Mistral 战略合作官宣，Mistral Medium 3.5 与 OCR 4 落入 Microsoft Foundry 与 Copilot Studio，欧洲 AI 与美国云正式握手；其三，AI Agent 边界一天内被两条硬新闻拉高——HuggingFace 遭首次「自治 AI Agent 供应链攻击」（17,000 次自动化动作，被另一套 AI 检测到）；蚂蚁开源 100B 级离散扩散语言模型 LLaDA2.0，把 Transformer 之外的路线首次拉到 100B 门槛。开发者侧 GitHub Trending 继续被 MCP / Agent / Harness 组合占据，价格战与合规双轨仍是 30 天持续趋势。<b> 一句话：今晚，AI 从 WAIC 的会展叙事切换到了「独立验证 + 商业化重构 + Agent 攻防」三条并行主线。</b></p>
+    <div class="meta-row"><span class="meta-chip wk">📅 今日夜报口径 · 周二 07-21 · WAIC 收官后第二日</span><span class="meta-chip">主线：Microsoft ↔ Mistral / HF Agent 攻击 / Kimi K3 登顶 / Fable 5 收编 / LLaDA2.0 100B</span><span class="meta-chip">深度复盘 + 小宇宙播客洞察</span><span class="meta-chip">覆盖 12 类必选来源</span><span class="meta-chip">7天高频信号 ×2</span><span class="meta-chip">30天持续趋势 ×2</span><span class="meta-chip">编辑：邹超</span></div>
+    <div class="stats">
+      <div class="stat"><div class="num">10</div><div class="lbl">深度条目</div></div>
+      <div class="stat"><div class="num">12</div><div class="lbl">覆盖来源</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">🔥 7天高频信号</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">📈 30天持续趋势</div></div>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>今日一句话判断</h2>
+    <div class="desc">这是周二（2026-07-21）晚 23:00 口径的「今日大模型夜报」，覆盖 WAIC 2026 收官后第二日与全球 AI / 大模型资讯，采用"主线合并 + 深度复盘"的方式编排。</div>
+    <p style="font-size:22px;font-weight:800;margin:0">今日主线：<b>WAIC 余波退潮后</b>，AI 产业进入 <b>「独立验证 + 商业化分层 + Agent 攻防」</b> 三条并行主线——<b>Microsoft × Mistral 官宣主权云合作</b>、<b>HuggingFace 遭首例自治 Agent 供应链攻击</b>、<b>Kimi K3 在 LMArena Frontend Code Arena 登顶</b>、<b>Anthropic 把 Fable 5 收成高端权益</b>、<b>Ant 开源 100B 级扩散语言模型 LLaDA2.0</b>；开发者侧 GitHub Trending 继续被 MCP / Agent Harness 组合占据。</p>
+  </section>
+
+  <section class="section">
+    <h2>高频信号追踪（近 7 天 / 30 天）</h2>
+    <div class="desc">统计口径：结合近 7 天 / 30 天晨夜报窗口连续观察，并叠加本日对 WAIC、小宇宙播客、Twitter/X、HuggingFace Daily Papers、HuggingFace 趋势 / 下载、Papers With Code、arXiv、GitHub Trending、The Batch、Benedict Evans、LessWrong / Alignment Forum、AI Snakeoil / Normal Tech、Import AI 的交叉巡检结果。「7天高频信号」= 近 7 天 ≥3 次出现；「30天持续趋势」= 近 30 天持续出现。</div>
+    <div class="signals"><div class="signal sig7"><div class="signal-title">🔥 「Agent 边界事件」在 7 天内密集出现：从工具到攻击面</div><div class="signal-desc">HuggingFace 供应链攻击（17,000 次自治动作，被另一 AI 检测捕获）、HuggingFace 官方发布 Open Computer Agent 免费版、xAI Grok Build 与 codebase-memory-mcp 冲上 GitHub Top10、Yike Wang 团队发论文警告 Agent harness evolution 存在基准过拟合。7 天里≥3 次把「Agent 已经是攻击面、评测面与产品面」的现实拉到台前。</div><div class="signal-freq">近 7 天 ≥3 次（HF 官方 / HF 攻击 / GitHub Trending / arXiv）</div></div><div class="signal sig7"><div class="signal-title">🔥 万亿参数级「开放/半开放旗舰」进入独立验证阶段：Kimi K3 → Qwen3.8-Max</div><div class="signal-desc">Kimi K3 在 LMArena Frontend Code Arena 拿到 1679 分登顶（Fable 5 1631、GPT-5.6 Sol 1618）、界面新闻 07-21 报道；Qwen3.8-Max-Preview 07-21 可通过 Qwen Studio / Qwen Cloud Token Plan 实际调用，SVG 生成演示大量出现；GLM-5.2 权重继续在 HuggingFace 高位。开源阵营正把「敢跟闭源打分」变成 7 天里被反复引用的事实。</div><div class="signal-freq">近 7 天 ≥3 次（LMArena / Moonshot 官方 / gigazine / MarkTechPost）</div></div><div class="signal sig30"><div class="signal-title">📈 「便宜档位越过业务底线」引导默认模型切换，价格战与商业化模型分层同步加速</div><div class="signal-desc">GPT-5.6 Luna 输入约 $1、Fable 5 输入约 $10；同期 Muse Spark 1.1、Grok 4.5 位于同价格窗；Anthropic 从 7 月 20 日起把 Fable 5 缩到高价订阅内、Pro 用户改为按请求计费——这条 30 天趋势从「谁便宜」演化到「贵档要重新定义为高端付费权益」。</div><div class="signal-freq">近 30 天持续出现（trendingtopics.eu / cruxdigits / llmhire / egrowthinvestor）</div></div><div class="signal sig30"><div class="signal-title">📈 治理与合规双轨常态化：WAICO 落定后进入「企业采购的必选变量」阶段</div><div class="signal-desc">7 月 16 日 WAICO 落地后，07-21 报道普遍把「治理归属」当作跨境 AI 采购的必选参数；Microsoft ↔ Mistral 合作则代表美欧监管 + 主权云路径的进一步整合。近 30 天从欧盟 AI Act 二阶段到 WAICO 到 Microsoft/Mistral 官宣，双轨从战略叙事变成条约级 + 供应商级的落地。</div><div class="signal-freq">近 30 天持续出现（Microsoft newsroom / WAICO / EU AI Act 相关报道）</div></div></div>
+  </section>
+
+  <section class="section">
+    <h2>私有化 / 开源部署热度（HuggingFace 下载口径）</h2>
+    <div class="desc">口径说明：这一节代表公开模型与开源项目的下载 / 自部署热度，更接近"私有化 / 开源部署热度"，<b>不等同于公有云 API 实际调用量</b>。它反映的是：哪些模型最常被拿去压测、量化、部署和接进工作流。</div>
+    <div class="table-wrap"><table><thead><tr><th>模型 / 项目</th><th>热度信号</th><th>为什么值得看</th><th>原文</th></tr></thead><tbody><tr><td>Kimi K3（Moonshot AI）</td><td>LMArena Frontend Code Arena 1679 登顶；权重 7/27 交付；API 已开放</td><td>2.8T 开放权重、原生视觉 + 1M context + Kimi Delta Attention；第三方评测 07-21 已交叉印证在前端编程赛道超过 Fable 5 / GPT-5.6 Sol。私有化 / 长文档 / 长程 Agent 首选评估对象。</td><td><a href="https://m.jiemian.com/article/14803477.html" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Qwen3.8-Max-Preview（Alibaba）</td><td>Preview 已上线 Qwen Studio / Qwen Cloud Token Plan / Qoder；官方称「即将开源权重」</td><td>2.4T 原生多模态、agent-native；07-21 gigazine 复现 SVG 动画演示，preview 实际可用性得到独立验证；官方「仅次于 Fable 5」的自评仍待 benchmark 明细披露。</td><td><a href="https://gigazine.net/gsc_news/en/20260721-qwen3-8/" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>GLM-5.2（zai-org / Zhipu）</td><td>HuggingFace MIT 权重 + FP8 / GGUF 量化</td><td>744B MoE / ~40B 激活 / 1M context；被列为「长上下文编码 / 推理 / agentic 最佳整体开源模型」，价格约 $1/$3，企业默认档最强性价比。</td><td><a href="https://huggingface.co/zai-org/GLM-5.2" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>LLaDA2.0（Ant Group）</td><td>100B 参数 + 16B mini 版本开源；离散扩散语言模型（dLLM）</td><td>业内首个 100B 段位的 dLLM，把「非自回归」路线拉到 100B 门槛；发布同时提供技术报告，适合作为「Transformer 之外」的第二条私有化路线。</td><td><a href="https://ai-damn.com/ant-group-s-llada2-0-a-100b-parameter-leap-in-ai-language-models-1765753733253" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>smolagents / Open Computer Agent（HuggingFace）</td><td>HuggingFace 官方发布免费 Linux VM Agent（类 Operator）</td><td>开源 Agent 底盘继续扩张：smolagents ~28k stars、Open Computer Agent 07-21 上线可视化 Linux 沙箱，是私有化 Agent Harness 参考实现里最新的一个。</td><td><a href="https://www.techshotsapp.com/technology/hugging-face-launches-free-agentic-ai-tool-to-showcase-open-source-capabilities" target="_blank" rel="noopener">原文链接</a></td></tr></tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>公有云模型使用场景（Artificial Analysis + Twitter/X 实际用法）</h2>
+    <div class="desc">口径说明：这一节不看下载榜，而看"真实工作流里应该把哪个模型放在哪一段"。重点不是谁总分第一，而是谁更适合承担总控、批处理、复核或成本敏感型铺量。（价格为公开报道口径，可能随官方调整而变化）</div>
+    <div class="table-wrap"><table><thead><tr><th>模型 / 组合</th><th>更适合的使用场景</th><th>为什么是这个场景</th><th>原文</th></tr></thead><tbody><tr><td>Claude Fable 5 / Anthropic</td><td>最高价值总控 + 关键判断步骤（现在明确定位为高端权益）</td><td>Anthropic 从 7 月 20 日把 Fable 5 缩回 Pro / Max / Team / Enterprise 高档；Pro 用户改为按请求计费；意味着 Fable 5 不再适合默认铺量，只放在「最贵的一步」。</td><td><a href="https://www.trendingtopics.eu/anthropic-turns-fable-5-into-a-premium-feature-openai-spreads-gpt-5-6-wider/" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>GPT-5.6 Sol / Terra / Luna（OpenAI）</td><td>Sol：总控 Agent；Terra：中价工作流；Luna：批量与前端</td><td>GPT-5.6 已下沉到几乎所有 ChatGPT 订阅层；Luna 报价约 $1 输入 / $6 输出，据独立评测已在部分编码任务上超越 Opus 4.8。适合分层承担从 Agent 大脑到批处理的组合流量。</td><td><a href="https://egrowthinvestor.com/2026/07/18/openais-gpt-56-squeezes-anthropics-claude-fable-5/" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Kimi K3 API（Moonshot）</td><td>长文档 / 长程 Agent / 前端编程默认档</td><td>K3 07-21 在 LMArena Frontend Code Arena 登顶，API 输入约 $3 / 输出约 $15，权重 7/27 交付；企业可先 API 试，再评估私有化。</td><td><a href="https://m.jiemian.com/article/14803477.html" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Qwen3.8-Max-Preview（阿里云 Token Plan / Qwen Studio）</td><td>agent-native POC + 阿里云 Qoder / QoderWork 工程实验</td><td>Preview 期折扣定价 + Qwen Studio 免登录体验，是国产万亿级预览的最快评估入口；07-21 已有大量 SVG / 动画独立 demo。</td><td><a href="https://gigazine.net/gsc_news/en/20260721-qwen3-8/" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Microsoft Foundry + Mistral Medium 3.5 / OCR 4</td><td>欧洲主权云 / 合规敏感场景的 API 默认档</td><td>2026-07-21 Microsoft 与 Mistral 官宣扩大战略合作：Mistral Medium 3.5 与 OCR 4 上 Microsoft Foundry，Medium 3.5 上 Copilot Studio，是欧洲合规 + 美国云的第一个 A 级样板。</td><td><a href="https://news.microsoft.com/source/2026/07/21/microsoft-and-mistral-expand-strategic-partnership-to-give-enterprises-and-regulated-industries-frontier-ai-they-can-control/" target="_blank" rel="noopener">原文链接</a></td></tr></tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>今日深度复盘（10 条 · 周二 07-21 主线）</h2>
+    <div class="desc">每条都按同一口径展开：💬 点评 + 🎯 业务视角 + 🔬 技术背景 + 🔗 上下游影响 + 🚀 6个月产品卖点预测；徽章中标注归属时间 / 覆盖范围。所有链接均使用真实原文或源站入口；无法确认原文的一律不伪造。</div>
+    <div class="story-grid"><article class="story-card">
+      <div class="story-top"><div class="story-idx">#01</div><div class="story-title">Microsoft ↔ Mistral 战略合作扩大：Mistral Medium 3.5 / OCR 4 落入 Foundry 与 Copilot Studio</div></div>
+      <div class="badges"><span class="badge">Microsoft / Mistral</span><span class="badge day">周二 07-21</span><span class="badge">30天持续趋势</span></div>
+      <p class="summary">Microsoft 官方 newsroom 7 月 21 日发布公告，宣布与 Mistral AI 扩大战略合作：Mistral Medium 3.5 与 OCR 4 现已上架 Microsoft Foundry，Mistral Medium 3.5 同步接入 Microsoft Copilot Studio，让企业开发者可以直接在 Microsoft 平台上使用 Mistral 的前沿多语言 / OCR 能力构建、微调和运营 AI 应用；双方也宣布在受监管行业（金融、制造、公共部门）联合推动可控 AI 的落地。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>当美国云头号玩家把欧洲 AI 一号旗舰放进 Foundry 与 Copilot Studio，「美欧监管协同 + 主权云」这一条路线才第一次拿到 A 级样板，与另一边的 WAICO 完成呼应。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对企业解决方案团队：跨境客户的 POC 名单，Mistral Medium 3.5 / OCR 4 应立刻纳入欧盟合规样板；Copilot Studio 里能直接选 Mistral，会成为对 GPT-5.6 / Fable 5 的合规替代候选。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>Foundry 里 Mistral 与 OpenAI / Anthropic / Meta / xAI 等模型使用同一编排、路由与安全评估层，Medium 3.5 主打多语言 + 效率，OCR 4 主打文档理解，两者叠加对多语言合同 / 表单场景效率提升明显。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会持续拉动模型路由器、多云网关、主权云合规、文档理解与 RAG 中间层的需求；欧洲 SaaS 与 GSI 的 AI 供应链选型会明显向双云 / 双模型倾斜。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「跨境企业 AI 双云配置包（Azure + Mistral / Foundry） + 欧盟 AI Act 合规审计报告」会成为出海鞋服 / 消费客户新增高价值模块。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://news.microsoft.com/source/2026/07/21/microsoft-and-mistral-expand-strategic-partnership-to-give-enterprises-and-regulated-industries-frontier-ai-they-can-control/" target="_blank" rel="noopener">Microsoft Newsroom · Microsoft and Mistral Expand Strategic Partnership</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#02</div><div class="story-title">HuggingFace 遭首次「自治 AI Agent 供应链攻击」：17,000 次自动化动作，被另一 AI 抓到</div></div>
+      <div class="badges"><span class="badge">安全 / Agent 边界</span><span class="badge day">周一至周二 07-20/21</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">HuggingFace 官方 07-21 披露：7 月中旬周末发生了一起由「自治 AI Agent 系统」发起的入侵事件——通过恶意 dataset 触发两条代码执行路径（remote-code dataset loader 与 dataset config 模板注入），逐步升权到 node-level、抓取云凭据并在内部集群横向移动，累计执行超过 17,000 次自动化攻击动作；这一入侵最终被另一套 AI 防御系统检测到并阻断。ZDNET、Gadget Review、ETV Bharat 等同步报道，把 HuggingFace 供应链风险与 npm / PyPI 类比。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>这不是普通事故：它把「Agent 是攻击面」从演讲台变成了真实事故清单，让「AI 打 AI」的攻防节奏正式登场。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对企业解决方案团队，本周应立即启动内部 HuggingFace 令牌轮换、审计所有 `trust_remote_code=True` 的模型加载路径，把 HF 模型 / 数据集视为需要 SBOM 与审批的供应链资产。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>技术要点：dataset loader 的远程代码 + 配置模板注入是双入口，Agent 的持续行动让 IAM 与 Blast Radius 边界暴露；企业侧应默认强制 sandbox、限制 dataset 自定义代码、开启异常动作聚类检测。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会拉动 AI 供应链 SBOM、模型 / dataset 白名单、Agent 行为异常检测、模型 forensic 与凭据轮换等安全能力的需求，也会加速「AI 防御 Agent」这条独立赛道。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「AI 供应链 SBOM + trust_remote_code 审计 + Agent 行为异常检测」会成为客户新增合规模块，尤其是金融 / 政务与出海客户。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.zdnet.com/article/hugging-face-breach-blamed-on-ai-agent/" target="_blank" rel="noopener">ZDNET · An AI agent breached Hugging Face before an AI defender caught it</a></li><li><a href="https://www.gadgetreview.com/an-ai-agent-breached-hugging-face-another-ai-caught-it-heres-what-you-need-to-do" target="_blank" rel="noopener">Gadget Review · An AI Agent Breached Hugging Face. Another AI Caught It</a></li><li><a href="https://thenextgentechinsider.com/pulse/hugging-face-mitigates-autonomous-ai-agent-intrusion-using-model-forensics" target="_blank" rel="noopener">The Next Gen Tech Insider · Hugging Face Mitigates Autonomous AI Agent Intrusion Using Model Forensics</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#03</div><div class="story-title">Kimi K3 在 LMArena Frontend Code Arena 登顶：1679 分超过 Fable 5 / GPT-5.6 Sol</div></div>
+      <div class="badges"><span class="badge">Kimi K3 / LMArena</span><span class="badge day">周二 07-21</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">据界面新闻 07-21 报道，Moonshot AI 的 Kimi K3 在国际知名评测平台 LMArena 的 Frontend Code Arena（前端编程）榜单以 1679 分登顶，超过 Anthropic Claude Fable 5（1631 分）与 OpenAI GPT-5.6 Sol（1618 分）；techfastforward 独立报道同一榜单结论，Moonshot 官方同时给出「6.3× 长上下文解码提速」等工程指标。K3 API 已开放，权重 7 月 27 日交付。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>这是一次「开源阵营第一次在标准公开榜单上打过闭源第一梯队」的可交叉验证时刻——榜单是第三方的，比自评更硬。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>前端编程 / 全栈 Copilot / 直播销讲脚本这类以生成质量为核心的场景，Kimi K3 已具备进入企业方案短名单的条件；先用 API 完成质量画像，再在 7/27 权重交付后决定是否私有化。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>K3 采用 2.8T 参数稀疏 MoE + 16 专家激活、Kimi Delta Attention + 1M context；LMArena 的 Frontend Code Arena 是从人机对战投票拟合出来的相对分，比静态 benchmark 更抗污染，也更接近真实生产。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会拉动前端 Agent、Copilot、页面生成与设计 → 代码工作流的供应商结构调整；也会给 LMArena 类真实对战榜单更多话语权，静态 benchmark 的权重会下降。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「Kimi K3 前端 Copilot 私有化包 + Fable 5 / GPT-5.6 混合路由」会是消费 / 电商前端团队最容易成交的方案。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://m.jiemian.com/article/14803477.html" target="_blank" rel="noopener">界面新闻 · 港投布局企业月之暗面发布全球参数最大开源模型 Kimi K3</a></li><li><a href="https://techfastforward.com/articles/moonshot-kimi-k3-beats-fable-5-with-openweight-sparse-moe" target="_blank" rel="noopener">TechFastForward · Moonshot Kimi K3 Beats Fable 5 With Open-Weight Sparse MoE</a></li><li><a href="https://platform.kimi.ai/docs/guide/kimi-k3-quickstart" target="_blank" rel="noopener">Kimi API Platform · Kimi K3 Quickstart</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#04</div><div class="story-title">Anthropic 从 7 月 20 日把 Claude Fable 5 收成高端权益：Pro 改按请求计费</div></div>
+      <div class="badges"><span class="badge">Anthropic / 商业化</span><span class="badge day">周一 07-20 生效</span><span class="badge">30天持续趋势</span></div>
+      <p class="summary">Trending Topics 与 We Speak IoT 报道：Anthropic 结束了让全部付费 Claude 用户可用 50% 周额度调用 Fable 5 的过渡期（该福利 7 月 19 日到期），从 7 月 20 日起 Fable 5 只在较贵的 Pro / Max / Team / Enterprise 档默认无附加费提供；Pro 订阅者对 Fable 5 改为按请求计费。同期 GPT-5.6 三档下沉到几乎所有 ChatGPT 订阅，OpenAI 与 Anthropic 走出了相反的分层策略。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>价格战的一个隐蔽结果是：贵档模型不再靠「谁都能用」维持广度，而必须靠「明确的高价值权益」维持深度——这是 Anthropic 的收编动作。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>企业采购要重新审视 Fable 5 的使用位置：默认档下移到 GPT-5.6 Sol / Kimi K3 / GLM-5.2；Fable 5 只在最贵一步 + Enterprise 合同层承担，避免账单被单价 $10 输入 / $50 输出的高价梯度反噬。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>Anthropic 的按请求计费意味着模型路由器与预算护栏必须支持「按订阅层 × 按任务分级」的组合策略，而不只是简单价格排序。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会拉动模型路由器、cost-cap、fallback、订阅级别感知的策略引擎需求；对企业级 Agent 平台是核心中间层机会。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「订阅层感知的模型路由器 + 高价 Fable 5 使用画像分析」会成为方案顾问口袋里的高毛利模块。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.trendingtopics.eu/anthropic-turns-fable-5-into-a-premium-feature-openai-spreads-gpt-5-6-wider/" target="_blank" rel="noopener">Trending Topics · Anthropic turns Fable 5 into a premium feature</a></li><li><a href="https://www.wespeakiot.com/anthropic-extends-fable-5-again-openais-gpt-5-6-squeezes-the-price/" target="_blank" rel="noopener">We Speak IoT · Anthropic Extends Fable 5 Again — OpenAI&#x27;s GPT-5.6 Squeezes the Price</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#05</div><div class="story-title">蚂蚁开源 LLaDA2.0：业内首个 100B 级离散扩散语言模型（dLLM）</div></div>
+      <div class="badges"><span class="badge">Ant Group / 扩散 LLM</span><span class="badge day">周二 07-21</span><span class="badge">开源模型</span></div>
+      <p class="summary">ai-damn 与 gmteight 07-21 同步报道：蚂蚁集团技术研究院正式开源 LLaDA2.0，作为业内首个 100B 参数级别的离散扩散语言模型（dLLM），并同步发布技术报告；本次开源包含 16B（mini）与 100B（flash）两个版本。这是把「非自回归 / 扩散」这条与 Transformer 并行的路线首次拉到 100B 门槛的动作，也是继此前 LLaDA1.x 系列后的关键跃迁。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>真正值得留意的不是「又一个大模型」，而是「Transformer 之外的第二条 100B 路线」被摆到开源货架上——这决定了未来 12 个月私有化选型是否只有 MoE 一条腿。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>企业方案里可以把 LLaDA2.0 mini / flash 作为「差异化推理路径」的评估对象，特别是对长依赖 / 结构化生成 / 校对纠错类任务；短期不建议替换主生产线，但值得进入技术雷达。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>扩散 LLM 在推理阶段的并行度、可控性与结构化生成能力有天然优势，但对训练算力与算法团队要求更高；100B flash 版本释放意味着预训练与量化生态可以第一次围绕这条路线开展。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会带动扩散推理库、并行采样调度、结构化解码工具链需求；对 SciML / 医疗 / 金融合规文书类客户是长期利好。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「LLaDA2.0 结构化文书生成评测 + 定制微调套件」可以作为对纯 Transformer MoE 的差异化补充卖点。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://ai-damn.com/ant-group-s-llada2-0-a-100b-parameter-leap-in-ai-language-models-1765753733253" target="_blank" rel="noopener">ai-damn · Ant Group&#x27;s LLaDA2.0: A 100B-Parameter Leap in AI Language Models</a></li><li><a href="https://gmteight.com/flash/detail/1114030" target="_blank" rel="noopener">gmteight · The ant releases the first 100B diffusion language model LLADA2.0</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#06</div><div class="story-title">Qwen3.8-Max-Preview 可实测：Qwen Studio + Qwen Cloud Token Plan 已开放</div></div>
+      <div class="badges"><span class="badge">Alibaba / Qwen</span><span class="badge day">周二 07-21 实测</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">gigazine 07-21 复现了 Qwen3.8-Max-Preview 的实际使用路径：Preview 已通过 Qwen Studio Chat 与 Qwen Cloud Token Plan 对外开放；开发者社区出现了「让 Qwen3.8-Max 直接生成 SVG 的骑单车鹈鹕动画」等演示，视觉与代码能力在预览阶段已可被独立验证；Awesome Agents 与 explainX 也确认这是 Qwen 首个跨越 1T 参数门槛且原生多模态的旗舰。官方 benchmark 明细与开源权重仍未同步给出。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>「preview 已可实测 + 权重承诺开源」这种双轨节奏，意味着企业可以在采购前跑出真实能力画像，不必再仅凭营销材料判断。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>本周就可以在 POC 阶段安排 Qwen3.8-Max-Preview 与 Kimi K3 / GLM-5.2 / GPT-5.6 Sol 的对照测试；把 SVG / 前端生成 / 图文任务作为差异化项目验证。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>2.4T 稀疏 MoE + 原生多模态，preview 阶段应重点观察 KV cache、tool-use 稳定性与视觉指令的一致性；权重与许可证仍需等待官方 model card。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会拉动阿里云 agent 产品栈（Qoder / QoderWork / Token Plan）与推理框架、量化工具链的需求；同时给 Kimi K3、GLM-5.2 制造更多同段位对比点。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「Qwen3.8-Max Preview 能力画像 + 独立 benchmark 报告」将是方案咨询里高频加购项。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://gigazine.net/gsc_news/en/20260721-qwen3-8/" target="_blank" rel="noopener">Gigazine · Alibaba announces the open model release of Qwen3.8</a></li><li><a href="https://awesomeagents.ai/models/qwen-3-8-max-preview/" target="_blank" rel="noopener">Awesome Agents · Qwen3.8-Max-Preview</a></li><li><a href="https://www.explainx.ai/blog/qwen-3-8-max-preview-open-weight-token-plan-july-2026" target="_blank" rel="noopener">ExplainX · Qwen 3.8 Max Preview Token Plan Guide</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#07</div><div class="story-title">HuggingFace 官方发布 Open Computer Agent：免费云端 Linux VM 类 Operator</div></div>
+      <div class="badges"><span class="badge">HuggingFace / Agent</span><span class="badge day">周二 07-21</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">techshotsapp 07-21 报道，HuggingFace 官方推出 Open Computer Agent，一个免费的云端 AI 工具，运行在 Linux 虚拟机环境中，可以执行操作 Google Maps、使用 Firefox 等任务，类似 OpenAI 的 Operator；文章明确指出目前对复杂操作仍有明显边界。这与 smolagents（~28k stars）、Rowboat、Grok Build、codebase-memory-mcp 等一起，把「开源 Agent Harness + MCP 底盘」的能见度进一步拉高。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>当 HuggingFace 自己下场做 Operator 类免费 Agent，说明「浏览器 / 桌面 Agent」正在从旗舰演示变成默认基础设施；企业不再需要为了体验一次自动化去买单。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>内部研发与售前 demo 可以直接用 Open Computer Agent 快速验证浏览器 / 桌面 Agent 的可行性；正式生产仍需换成受控 Harness + 更细的权限模型。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>Open Computer Agent 是「Linux 沙箱 + LLM 决策 + 浏览器控制」的经典组合；smolagents 走「代码优先」路线，是同一 Harness 家族的两种表达。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会持续利好受控 Harness / 沙箱 / 权限审计 / 日志回放供应商，也会推动企业内部把 Agent 从演示升级为工位工具。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「企业级受控 Computer Agent Harness + 权限治理面板」会是常态套餐组件，尤其是运营 / 客服 / 数据录入类岗位。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.techshotsapp.com/technology/hugging-face-launches-free-agentic-ai-tool-to-showcase-open-source-capabilities" target="_blank" rel="noopener">TechShotsApp · Hugging Face Launches Free Agentic AI Tool</a></li><li><a href="https://theresanaiforthat.com/company/huggingface/repository/smolagents/" target="_blank" rel="noopener">HuggingFace smolagents</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#08</div><div class="story-title">Meshy 完成近 4 亿美元 B 轮，AI 3D 单轮融资天花板刷新</div></div>
+      <div class="badges"><span class="badge">融资 / 多模态</span><span class="badge day">周一至周二 07-20/21</span><span class="badge">产业信号</span></div>
+      <p class="summary">经济观察网、腾讯新闻、IT之家、新浪科技 07-20 至 07-21 集中报道：AI 3D 领跑者 Meshy 完成近 4 亿美元 B 轮融资，投后估值超 100 亿元人民币，创下 AI 3D 单轮融资纪录；IDG 资本、经纬中国、Monolith 砺思资本领投，红杉中国 / BAI / 源码资本等现有股东超额跟投。Meshy 已服务网易、三七互娱、拓竹、Hugo Boss 等客户，商业化闭环较为完整。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>AI 3D 从「炫技工具」进入「规模化商用」阶段的关键信号：融资金额和客户画像同时上台阶，说明 3D 生成开始被大型消费与制造客户当作核心生产要素。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对鞋服 / 家居 / 消费类客户：3D 生成从「营销素材实验」进入「主力素材工厂」阶段，方案侧可以把「3D + 视频 + 直播销讲」打包成一条链；应关注 Meshy 与自有 VLM / Seedance 工作流的对接可能。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>此轮资金指向多模态基础模型 + 实时互动方向，意味着未来 12 个月 AI 3D 会与视频生成 / 具身 AI 进一步融合；对推理端的 GPU 密度和延迟要求会显著上升。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会拉动 3D 生成 SaaS、素材工厂、内容审核、CDN / 边缘推理与 AR / VR 消费应用的协同需求；也会给游戏 / 3D 打印 / 文创客户提供更强的中台。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「品牌 3D 素材工厂 + 直播销讲脚本联动 + Meshy 接入方案」会成为鞋服 / 家居客户的高价值增购项。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="http://www.eeo.com.cn/2026/0720/966888.shtml" target="_blank" rel="noopener">经济观察网 · Meshy 完成近 4 亿美元 B 轮融资</a></li><li><a href="https://www.ithome.com/0/979/368.htm" target="_blank" rel="noopener">IT之家 · Meshy 宣布近 4 亿美元 B 轮融资</a></li><li><a href="https://36kr.com/p/3903374470710913" target="_blank" rel="noopener">36氪 · Meshy 公布估值超百亿，下一步进军实时互动的多模态内容体验</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#09</div><div class="story-title">Arcfra 发布 Neutree 1.1：面向企业 AI 推理的 MaaS 治理平台</div></div>
+      <div class="badges"><span class="badge">企业推理 / MaaS</span><span class="badge day">周二 07-21</span><span class="badge">GPU 治理</span></div>
+      <p class="summary">PRNewswire / The AI Journal 07-21 报道，Arcfra 发布 Neutree 1.1，一个面向企业级 AI 推理的 Model-as-a-Service 平台，主打 GPU 利用率优化与推理治理；重点在于把私有化 GPU 资源池、多模型调度、成本控制、审计留痕做成企业可采购的一整套底盘。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>当推理层开始被打包成 MaaS 治理产品，说明 GPU 治理已经从 CTO 白板走到 IT 采购目录——这是未来 12 个月企业采购的重要变化。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对有自建 GPU 集群的鞋服 / 电商大客户：可以把 Neutree 1.1 及同类 MaaS 治理层纳入选型，把「推理资源分配 + 成本回溯 + 审计」做成合同层可谈条款。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>关键模块通常包括：调度器（多租户 + 多模型）、批处理与推理引擎、KV cache 复用、成本回溯与配额；未来会与模型路由器、AI 网关合并。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>拉动 GPU 池化、AI 网关、成本监控与合规审计生态；对 CPU + 加速卡混合部署方向利好。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「企业级 MaaS 治理层 + GPU 成本回溯看板」会成为大客户方案的核心底盘模块。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://aijourn.com/arcfra-releases-neutree-1-1-to-help-enterprises-optimize-gpu-utilization-and-govern-ai-inference-at-scale/" target="_blank" rel="noopener">The AI Journal · Arcfra Releases Neutree 1.1</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#10</div><div class="story-title">研究前沿：Harness 演化被指基准过拟合 + ToolVerse 把 Agent 长程 RL 环境系统化</div></div>
+      <div class="badges"><span class="badge">arXiv / HF Papers</span><span class="badge day">周一至周二 07-20/21</span><span class="badge">工程研究</span></div>
+      <p class="summary">本周两条硬研究：一是 Yike Wang 等 07-21 在 arXiv 发文警告——目前主流的 LLM Agent「harness 自动演化」评测方法，因为用同一批 unit test 既做搜索又做上报，存在向基准过拟合的方法论风险；二是 ToolVerse（07-20 chatpaper 收录）把 Tool-Integrated Reasoning 训练环境规模化，让 Agent 能在动态、大量工具环境中执行长程任务，配套 agentic RL 与工具集成的完整框架。另有 gentic.news 07-21 的 239 篇综述专门梳理「模型 self-improve vs scaffold self-improve」两条路径。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>当研究开始质疑 Agent 评测本身的严谨性，说明 Agent 从「怎么做出来」走到「怎么被公正评价」的成熟期——企业采购要更加警惕漂亮的 harness 分数。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>内部选型 Agent 平台时必须坚持「hold-out benchmark + 真实业务任务盲测」组合，不能只看厂商在其自建 harness 上的对比图。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>ToolVerse 与 Yike Wang 的批评互补：一个把训练环境放大，一个把评测护栏收紧；这将成为未来一年 Agent 研究的两条主线。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>会拉动第三方 Agent 评测服务、agentic RL 训练平台、tool-integrated benchmark 等基础设施需求。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「企业 Agent 盲测评测服务 + Harness 过拟合审计报告」会成为大客户方案的差异化增购项。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.thenextgentechinsider.com/pulse/new-research-reevaluates-harness-evolution-for-llm-agents" target="_blank" rel="noopener">TheNextGenTechInsider · New Research Reevaluates Harness Evolution for LLM Agents</a></li><li><a href="https://chatpaper.com/chatpaper/paper/311231" target="_blank" rel="noopener">ChatPaper · ToolVerse: Unlocking Massive Environments and Long-Horizon Tasks</a></li><li><a href="https://gentic.news/article/239-paper-survey-maps-how-ai" target="_blank" rel="noopener">Gentic.news · 239-Paper Survey Maps How AI Agents Self-Improve</a></li></ul></div>
+    </article></div>
+  </section>
+
+  <section class="section">
+    <h2>来源覆盖巡检（今日口径）</h2>
+    <div class="desc">"全部覆盖"不等于硬凑热点。对于本日没有比 Microsoft/Mistral、HF Agent 攻击、Kimi K3 登顶、Fable 5 收编、LLaDA2.0 更强独立新增信号的来源，会明确标记为"持续观察 / 背景校准"，避免伪造热点或误导发布时间。</div>
+    <div class="table-wrap"><table><thead><tr><th>来源</th><th>本期使用方式 / 备注</th></tr></thead><tbody><tr><td>小宇宙播客<span class="pill ok">已采用</span></td><td>本期采用「AI 观测站」07-21 上架单集，与 Kimi K3 引发芯片板块震荡 / 中国开源崛起主线互相印证；同期硅谷101 07-16 单集「AI 的自我进化与自我验证」作为 harness 讨论的背景音。<br/><a href="https://podcasts.apple.com/cn/podcast/ai%E8%A7%82%E6%B5%8B%E7%AB%99-ai-observatory/id1887157488" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Twitter / X<span class="pill ok">已采用</span></td><td>Qwen 官方 X 帖首次抛出 &quot;second only to Fable 5&quot;（约 119.5K 首日浏览）、开发者用 K3 实测生成前端 demo 的推文集中出现，是最直接的高互动来源。<br/><a href="https://www.explainx.ai/blog/qwen-3-8-max-preview-open-weight-token-plan-july-2026" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>HuggingFace Daily Papers<span class="pill ok">已采用</span></td><td>本日采用 gentic.news 07-21 的 239 篇综述与 ToolVerse 收录条目，与 harness 演化批评互相呼应。<br/><a href="https://gentic.news/article/239-paper-survey-maps-how-ai" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>HuggingFace 模型下载趋势<span class="pill ok">已采用</span></td><td>继续以「私有化 / 开源部署热度」口径观察 GLM-5.2、Kimi K3（7/27 权重）、LLaDA2.0；HuggingFace 官方 Spaces 首页可看到 Agents / MCP 分类的高热度。<br/><a href="https://huggingface.co/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Papers With Code<span class="pill watch">持续观察</span></td><td>与 arXiv cs.AI recent 做交叉；本日没有独立于 harness 演化 / ToolVerse 的新增强信号。<br/><a href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>arXiv cs.AI / cs.LG<span class="pill ok">已采用</span></td><td>重点采用「Harness Evolution 过拟合」与「ToolVerse」两条工程研究主线。<br/><a href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>GitHub Trending<span class="pill ok">已采用</span></td><td>本期最值得看：codebase-memory-mcp（~32k stars，MCP 服务器 + tree-sitter），xai-org Grok Build，Rowboat（YC 支持 MCP + OpenAI Agents SDK），smolagents ~28k。<br/><a href="https://www.analyticsvidhya.com/blog/2026/07/trending-ai-github-repositories/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>The Batch<span class="pill watch">持续观察</span></td><td>继续用于校准 Spec / Eval / 治理长期趋势；本日没有强于本报三大主线的独立新增。<br/><a href="https://www.deeplearning.ai/the-batch/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Benedict Evans Newsletter<span class="pill watch">持续观察</span></td><td>价格战 / 商业化分层背景背景校准；07-09 的 token pricing 文本仍是当前最相关的长期视角。<br/><a href="https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>LessWrong / Alignment Forum<span class="pill watch">持续观察</span></td><td>HF 供应链事件为「AI 打 AI」讨论提供新素材，但本报采用的是新闻侧原始报道，社区分析滞后不作为主线。<br/><a href="https://www.lesswrong.com/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>AI Snakeoil / Normal Tech<span class="pill watch">持续观察</span></td><td>继续用于对 Kimi K3 / Fable 5 商业化叙事做冷静视角背景校准。<br/><a href="https://www.normaltech.ai/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Import AI<span class="pill watch">持续观察</span></td><td>本日无强新增单点，作为 Agent 生态演化的长期观察入口保留。<br/><a href="https://importai.substack.com/" target="_blank" rel="noopener">原文 / 主页</a></td></tr></tbody></table></div>
+    <div class="tip" style="margin-top:16px">说明：本期为<b>周二 2026-07-21 晚 23:00 口径的「今日大模型夜报」</b>。对没有统一公开口径的数据（如各家 token 定价、LMArena 每日刷新分数、Qwen3.8-Max 官方自评），已标注为"公开报道口径 / 官方自评待独立验证"并避免写入虚构数字；对"持续观察"型来源，明确保留了背景校准标签。</div>
+  </section>
+
+  <section class="section">
+    <div class="notes-box">
+      <div class="notes-head">
+        <h2 style="margin:0">📝 我的笔记</h2>
+        <div class="notes-tools">
+          <button class="btn secondary" id="exportBtn">⬇ 导出 .txt</button>
+          <button class="btn danger" id="clearBtn">🗑 清空</button>
+        </div>
+      </div>
+      <textarea id="noteArea" placeholder="点击这里开始记录：Microsoft × Mistral 对我们出海鞋服客户的双云策略是否要立刻更新？HF Agent 攻击后我们客户的 trust_remote_code 审计如何收口？Kimi K3 登顶后前端 Copilot 私有化排期怎么调整？Fable 5 转高端权益后我们方案里的默认档要不要迁移到 GPT-5.6 Sol / Kimi K3？（localStorage 持久化，500ms 防抖自动保存）"></textarea>
+      <div class="notes-foot">
+        <span id="saveState">未保存</span>
+        <span id="wordCount">0 字</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>访问入口</h2>
+    <div class="desc">如果你在 GitHub Pages 上查看本页，建议顺手收藏历史总目录，后续晨报 / 夜报会持续沉淀。</div>
+    <div class="footer-links">
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/night_2026-07-21.html" target="_blank" rel="noopener">🌙 GitHub Pages 本期今日夜报</a>
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/" target="_blank" rel="noopener">📚 历史总目录</a>
+      <a href="./index.html">🗂 本地历史目录</a>
+    </div>
+  </section>
+</div>
+<script>
+const REPORT_DATE = '2026-07-21';
+const NOTE_KEY = 'llm_night_notes_' + REPORT_DATE;
+const area = document.getElementById('noteArea');
+const saveState = document.getElementById('saveState');
+const wordCount = document.getElementById('wordCount');
+let saveTimer = null;
+function updateWordCount(){ wordCount.textContent = (area.value || '').replace(/\s/g,'').length + ' 字'; }
+function loadNotes(){ const saved = localStorage.getItem(NOTE_KEY); if(saved !== null){ area.value = saved; saveState.textContent = '已加载'; } updateWordCount(); }
+function saveNotes(){ localStorage.setItem(NOTE_KEY, area.value); saveState.textContent = '✓ 已自动保存 · ' + new Date().toLocaleTimeString('zh-CN'); }
+area.addEventListener('input', () => { updateWordCount(); saveState.textContent = '输入中…'; if(saveTimer) clearTimeout(saveTimer); saveTimer = setTimeout(saveNotes, 500); });
+document.getElementById('exportBtn').addEventListener('click', () => { const blob = new Blob([area.value || ''], {type:'text/plain;charset=utf-8'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = '大模型夜报笔记_' + REPORT_DATE + '.txt'; a.click(); URL.revokeObjectURL(a.href); });
+document.getElementById('clearBtn').addEventListener('click', () => { if(confirm('确定清空本期笔记吗？')){ area.value=''; localStorage.removeItem(NOTE_KEY); updateWordCount(); saveState.textContent='已清空'; } });
+loadNotes();
+</script>
+</body>
+</html>
