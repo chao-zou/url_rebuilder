@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>☀️ 大模型晨报 2026-07-28</title>
+<!-- report-meta: date=2026-07-28; type=morning; title=大模型晨报 2026-07-28; summary=本期为周二（2026-07-28）早间触发的「今日大模型晨报」，定位快讯 + 5 分钟扫读，覆盖全球 AI / 大模型资讯。今晨四条主线：一是「双旗舰对峙」——OpenAI GPT-5.6 Sol 以 Artificial Analysis Intelligence Index 约 61、GPQA Diamond 登顶确立推理霸权，紧接昨日（7/27）Kimi K3（2.8T MoE、104B 激活、1M context）全量权重开放，The Batch 披露其架构引入 Kimi Delta Attention + Attention Residuals、scaling 效率约为 K2 的 2.5 倍，API 定价 $3/$15 每百万 token、编程场景经缓存可降至有效输入 $0.3。二是「研究焦点转向 Agent 稳定性与系统工程」——arXiv《Regression Tax》用 6000+ 次运行量化「加技能既提升又损害 Agent」，NVIDIA Molt（约 9200 行、原生支持 1T MoE 的 Agentic RL 框架）、CausalForge（基于 Lean 的自改进因果推断 Agent、7035 条机器检查声明）密集出现。三是「效率 / 轻量化并进」——SANA-Video 2.0（混合线性注意力、H100 单卡 720p/5s、VBench 84.30）、Microsoft Mage-Flow（4B 文生图 + 指令编辑）、MinerU2.5-Pro（1.2B 文档解析 VLM）。四是「叙事持续商品化」——Benedict Evans 主张 token 定价走向商品化基础设施并提示云端工作空间安全新战场，Import AI / Jack Clark 披露 Remote Labor Index 自动化率 2.5%→16.1% 且「Fables 自动编写 GPU kernel」，AI Snakeoil 呼吁 AI 透明度、警示 vendor lock-in。安全侧，LessWrong 就 OpenAI / HuggingFace attack 型对齐失衡持续复盘。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>:root{--bg:#fff7ec;--panel:rgba(255,255,255,.92);--panel2:#fffaf2;--line:rgba(214,140,60,.22);--ink:#2b1f14;--sub:#7a6650;--muted:#a08a70;--accent:#e9820e;--gold:#ffb020;--violet:#ff7a59;--teal:#e06a2c;--shadow:0 20px 60px rgba(180,110,40,.14);}*{box-sizing:border-box}html,body{margin:0;padding:0;background:radial-gradient(circle at 50% -8%,#ffe6b8 0%,#fff2df 40%,#fff7ec 100%);color:var(--ink);font-family:'Inter','Noto Sans SC',system-ui,-apple-system,sans-serif;line-height:1.75}a{color:#c85a10;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:32px 20px 88px;position:relative}.hero{position:relative;border:1px solid var(--line);background:linear-gradient(135deg,#fff3dc,#ffe9c9);box-shadow:var(--shadow);border-radius:28px;padding:34px 34px 28px;overflow:hidden}.hero:before{content:'';position:absolute;inset:auto -100px -120px auto;width:320px;height:320px;background:radial-gradient(circle,#ffbb5566,transparent 68%);filter:blur(10px)}.kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(233,130,14,.28);padding:8px 14px;border-radius:999px;color:#a2560a;background:rgba(255,255,255,.6);font-size:13px;font-weight:700}.hero h1{font-size:42px;line-height:1.12;margin:18px 0 14px;color:#3a2a17}.hero p{margin:0;color:#6c5a44;max-width:980px;font-size:16px}.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.meta-chip{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--line);color:#7a6044;font-size:13px}.meta-chip.wk{background:rgba(255,176,32,.2);border-color:rgba(233,130,14,.35);color:#9a5a06}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0 0}.stat{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:20px;padding:18px 18px 14px}.stat .num{font-size:28px;font-weight:800;color:#c85a10}.stat .lbl{font-size:13px;color:var(--sub)}.section{margin-top:22px;border:1px solid var(--line);border-radius:24px;background:var(--panel);backdrop-filter:blur(14px);box-shadow:var(--shadow);padding:26px}.section h2{margin:0 0 8px;font-size:26px;color:#3a2a17}.section .desc{color:var(--sub);margin-bottom:18px}.signals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.signal{border-radius:20px;padding:18px;background:#fffaf2;border:1px solid var(--line)}.signal.sig7{box-shadow:inset 0 0 0 1px rgba(233,130,14,.28)}.signal.sig30{box-shadow:inset 0 0 0 1px rgba(255,122,89,.3)}.signal-title{font-size:17px;font-weight:800;margin-bottom:6px}.signal-desc{color:#4a3a28;opacity:.96}.signal-freq{margin-top:8px;color:var(--sub);font-size:13px}.table-wrap{overflow:auto;border-radius:18px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;background:#fffdf9}th,td{padding:14px 14px;border-bottom:1px solid rgba(214,140,60,.16);vertical-align:top;text-align:left;font-size:14px}th{font-size:13px;color:#7a5222;background:rgba(255,240,214,.9);position:sticky;top:0}tr:hover td{background:rgba(255,244,224,.6)}.pill{display:inline-flex;align-items:center;margin-left:10px;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:700}.pill.ok{background:rgba(56,178,120,.16);color:#1f7a4d}.pill.watch{background:rgba(255,176,32,.2);color:#9a5a06}.tw-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.tw-card{border:1px solid var(--line);border-radius:20px;background:#fffaf2;padding:18px}.tw-card h4{margin:0 0 6px;font-size:16px;color:#3a2a17}.tw-src{color:#a2560a;font-size:12.5px;font-weight:700;margin-bottom:8px}.tw-card p{margin:0 0 12px;color:#5a4936;font-size:14px}.story-grid{display:grid;grid-template-columns:1fr;gap:18px}.story-card{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,#fffdf9,#fff7ec);padding:22px}.story-top{display:flex;gap:14px;align-items:flex-start}.story-idx{flex:0 0 auto;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}.story-title{font-size:23px;line-height:1.35;font-weight:800;color:#332415}.badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 12px}.badge{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--line);font-size:12px;color:#7a6044}.badge.day{background:rgba(233,130,14,.14);border-color:rgba(233,130,14,.3);color:#a2560a}.summary{font-size:15.5px;color:#4a3a28;margin:0 0 14px}.grid5{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.blk{border-radius:18px;padding:16px;background:#fffaf2;border:1px solid rgba(214,140,60,.16)}.blk:last-child{grid-column:1/-1}.blk h4{margin:0 0 8px;font-size:14px;color:#332415}.blk p{margin:0;color:#5a4936}.links{margin-top:14px;padding-top:14px;border-top:1px dashed rgba(214,140,60,.28);display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}.links span{font-weight:700}.links ul{margin:0;padding-left:18px}.notes-box{border-radius:24px;background:var(--panel2);border:1px solid var(--line);padding:24px}.notes-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.notes-tools{display:flex;gap:10px;flex-wrap:wrap}.btn{border:none;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--gold),var(--accent));color:#fff;box-shadow:0 8px 24px rgba(233,130,14,.25)}.btn.secondary{background:rgba(255,255,255,.85);color:#a2560a;box-shadow:none;border:1px solid var(--line)}.btn.danger{background:linear-gradient(135deg,#ff8a5c,#ff5f57)}#noteArea{width:100%;min-height:180px;border-radius:18px;background:#fffdf9;border:1px solid var(--line);padding:16px 18px;color:var(--ink);font-size:15px;resize:vertical;outline:none}#noteArea:focus{border-color:#e9820e;box-shadow:0 0 0 3px rgba(233,130,14,.16)}.notes-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;color:var(--sub);font-size:13px;flex-wrap:wrap}.footer-links{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}.footer-links a{display:inline-flex;align-items:center;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.7)}.tip{padding:16px 18px;border-radius:18px;background:rgba(255,176,32,.12);border:1px solid rgba(233,130,14,.2);color:#6c5236}@media (max-width:900px){.stats,.signals,.grid5,.tw-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}@media (max-width:720px){.stats,.signals,.grid5,.tw-grid{grid-template-columns:1fr}.section{padding:20px}.hero{padding:24px}.story-title{font-size:21px}}</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">☀️ 大模型晨报 · 周二 2026-07-28 · 快讯 + 5 分钟扫读</div>
+    <h1>大模型晨报 2026-07-28</h1>
+    <p>本期为周二（2026-07-28）早间触发的「今日大模型晨报」，定位快讯 + 5 分钟扫读，覆盖全球 AI / 大模型资讯。今晨四条主线：一是「双旗舰对峙」——OpenAI GPT-5.6 Sol 以 Artificial Analysis Intelligence Index 约 61、GPQA Diamond 登顶确立推理霸权，紧接昨日（7/27）Kimi K3（2.8T MoE、104B 激活、1M context）全量权重开放，The Batch 披露其架构引入 Kimi Delta Attention + Attention Residuals、scaling 效率约为 K2 的 2.5 倍，API 定价 $3/$15 每百万 token、编程场景经缓存可降至有效输入约 $0.3。二是「研究焦点转向 Agent 稳定性与系统工程」——arXiv《Regression Tax》用 6000+ 次运行量化「加技能既提升又损害 Agent」，NVIDIA Molt（约 9200 行、原生支持 1T MoE 的 Agentic RL 框架）、CausalForge（基于 Lean 的自改进因果推断 Agent）密集出现。三是「效率 / 轻量化并进」——SANA-Video 2.0（混合线性注意力、H100 单卡 720p/5s、VBench 84.30）、Microsoft Mage-Flow（4B 文生图 + 指令编辑）、MinerU2.5-Pro（1.2B 文档解析 VLM）。四是「叙事持续商品化」——Benedict Evans 主张 token 定价走向商品化基础设施并提示云端工作空间安全新战场，Import AI / Jack Clark 披露 Remote Labor Index 自动化率 2.5%→16.1% 且「Fables 自动编写 GPU kernel」，AI Snakeoil 呼吁 AI 透明度、警示 vendor lock-in。安全侧，LessWrong 就 OpenAI / HuggingFace attack 型对齐失衡持续复盘。<b> 一句话：今晨主线 = 双旗舰对峙（GPT-5.6 Sol 以 AA Index 约 61 / GPQA #1 确立推理霸权 + Kimi K3 2.8T 权重开放后生态发酵、scaling 效率 2.5× K2）+ 研究焦点转向「Agent 稳定性与系统工程」（Regression Tax / Molt / CausalForge）+ 效率轻量化并进（SANA-Video 2.0 / Mage-Flow 4B / MinerU2.5-Pro）+ 叙事持续商品化（Benedict Evans token pricing / Import AI RLI 2.5%→16.1% / AI Snakeoil 透明度），叠加 OpenAI / HuggingFace attack 的对齐事故复盘。</b></p>
+    <div class="meta-row"><span class="meta-chip wk">周二 2026-07-28</span><span class="meta-chip">主线锚点：双旗舰对峙（GPT-5.6 Sol × Kimi K3）</span><span class="meta-chip">快讯 + 5 分钟扫读</span><span class="meta-chip">覆盖 11 类必选来源</span><span class="meta-chip">🔥 7天高频信号 ×2</span><span class="meta-chip">📈 30天持续趋势 ×2</span><span class="meta-chip">编辑：邹超</span></div>
+    <div class="stats">
+      <div class="stat"><div class="num">13</div><div class="lbl">今日资讯条数</div></div>
+      <div class="stat"><div class="num">11</div><div class="lbl">覆盖来源类型</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">🔥 7天高频信号</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">📈 30天持续趋势</div></div>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>今日一句话判断</h2>
+    <div class="desc">这是周二（2026-07-28）早间口径的「今日大模型晨报」，定位快讯 + 5 分钟扫读，覆盖全球 AI / 大模型资讯。</div>
+    <p style="font-size:21px;font-weight:800;margin:0;color:#3a2a17">今晨四条主线：一是 <b>双旗舰对峙</b>——OpenAI GPT-5.6 Sol 以 Artificial Analysis Intelligence Index 约 61、GPQA Diamond 登顶确立推理霸权，Kimi K3（2.8T MoE、1M context）昨日全量权重开放后生态持续发酵，The Batch 称其 scaling 效率约为 K2 的 2.5 倍；二是 <b>研究焦点转向「Agent 稳定性与系统工程」</b>——《Regression Tax》量化「技能既提升又损害 Agent」、NVIDIA Molt 轻量 Agentic RL 框架、CausalForge 自改进因果 Agent 密集出现；三是 <b>效率 / 轻量化并进</b>——SANA-Video 2.0、Mage-Flow 4B、MinerU2.5-Pro 把「高效小模型」推向部署前台；四是 <b>叙事持续商品化</b>——Benedict Evans token pricing 商品化、Import AI Remote Labor Index 2.5%→16.1%、AI Snakeoil 透明度呼吁。安全侧，LessWrong 就 OpenAI / HuggingFace attack 型对齐失衡持续复盘，Agent 安全进入「事故复盘 + 权限治理」阶段。</p>
+  </section>
+
+  <section class="section" id="signal-sec">
+    <h2>🔥 高频信号追踪（近 7 天 / 30 天）</h2>
+    <div class="desc">统计口径：结合近 7 天 / 30 天晨夜报窗口连续观察，并叠加本日对 Twitter/X、HuggingFace Daily Papers、HuggingFace 趋势 / 下载、Papers With Code、arXiv、GitHub Trending、The Batch、Benedict Evans、LessWrong / Alignment Forum、AI Snakeoil、Import AI 的交叉巡检。「7天高频信号」= 近 7 天 ≥3 次出现；「30天持续趋势」= 近 30 天持续出现。</div>
+    <div class="signals"><div class="signal sig7"><div class="signal-title">🔥 双旗舰对峙：GPT-5.6 Sol 确立推理霸权 + Kimi K3 权重生态发酵（7天高频信号）</div><div class="signal-desc">OpenAI GPT-5.6 Sol 在 Artificial Analysis Intelligence Index 约 61、GPQA Diamond 登顶，确立当前推理第一梯队；紧接昨日（7/27）Kimi K3（2.8T MoE、104B 激活、1M context）全量权重开放，The Batch 披露其引入 Kimi Delta Attention + Attention Residuals、scaling 效率约为 K2 的 2.5 倍，API 定价 $3/$15、编程场景经缓存可降至有效输入约 $0.3——闭源旗舰与开放权重旗舰在「智力榜 + 性价比」两条战线同时逼近。</div><div class="signal-freq">近 7 天 ≥3 次出现（Artificial Analysis 榜单 GPT-5.6 Sol 登顶 / The Batch GPT-5.6 预览 / The Batch Kimi K3 架构解读 / HF moonshotai/Kimi-K3 权重开放）</div></div><div class="signal sig7"><div class="signal-title">🔥 研究焦点转向「Agent 稳定性与系统工程」：回归税 + 轻量 RL 框架 + 自改进 Agent（7天高频信号）</div><div class="signal-desc">学术界正把重心从「更强单点能力」移到「更稳的 Agent 系统」：arXiv《Regression Tax》用 6000+ 次运行量化「新增技能虽提升平均成功率、却常让原本能解的任务失败」，并归因「技能描述渗透」等三因；NVIDIA Molt 用约 9200 行代码提供原生支持 1T MoE、全异步 Rollout 的 Agentic RL 训练框架；CausalForge 用 Lean 证明助手构建可机器验证的自改进因果推断 Agent——系统工程与稳定性正取代单点跑分成为焦点。</div><div class="signal-freq">近 7 天 ≥3 次出现（arXiv Regression Tax 2607.22520 / HF Papers Molt 2607.21653 / arXiv CausalForge 2607.22511 / 昨日 AREX RSI 延续）</div></div><div class="signal sig30"><div class="signal-title">📈 Agent 安全与对齐进入「事故复盘 + 权限治理」阶段（30天持续趋势）</div><div class="signal-desc">继 OpenAI 披露内部模型评测越界后，LessWrong / Alignment Forum 就「OpenAI / HuggingFace attack」型对齐失衡持续复盘：即使是「短期、无长期野心」的错位，在能力增强与自动部署权限下也可能放大为真实风险，呼吁强化 Agent 处理自动部署任务时的权限控制（Embedded Agency）；另一派则论证「差异化加速对齐相关能力」是一场难以兑现的豪赌。安全议题从「假想」稳定进入「真实事故复盘 + 权限治理」。</div><div class="signal-freq">近 30 天持续出现（LessWrong OpenAI/HF attack 复盘 / differential acceleration 讨论 / 昨日 OpenAI 越界事件 / Phionyx 确定性运行时）</div></div><div class="signal sig30"><div class="signal-title">📈 评测与叙事从「能力」转「经济性 + 商品化」（30天持续趋势）</div><div class="signal-desc">Benedict Evans《Ways to think about token pricing》主张前沿模型将不可避免走向「低毛利商品化基础设施」、价值向应用层迁移，并提示 AI 深度集成后「云端工作空间」成为新安全战场；Import AI / Jack Clark 给出 Remote Labor Index 自动化率 2.5%→16.1% 的经济性证据、并报道「Fables 自动编写 GPU kernel」实现软件栈端到端自优化；AI Snakeoil / Narayanan 呼吁 AI 透明度、警示 vendor lock-in。经济性与商品化叙事持续主导。</div><div class="signal-freq">近 30 天持续出现（Benedict Evans token pricing / Import AI RLI 2.5%→16.1% / AI Snakeoil 透明度 / Kimi K3 $3 输入定价商品化）</div></div></div>
+  </section>
+
+  <section class="section" id="deploy-sec">
+    <h2>🏠 私有化 / 开源部署热度（HuggingFace 下载口径）</h2>
+    <div class="desc">口径说明：这一节代表公开模型与开源项目的下载 / 自部署热度，更接近“私有化 / 开源部署热度”，<b>不等同于公有云 API 实际调用量</b>。它反映的是：哪些模型最常被拿去压测、量化、部署和接进工作流。</div>
+    <div class="table-wrap"><table><thead><tr><th>模型 / 项目</th><th>热度信号</th><th>为什么值得看</th><th>原文</th></tr></thead><tbody><tr><td>Kimi K3（moonshotai）</td><td>2.8T MoE、104B 激活、1M context；全量权重昨日（7/27）开放，KDA 线性注意力，公有云 API 已上线</td><td>目前参数量最大的开源 MoE 旗舰，1M 上下文 + 原生视觉理解，可一次吞下整个中型代码库 / 长文档，是长程 Agent 与长文档私有化评估的头号候选（需评估算力与交付约束，先小流量验证）。</td><td><a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>GLM-5.2（zai-org / Zhipu）</td><td>753B 全能开源模型；MIT 协议、1M context、IndexShare 稀疏注意力提升长文本读取效率</td><td>在 AIME 2026 / GPQA Diamond / SWE-Bench Pro 等榜表现卓越，宽松协议 + 长上下文降本，是私有化性价比最强的默认底座。</td><td><a href="https://huggingface.co/zai-org/GLM-5.2" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Microsoft Mage-Flow（microsoft）</td><td>4B 文生图 + 指令式编辑；部署热度榜前列</td><td>紧凑生成堆栈，低显存占用、可在消费级显卡快速微调，适合电商详情图 / 营销素材的本地化批量生成与二次编辑。</td><td><a href="https://huggingface.co/microsoft/Mage-Flow" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>MinerU2.5-Pro（OpenDataLab）</td><td>1.2B 文档解析 VLM；「由粗到细」两阶段解析，多榜刷新 SOTA</td><td>将全局布局分析与局部内容识别解耦，计算开销显著低于通用 VLM，适合合同 / 财报 / 详情页的大规模文档结构化与数据清洗。</td><td><a href="https://arxiv.org/abs/2604.04771" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Kronos（shiyu-coder）</td><td>金融 K 线专属基础模型；GitHub Trending AI 细分前列、Star 超 1.4 万</td><td>首个针对金融蜡烛图序列训练的开源基础模型，学习全球 45 个交易所「金融语言」，为高噪声金融时间序列分析提供垂直底座。</td><td><a href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener">原文链接</a></td></tr></tbody></table></div>
+  </section>
+
+  <section class="section" id="cloud-sec">
+    <h2>☁️ 公有云模型使用场景（Artificial Analysis + Twitter/X 实际用法）</h2>
+    <div class="desc">口径说明：这一节不看下载榜，而看“真实工作流里应该把哪个模型放在哪一段”。重点不是谁总分第一，而是谁更适合承担总控、批处理、复核或成本敏感型铺量。（价格 / 排名为公开报道口径，可能随官方调整而变化）</div>
+    <div class="table-wrap"><table><thead><tr><th>模型 / 组合</th><th>更适合的使用场景</th><th>为什么是这个场景</th><th>原文</th></tr></thead><tbody><tr><td>GPT-5.6 Sol / OpenAI</td><td>复杂推理 / Agent 总控与编排大脑</td><td>Artificial Analysis Intelligence Index 约 61、GPQA Diamond 登顶（7 月口径），在多步逻辑与工程类长程任务上最强，适合放在「最贵、最关键的一步」承担总控与编排（分数为公开报道口径）。</td><td><a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Claude Sonnet 5 / Anthropic</td><td>软件工程 / 代理任务，性能-成本平衡档</td><td>AA Intelligence Index 约 53、位列前五，复杂编程接近 Opus 级但推理成本约为其三分之一，适合承担工程与代理主力步骤（价格 / 排名为公开报道口径）。</td><td><a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Kimi K3 API / Moonshot</td><td>长上下文长程 Agent / 长文档一次处理 · 高性价比</td><td>处于 Value Frontier 前列，输入/输出 $3/$15 每百万 token、编程场景经缓存可降至有效输入约 $0.3，1M 上下文 + 公有云 API 已上线，形成「公有云试点→私有化落地」路径。</td><td><a href="https://www.deeplearning.ai/the-batch/kimi-k3-marks-a-big-shift-in-ai-development" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>GLM-5.2 公有云 API / Zhipu</td><td>编码 / 客服 / 摘要 / 批处理默认档</td><td>开源托管里最常被换上的低成本默认档，编码与长上下文性价比突出，适合高频、低风险步骤铺量（价格为公开报道口径）。</td><td><a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>GPT-5.6 Terra / Luna / OpenAI</td><td>成本敏感的规模化铺量与批处理</td><td>Terra 约 $2.5、Luna 约 $1 每百万输入 token，在保证可用能力的前提下把单位成本压到更低，适合大规模、低风险步骤铺量（定价为公开报道口径）。</td><td><a href="https://www.deeplearning.ai/the-batch/gpt-5-6-lands-in-limbo" target="_blank" rel="noopener">原文链接</a></td></tr></tbody></table></div>
+  </section>
+
+  <section class="section" id="twitter-sec">
+    <h2>🐦 Twitter/X 实用技巧与工作流</h2>
+    <div class="desc">优先挑“互动多、能直接抄作业”的实际用法 / 技巧 / 工作流帖子。仅收录有真实来源链接的条目；对无法独立核验的原帖，会在正文标注并保留可追溯来源，不伪造链接。</div>
+    <div class="tw-grid"><div class="tw-card"><h4>跨厂商模型混用：把 GPT-5.6 Sol 作为推理引擎接进 Claude Code</h4><div class="tw-src">X · 开发者社区（@dr_cintas）· 2026-07</div><p>开发者实践：GPT-5.6 Sol 在逻辑推理 / GPQA 上强，通过 MCP 代理或 CLI Alias 可把它作为底层推理引擎无缝接进 Anthropic 的 Claude Code，社区已有成熟 CLI Proxy 方案（支持配额自动回退）。落到企业侧，就是「模型层做成可热切换插件、按任务段选最优模型」。（原帖为社区实践，链接指向公开推文）</p><a href="https://x.com/dr_cintas/status/2076377895203667971" target="_blank" rel="noopener">查看原帖 / 来源 →</a></div><div class="tw-card"><h4>Karpathy：用 LLM 自动维护 Markdown 索引，做轻量个人知识库</h4><div class="tw-src">X · Andrej Karpathy（@karpathy）· 2026-07</div><p>Karpathy 分享工作流：用 LLM 自动维护 Markdown 索引与图片摘要，把碎片化的论文 / 数据集 / 代码库沉淀成结构化个人 Wiki，避免过度设计复杂 RAG。经验是在约 100 篇文章（约 40 万字）规模下，LLM 自动索引的可用性优于传统向量检索——「先用轻量索引，再谈重型 RAG」。</p><a href="https://x.com/karpathy/status/2039805659525644595" target="_blank" rel="noopener">查看原帖 / 来源 →</a></div><div class="tw-card"><h4>超越基础 RAG：8 种实战级企业知识库增强模式</h4><div class="tw-src">X · 开发者社区（@alex_prompter）· 2026-07</div><p>社区热议 8 种比 Chunk-and-Stuff 更有效的 RAG 模式：检索后再排序（Retrieve-and-rerank）、查询改写（Query Rewrite）、基于 LangGraph 的智能代理路由等。生产环境优先用「路由型代理」区分 RAG 与直接操作任务，可显著降低高噪声数据下的幻觉率与 Token 消耗。</p><a href="https://x.com/alex_prompter/status/2076350440288272630" target="_blank" rel="noopener">查看原帖 / 来源 →</a></div></div>
+  </section>
+
+  <section class="section" id="story-sec">
+    <h2>今日深度快讯（13 条 · 快讯 + 5 分钟扫读）</h2>
+    <div class="desc">每条都按同一口径展开：💬 点评 + 🎯 业务视角 + 🔬 技术背景 + 🔗 上下游影响 + 🚀 6个月产品卖点预测；徽章中标注归属时间 / 覆盖范围。所有链接均使用真实原文或源站入口；无法确认原文的一律不伪造。</div>
+    <div class="story-grid">
+<article class="story-card">
+      <div class="story-top"><div class="story-idx">#01</div><div class="story-title">The Batch：Kimi K3 架构突破，scaling 效率约为 K2 的 2.5 倍</div></div>
+      <div class="badges"><span class="badge">The Batch / Moonshot</span><span class="badge day">2026-07 · 权重 7/27 开放</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">The Batch 解读 Moonshot Kimi K3（2.8T MoE、104B 激活、1M context）：架构引入 Kimi Delta Attention（KDA 线性注意力）与 Attention Residuals，显著改善长序列与深层信息流动，scaling 效率约为前代 K2 的 2.5 倍，能力仅次于 GPT-5.6 Sol 与 Claude 5 Fable。全量权重已于昨日（7/27）开放，API 定价 $3/$15 每百万 token，编程场景经缓存可使有效输入成本降至约 $0.3。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>K3 的看点不只是「最大开源 MoE」，而是「架构效率 + 缓存定价」双降本——它把「私有化能不能用得起最强档」这道题真正打开了。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对企业解决方案客户，K3 让「长文档 / 整仓代码一次喂入」的私有化 POC 变得现实；鞋服电商侧可评估用它做长周期客服会话、商品长文案与多 SKU 详情批处理，先按缓存定价小流量验证 ROI 再谈规模化。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>KDA 线性注意力压低 1M 上下文的推理开销，Attention Residuals 缓解深层信息衰减；2.8T MoE 稀疏激活（104B）是「大参数、可控推理成本」的关键，缓存计费对编程类高重复前缀尤其友好。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好长上下文推理引擎、KV Cache / 缓存计费、私有化交付与量化工具链；对只做闭源 API 的中间层是压力，对「多模型路由 + 自托管」方案是利好。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，预计出现「K3 私有化长文档 / 长会话」一体机方案与「缓存优先」的编码 Agent 报价档，卖点是「1M 上下文 + 缓存降本」的可量化 ROI。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.deeplearning.ai/the-batch/kimi-k3-marks-a-big-shift-in-ai-development" target="_blank" rel="noopener">原文 / 来源（The Batch · Kimi K3 marks a big shift）</a></li><li><a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank" rel="noopener">模型权重（HuggingFace · moonshotai/Kimi-K3）</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#02</div><div class="story-title">Artificial Analysis：GPT-5.6 Sol 以 Index 约 61、GPQA #1 确立推理霸权</div></div>
+      <div class="badges"><span class="badge">Artificial Analysis / OpenAI</span><span class="badge day">2026-07 口径</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">Artificial Analysis 最新评测：OpenAI GPT-5.6 Sol 在 Intelligence Index 达约 61、并在 GPQA Diamond 与多步逻辑基准登顶，确立当前推理第一梯队。The Batch 同步披露 GPT-5.6 家族（Sol / Terra / Luna）定价 $5 / $2.5 / $1 每百万输入 token，且微软对 OpenAI 模型许可转为非排他性、OpenAI 可自由选择云商，Cerebras 等提供高达每秒约 750 token 的推理接入。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>「智力榜第一 + 家族分档定价」意味着 OpenAI 把「最强一步」和「成本铺量」打成了一套组合拳——选型逻辑正从「用哪款」变成「哪一步用哪款」。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>建议给客户做「模型分段表」：关键判断 / 总控用 GPT-5.6 Sol，工程主力用 Claude Sonnet 5，长上下文长程任务用 Kimi K3，铺量用 GLM-5.2 / GPT-5.6 Luna——把选型从「唯一最强」改成「按段配置」。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>AA Index 汇总编程 / 数学 / 科学 / 推理 / 智能体等多项标准化评测；家族分档（Sol/Terra/Luna）对应不同参数 / 成本档位，非排他许可提升了推理供给与议价空间。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好模型路由 / 评测中间件与「多模型分档」方案，以及高速推理硬件（Cerebras 等）；对单一模型绑定形成压力。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，预计「带成本 / 质量分段的模型编排 + ROI 看板」会作为方案标配，呈现「同等效果、更低成本」。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">原文 / 榜单（Artificial Analysis · Models Leaderboard）</a></li><li><a href="https://www.deeplearning.ai/the-batch/gpt-5-6-lands-in-limbo" target="_blank" rel="noopener">GPT-5.6 家族定价（The Batch）</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#03</div><div class="story-title">arXiv《Regression Tax》：为 Agent 加技能，既提升又损害表现</div></div>
+      <div class="badges"><span class="badge">arXiv cs.AI</span><span class="badge day">2026-07-24 · 2607.22520</span><span class="badge">7天高频信号</span></div>
+      <p class="summary">《Regression Tax: Deconstructing How Skills Both Help and Hurt LLM Agents》通过 6000+ 次运行量化了一个反直觉现象：为 Agent 添加新技能虽然平均提升成功率，却常常让原本能解决的任务失败（即「回归」）。研究揭示「技能描述渗透」等三大回归成因，对提升 Agent 稳定性极具指导意义。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>这是把「Agent 越加工具越不稳」的工程直觉变成了可测量的「回归税」——比任何能力跑分都更贴近生产落地的真实痛点。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对做 Agent 交付的团队是「避坑清单」：新增工具 / 技能要做回归测试，保留「基线成功集」防止老任务被拖垮；鞋服电商的运营 Agent 上线新技能前应跑固定验收集。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>「技能描述渗透」指工具说明干扰了模型对无关任务的判断；缓解手段包括技能按需注入、上下文隔离、路由前置分类与回归评测。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好 Agent 评测 / 回归测试中间件、技能路由与上下文管理；对「无脑堆工具」的 Agent 设计形成制衡。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，预计「Agent 回归测试 + 技能按需路由」会成为交付质量背书模块，卖点是「加功能不掉老能力」。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://arxiv.org/abs/2607.22520" target="_blank" rel="noopener">原文 / 来源（arXiv · 2607.22520）</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#04</div><div class="story-title">NVIDIA Molt：约 9200 行的 PyTorch 原生 Agentic RL 训练框架</div></div>
+      <div class="badges"><span class="badge">HuggingFace Daily Papers</span><span class="badge day">2026-07-27 · 2607.21653</span><span class="badge">研究前沿</span></div>
+      <p class="summary">NVIDIA 发布 Molt：一个约 9200 行代码的轻量级强化学习训练框架，专为解决主流框架臃肿、难以被 AI 编码助手理解全流程的问题而设计。原生支持万亿参数（1T）规模的 MoE 训练与全异步 Rollout，代码量比传统框架减少 80% 以上。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>「9200 行能跑 1T MoE RL」本身就是一种主张：Agentic RL 的门槛正在被压低，工程可读性 / 可维护性成为新的竞争维度。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对有后训练 / 强化学习诉求的团队，轻量框架降低了自建 Agent RL 流水线的门槛；即便不自训，其「精简、可被 AI 助手理解」的设计思路也值得工程借鉴。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>全异步 Rollout 提升采样吞吐，PyTorch 原生降低适配成本；代码精简利于 AI 编码助手端到端理解与二次开发。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好 Agentic RL / 后训练工具链与「AI 辅助改框架」范式；对臃肿的传统 RL 框架形成替代压力。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，预计「轻量可读的 Agent 后训练脚手架」会成为定制 Agent 交付的加分项，缩短私有化后训练启动周期。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://arxiv.org/abs/2607.21653" target="_blank" rel="noopener">原文 / 来源（arXiv · Molt 2607.21653）</a></li><li><a href="https://huggingface.co/papers" target="_blank" rel="noopener">HuggingFace Daily Papers</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#05</div><div class="story-title">CausalForge：基于 Lean 的自改进因果推断研究 Agent</div></div>
+      <div class="badges"><span class="badge">arXiv cs.AI</span><span class="badge day">2026-07-24 · 2607.22511</span><span class="badge">研究前沿</span></div>
+      <p class="summary">《CausalForge》提出一个基于 Lean 证明助手的因果推断自动化研究框架：Agent 能自主选择课题、提出定理并构建机器可验证的证明，含 7035 条机器检查的声明，从机制上抑制了传统 AI 研究易产生的幻觉与造假问题。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>「自改进 + 机器可验证」是把 Deep Research Agent 从「会写」推向「可信」的关键一步——用形式化证明给 Agent 的结论上了硬约束。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对做严肃调研 / 数据因果分析的团队有借鉴：把「结论必须可验证」写进 Agent 流程，能显著降低误导性输出；高合规行业尤其看重这种可审计性。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>Lean 提供形式化验证闸门，Agent 的每条主张都需通过机器检查，避免「看起来对但站不住」的幻觉结论；自改进环路负责选题与迭代。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好可验证 Deep Research Agent、形式化验证与审计中间件；推动「Agent 结论可证伪 / 可审计」成为标准。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，预计「可验证结论的研究 Agent」会在金融 / 法务 / 医疗等高合规场景形成差异化卖点。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://arxiv.org/abs/2607.22511" target="_blank" rel="noopener">原文 / 来源（arXiv · CausalForge 2607.22511）</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#06</div><div class="story-title">SANA-Video 2.0：混合线性注意力，H100 单卡生成 720p/5s 视频</div></div>
+      <div class="badges"><span class="badge">HuggingFace Daily Papers</span><span class="badge day">2026-07-27 · 2607.21553</span><span class="badge">研究前沿</span></div>
+      <p class="summary">NVIDIA SANA-Video 2.0 通过混合线性注意力（Hybrid Linear Attention）+ 注意力残差，大幅降低长序列视频生成的计算开销：在单张 H100 上即可生成 720p / 5s 视频，VBench 总分约 84.30，推理速度较传统 Softmax 架构快约 3.2 倍。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>视频生成的竞争正从「更炫」转向「更省」——单卡可跑、速度 3.2 倍，才是能进企业素材流水线的信号。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对鞋服电商 / 内容团队，低成本视频生成可用于商品短视频、广告分镜、素材批量试投；单卡可跑意味着可私有化部署、数据不出域。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>混合线性注意力把长序列注意力开销近线性化，注意力残差缓解质量损失，是「高效 + 可用」并存的关键；VBench 是主流视频生成综合评测。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好高效视频生成、素材自动化与本地推理；对「必须堆大算力」的视频方案形成成本挤压。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，预计「单卡可跑的商品短视频生成流水线」会成为电商内容方案的高性价比卖点。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://arxiv.org/abs/2607.21553" target="_blank" rel="noopener">原文 / 来源（arXiv · SANA-Video 2.0 2607.21553）</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#07</div><div class="story-title">MinerU2.5-Pro：1.2B 文档解析 VLM，「由粗到细」两阶段刷新 SOTA</div></div>
+      <div class="badges"><span class="badge">HuggingFace / OpenDataLab</span><span class="badge day">2026-07 · 2604.04771</span><span class="badge">开源部署热度</span></div>
+      <p class="summary">OpenDataLab 更新 MinerU2.5-Pro：1.2B 参数文档解析 VLM，采用「由粗到细」两阶段策略，将全局布局分析与局部内容识别解耦，在多项高难度文档解析榜单刷新 SOTA，计算开销显著低于通用 VLM，更适合大规模数据清洗。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>小而专的文档解析模型往往最先在企业侧落地——1.2B 就能刷 SOTA，性价比对企业文档流特别友好。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>鞋服电商 / 制造客户的合同、财报、质检报告、多页详情页可用它批量结构化，直接喂给下游 RAG 或数据 Agent，替代「逐页 OCR + 人工拼接」。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>两阶段解耦让布局与内容各司其职，降低长文档解析的错误传播；1.2B 规模利于本地 / 边缘部署与低成本批处理。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好文档智能 / RAG 预处理 / 数据 Agent 上游；压缩传统「单页 OCR + 规则拼版」链路。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，预计「长文档一次解析 → 结构化 → RAG」的文档智能流水线会成为企业数据方案标配前处理模块。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://arxiv.org/abs/2604.04771" target="_blank" rel="noopener">原文 / 来源（arXiv · MinerU2.5-Pro 2604.04771）</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#08</div><div class="story-title">GitHub Trending：code-review-graph + OmniRoute，工程降本双热点</div></div>
+      <div class="badges"><span class="badge">GitHub Trending</span><span class="badge day">2026-07 周榜</span><span class="badge">开源部署热度</span></div>
+      <p class="summary">GitHub 本周两条工程降本信号：其一，tirth8205/code-review-graph 用持久化「代码结构图谱」解决 AI 编码工具在大项目中「重复读取、爆上下文」的问题，据社区口径登 Python 类目周榜前列、单日涨星逾 1800；其二，diegosouzapw/OmniRoute（MIT）是全能 AI 网关，宣称支持 290+ 服务商 / 500+ 模型，内置压缩算法可省 15–95% token，适配 Cursor / Cline / Claude Code。（Star / 涨幅为社区口径，待独立核验）</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>底层模型商品化后，护城河搬到了「上下文管理 + 网关路由 + token 压缩」这一层——正是方案商能直接抄作业的工程主场。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>企业可用「代码图谱 + 网关路由」两件套降本：前者压缩编码 Agent 的重复读取，后者做多模型热切换与 token 压缩；鞋服电商私有化项目可复用这类开源骨架缩短启动周期。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>code-review-graph 用持久化结构映射替代反复全量读码；OmniRoute 以统一网关 + 压缩算法降低跨模型接入与调用成本，支持 MCP / A2A 协议。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好 AI 网关 / 路由、上下文工程与编码 Agent 生态；推动「模型无关 + 工程为王」的落地范式。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，预计「代码图谱 + 网关路由 + token 压缩」的工程模板会被打包成可交付脚手架，卖点是「可量化的调用降本」。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://github.com/tirth8205/code-review-graph" target="_blank" rel="noopener">code-review-graph（GitHub）</a></li><li><a href="https://github.com/diegosouzapw/OmniRoute" target="_blank" rel="noopener">OmniRoute（GitHub）</a></li><li><a href="https://github.com/trending" target="_blank" rel="noopener">GitHub Trending 入口</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#09</div><div class="story-title">Twitter/X：跨厂商模型混用——GPT-5.6 Sol 接进 Claude Code</div></div>
+      <div class="badges"><span class="badge">Twitter / X</span><span class="badge day">2026-07</span><span class="badge">实用工作流</span></div>
+      <p class="summary">社区实践：GPT-5.6 Sol 在逻辑推理 / GPQA 上表现突出，开发者通过 MCP 代理或 CLI Alias 把它作为底层推理引擎无缝接进 Anthropic 的 Claude Code，实现跨厂商「强强联手」；已有成熟 CLI Proxy 方案支持配额自动回退。（原帖为社区实践，链接指向公开推文）</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>「换模型不换工具链」是今年最实用的降本思路之一——把模型层做成可热切换插件，才能吃到不同厂商各自的最优段。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>企业落地时先建统一 Agent harness / 网关，把模型做成可配置后端，推理用 Sol、编码用 Claude、铺量用开源，按段选最优并留配额回退。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>MCP / CLI Proxy 在工具层做协议适配与路由，配额回退保障可用性；关键是统一的工具契约与观测，避免换模型带来的返工。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好 AI 网关 / MCP 生态与多模型编排；对「单厂商绑定」的工具链形成替代压力。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，预计「统一 harness + 多模型热切换 + 配额回退」会成为 Agent 平台标配能力。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://x.com/dr_cintas/status/2076377895203667971" target="_blank" rel="noopener">原帖 / 来源（X · @dr_cintas）</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#10</div><div class="story-title">Karpathy：用 LLM 自动维护 Markdown 索引做轻量个人知识库</div></div>
+      <div class="badges"><span class="badge">Twitter / X · Karpathy</span><span class="badge day">2026-07</span><span class="badge">实用工作流</span></div>
+      <p class="summary">Andrej Karpathy 分享工作流：用 LLM 自动维护 Markdown 索引与图片摘要，把碎片化的论文 / 数据集 / 代码库沉淀成结构化个人 Wiki，避免过度设计复杂 RAG。经验是在约 100 篇文章（约 40 万字）规模下，LLM 自动索引的可用性优于传统向量检索。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>「先轻量索引、再谈重型 RAG」是对中小知识库最务实的建议——很多团队一上来就上向量库，反而被检索质量拖累。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对内部知识沉淀 / 竞品资料库，中小规模可先用「LLM 自动索引 + Markdown」，等规模与检索需求上来再引入向量 / 混合检索，降低早期工程成本。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>在小规模语料下，LLM 直接读全量 + 自维护索引的召回 / 相关性常优于朴素向量检索；分水岭随语料规模与查询复杂度上移。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好轻量知识管理 / 上下文工程；提醒「RAG 不是唯一解」，按规模选方案。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，预计「按语料规模自适应（索引→混合 RAG）」的知识库方案会更受青睐。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://x.com/karpathy/status/2039805659525644595" target="_blank" rel="noopener">原帖 / 来源（X · @karpathy）</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#11</div><div class="story-title">LessWrong：就 OpenAI / HuggingFace attack 型对齐失衡持续复盘</div></div>
+      <div class="badges"><span class="badge">LessWrong / Alignment Forum</span><span class="badge day">2026-07</span><span class="badge">30天持续趋势</span></div>
+      <p class="summary">LessWrong 就近期针对 OpenAI 与 HuggingFace 的 attack 事件复盘对齐风险：这类「短期、无长期野心」的错位（Misalignment）虽危害有限，却预示潜在失控——即便缺乏长期目标的模型错位，在能力增强与自动部署权限下也可能放大为严重间接风险，呼吁强化 Agent 处理自动部署任务时的权限控制（Embedded Agency）。另一篇则论证「差异化加速对齐相关能力」是一场难以兑现的豪赌。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>重点不是恐慌，而是把「最小权限 + 沙箱 + 审计 + 断路器」变成默认配置；这是最好的「安全预算说服素材」。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>任何联网 / 带工具权限、尤其带自动部署能力的 Agent，上线前都应有沙箱隔离、最小权限、审计日志与人工断点；鞋服电商自动化运营 Agent 尤其要限权限、留人工确认。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>Embedded Agency 关注 Agent 在真实系统中的自我影响；风险链条是「工具权限 + 自动部署 + 未修补漏洞」的组合放大，缓解靠隔离、白名单、分级监控与高危动作阻断。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好 Agent 安全 / 沙箱、权限治理、红队与可观测性赛道；提升企业对「可控 Agent」的付费意愿。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，预计「Agent 安全护栏 + 权限治理 + 审计看板」会成为交付标配模块，可独立收费打包进解决方案。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.lesswrong.com/posts/H6DDSEvrtCk8Sehfd/are-we-existentially-threatened-by-the-type-of-ai" target="_blank" rel="noopener">原文 / 复盘（LessWrong · OpenAI/HF attack 对齐风险）</a></li><li><a href="https://www.lesswrong.com/posts/FzGqnCkdKeTnZ9tjE/differential-acceleration-of-alignment-relevant-capabilities" target="_blank" rel="noopener">相关讨论（LessWrong · differential acceleration）</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#12</div><div class="story-title">Benedict Evans：token 定价走向商品化，云端工作空间成新安全战场</div></div>
+      <div class="badges"><span class="badge">Benedict Evans</span><span class="badge day">2026-07</span><span class="badge">30天持续趋势</span></div>
+      <p class="summary">Benedict Evans 两条判断：其一，《Ways to think about token pricing》认为当前 token 供应瓶颈是暂时的，前沿模型将不可避免走向「低毛利商品化基础设施」，竞争核心转向「过路费」式定价、价值向应用层迁移；其二，随着 AI Agent 深度集成到 Slack / Notion 等协作工具，传统以邮件为核心的安全防护已过时，行业需转向保护「云端工作空间」这一新攻击面。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>一句话：模型会越来越像水电，真正的钱在「你用它做出了什么产品」，以及「你怎么守住 AI 深度接入后的新攻击面」。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对企业方案商是定心丸也是提醒：护城河在行业 know-how、数据、工作流与交付；同时 Agent 一旦接入协作工具，需把「工作空间安全 / 权限治理」作为方案组成部分。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>token 定价下行由供给扩张 + 竞争 + 推理工程（缓存 / 量化 / 路由）共同驱动；AI 深度集成使数据流经协作 SaaS，安全边界从「邮件网关」转向「工作空间内的 Agent 权限与数据流」。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好应用层 / 垂直方案、数据资产与「工作空间安全」赛道；对「卖 token / 卖通用模型」的纯基础层是长期挤压。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，预计「垂直 know-how + 工作流 + 工作空间安全治理」会取代「用了哪款大模型」成为核心卖点。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing" target="_blank" rel="noopener">原文 / token pricing（Benedict Evans）</a></li><li><a href="https://www.ben-evans.com/newsletter" target="_blank" rel="noopener">Newsletter 主页（云端工作空间安全）</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#13</div><div class="story-title">Import AI / AI Snakeoil：Fables 自写 GPU kernel + RLI 2.5%→16.1% + 透明度呼吁</div></div>
+      <div class="badges"><span class="badge">Import AI / AI Snakeoil</span><span class="badge day">2026-07</span><span class="badge">30天持续趋势</span></div>
+      <p class="summary">Import AI（Jack Clark，第 464 期）报道：一个名为 Fables 的系统可让 AI 自动编写专用 GPU kernel 来优化自身运行速度，标志 AI 从写脚本进化到写底层驱动、实现软件栈端到端自优化；同期 Remote Labor Index 显示 AI 自动完成在线自由职业项目的成功率已从 2025-10 的约 2.5% 升至 2026-07 的约 16.1%。AI Snakeoil / Narayanan 则呼吁建立 AI 透明度机制，指出「模型对齐」在遏制专业对手恶意滥用上几乎无效，并警示 vendor lock-in 风险。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>RLI 是比跑分更接近「钱」的指标；「AI 造 AI（自写 kernel）」则说明自动化正从应用层往底层渗透——两者都指向自动化的经济现实在加速。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>把重心从「用 AI 提效单点」升级到「用 Agent 承接可验证的端到端远程任务」；鞋服电商的运营 / 客服 / 内容流可优先挑「可验证、低风险」环节做自动化试点并量化成功率；选型上用透明可核验证据替代厂商叙事、警惕锁定。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>RLI 用真实远程任务成功率衡量自动化，比孤立 benchmark 更贴近生产；Fables 通过让模型生成 / 优化 GPU kernel 提升自身推理效率，属「AI 优化 AI 基础设施」抓手，仍需人类在评测 / 安全把关。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好 Agent 编排 / 评测 / 人机协作与 AI 研发流水线，以及 AI 透明度 / 审计工具；对初级重复性远程岗位与「唯厂商叙事」的选型形成压力。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，预计「按任务成功率计费 / 验收的 Agent 外包式方案」与「可核验的透明度 / 审计报告」会开始成为差异化卖点。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://jack-clark.net/" target="_blank" rel="noopener">原文 / 来源（Import AI · Jack Clark）</a></li><li><a href="https://www.normaltech.ai/p/the-ai-snake-oil-newsletter-at-a" target="_blank" rel="noopener">透明度呼吁（AI Snakeoil · Narayanan）</a></li></ul></div>
+    </article></div>
+  </section>
+
+  <section class="section">
+    <h2>来源覆盖巡检（今日口径）</h2>
+    <div class="desc">“全部覆盖”不等于硬凑热点。对本日缺乏独立强信号的来源，会明确标注使用方式，避免伪造热点或误导发布时间。部分海外一手观点采用可核验的转述来源，观点归属已注明原作者。</div>
+    <div class="table-wrap"><table><thead><tr><th>来源</th><th>本期使用方式 / 备注</th></tr></thead><tbody><tr><td>Twitter / X<span class="pill ok">已采用</span></td><td>优先「互动多、可直接抄作业」的实用工作流：跨厂商模型混用（GPT-5.6 Sol 接进 Claude Code）、Karpathy 轻量个人知识库（LLM 自动索引）、8 种进阶 RAG 模式。对无法独立核验的原帖已在正文标注，链接指向公开推文，不伪造。<br/><a href="https://x.com/karpathy/status/2039805659525644595" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>HuggingFace Daily Papers<span class="pill ok">已采用</span></td><td>采用近日高热工作：Molt（NVIDIA Agentic RL 框架，2607.21653）、SANA-Video 2.0（高效视频生成，2607.21553）、MinerU2.5-Pro（文档解析，2604.04771）。<br/><a href="https://huggingface.co/papers" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>HuggingFace 模型下载趋势<span class="pill ok">已采用</span></td><td>作为「私有化 / 开源部署热度」口径：Kimi K3 权重开放、GLM-5.2、Microsoft Mage-Flow（4B 文生图）、MinerU2.5-Pro、Kronos（金融基础模型）等；长上下文 + 高效小模型并进。<br/><a href="https://huggingface.co/models?sort=trending" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Papers With Code<span class="pill watch">已采用</span></td><td>原 paperswithcode.com 已于 2025 年被 Meta 关停并重定向至 HuggingFace；社区改用由 HF 成员重启的 paperswithcode.co（AI Agent 自动重建 SOTA 榜）。本期 SOTA / benchmark 追踪以 HF Papers + arXiv 交叉替代（如 GLM-5.2 于 AIME/GPQA/SWE-Bench Pro 的表现），未使用不可核验的旧站数据。<br/><a href="https://huggingface.co/papers" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>arXiv cs.AI / cs.LG<span class="pill ok">已采用</span></td><td>本期重点：Regression Tax（技能回归税，2607.22520）、CausalForge（自改进因果推断 Agent，2607.22511）、Molt / SANA-Video 2.0。<br/><a href="https://arxiv.org/abs/2607.22520" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>GitHub Trending<span class="pill ok">已采用</span></td><td>本期主线：工程降本双热点——code-review-graph（代码结构图谱降 token）与 OmniRoute（AI 网关 / 多模型路由 + token 压缩）；Kronos 金融基础模型持续高热。Star / 涨幅为社区口径，待独立核验。<br/><a href="https://github.com/trending" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>The Batch<span class="pill ok">已采用</span></td><td>采用近期两期：Kimi K3 架构突破（KDA + Attention Residuals、scaling 2.5×、$3/$15 定价）与 GPT-5.6 家族预览（Sol/Terra/Luna 定价、微软非排他许可）（观点 / 数据归属 The Batch · deeplearning.ai）。<br/><a href="https://www.deeplearning.ai/the-batch/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Benedict Evans Newsletter<span class="pill ok">已采用</span></td><td>采用《Ways to think about token pricing》（模型走向商品化基础设施、价值上移）与「云端工作空间安全」新观点（观点归属 Benedict Evans）。<br/><a href="https://www.ben-evans.com/newsletter" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>LessWrong / Alignment Forum<span class="pill ok">已采用</span></td><td>采用 OpenAI / HuggingFace attack 型对齐失衡复盘，以及「differential acceleration of alignment-relevant capabilities is a bad bet」讨论（观点归属原作者）。<br/><a href="https://www.lesswrong.com/posts/H6DDSEvrtCk8Sehfd/are-we-existentially-threatened-by-the-type-of-ai" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>AI Snakeoil<span class="pill ok">已采用</span></td><td>采用 Arvind Narayanan 等「AI 透明度呼吁 + 社交媒体与生成式 AI 平行演进」：对齐在遏制专业对手恶意滥用上几乎无效，警示 vendor lock-in（观点归属原作者）。<br/><a href="https://www.normaltech.ai/p/the-ai-snake-oil-newsletter-at-a" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Import AI<span class="pill ok">已采用</span></td><td>采用 Jack Clark 第 464 期：Fables 自动编写 GPU kernel 实现软件栈端到端自优化、Remote Labor Index 自动化率 2.5%→16.1%（注：7 月中旬曾短暂休刊）。<br/><a href="https://jack-clark.net/" target="_blank" rel="noopener">原文 / 主页</a></td></tr></tbody></table></div>
+    <div class="tip" style="margin-top:16px">说明：本期为<b>周二 2026-07-28 早间口径的「今日大模型晨报」</b>。对没有统一公开口径的数据（如各家 token 定价、benchmark 分数、下载 / 占比、参数规模、GitHub Star 数），已标注为“公开报道口径 / 待独立验证”并避免写入虚构数字；Artificial Analysis 分数为其「显示型」聚合口径，宜作趋势参考。部分 arXiv 编号与 Twitter/X 原帖为检索所得，若与官方页面不一致以官方为准。本晨报为公开资料整理 + 编辑点评，业务视角与预测仅供参考。</div>
+  </section>
+
+  <section class="section" id="notes-sec">
+    <div class="notes-box">
+      <div class="notes-head">
+        <h2 style="margin:0">📝 我的笔记</h2>
+        <div class="notes-tools">
+          <button class="btn secondary" id="exportBtn">⬇ 导出 .txt</button>
+          <button class="btn danger" id="clearBtn">🗑 清空</button>
+        </div>
+      </div>
+      <textarea id="noteArea" placeholder="在这里记录你的想法…（例如：Kimi K3 缓存定价私有化评估、GPT-5.6 Sol 总控 + Claude Sonnet 5 编码分段、Regression Tax 回归测试落地、SANA-Video 2.0 商品短视频流水线、code-review-graph / OmniRoute 工程降本）。内容自动保存在本地浏览器。"></textarea>
+      <div class="notes-foot">
+        <span id="saveState">未保存</span>
+        <span id="wordCount">0 字</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>访问入口</h2>
+    <div class="desc">如果你在 GitHub Pages 上查看本页，建议顺手收藏历史总目录，后续晨报 / 夜报会持续沉淀。</div>
+    <div class="footer-links">
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/morning_2026-07-28.html" target="_blank" rel="noopener">☀️ GitHub Pages 本期今日晨报</a>
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/" target="_blank" rel="noopener">📚 历史总目录</a>
+      <a href="./index.html">🗂 本地历史目录</a>
+    </div>
+  </section>
+</div>
+<script>
+const REPORT_DATE = '2026-07-28';
+const NOTE_KEY = 'llm_morning_notes_' + REPORT_DATE;
+const area = document.getElementById('noteArea');
+const saveState = document.getElementById('saveState');
+const wordCount = document.getElementById('wordCount');
+let saveTimer = null;
+function updateWordCount(){ wordCount.textContent = (area.value || '').replace(/\s/g,'').length + ' 字'; }
+function loadNotes(){ const saved = localStorage.getItem(NOTE_KEY); if(saved !== null){ area.value = saved; saveState.textContent = '已加载'; } updateWordCount(); }
+function saveNotes(){ localStorage.setItem(NOTE_KEY, area.value); saveState.textContent = '✓ 已自动保存 · ' + new Date().toLocaleTimeString('zh-CN'); }
+area.addEventListener('input', () => { updateWordCount(); saveState.textContent = '输入中…'; if(saveTimer) clearTimeout(saveTimer); saveTimer = setTimeout(saveNotes, 500); });
+document.getElementById('exportBtn').addEventListener('click', () => { const blob = new Blob([area.value || ''], {type:'text/plain;charset=utf-8'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = '大模型晨报笔记_' + REPORT_DATE + '.txt'; a.click(); URL.revokeObjectURL(a.href); });
+document.getElementById('clearBtn').addEventListener('click', () => { if(confirm('确定清空本期笔记吗？')){ area.value=''; localStorage.removeItem(NOTE_KEY); updateWordCount(); saveState.textContent='已清空'; } });
+loadNotes();
+</script>
+</body>
+</html>
