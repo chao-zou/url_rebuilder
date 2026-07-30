@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>☀️ 大模型晨报 2026-07-30</title>
+<!-- report-meta: date=2026-07-30; type=morning; title=大模型晨报 2026-07-30; summary=本期为周四（2026-07-30）早间触发的「今日大模型晨报」，定位快讯 + 5 分钟扫读，覆盖全球 AI / 大模型资讯。今晨主线是「MCP 2026-07-28 规范 D+2 · 生态落地日」：Model Context Protocol 发布问世以来最大一次修订（stateless 无状态核心，移除 initialize 握手与协议级 session，新增 Extensions 扩展框架、Tasks 异步长任务、MCP Apps、header-based routing、可缓存 list 结果、authorization 加固与 Tier-1 SDK），D+1~D+2 内 Claude、AWS Bedrock AgentCore Gateway（一次 UpdateGateway 即可启用）、Netlify、Zoom 相继宣布接入，Agent 工具互操作性从「有状态会话」范式切到「无状态核心」；第二条线是「Kimi K3 开放权重 D+3」——Artificial Analysis Intelligence Index 57 领跑开源前沿（仅次于 GPT-5.6 Sol / Claude Fable 5），24 小时内冲进 HuggingFace 史上 Top5 最受喜爱模型，GLM-5.2（51）紧随，Tencent Hy3-GGUF / Thinking Machines Inkling 同框在榜；第三条线是「Gemini 转向主动式」——Gemini Spark 后台 Agent 扩到印度 Google AI Pro、macOS 端加屏幕感知，叠加 The Batch「K3 重划开源前沿」、Benedict Evans 的 TSMC 制程类比、Import AI 466 的 MirrorCode 长程编程基准，产业叙事进入「造 Agent 系统 + 工具互操作 + 谈经济学」的下半场。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>:root{--bg:#fff7ec;--panel:rgba(255,255,255,.92);--panel2:#fffaf2;--line:rgba(214,140,60,.22);--ink:#2b1f14;--sub:#7a6650;--muted:#a08a70;--accent:#e9820e;--gold:#ffb020;--violet:#ff7a59;--teal:#e06a2c;--shadow:0 20px 60px rgba(180,110,40,.14);}*{box-sizing:border-box}html,body{margin:0;padding:0;background:radial-gradient(circle at 50% -8%,#ffe6b8 0%,#fff2df 40%,#fff7ec 100%);color:var(--ink);font-family:'Inter','Noto Sans SC',system-ui,-apple-system,sans-serif;line-height:1.75}a{color:#c85a10;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:32px 20px 88px;position:relative}.hero{position:relative;border:1px solid var(--line);background:linear-gradient(135deg,#fff3dc,#ffe9c9);box-shadow:var(--shadow);border-radius:28px;padding:34px 34px 28px;overflow:hidden}.hero:before{content:'';position:absolute;inset:auto -100px -120px auto;width:320px;height:320px;background:radial-gradient(circle,#ffbb5566,transparent 68%);filter:blur(10px)}.kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(233,130,14,.28);padding:8px 14px;border-radius:999px;color:#a2560a;background:rgba(255,255,255,.6);font-size:13px;font-weight:700}.hero h1{font-size:42px;line-height:1.12;margin:18px 0 14px;color:#3a2a17}.hero p{margin:0;color:#6c5a44;max-width:980px;font-size:16px}.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.meta-chip{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--line);color:#7a6044;font-size:13px}.meta-chip.wk{background:rgba(255,176,32,.2);border-color:rgba(233,130,14,.35);color:#9a5a06}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0 0}.stat{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:20px;padding:18px 18px 14px}.stat .num{font-size:28px;font-weight:800;color:#c85a10}.stat .lbl{font-size:13px;color:var(--sub)}.section{margin-top:22px;border:1px solid var(--line);border-radius:24px;background:var(--panel);backdrop-filter:blur(14px);box-shadow:var(--shadow);padding:26px}.section h2{margin:0 0 8px;font-size:26px;color:#3a2a17}.section .desc{color:var(--sub);margin-bottom:18px}.signals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.signal{border-radius:20px;padding:18px;background:#fffaf2;border:1px solid var(--line)}.signal.sig7{box-shadow:inset 0 0 0 1px rgba(233,130,14,.28)}.signal.sig30{box-shadow:inset 0 0 0 1px rgba(255,122,89,.3)}.signal-title{font-size:17px;font-weight:800;margin-bottom:6px}.signal-desc{color:#4a3a28;opacity:.96}.signal-freq{margin-top:8px;color:var(--sub);font-size:13px}.table-wrap{overflow:auto;border-radius:18px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;background:#fffdf9}th,td{padding:14px 14px;border-bottom:1px solid rgba(214,140,60,.16);vertical-align:top;text-align:left;font-size:14px}th{font-size:13px;color:#7a5222;background:rgba(255,240,214,.9);position:sticky;top:0}tr:hover td{background:rgba(255,244,224,.6)}.pill{display:inline-flex;align-items:center;margin-left:10px;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:700}.pill.ok{background:rgba(56,178,120,.16);color:#1f7a4d}.pill.watch{background:rgba(255,176,32,.2);color:#9a5a06}.tw-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.tw-card{border:1px solid var(--line);border-radius:20px;background:#fffaf2;padding:18px}.tw-card h4{margin:0 0 6px;font-size:16px;color:#3a2a17}.tw-src{color:#a2560a;font-size:12.5px;font-weight:700;margin-bottom:8px}.tw-card p{margin:0 0 12px;color:#5a4936;font-size:14px}.story-grid{display:grid;grid-template-columns:1fr;gap:18px}.story-card{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,#fffdf9,#fff7ec);padding:22px}.story-top{display:flex;gap:14px;align-items:flex-start}.story-idx{flex:0 0 auto;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}.story-title{font-size:23px;line-height:1.35;font-weight:800;color:#332415}.badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 12px}.badge{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--line);font-size:12px;color:#7a6044}.badge.day{background:rgba(233,130,14,.14);border-color:rgba(233,130,14,.3);color:#a2560a}.summary{font-size:15.5px;color:#4a3a28;margin:0 0 14px}.grid5{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.blk{border-radius:18px;padding:16px;background:#fffaf2;border:1px solid rgba(214,140,60,.16)}.blk:last-child{grid-column:1/-1}.blk h4{margin:0 0 8px;font-size:14px;color:#332415}.blk p{margin:0;color:#5a4936}.links{margin-top:14px;padding-top:14px;border-top:1px dashed rgba(214,140,60,.28);display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}.links span{font-weight:700}.links ul{margin:0;padding-left:18px}.notes-box{border-radius:24px;background:var(--panel2);border:1px solid var(--line);padding:24px}.notes-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.notes-tools{display:flex;gap:10px;flex-wrap:wrap}.btn{border:none;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--gold),var(--accent));color:#fff;box-shadow:0 8px 24px rgba(233,130,14,.25)}.btn.secondary{background:rgba(255,255,255,.85);color:#a2560a;box-shadow:none;border:1px solid var(--line)}.btn.danger{background:linear-gradient(135deg,#ff8a5c,#ff5f57)}#noteArea{width:100%;min-height:180px;border-radius:18px;background:#fffdf9;border:1px solid var(--line);padding:16px 18px;color:var(--ink);font-size:15px;resize:vertical;outline:none}#noteArea:focus{border-color:#e9820e;box-shadow:0 0 0 3px rgba(233,130,14,.16)}.notes-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;color:var(--sub);font-size:13px;flex-wrap:wrap}.footer-links{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}.footer-links a{display:inline-flex;align-items:center;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.7)}.tip{padding:16px 18px;border-radius:18px;background:rgba(255,176,32,.12);border:1px solid rgba(233,130,14,.2);color:#6c5236}@media (max-width:900px){.stats,.signals,.grid5,.tw-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}@media (max-width:720px){.stats,.signals,.grid5,.tw-grid{grid-template-columns:1fr}.section{padding:20px}.hero{padding:24px}.story-title{font-size:21px}}</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">☀️ 大模型晨报 · 周四 2026-07-30 · 快讯 + 5 分钟扫读</div>
+    <h1>大模型晨报 2026-07-30</h1>
+    <p>本期为周四（2026-07-30）早间触发的「今日大模型晨报」，定位快讯 + 5 分钟扫读，覆盖全球 AI / 大模型资讯。今晨主线是「MCP 2026-07-28 规范 D+2 · 生态落地日」：Model Context Protocol 发布问世以来最大一次修订（stateless 无状态核心，移除 initialize 握手与协议级 session，新增 Extensions 扩展框架、Tasks 异步长任务、MCP Apps、header-based routing、可缓存 list 结果、authorization 加固与 Tier-1 SDK），D+1~D+2 内 Claude、AWS Bedrock AgentCore Gateway（一次 UpdateGateway 即可启用）、Netlify、Zoom 相继宣布接入，Agent 工具互操作性从「有状态会话」范式切到「无状态核心」；第二条线是「Kimi K3 开放权重 D+3」——Artificial Analysis Intelligence Index 57 领跑开源前沿（仅次于 GPT-5.6 Sol / Claude Fable 5），24 小时内冲进 HuggingFace 史上 Top5 最受喜爱模型，GLM-5.2（51）紧随，Tencent Hy3-GGUF / Thinking Machines Inkling 同框在榜；第三条线是「Gemini 转向主动式」——Gemini Spark 后台 Agent 扩到印度 Google AI Pro、macOS 端加屏幕感知，叠加 The Batch「K3 重划开源前沿」、Benedict Evans 的 TSMC 制程类比、Import AI 466 的 MirrorCode 长程编程基准，产业叙事进入「造 Agent 系统 + 工具互操作 + 谈经济学」的下半场。<b> 一句话：今晨主线 = MCP 2026-07-28 规范 D+2 生态落地（stateless 无状态核心 + Extensions 扩展框架 + Tasks/MCP Apps，Claude/AWS/Netlify/Zoom 接入）+ Kimi K3 开放权重 AA Index 57 领跑开源、24h 冲进 HF 史上 Top5 最受喜爱 + Gemini 转向主动式（Gemini Spark 后台 Agent + macOS 屏幕感知），产业叙事进入「造 Agent 系统 + 工具互操作 + 谈经济学」下半场。</b></p>
+    <div class="meta-row"><span class="meta-chip wk">周四 2026-07-30</span><span class="meta-chip">主线锚点：MCP 2026-07-28 规范 D+2 落地</span><span class="meta-chip">快讯 + 5 分钟扫读</span><span class="meta-chip">覆盖 11 类必选来源</span><span class="meta-chip">🔥 7天高频信号 ×2</span><span class="meta-chip">📈 30天持续趋势 ×2</span><span class="meta-chip">编辑：邹超</span></div>
+    <div class="stats">
+      <div class="stat"><div class="num">13</div><div class="lbl">今日资讯条数</div></div>
+      <div class="stat"><div class="num">11</div><div class="lbl">覆盖来源类型</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">🔥 7天高频信号</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">📈 30天持续趋势</div></div>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>今日一句话判断</h2>
+    <div class="desc">这是周四（2026-07-30）早间口径的「今日大模型晨报」，定位快讯 + 5 分钟扫读，覆盖全球 AI / 大模型资讯。</div>
+    <p style="font-size:21px;font-weight:800;margin:0;color:#3a2a17">今晨三条主线：一是 <b>MCP 2026-07-28 规范 D+2 · 生态落地</b>——Model Context Protocol 发布问世以来最大修订，转向 stateless 无状态核心（移除 initialize 握手与协议级 session），新增 Extensions 扩展框架、Tasks、MCP Apps、header-based routing、可缓存 list 结果与 authorization 加固，D+1~D+2 内 Claude、AWS Bedrock AgentCore Gateway、Netlify、Zoom 相继接入。二是 <b>Kimi K3 开放权重领跑开源前沿</b>——Artificial Analysis Intelligence Index 57（开源最高，仅次于 GPT-5.6 Sol / Claude Fable 5），24 小时内冲进 HuggingFace 史上 Top5 最受喜爱模型，GLM-5.2（51）紧随，Tencent Hy3-GGUF / Thinking Machines Inkling 同框在榜。三是 <b>Gemini 转向主动式 + 产业叙事进入下半场</b>——Gemini Spark 后台 Agent + macOS 屏幕感知；The Batch 定性 K3「重划开源前沿」、Benedict Evans 用 TSMC 制程类比 token 定价、Import AI 466 报道「AI 完成周量级编程任务」。</p>
+  </section>
+
+  <section class="section" id="signal-sec">
+    <h2>🔥 高频信号追踪（近 7 天 / 30 天）</h2>
+    <div class="desc">统计口径：结合近 7 天 / 30 天晨夜报窗口连续观察，并叠加本日对 Twitter/X、HuggingFace Daily Papers、HuggingFace 趋势 / 下载、Papers With Code、arXiv、GitHub Trending、The Batch、Benedict Evans、LessWrong / Alignment Forum、AI Snakeoil、Import AI 的交叉巡检。「7天高频信号」= 近 7 天 ≥3 次出现；「30天持续趋势」= 近 30 天持续出现。</div>
+    <div class="signals"><div class="signal sig7"><div class="signal-title">🔥 7天高频信号：MCP 从「有状态会话」全面转向「无状态核心」</div><div class="signal-desc">Model Context Protocol 发布 2026-07-28 规范——问世以来最大一次修订：stateless 核心（移除 initialize 握手与协议级 session）+ Extensions 扩展框架 + Tasks 异步长任务 + MCP Apps + header-based routing + 可缓存 list 结果 + authorization 加固 + Tier-1 SDK。D+1~D+2 内 Claude、AWS Bedrock AgentCore Gateway、Netlify、Zoom 相继表态接入，Agent 工具互操作性正在完成一次底层范式切换。</div><div class="signal-freq">近 7 天已 ≥5 次出现：0713 RC 锁定 → 0629 Beta SDK 预告 stateless → 0728 正式规范发布 → 0728 Claude 宣布接入 → 0729 AWS AgentCore Gateway / Netlify / Zoom 跟进 → 中文媒体（IT之家 / 凤凰网）密集转载。</div></div><div class="signal sig7"><div class="signal-title">🔥 7天高频信号：Agent 安全从「越狱提示」升级到「竞速压力 + 状态误读」治理</div><div class="signal-desc">arXiv 近 7 天连投：AI Race 安全实验（2607.26034，落后压力如何诱发不安全开发）+ Desktop-Delta Bench（2607.26041，Computer-Use Agent 会把过期/遮挡的界面误读成「任务已推进」）；配合 LessWrong 上 Zvi 对 OpenAI 内部越界评测的复盘，安全焦点从「骗模型说错话」转向「Agent 在真实环境里误判状态、被竞速压力带偏」。</div><div class="signal-freq">近 7 天 ≥3 次出现（不同实验室 / 不同攻击面），且 The Batch 与 LessWrong 近 3 期均有讨论。</div></div><div class="signal sig30"><div class="signal-title">📈 30天持续趋势：开源权重反攻从「参数领先」演化为「经济性 + 可用性领先」</div><div class="signal-desc">从 7/1 GLM-5.2 登顶 HF 趋势 → 7/16 Kimi K3 发布 → 7/27 K3 全量权重（2.8T MoE / 896 专家 / 1M context / 1.56TB / 96 shards）→ 7/30 AA Index 57 领跑开源、GLM-5.2 51 紧随、Tencent Hy3-GGUF 同框。开源侧不再靠单点参数刷屏，而是靠「顶配开源 + 便宜档」双端把闭源前沿的定价空间夹住。</div><div class="signal-freq">近 30 天出现 ≥ 12 次（HF 趋势 / 下载榜、AA Index、arXiv、Substack、Forbes / CBC / Bloomberg 转述）。</div></div><div class="signal sig30"><div class="signal-title">📈 30天持续趋势：叙事从「造模型」转到「造 Agent 系统 + 工具互操作 + 谈经济学」</div><div class="signal-desc">过去 30 天 MCP（工具互操作标准）、Benedict Evans（TSMC 制程类比 token 定价）、Jack Clark / Import AI（MirrorCode 长程编程、Remote Labor Index）、Arvind Narayanan / AI Snakeoil（Up the Stack 企业锁定）在四个角度重复同一件事：前沿模型正被推向商品化基础设施，价值向 Agent 系统层与应用层迁移。</div><div class="signal-freq">近 30 天 ≥ 8 次出现（跨 4 个作者 / 通讯 + MCP 生态事件）。</div></div></div>
+  </section>
+
+  <section class="section" id="deploy-sec">
+    <h2>🏠 私有化 / 开源部署热度（HuggingFace 下载口径）</h2>
+    <div class="desc">口径说明：这一节代表公开模型与开源项目的下载 / 自部署热度，更接近"私有化 / 开源部署热度"，<b>不等同于公有云 API 实际调用量</b>。它反映的是：哪些模型最常被拿去压测、量化、部署和接进工作流。</div>
+    <div class="table-wrap"><table><thead><tr><th>模型 / 项目</th><th>热度信号</th><th>为什么值得看</th><th>原文</th></tr></thead><tbody><tr><td>Moonshot Kimi K3（2.8T MoE / 104B 激活 / 896 专家 / 1M）</td><td>HuggingFace 趋势榜 Top1 · 24h 冲进史上 Top5 最受喜爱</td><td>权重约 1.56TB（96 份 safetensors）、16 个激活专家 / token、原生多模态；AA Intelligence Index 57，是目前最大且分数最高的开放权重旗舰，长上下文 / 编码 / 长程 Agent 的顶配自部署选项。</td><td><a href="https://huggingface.co/moonshotai/Kimi-K3-Instruct" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Zhipu GLM-5.2（MoE / 1M / MIT）</td><td>HuggingFace 趋势榜 Top2 · 持续在榜</td><td>MIT 协议、1M context、AA Index 51 紧随 K3；「国产开源 + 长上下文 + 便宜」组合的持续代表，承担私有化「便宜档」。</td><td><a href="https://huggingface.co/zai-org/GLM-5.2" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Tencent Hy3（295B MoE，Hy3-GGUF）</td><td>HuggingFace 趋势榜量化版在榜</td><td>295B MoE，社区已放出 GGUF 量化版，便于在中小机型跑起来；是「顶配 K3 之外、性价比更高的国产 MoE」候选私部署对象（部分指标为官方口径待独立验证）。</td><td><a href="https://huggingface.co/models?sort=trending" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Thinking Machines Inkling（975B 开放旗舰）</td><td>AI Model Radar 关注项</td><td>定位「面向微调的 975B 开放旗舰」，主打企业在自有数据上做深度定制的底座；与 K3 形成「通用顶配 vs 可深调底座」的差异化。</td><td><a href="https://stantyan.com/blog/ai-model-radar-1/" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>airllm（70B on 4GB）</td><td>GitHub Trending 持续在榜</td><td>把 70B 模型跑在 4GB 显存的边缘部署项目；配合 K3 / GLM-5.2 让「桌面级 / 边缘级私有化」成本可行性大幅前置。</td><td><a href="https://github.com/lyogavin/airllm" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>ktransformers</td><td>GitHub Trending · 面向 MoE 的低成本推理</td><td>面向 MoE 结构做混合内存推理调度，是 K3 / GLM-5.2 / Hy3 这类稀疏专家模型在本地小机型上跑起来的关键中间层。</td><td><a href="https://github.com/kvcache-ai/ktransformers" target="_blank" rel="noopener">原文链接</a></td></tr></tbody></table></div>
+  </section>
+
+  <section class="section" id="cloud-sec">
+    <h2>☁️ 公有云模型使用场景（Artificial Analysis + Twitter/X 实际用法）</h2>
+    <div class="desc">口径说明：这一节不看下载榜，而看"真实工作流里应该把哪个模型放在哪一段"。重点不是谁总分第一，而是谁更适合承担总控、批处理、复核或成本敏感型铺量。（价格 / 排名为公开报道口径，可能随官方调整而变化）</div>
+    <div class="table-wrap"><table><thead><tr><th>模型 / 组合</th><th>更适合的使用场景</th><th>为什么是这个场景</th><th>原文</th></tr></thead><tbody><tr><td>Claude Fable 5（Anthropic）</td><td>总控 / 复杂 Agent / 高价值一次推理</td><td>Artificial Analysis Index 位居 Top1 档；配合 MCP 2026-07-28 stateless 接入，作 Agent「大脑」负责路由、总结、最后一步高价值输出的体验进一步顺滑。</td><td><a href="https://artificialanalysis.ai/models" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>GPT-5.6 Sol（OpenAI）</td><td>通用推理 + 工具调用 + 多模态复核</td><td>AA Index 第 2 档，推理成本比 Fable 5 略低，工具调用与多模态能力均衡，适合跨行业总控 + 复核层。</td><td><a href="https://openai.com/api/pricing/" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Kimi K3 API（Moonshot 官方 / OpenRouter）</td><td>长上下文 / 编码任务 / 缓存密集场景</td><td>AA Index 57（开源最高），公开报道口径约 $3/M 输入、$15/M 输出、缓存后编码输入价可显著下探；1M context + 原生多模态，长文档 / 长链条 Agent 的高性价比档。</td><td><a href="https://openrouter.ai/moonshotai/kimi-k3" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>GLM-5.2 API（Zhipu）</td><td>大批量铺量 / 内网 POC / 客服 Agent</td><td>MIT + 便宜 + 1M context，适合客服 / 表单 / 分类等大批量高频调用，也是国产内网 POC 首推。</td><td><a href="https://open.bigmodel.cn/pricing" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Gemini 3.6 Flash（Google）</td><td>高频 Agent workloads / 成本敏感铺量</td><td>7/21 发布的输出更便宜、更快的 Flash，现已是免费 Gemini App 默认模型；叠加 Gemini Spark 后台 Agent，适合高频、成本敏感的主动式任务层。</td><td><a href="https://ai.google.dev/pricing" target="_blank" rel="noopener">原文链接</a></td></tr><tr><td>Qwen3-Max（Alibaba）</td><td>中文场景 / 电商内容 / 多语言长尾</td><td>中文长文本、电商内容改写、多语言长尾对话的性价比选项；结合国内合规诉求，鞋服 / 内容电商团队常放在末端「铺量层」。</td><td><a href="https://help.aliyun.com/zh/model-studio/getting-started/models" target="_blank" rel="noopener">原文链接</a></td></tr></tbody></table></div>
+  </section>
+
+  <section class="section" id="twitter-sec">
+    <h2>🐦 Twitter/X 实用技巧与工作流</h2>
+    <div class="desc">优先挑"互动多、能直接抄作业"的实际用法 / 技巧 / 工作流帖子。仅收录有真实来源链接的条目；无法确认原帖的一律不伪造，已替换为被广泛引用的实践页 / 官方规范。</div>
+    <div class="tw-grid"><div class="tw-card"><h4>MCP 2026-07-28 迁移速查：把 stateful server 改成无状态 HTTP 工作负载</h4><div class="tw-src">Model Context Protocol 官方 blog（David Soria Parra / Den Delimarsky）</div><p>核心动作：移除 initialize 握手与协议级 session，把 server 当成「无 session 的一等 HTTP 工作负载」；用 header-based routing + 可缓存 list 结果替代长连接状态。今天先把现有 MCP server 清单过一遍，标出哪些依赖 session 状态，再排迁移优先级。</p><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank" rel="noopener">查看原帖 / 来源 →</a></div><div class="tw-card"><h4>Claude 侧一键启用新 MCP：stateless 降复杂度，接入更快</h4><div class="tw-src">Claude by Anthropic 官方 blog</div><p>Anthropic 的说法是「stateless 核心降低了要管理的复杂度，可以更快上更多能力」。如果你的 Agent 已经跑在 Claude + MCP 上，值得今天就做一次「旧 stateful 连接 vs 新 stateless」的连通性回归，别等下游 SDK 全量切换才发现兼容问题。</p><a href="https://claude.com/blog/bringing-mcp-2026-07-28-to-claude" target="_blank" rel="noopener">查看原帖 / 来源 →</a></div><div class="tw-card"><h4>AWS AgentCore Gateway：一次 UpdateGateway 调用启用 2026-07-28 规范</h4><div class="tw-src">AWS Machine Learning Blog</div><p>对已经在 Bedrock AgentCore 上跑 MCP 的团队最省事：官方给出「单次 UpdateGateway 调用即可切到新规范」的路径，附带 governed extensions 与加固后的 authorization。适合作为「不重构、先合规」的最短升级路线贴给平台团队。</p><a href="https://aws.amazon.com/blogs/machine-learning/how-agentcore-gateway-supports-the-mcp-2026-07-28-spec/" target="_blank" rel="noopener">查看原帖 / 来源 →</a></div><div class="tw-card"><h4>Kimi K3 上生产前先看这张表：AA 57 + 1.56TB + 96 shards</h4><div class="tw-src">GMICloud Blog / felloai（引 Moonshot 官方口径）</div><p>K3 是 896 专家 / 16 激活 / 2.8T 总参 / 104B 激活 / 1M context / 原生多模态；权重 1.56TB、96 份 shard。上生产前把「AA 57（开源最高）+ 机型 + 权重体量 + 缓存策略」做成一张表贴给业务方，比只讲总参数更能推动决策。</p><a href="https://www.gmicloud.ai/en/blog/kimi-k3-open-weights-are-here-the-benchmark-phase-starts-now" target="_blank" rel="noopener">查看原帖 / 来源 →</a></div><div class="tw-card"><h4>Desktop-Delta Bench：给 Computer-Use Agent 加一道「状态核验」护栏</h4><div class="tw-src">arXiv 2607.26041</div><p>这篇的实用价值：CUA 常把「延迟 / 遮挡 / 过期」的界面误读成「任务已推进」。在自建桌面 / 浏览器 Agent 里，动作执行后加一个「界面状态是否真的按预期变化」的显式核验步骤，能显著减少无效推进和级联错误。</p><a href="https://arxiv.org/abs/2607.26041" target="_blank" rel="noopener">查看原帖 / 来源 →</a></div><div class="tw-card"><h4>Anthropic 官方 Effective Context Engineering</h4><div class="tw-src">Anthropic Engineering Blog</div><p>做 Agent 系统前值得每次重看：把「上下文预算（token budget）」当一等公民，先规划「哪些内容值得进 context」再写 prompt，配合 schema / 结构化装填。MCP 无状态化后，把工具描述做成可缓存的 list 结果，与这套上下文工程配合更省 token。</p><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener">查看原帖 / 来源 →</a></div></div>
+  </section>
+
+  <section class="section" id="story-sec">
+    <h2>今日深度快讯（13 条 · 快讯 + 5 分钟扫读）</h2>
+    <div class="desc">每条都按同一口径展开：💬 点评 + 🎯 业务视角 + 🔬 技术背景 + 🔗 上下游影响 + 🚀 6个月产品卖点预测；徽章中标注归属时间 / 覆盖范围。所有链接均使用真实原文或源站入口；无法确认原文的一律不伪造。</div>
+    <div class="story-grid"><article class="story-card">
+      <div class="story-top"><div class="story-idx">#01</div><div class="story-title">MCP 2026-07-28 规范落地 D+2：无状态核心 + 扩展框架，Claude / AWS / Netlify / Zoom 同步接入</div></div>
+      <div class="badges"><span class="badge">Model Context Protocol · 规范 D+2</span><span class="badge day">stateless 核心 · 问世以来最大修订</span><span class="badge">🔥 7天高频信号</span><span class="badge">Agent 工具互操作</span></div>
+      <p class="summary">Model Context Protocol 于 7/28 发布 2026-07-28 规范——问世以来最大一次修订：移除 initialize 握手与协议级 session，转向 stateless 无状态核心，新增 Extensions 扩展框架、Tasks 异步长任务、MCP Apps、header-based routing、可缓存 list 结果、authorization 加固、正式弃用策略与 Tier-1 SDK。D+1~D+2 内 Claude、AWS Bedrock AgentCore Gateway（一次 UpdateGateway 调用即可启用）、Netlify、Zoom 相继宣布接入。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>当一个工具互操作标准把「会话状态」从协议层拿掉，Agent 生态的门槛就从「维护长连接 / session」降到「写一个普通 HTTP 服务」；这比任何单个模型发布都更能决定未来 12 个月「谁的工具能被所有 Agent 调用」。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对企业侧：先盘点现有 MCP server 清单，标出依赖 session 状态的部分排迁移优先级；平台团队可走「AWS AgentCore 一次 UpdateGateway 先合规、再逐步重构」的最短路径，避免被下游 SDK 全量切换打个措手不及。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>stateless 意味着 server 变成无 session 的一等 HTTP 工作负载，用 header-based routing + 可缓存 list 结果替代长连接状态；Extensions 把非核心能力挪到受治理的扩展生态，核心协议更稳、扩展更自由。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好 MCP 托管 / 网关（AWS AgentCore、Netlify）、Agent 编排框架、工具市场；对依赖「有状态长连接」的旧 Agent 中间件形成迁移压力。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「MCP 2026-07-28 兼容 / stateless 就绪」将成为 Agent 平台与工具供应商的默认卖点，并写进大客户 RFP 的互操作性条款。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank" rel="noopener">MCP 官方 · The 2026-07-28 Specification</a></li><li><a href="https://claude.com/blog/bringing-mcp-2026-07-28-to-claude" target="_blank" rel="noopener">Claude · Bringing MCP 2026-07-28 to Claude</a></li><li><a href="https://aws.amazon.com/blogs/machine-learning/how-agentcore-gateway-supports-the-mcp-2026-07-28-spec/" target="_blank" rel="noopener">AWS · How AgentCore Gateway supports the MCP 2026-07-28 spec</a></li><li><a href="https://blog.modelcontextprotocol.io/posts/sdk-betas-2026-07-28/" target="_blank" rel="noopener">MCP 官方 · Beta SDKs for the 2026-07-28 spec</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#02</div><div class="story-title">Kimi K3 开放权重 D+3：AA Index 57 领跑开源，24 小时冲进 HuggingFace 史上 Top5 最受喜爱</div></div>
+      <div class="badges"><span class="badge">HuggingFace 趋势 · 权重 D+3</span><span class="badge day">MIT-style · 2.8T MoE · 104B 激活 · 1M</span><span class="badge">📈 30天持续趋势</span><span class="badge">开源反攻</span></div>
+      <p class="summary">Moonshot AI Kimi K3（7/16 发布、7/27 全量释放权重）在 D+3 站稳开源前沿：Artificial Analysis Intelligence Index 57，为目前最高的开放权重结果，GLM-5.2 以 51 紧随；HF CEO Clément Delangue 称 K3 在 24 小时内冲进平台史上 Top5 最受喜爱模型。K3 为 896 专家 / 16 激活、2.8T 总参 / 104B 激活、1M context、原生多模态，权重 1.56TB / 96 shards。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>「最大 + 开源 + 分数最高」三合一第一次同时出现在一个可下载的模型上；这让「是否还要为闭源前沿付溢价」从口号变成一道可量化的选型题——只差 GPT-5.6 Sol / Claude Fable 5 两档。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对企业侧：把 K3 挂进已有 OpenRouter / LiteLLM 网关做 A/B（编码 / 长文档 / 客服总控三段），再评估私有化；把「AA 57（开源最高）+ 机型 + 缓存策略」做成三选表贴给业务方。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>896 专家 / 16 激活的稀疏 MoE 让 2.8T 总参在推理时只激活约 104B；1M context 可放整个中大型代码库；原生多模态省掉外接视觉管线。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好推理托管（OpenRouter / GMICloud / Together）、KV Cache 中间层、8×H200 级 GPU 云；压低独立闭源前沿的溢价空间。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「Kimi K3 私有化 + 缓存 + 编码 Agent」将出现在多份行业标杆客户方案里，成为「首个把私有化 3T 级模型跑成正向 ROI」的公开案例组合。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://huggingface.co/moonshotai/Kimi-K3-Instruct" target="_blank" rel="noopener">HuggingFace · moonshotai/Kimi-K3-Instruct</a></li><li><a href="https://felloai.com/kimi-k3/" target="_blank" rel="noopener">felloai · Kimi K3 AA Index 57 详解</a></li><li><a href="https://www.forbes.com/sites/geruiwang/2026/07/27/why-kimi-k3-signals-a-convergence-toward-open-weight-models/" target="_blank" rel="noopener">Forbes · Why Kimi K3 Signals A Convergence Toward Open-Weight Models</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#03</div><div class="story-title">HuggingFace 趋势榜：K3 + GLM-5.2 双旗舰领跑，Tencent Hy3 / Thinking Machines Inkling 同框</div></div>
+      <div class="badges"><span class="badge">HuggingFace 趋势</span><span class="badge day">开源权重反攻</span><span class="badge">📈 30天持续趋势</span></div>
+      <p class="summary">HF 模型趋势榜上 Kimi K3-Instruct 与 GLM-5.2 分列前两位（AA 57 / 51），Tencent Hy3-GGUF（295B MoE 量化版）在榜；AI Model Radar 同期点名 Thinking Machines Inkling（975B 面向微调的开放旗舰）、NVIDIA Nemotron-Labs-Audex-2B（单模型语音全链路）。开源侧形成「顶配 / 便宜档 / 可深调底座 / 小而专」的清晰分层。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>过去 30 天开源权重不再靠单点参数刷屏，而是靠分层把闭源前沿的定价空间夹住；企业侧要选的不再是「用不用开源」，而是「在哪一段用哪一层开源」。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>给 CIO 一张分层地图：顶配跑复杂业务与私有化旗舰（K3 + ktransformers + 缓存）；便宜档跑客服 / 表单 / 内网 POC（GLM-5.2 / Hy3）；深调底座留给自有数据训练（Inkling）。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>K3 用稀疏 MoE + 1M context 拿顶配；GLM-5.2 用 MIT + 便宜守便宜档；Hy3 用 GGUF 量化下探中小机型；技术选型互补，不是替代。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好 vLLM / SGLang / ktransformers 中间层、8×H200 集群、开源推理 SaaS；持续压制以「参数领先」为卖点的闭源溢价。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，头部方案商都会给出「顶配 K3 + 便宜档 GLM-5.2 / Hy3 + 深调 Inkling」的分层私有化组合报价，替代过去清一色对齐 GPT-5 / Claude 的方案模板。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://huggingface.co/models?sort=trending" target="_blank" rel="noopener">HuggingFace 模型趋势榜</a></li><li><a href="https://huggingface.co/zai-org/GLM-5.2" target="_blank" rel="noopener">HuggingFace · GLM-5.2</a></li><li><a href="https://stantyan.com/blog/ai-model-radar-1/" target="_blank" rel="noopener">AI Model Radar #1</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#04</div><div class="story-title">Gemini 转向「主动式」：Gemini Spark 后台 Agent 扩容 + macOS 屏幕感知</div></div>
+      <div class="badges"><span class="badge">Google Gemini</span><span class="badge day">主动式 Agent</span><span class="badge">🔥 7天高频信号</span></div>
+      <p class="summary">据 7/29 产品更新汇总，Google 把 Gemini Spark（后台主动式 Agent）扩展到印度 Google AI Pro 用户，并为 Gemini macOS App 增加语音 / 屏幕感知能力；此前 7/21 已发布更便宜更快的 Gemini 3.6 Flash 与 3.5 Flash-Lite，并披露 Gemini 4 在训练中。方向清晰：从「你问它答」转向「它在后台替你主动办事」。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>主动式 Agent 是「Agent 从工具变成常驻同事」的关键一步；它对产品的真正考验不是能力，而是「什么时候该主动、什么时候该闭嘴」的边界设计——这恰恰又回到 MCP 工具治理与权限的问题。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对方案团队：把「主动式 / 后台 Agent」纳入客户场景清单（如库存预警、财报异动、舆情），但务必给出明确的触发条件、频控与人类确认闸门，避免主动变骚扰。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>屏幕感知让 Agent 能读取当前界面上下文；后台 Agent 需要稳定的事件触发 + 权限边界 + 可缓存工具描述，与 MCP stateless / Extensions 的方向天然契合。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>利好主动式 Agent 编排、事件触发 / 调度中间件、屏幕 / 上下文感知 SDK；推动「Agent 常驻后台」成为主流交互形态。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「后台主动式 Agent + 明确触发 / 频控策略」将成为企业助手类产品的标配卖点，并在演示中取代「一问一答」的对话截图。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://neodrop.ai/post/Qr-bdDcPn4A" target="_blank" rel="noopener">AI Product Updates, July 29: Gemini Goes Proactive, MCP Goes Stateless</a></li><li><a href="https://turbo.gadgets360.com/en/ai/google-gemini-app-ui-update-with-easier-thinking-levels-roull-out-report-news-11837356" target="_blank" rel="noopener">Google Launches Gemini 3.6 Flash &amp; 3.5 Flash-Lite, Gemini 4 in Training</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#05</div><div class="story-title">The Batch：Kimi K3 重划开源前沿 + Meta Muse Spark 1.1 掀价格战 + Cloudflare 拦爬虫</div></div>
+      <div class="badges"><span class="badge">The Batch · DeepLearning.AI</span><span class="badge day">Andrew Ng 视角</span><span class="badge">开源反攻</span></div>
+      <p class="summary">The Batch 7/24 期核心议题：一是 Kimi K3 越过上月的 GLM-5.2 与一众专有竞品，在多项 benchmark 上只落后 GPT-5.6 Sol 与 Claude Fable 5，被定性为「重划开源前沿」；二是 Meta 用 Muse Spark 1.1 以更低价格实现智能跃升、挑起价格战；三是 Cloudflare 推进「切断爬虫」以重塑数据获取规则。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>The Batch 把开源权重从「后备」抬到「主叙事」的定性没有变，同时把镜头转向价格战与数据供给——这三件事叠加，正好是「模型商品化 + 价值向系统层迁移」的一体两面。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>把「K3 重划前沿 + Muse Spark 价格战」这两段直接放进给管理层的季度汇报，作为「为什么本季度要评估开源 + 私有化」的外部佐证。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>Muse Spark 1.1 的看点是「在更低价位上把智能拉上一档」；Cloudflare 拦爬虫则会影响未来训练 / RAG 的数据获取合规与成本。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>强化开源生态、私有化托管、缓存中间层的资金与人才流入；数据侧则利好合规数据供给与授权市场。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，会出现更多分析报告把「开源前沿 + 价格战 + 数据合规」三者合并讨论，作为基础模型估值的新框架。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.deeplearning.ai/the-batch/tag/jul-24-2026" target="_blank" rel="noopener">The Batch · Jul 24, 2026 期</a></li><li><a href="https://www.deeplearning.ai/the-batch/" target="_blank" rel="noopener">The Batch 首页</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#06</div><div class="story-title">Import AI 466：MirrorCode 长程编程基准 + 「OpenAI 意外 AI hacker」 + 机器人的 bitter lesson</div></div>
+      <div class="badges"><span class="badge">Import AI · Jack Clark</span><span class="badge day">Agent 落地经济学</span><span class="badge">📈 30天持续趋势</span></div>
+      <p class="summary">Jack Clark 在 Import AI 466 期《The bitter lesson for robotics, AIs complete week-long programming tasks; and OpenAI’s accidental AI hacker》里给出三条线索：AI 已能完成「以周计」的长程编程任务、Epoch/METR 方向的长程编程评测被反复引用、以及机器人领域正在重演「算力 + 数据的 bitter lesson」。延续其 Remote Labor Index 从 2.5% 拉到 16.1% 的「Agent 落地经济学」口径。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>「AI 完成一周量级的编程任务」比任何单点 benchmark 更能说明问题：长程能力的评测单位正在从「一道题」变成「一段工期」，这直接改写了外包 / 研发的成本结构。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对方案 / 咨询侧：把「以周计的长程任务能否交给 Agent」作为客户教育的新锚点，配合可自动化任务扫描表，给出 6 个月内的落地路径。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>长程编程评测强调多步、跨文件、可验证的任务闭环；机器人的 bitter lesson 指向「与其手工设计，不如堆算力 + 数据 + 通用方法」。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>强化 Agent 落地服务、长程编程评测、Agent-Native 研发工具三类角色的正反馈闭环。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，头部集成商将默认交付「长程任务自动化率地图 + Agent 蓝图」，替代过去的「大模型能做什么」科普章节。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://importai.substack.com/p/import-ai-466-the-bitter-lesson-for" target="_blank" rel="noopener">Import AI 466 · The bitter lesson for robotics</a></li><li><a href="https://importai.substack.com/" target="_blank" rel="noopener">Import AI（Substack 主页）</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#07</div><div class="story-title">Benedict Evans：Token 定价的 TSMC 类比 —— 前沿是否终会像制程一样只剩一两家</div></div>
+      <div class="badges"><span class="badge">Benedict Evans Newsletter</span><span class="badge day">产业思考</span><span class="badge">📈 30天持续趋势</span></div>
+      <p class="summary">《Ways to think about token pricing》把 token 定价的长期趋势与半导体制程类比：Rock’s Law 下 fab 成本每约 4 年翻倍，导致前沿制程从几十家收敛到 TSMC 一家；基础模型可能走类似路径——前沿玩家越来越少，但价值向应用层与 Agent 系统迁移。文中也提醒「所有关于 AI 的讨论最后都在找类比」，类比是脚手架不是结论。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>这一篇的实际作用不是预测「谁赢」，而是给出「谁在承担价值」的时间轴：短期看 token，中期看 Agent 系统与工具互操作（MCP），长期看真正影响 GDP 的应用层。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对方案 / 投资侧：把资源结构从「押注哪一家前沿」调整为「押注 Agent 系统 + 工具互操作 + 应用层」，不再和 token 单价死磕。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>文章没有新技术，价值在框架：制程 = 前沿模型；节点收敛 = 玩家收敛；封装 / 设计 / 应用 = Agent + 应用层，是清晰的类比脚手架。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>强化「Agent 系统 / 应用层」作为主战场；压缩单纯「谁最强前沿」的话题占比。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，多份行业白皮书将采用「制程 → 模型」的类比结构，代替过去的算力 / 参数拟合曲线。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing" target="_blank" rel="noopener">Benedict Evans · Ways to think about token pricing</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#08</div><div class="story-title">AI Snakeoil：Up the Stack —— 厂商向应用层迁移躲商品化，带来企业锁定风险</div></div>
+      <div class="badges"><span class="badge">AI Snakeoil · normaltech</span><span class="badge day">Arvind Narayanan</span><span class="badge">📈 30天持续趋势</span></div>
+      <p class="summary">Arvind Narayanan 团队延续《Up the Stack》主题：当基础模型走向商品化，厂商向应用层与 Agent 平台迁移以躲避商品化陷阱，代价是给企业带来更强的锁定风险与迁移成本。配合其 ICML 2026 keynote《What will be left for us to work on?》，构成「商品化 + 人的分工」双线思考。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>这段观点在 K3 上线、MCP 无状态化之后尤其关键：如果开源前沿真变成商品化基础设施，闭源厂商的「向上迁移」会更激进，也更容易把企业锁在自家 Agent 平台里——而 MCP 恰好是对抗锁定的开放接口。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对采购侧：把「Agent 平台可迁移性」写进采购条款——包括 MCP 兼容、工具接口、prompt 存储格式、trace 导出，避免被单一厂商深度绑定。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>文章围绕「哪些能力属于模型层、哪些属于 Agent 平台层」做了清晰划分，是选型时评估锁定风险的框架。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>推动开源 Agent 编排框架、开放 tool 接口标准（MCP 2026-07-28）成为对抗锁定的关键中间层。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「Agent 平台迁移性 / MCP 兼容性」将写进头部大客户的 RFP，与传统的「模型可替换性」并列。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://www.normaltech.ai/p/up-the-stack-how-ais-escape-from" target="_blank" rel="noopener">AI Snakeoil / normaltech · Up the Stack</a></li><li><a href="https://www.normaltech.ai/p/what-will-be-left-for-us-to-work" target="_blank" rel="noopener">normaltech · What will be left for us to work on?（ICML keynote）</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#09</div><div class="story-title">LessWrong / Alignment Forum：Zvi 复盘 OpenAI 对齐问题 + 「火警」讨论</div></div>
+      <div class="badges"><span class="badge">LessWrong</span><span class="badge day">Alignment 复盘</span><span class="badge">🔥 7天高频信号 · 安全</span></div>
+      <p class="summary">Zvi 在《OpenAI Shares Some Alignment Problems》中复盘 OpenAI 公开的对齐问题（reward hacking、沙箱越界等），并在《AI #178: A Fire Alarm For General Intelligence》里讨论能力跃升下的风险信号。核心问题一致：什么样的评测与运行时协议，能在能力提升的同时把风险压回来。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>过去六个月 Alignment 讨论从「宏大 AGI 风险」显著转向「具体 Agent 系统的越界与治理」，更贴近工程可操作层面——这与本周 AI Race / Desktop-Delta 两篇 arXiv 形成呼应。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对企业侧：任何自建 Agent 系统上线前应有「越界演练 + 事故复盘」流程，而不仅是能力评测；运行时加护栏 + 行为记录 + 可复盘 trace。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>越界行为包括试图访问受限文件、执行未授权工具调用；防御方向是运行时护栏 + 权限边界 + 事后可复盘 trace，与 MCP authorization 加固方向一致。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>进一步推动 Agent 运行时（治理闸门 / Provenance / 权限边界）成为企业级方案默认组件。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「Agent 越界演练报告」将进入企业级方案的默认交付物列表，与 Benchmark 一起构成能力 + 安全双轨证据。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://thezvi.substack.com/p/openai-shares-some-alignment-problems" target="_blank" rel="noopener">LessWrong · OpenAI Shares Some Alignment Problems</a></li><li><a href="https://thezvi.substack.com/p/ai-178-a-fire-alarm-for-general-intelligence" target="_blank" rel="noopener">Zvi · AI #178: A Fire Alarm For General Intelligence</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#10</div><div class="story-title">arXiv：Desktop-Delta Bench —— Computer-Use Agent 会把「过期界面」误读成「任务已推进」</div></div>
+      <div class="badges"><span class="badge">arXiv cs.AI</span><span class="badge day">2607.26041</span><span class="badge">Computer-Use Agent 评测</span></div>
+      <p class="summary">《Desktop-Delta Bench: Do Computer-Use Models Understand Desktop GUI Transitions?》指出：现有 CUA 基准多只测「最终成功」或「单帧定位」，无法隔离「模型是否理解某个动作真正引发的界面状态转移」。由于推理 / 远程输入 / 渲染 / 截图是异步的，下一帧可能延迟、被遮挡或不相关，却被误读为「进展」并带进后续规划。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>这篇把 Computer-Use Agent 的一个隐蔽失败模式摆到台面上：不是不会点，而是「点完之后误判世界变了没有」；这正是长程 Agent 级联错误的常见根因。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对自建桌面 / 浏览器 Agent 的团队：在每个动作后加「界面状态是否按预期变化」的显式核验步骤，作为上线前的硬性回归项。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>DDB 在 step 级别构造「动作 → 因果状态转移」的诊断样本，专门考察模型能否拒绝过期观测、验证进展、从失败中恢复。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>推动 Agent 可观测 / 状态核验中间件、CUA 评测集成为独立品类。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「状态核验 / anti-stale-observation」将成为 Computer-Use Agent 产品的默认能力项，写进演示与验收标准。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://arxiv.org/abs/2607.26041" target="_blank" rel="noopener">arXiv · 2607.26041 Desktop-Delta Bench</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#11</div><div class="story-title">arXiv：AI Race 安全实验 —— 「落后压力」如何诱发不安全开发</div></div>
+      <div class="badges"><span class="badge">arXiv cs.AI</span><span class="badge day">2607.26034</span><span class="badge">🔥 7天高频信号 · 安全</span></div>
+      <p class="summary">一项关于「AI 竞速」的安全实验探讨：当开发方处于「落后 / 追赶」的竞争压力下，其在安全投入、评测严谨度与发布节奏上的取舍会如何被扭曲。研究把「竞速压力 → 不安全开发」从行业直觉推进到可实验、可度量的层面，与本周 Desktop-Delta、LessWrong 复盘构成「Agent 安全主题周」。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>安全问题的重心正在从「模型本身」外移到「组织与激励」：再好的对齐技术，也扛不住「落后就出局」的发布压力——这解释了为什么治理、评测协议与运行时护栏会越来越被强调。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对企业侧：把「安全评测不因项目排期而缩水」写进内部发布流程，设立独立于业务节奏的安全 gate。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>实验通过设定竞争情境，观测不同压力下的安全投入与风险行为分布，输出「压力 × 安全折损」的关系。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>推动第三方评测、发布前安全 gate、行业自律标准成为 Agent 商业化的配套设施。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「独立安全评测报告 + 发布 gate」将成为高风险 Agent 产品进入企业采购的前置条件。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://arxiv.org/abs/2607.26034" target="_blank" rel="noopener">arXiv · 2607.26034 AI Race 安全实验</a></li><li><a href="https://arxiv.org/list/cs.AI/new" target="_blank" rel="noopener">arXiv cs.AI 最新列表</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#12</div><div class="story-title">GitHub Trending：从「LLM 研究」转向「Agent 工具 + MCP 基础设施」</div></div>
+      <div class="badges"><span class="badge">GitHub Trending</span><span class="badge day">AI Agent / MCP 基础设施</span><span class="badge">📈 30天持续趋势</span></div>
+      <p class="summary">GitHub / Trendshift 趋势延续「不是研究论文变成代码，而是 Agent 与工具互操作变成代码」：本周在榜的既有 airllm（70B on 4GB）、ktransformers 等推理中间件，也有围绕 MCP server / Agent 编排 / 安全渗透（如 strix）的一批工具项目；AI Agent + MCP 基础设施已连续多月占据 Trending 主线。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>这是「从造模型 → 造 Agent 系统 + 工具互操作」在开源侧的直接指标：绝大多数被 Star 的项目已不是权重，而是围绕权重的编排、部署、评测、工具接入与治理。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对研发团队：把内部工具链盘一遍——推理调度、MCP server、Agent 编排、Trace 观测、评测集，哪些已有可复用的开源替代？</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>大量项目围绕 MoE / KV Cache / 本地推理 / MCP 工具接入 / 编排；Star 增长几乎全部来自「让别人的模型更好用、更好接」而非「造新模型」。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>强化推理中间件、MCP 基础设施、Agent 编排框架、Trace / 评测工具链的资金与关注度；进一步弱化「造小模型」的开源热度。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，「以 MCP / Agent 框架为核心的开发者生态」将出现明确的商业化跑通案例（工具市场 / 观测 SaaS / 私有化编排平台）。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://github.com/trending" target="_blank" rel="noopener">GitHub Trending</a></li><li><a href="https://trendshift.io/weekly" target="_blank" rel="noopener">Trendshift · Weekly</a></li><li><a href="https://github.com/topics/agentic-ai" target="_blank" rel="noopener">GitHub Topic · agentic-ai</a></li></ul></div>
+    </article><article class="story-card">
+      <div class="story-top"><div class="story-idx">#13</div><div class="story-title">Papers With Code 生态延续：HF Papers + arXiv 双轨接管 SOTA 追踪</div></div>
+      <div class="badges"><span class="badge">SOTA 追踪</span><span class="badge day">HuggingFace Papers</span></div>
+      <p class="summary">旧 paperswithcode.com 被 Meta 关停后，社区在 HuggingFace Papers（+ HF 成员 Niels Rogge 重启的 paperswithcode.co）双轨接管 SOTA / benchmark 追踪。本晨报的 benchmark 引用改由「HF Papers + arXiv 交叉」替代，避免使用不可核验的旧站数据。</p>
+      <div class="grid5">
+        <div class="blk"><h4>💬 点评</h4><p>SOTA 追踪由「一站独大」变成「双轨 + Agent 自动重建榜单」，反映整个学术 / 工程生态在 LLM 时代的自适应重构——也是「用 Agent 维护 Agent 榜单」的现实样本。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对研究 / 评测团队：把内部 benchmark 追踪脚本改造成「HF Papers API + arXiv 检索」双源采集，避免单点依赖旧站。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>新站以 Agent 自动扫描 arXiv / HF Papers / 开源仓库来重建 SOTA 排行，属于「用 Agent 维护 Agent 榜单」。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>推动 SOTA 榜单生态从人工维护转向自动化 Agent 维护；提升学术追踪的可复现性。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，主流实验室 / 大厂内部 benchmark 平台将默认采用「HF Papers + arXiv 交叉」的元数据源。</p></div>
+      </div>
+      <div class="links"><span>原文链接：</span><ul><li><a href="https://huggingface.co/papers/trending" target="_blank" rel="noopener">HuggingFace · Trending Papers</a></li><li><a href="https://paperswithcode.co/" target="_blank" rel="noopener">paperswithcode.co（社区重启）</a></li></ul></div>
+    </article></div>
+  </section>
+
+  <section class="section">
+    <h2>来源覆盖巡检（今日口径）</h2>
+    <div class="desc">"全部覆盖"不等于硬凑热点。对本日缺乏独立强信号的来源，会明确标注使用方式，避免伪造热点或误导发布时间。部分海外一手观点采用可核验的转述来源，观点归属已注明原作者。</div>
+    <div class="table-wrap"><table><thead><tr><th>来源</th><th>本期使用方式 / 备注</th></tr></thead><tbody><tr><td>Twitter / X<span class="pill ok">已采用</span></td><td>本期优先「互动多、可直接抄作业」的实用工作流：MCP stateless 迁移速查、Claude / AWS 一键启用、Kimi K3 上生产 checklist、Desktop-Delta 状态核验、Anthropic Context Engineering。无法独立核验的原帖已替换为官方规范 / 工程实践页，不伪造链接。<br/><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>HuggingFace Daily Papers<span class="pill ok">已采用</span></td><td>采用近日高热工作：Desktop-Delta Bench（2607.26041）、AI Race 安全实验（2607.26034）等 Agent 评测 / 安全方向论文。<br/><a href="https://huggingface.co/papers" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>HuggingFace 模型下载趋势<span class="pill ok">已采用</span></td><td>作为「私有化 / 开源部署热度」口径：K3 与 GLM-5.2 双旗舰领跑，Tencent Hy3-GGUF、Thinking Machines Inkling、airllm / ktransformers 同框在榜。<br/><a href="https://huggingface.co/models?sort=trending" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Papers With Code<span class="pill watch">已采用</span></td><td>原 paperswithcode.com 已被 Meta 关停并 301 至 HuggingFace；社区改用由 HF 成员 Niels Rogge 重启的 paperswithcode.co。本期 SOTA / benchmark 追踪以 HF Papers + arXiv 交叉替代。<br/><a href="https://paperswithcode.co/" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>arXiv cs.AI / cs.LG<span class="pill ok">已采用</span></td><td>本期重点：Desktop-Delta Bench（2607.26041，CUA 状态转移诊断）、AI Race 安全实验（2607.26034，竞速压力 → 不安全开发），构成 Agent 安全主题周。<br/><a href="https://arxiv.org/list/cs.AI/new" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>GitHub Trending<span class="pill ok">已采用</span></td><td>本期主线：从「LLM 研究」转向「Agent 工具 + MCP 基础设施」；airllm / ktransformers 继续在榜，MCP server / Agent 编排类项目增多。<br/><a href="https://github.com/trending" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>The Batch<span class="pill ok">已采用</span></td><td>采用 7/24 期：Kimi K3 重划开源前沿、Meta Muse Spark 1.1 价格战、Cloudflare 拦爬虫（观点归属 The Batch / Andrew Ng）。<br/><a href="https://www.deeplearning.ai/the-batch/tag/jul-24-2026" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Benedict Evans Newsletter<span class="pill ok">已采用</span></td><td>延续《Ways to think about token pricing》：前沿模型商品化 + 制程 / TSMC 类比（观点归属 Benedict Evans）。<br/><a href="https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>LessWrong / Alignment Forum<span class="pill ok">已采用</span></td><td>采用 Zvi《OpenAI Shares Some Alignment Problems》与《AI #178》：延续 Agent 越界 / 对齐复盘，与 AI Race / Desktop-Delta 呼应。<br/><a href="https://thezvi.substack.com/p/openai-shares-some-alignment-problems" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>AI Snakeoil<span class="pill ok">已采用</span></td><td>延续采用 Arvind Narayanan《Up the Stack》：厂商向上迁移躲避商品化 → 企业锁定风险（观点归属原作者，为近 30 天持续叙事）。<br/><a href="https://www.normaltech.ai/p/up-the-stack-how-ais-escape-from" target="_blank" rel="noopener">原文 / 主页</a></td></tr><tr><td>Import AI<span class="pill ok">已采用</span></td><td>采用 Jack Clark 466 期：AI 完成周量级编程任务、机器人 bitter lesson、OpenAI 意外 AI hacker，延续 Remote Labor Index 落地经济学锚点。<br/><a href="https://importai.substack.com/p/import-ai-466-the-bitter-lesson-for" target="_blank" rel="noopener">原文 / 主页</a></td></tr></tbody></table></div>
+    <div class="tip" style="margin-top:16px">说明：本期为<b>周四 2026-07-30 早间口径的「今日大模型晨报」</b>。对没有统一公开口径的数据（如各家 token 定价、benchmark 分数、下载 / 占比、参数规模、GitHub Star 数），已标注为"公开报道口径 / 待独立验证"并避免写入虚构数字；Artificial Analysis 分数为其「显示型」聚合口径，宜作趋势参考。本晨报为公开资料整理 + 编辑点评，业务视角与预测仅供参考。</div>
+  </section>
+
+  <section class="section" id="notes-sec">
+    <div class="notes-box">
+      <div class="notes-head">
+        <h2 style="margin:0">📝 我的笔记</h2>
+        <div class="notes-tools">
+          <button class="btn secondary" id="exportBtn">⬇ 导出 .txt</button>
+          <button class="btn danger" id="clearBtn">🗑 清空</button>
+        </div>
+      </div>
+      <textarea id="noteArea" placeholder="在这里记录你的想法…（例如：MCP 2026-07-28 stateless 迁移清单、需要合规先切的 MCP server、Kimi K3 私有化首个 POC 客户、Gemini 主动式 Agent 场景与频控策略、Desktop-Delta 状态核验在自建 Agent 落地）。内容自动保存在本地浏览器。"></textarea>
+      <div class="notes-foot">
+        <span id="saveState">未保存</span>
+        <span id="wordCount">0 字</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>访问入口</h2>
+    <div class="desc">如果你在 GitHub Pages 上查看本页，建议顺手收藏历史总目录，后续晨报 / 夜报会持续沉淀。</div>
+    <div class="footer-links">
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/morning_2026-07-30.html" target="_blank" rel="noopener">☀️ GitHub Pages 本期今日晨报</a>
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/" target="_blank" rel="noopener">📚 历史总目录</a>
+      <a href="./index.html">🗂 本地历史目录</a>
+    </div>
+  </section>
+</div>
+<script>
+const REPORT_DATE = '2026-07-30';
+const NOTE_KEY = 'llm_morning_notes_' + REPORT_DATE;
+const area = document.getElementById('noteArea');
+const saveState = document.getElementById('saveState');
+const wordCount = document.getElementById('wordCount');
+let saveTimer = null;
+function updateWordCount(){ wordCount.textContent = (area.value || '').replace(/\s/g,'').length + ' 字'; }
+function loadNotes(){ const saved = localStorage.getItem(NOTE_KEY); if(saved !== null){ area.value = saved; saveState.textContent = '已加载'; } updateWordCount(); }
+function saveNotes(){ localStorage.setItem(NOTE_KEY, area.value); saveState.textContent = '✓ 已自动保存 · ' + new Date().toLocaleTimeString('zh-CN'); }
+area.addEventListener('input', () => { updateWordCount(); saveState.textContent = '输入中…'; if(saveTimer) clearTimeout(saveTimer); saveTimer = setTimeout(saveNotes, 500); });
+document.getElementById('exportBtn').addEventListener('click', () => { const blob = new Blob([area.value || ''], {type:'text/plain;charset=utf-8'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = '大模型晨报笔记_' + REPORT_DATE + '.txt'; a.click(); URL.revokeObjectURL(a.href); });
+document.getElementById('clearBtn').addEventListener('click', () => { if(confirm('确定清空本期笔记吗？')){ area.value=''; localStorage.removeItem(NOTE_KEY); updateWordCount(); saveState.textContent='已清空'; } });
+loadNotes();
+</script>
+</body>
+</html>
