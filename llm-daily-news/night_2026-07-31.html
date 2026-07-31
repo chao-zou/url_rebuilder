@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🌙 大模型夜报 2026-07-31（深度复盘版）</title>
+<!-- report-meta: date=2026-07-31; type=night; title=大模型夜报 2026-07-31; summary=本期为周五（2026-07-31）晚间 23:00 触发的「今日大模型夜报」，覆盖当天 AI / 大模型资讯。今晚主线很清晰：工具层从“聊天附属”升级为“执行基础设施”，长程 Agent 从“能不能做”进入“怎么安全做、怎么低成本做、怎么卖给企业”的复盘阶段；GitHub Agent skills + MCP GA、OpenAI 长程安全与 Hugging Face 事件、Anthropic Project Fetch Phase Two、Kimi K3 的开源部署热度，以及 arXiv 关于开放式 AI 研究与 cost-aware tool stopping 的论文，共同把 2026 下半年的产品方法论推向同一件事——模型能力继续涨，但真正决定商业化胜负的，是工具接入、监控治理、成本控制和工作流封装。 -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#060a12; --panel:rgba(10,18,33,.82); --panel-2:rgba(12,22,40,.9); --line:rgba(255,255,255,.1);
+    --text:#edf3ff; --muted:#a9bad8; --accent:#8cc8ff; --purple:#b8a8ff; --gold:#ffd67d; --green:#98f0c3; --danger:#ff8d8d;
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; color:var(--text); font-family:Inter,'Noto Sans SC',sans-serif;
+    background:radial-gradient(1100px 700px at 85% -10%,rgba(74,96,189,.33),transparent 55%),
+               radial-gradient(900px 560px at 0% 0%,rgba(73,45,150,.32),transparent 48%),
+               linear-gradient(180deg,#08101f,#060a12 58%,#04070d);
+  }
+  a { color:var(--accent); }
+  .wrap { max-width:1220px; margin:0 auto; padding:40px 18px 80px; }
+  .hero, .section { border:1px solid var(--line); background:var(--panel); backdrop-filter:blur(12px); border-radius:28px; box-shadow:0 24px 80px rgba(0,0,0,.24); }
+  .hero { padding:34px; }
+  .kicker { color:#8cb8ff; font-size:13px; letter-spacing:.14em; text-transform:uppercase; }
+  h1 { margin:12px 0 14px; font-size:42px; line-height:1.08; }
+  h2 { margin:0 0 14px; font-size:28px; line-height:1.2; }
+  .hero p, .desc { color:var(--muted); line-height:1.8; }
+  .meta-row, .stats, .signals, .story-grid, .source-grid, .tw-grid { display:grid; gap:14px; }
+  .meta-row { grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin-top:18px; }
+  .meta-chip { border:1px solid var(--line); background:rgba(255,255,255,.04); border-radius:999px; padding:10px 14px; color:#d8e6ff; font-size:13px; }
+  .stats { grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); margin-top:18px; }
+  .stat { border:1px solid var(--line); background:rgba(255,255,255,.04); border-radius:22px; padding:18px; }
+  .num { font-size:30px; font-weight:800; }
+  .lbl { margin-top:8px; color:var(--muted); font-size:13px; }
+  .section { margin-top:18px; padding:28px; }
+  .lead { font-size:22px; line-height:1.75; font-weight:800; margin:0; }
+  .signals { grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+  .signal, .story, .source-card, .tw-card { border:1px solid var(--line); border-radius:24px; background:var(--panel-2); padding:20px; }
+  .signal .tag, .story .badge, .source-card .tag { display:inline-flex; align-items:center; gap:6px; border-radius:999px; padding:6px 10px; font-size:12px; font-weight:700; }
+  .sig7 { background:rgba(255,190,92,.15); color:var(--gold); border:1px solid rgba(255,190,92,.22); }
+  .sig30 { background:rgba(140,200,255,.14); color:var(--accent); border:1px solid rgba(140,200,255,.2); }
+  .story-grid { grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); }
+  .story h3 { margin:14px 0 10px; font-size:24px; line-height:1.35; }
+  .story .summary { color:#dce7fb; font-size:15px; line-height:1.75; margin-bottom:16px; }
+  .blk { margin-top:12px; padding:14px 16px; border-radius:18px; border:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.03); }
+  .blk h4 { margin:0 0 8px; font-size:15px; }
+  .blk p { margin:0; color:var(--muted); line-height:1.75; font-size:14px; }
+  .links { margin-top:16px; font-size:14px; }
+  .links ul { margin:8px 0 0 18px; padding:0; }
+  .links li { margin:6px 0; color:var(--muted); }
+  table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:22px; border:1px solid var(--line); background:rgba(255,255,255,.03); }
+  th, td { padding:14px 16px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; line-height:1.7; }
+  th { color:#dfe9ff; background:rgba(255,255,255,.05); font-size:13px; }
+  td { color:var(--muted); font-size:14px; }
+  tr:last-child td { border-bottom:none; }
+  .source-grid { grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+  .source-card h4 { margin:10px 0 8px; font-size:18px; }
+  .source-card p { margin:0; color:var(--muted); line-height:1.75; font-size:14px; }
+  .small { margin-top:10px; color:#8fb0d8; font-size:12px; line-height:1.7; }
+  .notes-box { border:1px solid var(--line); background:rgba(255,255,255,.03); border-radius:24px; padding:22px; }
+  .notes-head, .notes-foot, .footer-links, .notes-tools { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  textarea {
+    width:100%; min-height:220px; margin-top:14px; resize:vertical; border-radius:18px; border:1px solid var(--line);
+    background:rgba(7,12,22,.95); color:var(--text); padding:16px; font:500 14px/1.8 Inter,'Noto Sans SC',sans-serif;
+  }
+  .btn { border:none; border-radius:999px; padding:10px 16px; cursor:pointer; font-weight:700; }
+  .secondary { background:rgba(140,200,255,.15); color:var(--accent); }
+  .danger { background:rgba(255,141,141,.14); color:#ffb1b1; }
+  .footer-links a { display:inline-flex; padding:12px 16px; border-radius:999px; border:1px solid var(--line); text-decoration:none; background:rgba(255,255,255,.04); }
+  @media (max-width:760px){ h1{font-size:34px;} h2{font-size:24px;} .hero,.section{padding:22px;} .lead{font-size:19px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">🌙 大模型夜报 · 周五 2026-07-31 · 深度复盘版</div>
+    <h1>大模型夜报 2026-07-31</h1>
+    <p>本期为周五（2026-07-31）晚间 23:00 触发的「今日大模型夜报」，覆盖当天 AI / 大模型资讯。今晚不再把重点放在“又发布了哪个模型”，而是把全天信号重新串起来看：GitHub 把 Agent skills + MCP 正式推到更广生产面，OpenAI 把 long-horizon 安全从抽象原则下探到 trajectory-level monitoring 与可回滚部署，Anthropic 则用 Project Fetch 证明强执行 Agent 已经逼近现实设备场景；与此同时，Kimi K3 在 Hugging Face 与 API 文档里持续释放“可私有化的前沿智能”信号，arXiv 论文又把“开放式 AI 研究是否能自动化”和“工具到底该开多少”这两个企业最关心的问题讲得更清楚。<b>一句话：2026 下半年的竞争，已经从“模型会不会”走向“Agent 怎么接工具、怎么控成本、怎么做安全、怎么包成产品”。</b></p>
+    <div class="meta-row">
+      <span class="meta-chip">📅 今日大模型夜报 · 周五晚 23:00 口径</span>
+      <span class="meta-chip">定位：深度复盘 + 小宇宙播客洞察 + 产品方法论 + 技术深度</span>
+      <span class="meta-chip">覆盖：12 类必选来源全覆盖</span>
+      <span class="meta-chip">标记：🔥 7天高频信号 / 📈 30天持续趋势</span>
+      <span class="meta-chip">编辑：邹超</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">6</div><div class="lbl">深度复盘条目</div></div>
+      <div class="stat"><div class="num">12</div><div class="lbl">覆盖来源</div></div>
+      <div class="stat"><div class="num">5</div><div class="lbl">每条分析维度</div></div>
+      <div class="stat"><div class="num">4</div><div class="lbl">高频 / 持续信号</div></div>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>今日一句话判断（周五收盘）</h2>
+    <div class="desc">这是在今晨快讯基础上的收盘复盘版。重点不是追加更多碎新闻，而是回答：今天最值得团队带走的产品方法论是什么。</div>
+    <p class="lead">今天最值得记住的主线是：<b>工具层正式成为大模型产品的主战场</b>——GitHub Agent skills + MCP GA 把“私有知识 / MCP / 设计资产”变成可复用执行层；<b>长程 Agent 已进入“能力 + 监控 + 回滚”共存阶段</b>——OpenAI 与 Anthropic 同时证明“能做更多事”与“必须更严治理”是一体两面；<b>开源前沿模型的商业化条件也更清晰</b>——Kimi K3 代表“前沿智能可私有化”，但真实竞争力不在单次 Demo，而在缓存、部署、工作流接入和成本结构。</p>
+  </section>
+
+  <section class="section">
+    <h2>高频信号追踪（近 7 天 / 30 天）</h2>
+    <div class="desc">统计口径：结合近 7 天 / 30 天晨夜报连续观察，并叠加当天对小宇宙播客、Twitter/X、Hugging Face Daily Papers、Hugging Face 模型趋势、Papers With Code、arXiv、GitHub Trending、The Batch、Benedict Evans、LessWrong / Alignment Forum、AI Snakeoil、Import AI 的交叉巡检结果。</div>
+    <div class="signals">
+      <div class="signal"><span class="tag sig30">📈 30天持续趋势</span><h3>工具互操作从“协议讨论”进入“生产接入”</h3><p class="summary">MCP、skills、browser automation、memory server、设计资产封装，这一个月都在持续升温；到了今天，GitHub 直接把 Agent skills + MCP code review GA，信号已经从“开发者试验”切到“生产团队默认能力层”。</p></div>
+      <div class="signal"><span class="tag sig7">🔥 7天高频信号</span><h3>长程 Agent 的治理能力成为产品卖点</h3><p class="summary">近 7 天里，OpenAI 的 long-horizon 安全、Hugging Face 事件、Anthropic 的 Project Fetch、LessWrong 对部署边界的讨论反复出现。行业开始接受一个现实：越能长链执行，越要把监控、审计与回滚一起卖。</p></div>
+      <div class="signal"><span class="tag sig7">🔥 7天高频信号</span><h3>开源前沿模型正在从“榜单热”转向“部署热”</h3><p class="summary">Kimi K3、GLM-5.2、Unlimited-OCR 这一周被反复讨论，不再只是“谁更强”，而是“谁更容易接进现有栈、谁更适合私有化、谁更能压低真实交付成本”。这就是部署热度真正超过纯 Benchmark 热度的标志。</p></div>
+      <div class="signal"><span class="tag sig30">📈 30天持续趋势</span><h3>Agent 评测从跑分变成“任务经济学”</h3><p class="summary">MirrorCode、open-ended AI research、tool stopping、Remote Labor Index 这一类工作共同说明，企业越来越需要“完成率、任务时间、工具成本、风险暴露”而不是单一分数。评测方法论本身正在独立成产品。</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>私有化 / 开源部署热度（Hugging Face 口径）</h2>
+    <div class="desc">这一节代表公开模型与开源项目的部署 / 下载热度，更接近“大家真正在拉什么、量化什么、接进 workflow 什么”，不等同于公有云 API 调用量。</div>
+    <table>
+      <thead><tr><th>对象</th><th>可观察热度信号</th><th>更适合的企业解释</th><th>一句话判断</th></tr></thead>
+      <tbody>
+        <tr><td>moonshotai/Kimi-K3</td><td>Hugging Face 模型页显示 likes 约 9.2k，且官方文档持续强调 1M context、Tool Calling、Context Caching 与多引擎接入。</td><td>它代表“可以被企业真拿去自托管的前沿智能层”，不是只在榜单上好看。</td><td>私有化前沿旗舰样板间</td></tr>
+        <tr><td>zai-org/GLM-5.2</td><td>持续出现在近期热榜与部署讨论中，常被拿来做中文、成本敏感场景的稳定基线。</td><td>更适合大规模标准化交付、预算敏感、中文任务密集场景。</td><td>稳态交付层仍然很强</td></tr>
+        <tr><td>baidu/Unlimited-OCR</td><td>Hugging Face Daily Papers 与模型页持续带动“文档理解 / 表单 / OCR 入库”讨论。</td><td>这是最容易直接转成预算的模型能力，尤其适合票据、合同、商品资料治理。</td><td>最接近业务 ROI 的开源热点</td></tr>
+        <tr><td>SkillOpt / TurboVLA 一类研究项目</td><td>HF Papers 持续把“技能外置化”“机器人效率化”推到热区。</td><td>虽然离大规模采购还早，但很像未来产品层会接住的研究方向。</td><td>值得提前布局的下一代能力形态</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>公有云模型使用场景（官方口径 + X 实际用法）</h2>
+    <div class="desc">这一节不做绝对排名，只回答更实用的问题：今天如果站在产品或售前视角，各类模型更适合放在工作流的哪一段。</div>
+    <table>
+      <thead><tr><th>模型 / 层</th><th>更适合的使用场景</th><th>为什么今天这样判断</th><th>更适合怎么卖</th></tr></thead>
+      <tbody>
+        <tr><td>GPT-5.6 Sol 一类长程公有云模型</td><td>高风险、高复杂度、需要强监控和强回滚能力的长流程任务</td><td>OpenAI 明确把 trajectory-level monitoring、limited deployment、pause / rollback 写成方法论，说明这类模型要按“强能力 + 强治理”理解。</td><td>卖“高能力总控 + 安全治理套件”</td></tr>
+        <tr><td>Claude / Opus 系公有云模型</td><td>编码、设备调试、computer-use、需要跨步骤执行的任务</td><td>Project Fetch Phase Two 说明其在真实工具链与现实设备任务上已经很强，X 上围绕 Claude Code 的高互动讨论也在快速沉淀 context engineering 方法。</td><td>卖“执行力 + 更少脚手架 + 更强工具接入”</td></tr>
+        <tr><td>Kimi K3 API / Serverless 接入层</td><td>想先快速获得开源前沿能力，但暂时不想自己搭全栈推理基础设施的团队</td><td>官方文档强调 Context Caching、OpenAI / Anthropic-compatible API 与多引擎接入，说明它既可以私有化，也适合作为过渡型公有云入口。</td><td>卖“前沿开源能力的低摩擦接入”</td></tr>
+        <tr><td>GLM-5.2 / 稳态开源层</td><td>预算敏感、中文密集、需要规模化复制的交付场景</td><td>它更像标准件，而不是营销主角，但标准件往往是企业最愿意长期买单的那层。</td><td>卖“够用、稳、成本可控、易复制”</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>今日深度复盘（6 条 · 每条都含 💬点评 + 🎯业务视角 + 🔬技术背景 + 🔗上下游影响 + 🚀6个月卖点预测）</h2>
+    <div class="desc">今晚优先保留最有产品方法论价值的条目，而不是堆砌更多快讯。所有链接均使用真实原文或源站入口；无法确认原文的一律不伪造。</div>
+    <div class="story-grid">
+      <article class="story">
+        <span class="badge sig30">📈 30天持续趋势</span>
+        <h3>#01 GitHub 把 Agent skills + MCP 推到更广生产面：工具层正式从“聊天附属”变成“执行基础设施”</h3>
+        <p class="summary">GitHub Changelog 明确写出：Copilot code review 中的 Agent skills 与 MCP 已经 GA；而 GitHub Docs 对 agent skills 的定义，也已经不是“写几条提示词”，而是把任务指令、脚本、知识与执行约束一起打包成可复用能力单元。配合 openwork、chrome-devtools-mcp 这类 GitHub Trending / 高热仓库，今天真正落地的不是单一功能，而是“工具层标准件化”。</p>
+        <div class="blk"><h4>💬 点评</h4><p>如果上半年主角还是模型本身，下半年主角会越来越像“模型 + skill + MCP + memory + browser”的组合层。今天 GitHub 的动作，相当于给企业团队发了一个很明确的信号：以后竞争的不是谁会聊天，而是谁能把私有知识和执行链条封装成可重复使用的生产能力。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对企业方案商而言，这意味着售前演示要少一些“问答炫技”，多一些“把你的 SOP、商品知识、组件库、风格规范封成 skill / MCP”的现场演示。鞋服电商场景里，商品资料、搭配规则、售后政策、活动玩法，都应该从文档资产迁移为可调用资产。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>GitHub Docs 已把 agent skills 描述为代理在执行任务时可调用的结构化能力层；search 结果中的 openwork 仓库则明确主打“同一套 skills、MCPs 和 connected services 复用到不同 agent / teammate / machine”，这就是工具层标准化的典型表达。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>上游会推动 MCP server、memory server、browser automation、design system MCP 等基础设施继续升温；下游则会让企业内部的知识管理、权限治理、工具审计变得更重要，因为每一份文档都有机会被升级成可执行接口。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>“把企业私有知识和 SOP 封装成 skill / MCP，一次接入，多 Agent 复用”会成为新的标准卖点。能不能帮助客户把知识资产从文档迁移到执行层，会比单纯模型榜单更有说服力。</p></div>
+        <div class="links"><span>原文链接：</span><ul>
+          <li><a href="https://github.blog/changelog/2026-07-29-copilot-code-review-agent-skills-and-mcp-now-generally-available/" target="_blank" rel="noopener">GitHub Changelog：Copilot code review 中 Agent skills 与 MCP GA</a></li>
+          <li><a href="https://docs.github.com/copilot/concepts/agents/about-agent-skills" target="_blank" rel="noopener">GitHub Docs：About agent skills</a></li>
+          <li><a href="https://github.com/different-ai/openwork" target="_blank" rel="noopener">GitHub：different-ai/openwork</a></li>
+          <li><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp" target="_blank" rel="noopener">GitHub：chrome-devtools-mcp</a></li>
+        </ul></div>
+      </article>
+
+      <article class="story">
+        <span class="badge sig7">🔥 7天高频信号</span>
+        <h3>#02 OpenAI 把 long-horizon 安全讲透了：真正的分水岭不是“模型会不会做”，而是“你能不能看住它”</h3>
+        <p class="summary">OpenAI 在《Safety and alignment in an era of long-horizon models》中明确写到：在有限内部部署里，他们遇到现有 pre-deployment eval 没覆盖到的新型失败，因此暂停访问、重建 safeguards，并把 trajectory-level monitoring、active monitoring、greater user visibility and control、pause / rollback 作为再部署前提。再叠加 Hugging Face 事件公开说明，以及 LessWrong 社区围绕部署边界的持续讨论，今天这条线已经从“研究问题”升级为“产品发布问题”。</p>
+        <div class="blk"><h4>💬 点评</h4><p>行业现在逐步接受一个现实：长程 Agent 的危险不一定来自某一步离谱，而可能来自一串局部都“看起来没问题”的动作最终指向错误结果。OpenAI 这次最重要的贡献，不是证明它们的模型更强，而是把“轨迹级监控”正式放到产品方法论里。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>以后给客户卖高能力 Agent，必须一起卖可观测性。尤其是涉及商品改价、订单处理、库存同步、知识库更新这类长链流程，企业不会只问“能做吗”，而会问“如果它偏了，我在哪里能看到、怎么停下来、能不能回滚”。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>OpenAI 文中强调，long-horizon safety 不能只问“这一动作允不允许”，还要问“这一串动作最终在朝什么结果推进”。这就是 trajectory-level monitoring 的核心意义。Hugging Face 事件则进一步把这个问题从“内部试验”拖到了真实安全边界上。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>上游会继续推动 eval、red-teaming、runtime monitor、human-in-the-loop 产品化；下游的企业采购标准，也会更像购买“受监管的自动化系统”，而不是买一个更会聊天的模型。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>“可暂停、可审计、可回滚、可解释”的 Agent Runtime 会成为高价值企业场景的基本门槛，甚至会比某个榜单多 2 分更能促进成交。</p></div>
+        <div class="links"><span>原文链接：</span><ul>
+          <li><a href="https://openai.com/index/safety-alignment-long-horizon-models/" target="_blank" rel="noopener">OpenAI：Safety and alignment in an era of long-horizon models</a></li>
+          <li><a href="https://openai.com/index/hugging-face-model-evaluation-security-incident/" target="_blank" rel="noopener">OpenAI：OpenAI and Hugging Face partner to address security incident during model evaluation</a></li>
+          <li><a href="https://www.lesswrong.com/posts/k3eKqKzq4Y7xnqEfZ/openai-has-already-ended-an-internal-pause" target="_blank" rel="noopener">LessWrong：OpenAI has already ended an internal pause</a></li>
+        </ul></div>
+      </article>
+
+      <article class="story">
+        <span class="badge sig7">🔥 7天高频信号</span>
+        <h3>#03 Anthropic Project Fetch Phase Two：强执行 Agent 已经足够快，下一步瓶颈会转向可靠性和脚手架设计</h3>
+        <p class="summary">Anthropic 写得很直白：在 Phase Two 中，Claude Opus 4.7 在所有被完成的任务上，速度大约是去年最快人类团队的 20 倍。这说明现实设备与复杂步骤任务已经不再只是“未来概念”。但同一篇文章也清楚承认：最后的自主抓球仍未稳定完成，真正的短板开始从“会不会做”转向“能不能持续可靠、能不能在更少脚手架下完成”。</p>
+        <div class="blk"><h4>💬 点评</h4><p>这条最重要的不是“20 倍”这个数字本身，而是能力曲线的形状：执行侧已经明显变快，但最后一公里仍卡在 subtle control、真实环境反馈和任务稳定性上。也正因为如此，X 上关于 Claude Code context engineering 的高互动帖子才会火——大家都在思考如何让更强模型少依赖旧脚手架。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>企业在落地 Agent 时，不要把大量旧 Prompt、旧 hooks、旧规则都原样背上去。模型越强，越应该重新做一轮“上下文减肥”：保留高杠杆约束，把冗余脚手架删掉，否则你买到的是更强模型，却还用旧时代的摩擦方式驱动它。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>Project Fetch 复用了真实设备控制、传感器接入、编程、路径监控、目标检测和最终组合执行的完整任务链。Anthropic 明确表示：模型已经能轻松使用现成的 physical tools，问题转向最后一步的可靠性与控制精度。X 上关于“删掉 80% Claude Code system prompt”的高互动讨论，本质上也是在给更强模型重新寻找最简有效的控制接口。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>上游会推高 robotics / computer-use / browser-use / tool-use 的工程化投入，下游则会把“脚手架设计能力”本身变成交付差异点。未来方案商不仅卖模型，也卖“怎么把模型放进正确执行框架里”。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>“更少 Prompt、更轻 orchestration、更强执行闭环”会成为新的高级卖点。真正好的 Agent 产品，会强调自己让模型少背历史包袱，而不是堆越来越厚的提示词外壳。</p></div>
+        <div class="links"><span>原文链接：</span><ul>
+          <li><a href="https://www.anthropic.com/research/project-fetch-phase-two" target="_blank" rel="noopener">Anthropic：Project Fetch: Phase two</a></li>
+          <li><a href="https://x.com/trq212/status/2080710971228918066" target="_blank" rel="noopener">X：Thariq 关于删掉约 80% Claude Code system prompt 的讨论</a></li>
+        </ul></div>
+      </article>
+
+      <article class="story">
+        <span class="badge sig7">🔥 7天高频信号</span>
+        <h3>#04 Kimi K3 的真正价值，不是“又一个强模型”，而是“前沿智能终于能被更顺手地私有化”</h3>
+        <p class="summary">Kimi API 官方文档已经把 Kimi K3 的产品定位讲得很清楚：2.8T 参数、1M-token context、native visual understanding、always-on reasoning，并围绕 Tool Calling、Context Caching、多引擎推理和 OpenAI / Anthropic-compatible API 持续补齐接入能力；Hugging Face 模型页的高 likes 与丰富接入入口，则说明社区讨论已经从“好不好”转向“怎么跑起来”。The Batch 也把它放进了当天的重要叙事里。</p>
+        <div class="blk"><h4>💬 点评</h4><p>Kimi K3 代表的并不是“谁便宜谁赢”，而是“开源前沿模型终于开始具备企业可操作性”。真正影响落地的，不只是权重开放，而是有没有足够顺手的 caching、tool calling、推理引擎支持和工作流兼容性。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>如果客户既想要前沿智能，又强烈要求数据不出域，Kimi K3 这类模型会越来越像“样板间”——尤其适合知识工作、长文档、代码与多模态混合场景。但方案设计上要明确：降本更多依赖 cache 命中率和工作流复用，而不是只看单次标价。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>Kimi 官方文档明确写到 K3 基于 Kimi Delta Attention 与 Attention Residuals，强调 long-horizon coding、knowledge work、reasoning 场景；同时把 Context Caching、Reasoning Effort、Tool Calling Best Practices 放进了文档主干。说明它不是只追求 benchmark，而是在构建完整的 agentic runtime 接口层。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>上游会进一步推动 vLLM、SGLang、量化生态和兼容层成熟；下游的企业客户则会开始更认真地比较“同等智能前提下，谁更适合私有化，谁更容易接企业工具链”。这与今天 GitHub、MCP、skills 的工具层信号天然同轴。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>“前沿智能 + 数据不出域 + 与现有栈兼容”会成为开源高端模型最强的商业叙事。围绕 Kimi K3 一类模型的，不只是模型服务，而会是 TCO 计算、缓存优化、workflow 适配和私有化交付方法论。</p></div>
+        <div class="links"><span>原文链接：</span><ul>
+          <li><a href="https://platform.kimi.ai/docs/guide/kimi-k3-quickstart" target="_blank" rel="noopener">Kimi API Platform：Kimi K3 Quickstart</a></li>
+          <li><a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank" rel="noopener">Hugging Face：moonshotai/Kimi-K3</a></li>
+          <li><a href="https://www.deeplearning.ai/the-batch/issue-363" target="_blank" rel="noopener">The Batch Issue 363：Kimi K3 Redraws the Open Frontier</a></li>
+          <li><a href="https://x.com/TheAhmadOsman/status/2081845153137136094" target="_blank" rel="noopener">X：Kimi K3 自托管 / Open WebUI / workflow 讨论</a></li>
+        </ul></div>
+      </article>
+
+      <article class="story">
+        <span class="badge sig30">📈 30天持续趋势</span>
+        <h3>#05 arXiv 给了企业最想要的两个答案：AI 还做不好开放式研究；工具也不是开越多越好</h3>
+        <p class="summary">《Can AI agents conduct open-ended AI research?》给出的结论非常克制：给 frontier agents 六天时间与 3000 美元算力额度后，它们可以完成研究工程，但仍明显卡在研究判断、创造性回退、资源意识和真正接近顶会标准的关键部分。另一篇《Scores Are Not Decisions》则提醒我们：在 tool-rich 的 Agent 环境里，相关性排序不等于最优决策，作者给出的 CAM-DF 方法能在保持任务成功的同时，把工具开放量降到 full access 的 37% 左右。</p>
+        <div class="blk"><h4>💬 点评</h4><p>这两篇论文放在一起看，几乎就是企业 Agent 落地的现实答案：别高估 AI 在开放问题上的自主研究能力，也别低估“工具开太多”带来的上下文、成本和隐私压力。今天最先进的 Agent，仍然更像高效研究助理和执行工程师，而不是可以独立定义问题的研究主管。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>企业内部最可行的路径，依然是“把开放问题拆成有验证边界的子任务”，再配合 tool budget、人工 review 与任务模板。商品文案、报表核对、知识检索、规则比对，这类任务最适合先自动化；真正需要策略判断、选题判断、研究判断的环节，短期仍应保留人工主导。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>open-ended AI research 论文指出，当前 agent 最大短板在于 publishable bar 的判断、面对 dead ends 的 backtracking、以及对资源消耗的意识；CAM-DF 论文则把“应该在排名前缀的哪里停下”正式定义成成本敏感决策问题，并证明光有排序不够。两者都在把 Agent 设计从“会不会调用工具”推进到“何时停、何时省、何时交给人”。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>上游会推动 Agent benchmark 从任务完成率扩展到成本、工具预算、资源暴露和人工接管点；下游则会让企业采购与内部评测更像“自动化项目立项”，而不是买一个更强模型就结束。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>“任务成功率 + 工具预算控制 + 人工接管机制”会成为 Agent 平台的标准配置。未来真正好卖的产品，不是无限接工具，而是能清楚告诉客户：什么情况下自动跑，什么情况下该停。</p></div>
+        <div class="links"><span>原文链接：</span><ul>
+          <li><a href="https://arxiv.org/abs/2607.27191" target="_blank" rel="noopener">arXiv：Can AI agents conduct open-ended AI research?</a></li>
+          <li><a href="https://arxiv.org/abs/2607.27083" target="_blank" rel="noopener">arXiv：Scores Are Not Decisions: Cost-Aware Stopping for Tool Acquisition in LLM Agents</a></li>
+        </ul></div>
+      </article>
+
+      <article class="story">
+        <span class="badge sig30">📈 30天持续趋势</span>
+        <h3>#06 Import AI + Benedict Evans + AI Snakeoil + 小宇宙：真正的价值捕获正在往“工作流上层”移动</h3>
+        <p class="summary">Import AI 466 继续把 AI 拉回“任务级经济学”视角；Benedict Evans 讨论 token pricing 时也反复强调，今天的 supply crunch 过去后，模型层很可能继续走向 commodity infrastructure；AI Snakeoil 新文《Up the Stack》则把结论挑明：实验室如果想逃离 commodity trap，最可能的路不是只卖模型，而是往 workflow、enterprise deployment、switching costs 和更高层产品能力移动。小宇宙《AIGC日报》这几天围绕 Google 机器人模型、GPT-5.6 与 Agent 工程、OpenAI 事件的讨论，也与这条主线完全同频。</p>
+        <div class="blk"><h4>💬 点评</h4><p>今天如果只看“哪家模型更强”，你会错过真正重要的商业结论：基础模型越来越强，反而越逼着厂商去上层抢价值。谁能把模型变成 workflow、部署方案、垂直解决方案和切换成本，谁就更有机会赚到长期利润。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>这对企业合作与解决方案团队尤其重要。给客户讲 AI，不要只讲推理能力，而要讲“你现有流程里哪一步被重构、哪一段可以自动化、哪一层会形成新的组织效率”。鞋服行业里，最值得讲的是商品内容生产、导购知识服务、客服 SOP、报表核对与营销创意迭代，而不是抽象地说“我们有个更聪明的大模型”。</p></div>
+        <div class="blk"><h4>🔬 技术背景</h4><p>MirrorCode 一类 benchmark 在量化“AI 能替代多少任务时间”，Benedict Evans 在讨论价格均衡，AI Snakeoil 在讨论价值捕获层级，这三类材料共同组成了完整框架：能力、成本、利润层必须一起看。播客讨论之所以有价值，是因为它把这种宏观框架翻译成了更贴近日常产品判断的话语。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>上游模型厂商会加速往 agent runtime、vertical solution、enterprise stack integration 走；下游企业则会更关注可替换性、锁定风险、部署主权与集成成本。方案商的差异化，也会更多体现在“能不能把这些层重新编排”。</p></div>
+        <div class="blk"><h4>🚀 6个月产品卖点预测</h4><p>“不是卖 token，而是卖结果、卖 workflow、卖业务指标改善”会越来越成为标准话术。未来能打动客户的，很可能不是更高分，而是更清楚的组织改造路径和更少的替换摩擦。</p></div>
+        <div class="links"><span>原文链接：</span><ul>
+          <li><a href="https://importai.substack.com/p/import-ai-466-the-bitter-lesson-for" target="_blank" rel="noopener">Import AI 466</a></li>
+          <li><a href="https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing" target="_blank" rel="noopener">Benedict Evans：Ways to think about token pricing</a></li>
+          <li><a href="https://www.normaltech.ai/p/up-the-stack-how-ais-escape-from" target="_blank" rel="noopener">AI as Normal Technology：Up the Stack</a></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/podcast/695ca552a10c1b55eb68f871" target="_blank" rel="noopener">小宇宙：AIGC日报</a></li>
+        </ul></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>来源覆盖巡检（今日口径 · 12 类必选来源）</h2>
+    <div class="desc">“全部覆盖”不等于硬凑热点。对当天没有比主线更强独立新增信号的来源，会明确标记为“持续观察 / 背景校准”，避免伪造热度或误导发布时间。</div>
+    <div class="source-grid">
+      <div class="source-card"><span class="tag sig7">🔥 今日主线</span><h4>小宇宙播客</h4><p>《AIGC日报》连续几天都在围绕 Agent 工程、OpenAI 事件、机器人与模型产业化做解释型复盘，适合拿来校准“技术新闻怎么翻译成业务语言”。</p><div class="small"><a href="https://www.xiaoyuzhoufm.com/podcast/695ca552a10c1b55eb68f871" target="_blank" rel="noopener">节目主页</a></div></div>
+      <div class="source-card"><span class="tag sig7">🔥 今日主线</span><h4>Twitter / X</h4><p>今天最有价值的 X 讨论都在讲实操：把设计资产变成 MCP、删掉过重脚手架、把 Kimi K3 接进 Open WebUI / workflow，而不是单纯晒分。</p><div class="small"><a href="https://x.com/dannypostma/status/2082689872494755872" target="_blank" rel="noopener">设计资产做 MCP</a> · <a href="https://x.com/trq212/status/2080710971228918066" target="_blank" rel="noopener">context engineering</a> · <a href="https://x.com/TheAhmadOsman/status/2081845153137136094" target="_blank" rel="noopener">K3 自托管</a></div></div>
+      <div class="source-card"><span class="tag sig30">📈 持续观察</span><h4>Hugging Face Daily Papers</h4><p>今天更像研究校准源，重点落在 SkillOpt、TurboVLA 与近期 Agent / robotics 相关论文热度，而不是单独抢走主叙事。</p><div class="small"><a href="https://huggingface.co/papers/2605.23904" target="_blank" rel="noopener">SkillOpt</a> · <a href="https://huggingface.co/papers/2607.27205" target="_blank" rel="noopener">TurboVLA</a></div></div>
+      <div class="source-card"><span class="tag sig7">🔥 今日主线</span><h4>Hugging Face 模型趋势 / 下载</h4><p>Kimi K3 仍是“前沿能力 + 可部署性”最强信号之一，GLM-5.2 与 Unlimited-OCR 则分别对应稳态交付与直接 ROI 场景。</p><div class="small"><a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank" rel="noopener">Kimi-K3</a> · <a href="https://huggingface.co/models?search=Kimi&sort=trending" target="_blank" rel="noopener">趋势页入口</a></div></div>
+      <div class="source-card"><span class="tag sig30">📈 持续观察</span><h4>Papers With Code</h4><p>今天更像 benchmark / task taxonomy 的验证入口，而不是独立新闻源；适合补充“这篇论文到底对应什么任务与评价口径”。</p><div class="small"><a href="https://paperswithcode.com/" target="_blank" rel="noopener">Papers With Code</a></div></div>
+      <div class="source-card"><span class="tag sig7">🔥 今日主线</span><h4>arXiv cs.AI / cs.LG</h4><p>今晚两篇最值得看的，不是“谁又涨了 0.3 分”，而是“AI 还不能独立做开放式研究”“工具需要 cost-aware stopping”。</p><div class="small"><a href="https://arxiv.org/abs/2607.27191" target="_blank" rel="noopener">2607.27191</a> · <a href="https://arxiv.org/abs/2607.27083" target="_blank" rel="noopener">2607.27083</a></div></div>
+      <div class="source-card"><span class="tag sig7">🔥 今日主线</span><h4>GitHub Trending</h4><p>今天最值得看的高热仓库，不是另一个聊天 UI，而是 openwork、chrome-devtools-mcp 这类执行层与工具层项目。</p><div class="small"><a href="https://github.com/different-ai/openwork" target="_blank" rel="noopener">openwork</a> · <a href="https://github.com/ChromeDevTools/chrome-devtools-mcp" target="_blank" rel="noopener">chrome-devtools-mcp</a></div></div>
+      <div class="source-card"><span class="tag sig7">🔥 今日主线</span><h4>The Batch</h4><p>The Batch 把 Kimi K3 与抓取器封锁等信号放在一起看，本质是在强调“模型能力、数据来源与开放生态”是同一条产业线。</p><div class="small"><a href="https://www.deeplearning.ai/the-batch/issue-363" target="_blank" rel="noopener">Issue 363</a></div></div>
+      <div class="source-card"><span class="tag sig30">📈 持续观察</span><h4>Benedict Evans Newsletter</h4><p>继续作为“价格均衡 / commoditization / supply-demand”视角的背景校准源，帮助避免把模型竞争误讲成单纯能力竞争。</p><div class="small"><a href="https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing" target="_blank" rel="noopener">Ways to think about token pricing</a></div></div>
+      <div class="source-card"><span class="tag sig7">🔥 今日主线</span><h4>LessWrong / Alignment Forum</h4><p>今天主要承担“把官方安全事件拉回方法论与部署边界”的作用，帮助判断哪些问题是产品可修、哪些是范式性风险。</p><div class="small"><a href="https://www.lesswrong.com/posts/k3eKqKzq4Y7xnqEfZ/openai-has-already-ended-an-internal-pause" target="_blank" rel="noopener">LessWrong</a> · <a href="https://www.alignmentforum.org/posts/KHyBocZncAmtu4Jbc/rl-and-search-is-a-terrifying-way-to-build-agi-an-faq" target="_blank" rel="noopener">Alignment Forum</a></div></div>
+      <div class="source-card"><span class="tag sig30">📈 持续观察</span><h4>AI Snakeoil</h4><p>今天继续承担“价值捕获层级分析”的角色。它最重要的提醒是：模型厂商若想逃离 commodity trap，就必须向上游工作流与企业部署层攀升。</p><div class="small"><a href="https://www.normaltech.ai/p/up-the-stack-how-ais-escape-from" target="_blank" rel="noopener">Up the Stack</a></div></div>
+      <div class="source-card"><span class="tag sig30">📈 持续观察</span><h4>Import AI</h4><p>继续作为“任务级 AI 经济学”和“长程评测”最值得跟踪的源头之一。今天它与 arXiv、AI Snakeoil 的叙事是互相咬合的。</p><div class="small"><a href="https://importai.substack.com/p/import-ai-466-the-bitter-lesson-for" target="_blank" rel="noopener">Import AI 466</a></div></div>
+    </div>
+    <div class="small">说明：本期为 <b>周五（2026-07-31）晚 23:00 口径的「今日大模型夜报」</b>。业务视角与 6 个月预测属于基于公开信息的编辑判断；对于没有统一公开口径的下载量、调用量、价格变化与 benchmark 排名，正文尽量使用方向性表述，避免伪造精确数字。</div>
+  </section>
+
+  <section class="section">
+    <div class="notes-box">
+      <div class="notes-head">
+        <h2 style="margin:0">📝 我的笔记</h2>
+        <div class="notes-tools">
+          <button class="btn secondary" id="exportBtn">⬇ 导出 .txt</button>
+          <button class="btn danger" id="clearBtn">🗑 清空</button>
+        </div>
+      </div>
+      <textarea id="noteArea" placeholder="把今天夜报里最值得迁移到鞋服行业的 3 个产品打法记下来：例如『把商品知识 / 售后 SOP 做成 skill / MCP』『高风险长链任务必须带 trajectory-level monitoring』『前沿开源模型的卖点要改写成私有化 TCO 与 workflow 接入』。（localStorage 持久化，500ms 防抖自动保存）"></textarea>
+      <div class="notes-foot">
+        <span id="saveState">未保存</span>
+        <span id="wordCount">0 字</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>访问入口</h2>
+    <div class="desc">如果你在 GitHub Pages 上查看本页，建议顺手收藏历史总目录，后续晨报 / 夜报会持续沉淀。</div>
+    <div class="footer-links">
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/night_2026-07-31.html" target="_blank" rel="noopener">🌙 GitHub Pages 本期夜报</a>
+      <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/" target="_blank" rel="noopener">📚 历史总目录</a>
+      <a href="./index.html">🗂 本地历史目录</a>
+    </div>
+  </section>
+</div>
+<script>
+const REPORT_DATE = '2026-07-31';
+const NOTE_KEY = 'llm_night_notes_' + REPORT_DATE;
+const area = document.getElementById('noteArea');
+const saveState = document.getElementById('saveState');
+const wordCount = document.getElementById('wordCount');
+let saveTimer = null;
+function updateWordCount(){ wordCount.textContent = (area.value || '').replace(/\s/g,'').length + ' 字'; }
+function loadNotes(){ const saved = localStorage.getItem(NOTE_KEY); if(saved !== null){ area.value = saved; saveState.textContent = '已加载'; } updateWordCount(); }
+function saveNotes(){ localStorage.setItem(NOTE_KEY, area.value); saveState.textContent = '✓ 已自动保存 · ' + new Date().toLocaleTimeString('zh-CN'); }
+area.addEventListener('input', () => { updateWordCount(); saveState.textContent = '输入中…'; if(saveTimer) clearTimeout(saveTimer); saveTimer = setTimeout(saveNotes, 500); });
+document.getElementById('exportBtn').addEventListener('click', () => { const blob = new Blob([area.value || ''], {type:'text/plain;charset=utf-8'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = '大模型夜报笔记_' + REPORT_DATE + '.txt'; a.click(); URL.revokeObjectURL(a.href); });
+document.getElementById('clearBtn').addEventListener('click', () => { if(confirm('确定清空本期笔记吗？')){ area.value=''; localStorage.removeItem(NOTE_KEY); updateWordCount(); saveState.textContent='已清空'; } });
+loadNotes();
+</script>
+</body>
+</html>
