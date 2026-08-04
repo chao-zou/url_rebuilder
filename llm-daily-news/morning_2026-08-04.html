@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>☀️ 大模型晨报 2026-08-04</title>
+<!-- report-meta: date=2026-08-04; type=morning; title=大模型晨报 2026-08-04; summary=今日主线：开源与开放权重&quot;上新潮&quot;集体涌向企业工作流——MiniMax H3 把 omni-modal 视频生成做成开放权重、与字节 Seedance 2.5 同日对垒；DeepSeek-V4-Flash-0731 正式公测把 agentic 能力和成本一起压到新低；Thinking Machines 用 1/4 体量的 Inkling-Small 补齐西方开放权重阵营。与此同时，HANDBOOK.md、ExtractBench 等基准在提醒我们：模型越强，&quot;能不能守住企业规章&quot;反而成了新瓶颈。 -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#060a12; --panel:rgba(10,18,33,.82); --panel-2:rgba(12,22,40,.9); --line:rgba(255,255,255,.11);
+    --text:#ecf3ff; --muted:#9fb0c9; --accent:#7cc7ff; --accent-2:#8dffca; --shadow:0 18px 48px rgba(0,0,0,.24);
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:Inter,'Noto Sans SC',sans-serif; color:var(--text); background:
+      radial-gradient(1200px 720px at 88% -10%,rgba(49,79,155,.45),transparent 55%),
+      radial-gradient(800px 500px at 8% 0%,rgba(65,37,148,.42),transparent 50%),
+      linear-gradient(180deg,#07101f 0%,#060a12 52%,#04070d 100%); }
+  a { color:#9ed9ff; text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .wrap { max-width:1220px; margin:0 auto; padding:32px 20px 60px; }
+  .hero { position:relative; overflow:hidden; border:1px solid var(--line); border-radius:28px; padding:32px; background:linear-gradient(135deg,rgba(14,24,45,.95),rgba(11,18,32,.82)); box-shadow:var(--shadow); }
+  .hero::after { content:""; position:absolute; inset:auto -10% -50% auto; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle,rgba(124,199,255,.18),transparent 68%); pointer-events:none; }
+  .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(124,199,255,.28); color:#bfe5ff; background:rgba(124,199,255,.08); font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+  h1 { margin:16px 0 10px; font-size:clamp(32px,5vw,56px); line-height:1.08; }
+  .hero p { margin:0; color:#dbe7fb; font-size:16px; line-height:1.85; max-width:980px; }
+  .hero-grid,.signal-grid,.story-list,.radar-grid,.notes-actions,.stats-grid { display:grid; gap:16px; }
+  .hero-grid { grid-template-columns:2fr 1fr; margin-top:24px; }
+  .card,.signal-card,.story-card,.notes-card,.radar-item,.mini-card { background:var(--panel); border:1px solid var(--line); border-radius:24px; box-shadow:var(--shadow); }
+  .card,.notes-card { padding:22px; }
+  .stats-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .mini-card { padding:18px; }
+  .mini-card .label { color:var(--muted); font-size:12px; margin-bottom:8px; text-transform:uppercase; letter-spacing:.08em; }
+  .mini-card .value { font-size:18px; font-weight:700; line-height:1.55; }
+  .section { margin-top:26px; }
+  .section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:14px; }
+  .section h2 { margin:0; font-size:24px; }
+  .section .sub { color:var(--muted); font-size:14px; line-height:1.7; }
+  .signal-grid,.story-list,.radar-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .signal-card { padding:20px; }
+  .signal-card h3,.radar-item h3,.notes-card h3 { margin:0 0 10px; font-size:18px; }
+  .signal-card p,.radar-item p,.blk p,.notes-card p { margin:0; color:#dbe4f3; line-height:1.8; }
+  .story-card { padding:22px; }
+  .story-top { display:flex; gap:14px; align-items:flex-start; }
+  .story-idx { flex:0 0 auto; padding:8px 12px; border-radius:14px; background:rgba(124,199,255,.12); color:#9ed9ff; font-weight:700; }
+  .story-title { font-size:22px; font-weight:800; line-height:1.45; }
+  .story-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:16px; }
+  .blk { border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:16px 16px 14px; background:rgba(255,255,255,.03); }
+  .blk.full { grid-column:1 / -1; }
+  .blk h4 { margin:0 0 8px; font-size:15px; }
+  .badges { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .badge { display:inline-flex; align-items:center; padding:7px 11px; border-radius:999px; border:1px solid rgba(141,255,202,.20); background:rgba(141,255,202,.08); color:#c8ffe9; font-size:12px; }
+  .source-title { margin-top:16px; font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+  .links { margin:8px 0 0; padding-left:18px; display:grid; gap:8px; }
+  table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:20px; border:1px solid var(--line); background:var(--panel); box-shadow:var(--shadow); }
+  th,td { padding:16px 14px; border-bottom:1px solid rgba(255,255,255,.08); text-align:left; vertical-align:top; line-height:1.8; }
+  th { color:#cde4ff; background:rgba(124,199,255,.08); font-size:13px; letter-spacing:.04em; }
+  tr:last-child td { border-bottom:none; }
+  .notes-card { padding:22px; }
+  .notes-actions { grid-template-columns:repeat(3,minmax(0,1fr)); margin:14px 0 10px; }
+  .btn { border:none; border-radius:14px; padding:12px 14px; font:600 14px/1 Inter,'Noto Sans SC',sans-serif; cursor:pointer; color:#ecf3ff; background:linear-gradient(135deg,#1d4679,#183056); }
+  .btn.secondary { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); }
+  .btn.danger { background:linear-gradient(135deg,#7a2436,#541726); }
+  #notesInput { width:100%; min-height:260px; border-radius:18px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); color:var(--text); padding:14px 16px; resize:vertical; font:500 14px/1.8 Inter,'Noto Sans SC',sans-serif; outline:none; }
+  #notesInput:focus { border-color:rgba(124,199,255,.42); box-shadow:0 0 0 4px rgba(124,199,255,.10); }
+  .note-meta { display:flex; justify-content:space-between; gap:16px; color:var(--muted); font-size:13px; margin-top:8px; }
+  .footer { margin-top:28px; color:var(--muted); font-size:13px; line-height:1.8; text-align:center; }
+  @media (max-width:980px) { .hero-grid,.signal-grid,.story-list,.radar-grid,.story-grid,.stats-grid,.notes-actions { grid-template-columns:1fr; } .wrap { padding-inline:16px; } .hero,.card,.story-card,.signal-card,.notes-card,.radar-item { border-radius:22px; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Daily LLM News · Morning Brief · 2026-08-04</div>
+      <h1>☀️ 大模型晨报</h1>
+      <p>今日主线：开源与开放权重&quot;上新潮&quot;集体涌向企业工作流——MiniMax H3 把 omni-modal 视频生成做成开放权重、与字节 Seedance 2.5 同日对垒；DeepSeek-V4-Flash-0731 正式公测把 agentic 能力和成本一起压到新低；Thinking Machines 用 1/4 体量的 Inkling-Small 补齐西方开放权重阵营。与此同时，HANDBOOK.md、ExtractBench 等基准在提醒我们：模型越强，&quot;能不能守住企业规章&quot;反而成了新瓶颈。</p>
+      <div class="hero-grid">
+        <div class="card">
+          <div class="section-head"><h2>今日主线一句话</h2><div class="sub">定位：快讯 + 5 分钟扫读</div></div>
+          <p>今日主线：开源与开放权重&quot;上新潮&quot;集体涌向企业工作流——MiniMax H3 把 omni-modal 视频生成做成开放权重、与字节 Seedance 2.5 同日对垒；DeepSeek-V4-Flash-0731 正式公测把 agentic 能力和成本一起压到新低；Thinking Machines 用 1/4 体量的 Inkling-Small 补齐西方开放权重阵营。与此同时，HANDBOOK.md、ExtractBench 等基准在提醒我们：模型越强，&quot;能不能守住企业规章&quot;反而成了新瓶颈。</p>
+          <div class="badges">
+            <span class="badge">统计口径：综合近 7 天 / 30 天晨夜报窗口</span>
+            <span class="badge">“7天高频信号”= 近 7 天 ≥ 3 次出现</span>
+            <span class="badge">“30天持续趋势”= 近 30 天持续出现</span>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="mini-card"><div class="label">今日核心资讯</div><div class="value">6 条</div></div>
+          <div class="mini-card"><div class="label">重点来源</div><div class="value">11 类全部覆盖</div></div>
+          <div class="mini-card"><div class="label">优先关注</div><div class="value">开源部署 + MCP + 长程治理</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>📈 高频信号看板</h2><div class="sub">适合快速判断今天哪些话题值得继续追踪。</div></div>
+      <div class="signal-grid"><div class="signal-card"><h3>开放权重&quot;视频+多模态&quot;成为新战场</h3><p>MiniMax H3、Seedance 2.5 同日发布，视频生成从&quot;看 demo&quot;进入&quot;接电商/品牌工作流&quot;。</p><div class="badges"><span class="badge">7天高频信号</span><span class="badge">私有化/开源部署</span></div></div>
+<div class="signal-card"><h3>开源模型持续挤压公有云定价</h3><p>DeepSeek-V4-Flash-0731 缓存命中价压到 ¥0.2/M 级别，Kimi K3、GLM-5.2、Unlimited-OCR 继续霸榜 HF 趋势/下载位。</p><div class="badges"><span class="badge">7天高频信号</span><span class="badge">30天持续趋势</span><span class="badge">成本 / API 定价</span></div></div>
+<div class="signal-card"><h3>Agent 治理成为落地真瓶颈</h3><p>HANDBOOK.md、AISPA、可复制上下文无法保证安全三篇同期出现，指向同一问题：模型越强，越难被长策略文档约束。</p><div class="badges"><span class="badge">30天持续趋势</span><span class="badge">Agent</span><span class="badge">安全治理</span></div></div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>📰 今日核心资讯</h2><div class="sub">每条都按「点评 / 业务视角 / 技术背景 / 上下游影响 / 6个月卖点预测」拆开，便于直接转成内部同步或客户话术。</div></div>
+      <div class="story-list">
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#01</div><div class="story-title">MiniMax H3 开放权重发布，omni-modal 视频与字节 Seedance 2.5 同日对垒 【业务强相关：鞋服短视频/商品 TVC】</div></div>
+        <div class="badges"><span class="badge">MiniMax H3</span><span class="badge">7天高频信号</span><span class="badge">私有化/开源部署</span><span class="badge">视频生成</span></div>
+        <div class="story-grid">
+          <div class="blk"><h4>💬 点评</h4><p>H3 最狠的一点是把&quot;开放权重 + 视频编辑 + omni-reference&quot;打包，直接对准电商/品牌可复用素材（角色一致性、V2V、多语言）。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>对鞋服电商，&quot;参考图+参考运镜+参考音频→成片&quot;正是拍摄脚本拆解后最想要的可控生成；开放权重意味着可私有化跑品牌素材，不必把商品图上传公有云。</p></div>
+          <div class="blk"><h4>🧠 技术背景</h4><p>omni-modal 统一上下文 + 原生音频，是从&quot;文生视频&quot;向&quot;多模态可编辑生成&quot;的路线切换。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>与 Seedance 2.5 形成&quot;开放权重 vs 闭源高端(4K/30s/局部编辑)&quot;分层；利好 ComfyUI/fal 等推理生态。</p></div>
+          <div class="blk full"><h4>🚀 6个月产品卖点预测</h4><p>&quot;上传商品图+品牌运镜模板→一键出多语言短视频&quot;会成为电商 SaaS 标配卖点。</p></div>
+        </div>
+        <div class="source-title">原文链接</div>
+        <ul class="links"><li><a href="https://www.minimax.io/blog/minimax-h3" target="_blank" rel="noreferrer">MiniMax H3 官方博客</a></li><li><a href="https://huggingface.co/MiniMaxAI/MiniMax-H3" target="_blank" rel="noreferrer">MiniMaxAI/MiniMax-H3</a></li><li><a href="https://www.amd.com/en/developer/resources/technical-articles/2026/day-0-support-for-minimax-h3-on-amd-gpus.html" target="_blank" rel="noreferrer">AMD day-0 支持</a></li><li><a href="https://eu.36kr.com/en/p/3923196846894725" target="_blank" rel="noreferrer">36kr 评述</a></li></ul>
+      </article>
+    
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#02</div><div class="story-title">DeepSeek-V4-Flash-0731 正式版公测：agentic 与 coding 双升，成本再探底</div></div>
+        <div class="badges"><span class="badge">DeepSeek</span><span class="badge">7天高频信号</span><span class="badge">30天持续趋势</span><span class="badge">agentic / coding</span></div>
+        <div class="story-grid">
+          <div class="blk"><h4>💬 点评</h4><p>不改架构、只刷 agentic/coding，说明 DeepSeek 在用&quot;高频小版本&quot;策略稳住开发者心智。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>低价+强 agentic 适合做数据 Agent、批量脚本化任务的底座，尤其对成本敏感的中小客户。</p></div>
+          <div class="blk"><h4>🧠 技术背景</h4><p>FP8/FP4 混合精度 + 高缓存命中是把 token 成本压到&quot;白菜价&quot;的关键（缓存命中价具体数值以官方 API 文档为准）。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>进一步压低公有云 API 定价，倒逼各家&quot;race to zero&quot;。</p></div>
+          <div class="blk full"><h4>🚀 6个月产品卖点预测</h4><p>&quot;同等 agentic 质量、成本再降一档&quot;会成为国产 API 的主要获客话术。</p></div>
+        </div>
+        <div class="source-title">原文链接</div>
+        <ul class="links"><li><a href="https://www.marktechpost.com/2026/07/31/deepseek-upgrades-deepseek-v4-flash-0731-with-major-agentic-and-coding-gains/" target="_blank" rel="noreferrer">MarkTechPost</a></li><li><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" target="_blank" rel="noreferrer">DeepSeek-V4-Flash-0731 HF 模型</a></li><li><a href="https://api-docs.deepseek.com/updates/" target="_blank" rel="noreferrer">DeepSeek API 更新日志</a></li></ul>
+      </article>
+    
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#03</div><div class="story-title">Thinking Machines 发布 Inkling-Small：1/4 体量逼近旗舰的开放权重 MoE</div></div>
+        <div class="badges"><span class="badge">Thinking Machines</span><span class="badge">开放权重</span><span class="badge">MoE</span><span class="badge">私有化/开源部署</span></div>
+        <div class="story-grid">
+          <div class="blk"><h4>💬 点评</h4><p>西方阵营终于有一款&quot;敢开权重且体量友好&quot;的模型，补上了本地部署的空档。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>266–276B 级 MoE 对企业私有化推理更友好，配合其 Tinker 微调 API，适合做行业垂直微调。</p></div>
+          <div class="blk"><h4>🧠 技术背景</h4><p>小激活参数 MoE + 原生多模态推理，是&quot;高质量但可负担部署&quot;的典型路线。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>与 Kimi K3、GLM-5.2、DeepSeek 等国产开放权重正面竞争开发者。</p></div>
+          <div class="blk full"><h4>🚀 6个月产品卖点预测</h4><p>开放权重 + 官方微调 API 的&quot;训练-部署一条龙&quot;会成为差异化卖点。</p></div>
+        </div>
+        <div class="source-title">原文链接</div>
+        <ul class="links"><li><a href="https://thinkingmachines.ai/news/inkling-small/" target="_blank" rel="noreferrer">Thinking Machines 官方</a></li><li><a href="https://venturebeat.com/technology/thinking-machines-debuts-inkling-small-open-source-ai-model-nearing-performance-of-predecessor-at-about-1-4-size" target="_blank" rel="noreferrer">VentureBeat</a></li><li><a href="https://huggingface.co/thinkingmachines/Inkling-Small" target="_blank" rel="noreferrer">Inkling-Small HF 模型</a></li></ul>
+      </article>
+    
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#04</div><div class="story-title">HuggingFace Daily Papers（8/3）：企业落地与安全审计成主题簇</div></div>
+        <div class="badges"><span class="badge">HuggingFace Daily Papers</span><span class="badge">企业抽取</span><span class="badge">安全审计</span><span class="badge">Agent 治理</span></div>
+        <div class="story-grid">
+          <div class="blk"><h4>💬 点评</h4><p>论文热点从&quot;刷分&quot;转向&quot;企业可用性+可控性&quot;，和落地节奏同步。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>ExtractBench 直接对应&quot;合同/财报/表单结构化抽取&quot;这类高价值场景，可作为选型评测参考。</p></div>
+          <div class="blk"><h4>🧠 技术背景</h4><p>schema 引导抽取 + 系统提示词审计，正在把&quot;提示词工程&quot;变成&quot;提示词治理&quot;。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>为 RAG、Data Agent 的可信度评估提供新基准。</p></div>
+          <div class="blk full"><h4>🚀 6个月产品卖点预测</h4><p>&quot;带审计与抽取评测报告&quot;的企业版会成为 to B 卖点。</p></div>
+        </div>
+        <div class="source-title">原文链接</div>
+        <ul class="links"><li><a href="https://huggingface.co/papers" target="_blank" rel="noreferrer">HF Daily Papers</a></li><li><a href="https://huggingface.co/papers/2607.29677" target="_blank" rel="noreferrer">ExtractBench</a></li><li><a href="https://huggingface.co/papers/2607.28617" target="_blank" rel="noreferrer">AISPA</a></li><li><a href="https://huggingface.co/papers/2607.27951" target="_blank" rel="noreferrer">Copyable Context 安全</a></li></ul>
+      </article>
+    
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#05</div><div class="story-title">Surge AI HANDBOOK.md：前沿 Agent 仍守不住&quot;公司规章&quot;</div></div>
+        <div class="badges"><span class="badge">HANDBOOK.md</span><span class="badge">30天持续趋势</span><span class="badge">Agent</span><span class="badge">合规评测</span></div>
+        <div class="story-grid">
+          <div class="blk"><h4>💬 点评</h4><p>这条对做 Agent 平台的人最扎心——不是能不能干活，而是能不能&quot;守规矩&quot;。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>直接对应 Agent Kit / Skill 的&quot;策略文档约束&quot;设计，评测口径可借鉴到内部 Agent 验收。</p></div>
+          <div class="blk"><h4>🧠 技术背景</h4><p>长上下文 + 长程工具调用下的&quot;指令遵循衰减&quot;是结构性难题，不是靠更大模型自动解决。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>会推动&quot;Agent 合规评测&quot;成为交付前置环节。</p></div>
+          <div class="blk full"><h4>🚀 6个月产品卖点预测</h4><p>&quot;内置合规/策略遵循评测面板&quot;会成为企业级 Agent 平台卖点。</p></div>
+        </div>
+        <div class="source-title">原文链接</div>
+        <ul class="links"><li><a href="https://arxiv.org/abs/2607.25398" target="_blank" rel="noreferrer">arXiv</a></li><li><a href="https://github.com/surge-ai/handbook" target="_blank" rel="noreferrer">GitHub</a></li></ul>
+      </article>
+    
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#06</div><div class="story-title">行业观察：Import AI 467 与 The Batch 364</div></div>
+        <div class="badges"><span class="badge">Import AI</span><span class="badge">The Batch</span><span class="badge">开放权重安全</span><span class="badge">Agent harness</span></div>
+        <div class="story-grid">
+          <div class="blk"><h4>💬 点评</h4><p>开放权重的另一面是安全外部性——同一套&quot;开放权重+harness&quot;能做生产力，也能被滥用。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>企业在拥抱开放权重时需同步考虑供应链与滥用风险治理。</p></div>
+          <div class="blk"><h4>🧠 技术背景</h4><p>harness（执行框架）正在成为比模型本身更关键的能力放大器。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>或推动开放权重的分发与使用合规讨论升温。</p></div>
+          <div class="blk full"><h4>🚀 6个月产品卖点预测</h4><p>&quot;带安全护栏与审计日志&quot;的开放权重部署方案会更受企业青睐。</p></div>
+        </div>
+        <div class="source-title">原文链接</div>
+        <ul class="links"><li><a href="https://importai.substack.com/p/import-ai-467-self-sustaining-ai" target="_blank" rel="noreferrer">Import AI 467</a></li><li><a href="https://www.deeplearning.ai/the-batch/issue-364" target="_blank" rel="noreferrer">The Batch 364</a></li></ul>
+      </article>
+    </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>🧭 私有化 / 开源部署热度，与公有云模型使用场景双视角</h2><div class="sub">Hugging Face 下载/趋势更适合作为“私有化与开源部署热度”代理指标；Artificial Analysis 与 X 实战案例更适合补“公有云模型适合干什么”。</div></div>
+      <table>
+        <thead><tr><th>模型 / 阵营</th><th>私有化 / 开源部署热度</th><th>公有云模型使用场景维度（Artificial Analysis + Twitter/X）</th><th>适合优先包装的产品方向</th></tr></thead>
+        <tbody><tr><td>Kimi K3</td><td>Hugging Face 下载/趋势约 96.8 万，标注为 30天持续趋势，继续代表通用旗舰开放权重的私有化部署热度。</td><td>作为接近 frontier 的开放权重参照，被用于长上下文、代码与企业 Agent 工作流对比。</td><td>通用企业助手、长文档推理、代码审查、私有化 Agent 底座。</td></tr>
+<tr><td>Unlimited-OCR</td><td>Hugging Face 下载/趋势约 260 万，标注为 30天持续趋势，是 OCR/文档解析私有化需求的强代理指标。</td><td>公有云适合峰值弹性调用，私有化更适合合同、票据、图纸等合规文件流。</td><td>合同/票据/质检单/图纸结构化抽取。</td></tr>
+<tr><td>GLM-5.2</td><td>Hugging Face 下载/趋势约 218 万，标注为 30天持续趋势，通用开放权重部署热度仍高。</td><td>适合用作开放权重方案的能力上限参照，并与公有云 API 成本做组合选型。</td><td>企业长文推理、行业知识库、私有化 Agent。</td></tr>
+<tr><td>DeepSeek-V4-Flash-0731</td><td>Hugging Face 3 天内下载约 23.6 万，标注为 7天高频信号，agentic/coding 新版本关注度快速上升。</td><td>官方 API 公测，主打低成本 agentic/coding 调用。</td><td>批量脚本化任务、数据 Agent、低成本代码与工具调用。</td></tr>
+<tr><td>MiniMax H3</td><td>Hugging Face 趋势首位（新上），开放权重 omni-modal 视频模型把视频生成带入私有化部署候选池。</td><td>厂商/媒体称在 Artificial Analysis 视频编辑/T2V/I2V 榜居前列；实际用法集中在电商商品短视频、品牌 TVC、V2V 改写。</td><td>商品短视频、品牌 TVC、参考素材驱动的视频编辑。</td></tr>
+<tr><td>Inkling-Small / Solar-Open2-250B</td><td>thinkingmachines/Inkling-Small 与 upstage/Solar-Open2-250B 均在趋势位，代表新一轮开放权重 MoE / 通用模型观察对象。</td><td>Inkling-Small 叠加 Tinker 微调 API，体现开放权重 + 官方 Fine-tuning 服务的组合打法。</td><td>行业垂直微调、多模态推理、训练-部署一体化方案。</td></tr></tbody>
+      </table>
+      <div class="radar-grid" style="margin-top:16px;"><div class="radar-item"><h4>Kimi K3</h4><ul class="links"><li><a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank" rel="noreferrer">Kimi-K3</a></li><li><a href="https://huggingface.co/models?sort=trending" target="_blank" rel="noreferrer">HF 趋势</a></li></ul> </div>
+<div class="radar-item"><h4>Unlimited-OCR</h4><ul class="links"><li><a href="https://huggingface.co/baidu/Unlimited-OCR" target="_blank" rel="noreferrer">Unlimited-OCR</a></li><li><a href="https://huggingface.co/models?sort=trending" target="_blank" rel="noreferrer">HF 趋势</a></li></ul> </div>
+<div class="radar-item"><h4>GLM-5.2</h4><ul class="links"><li><a href="https://huggingface.co/zai-org/GLM-5.2" target="_blank" rel="noreferrer">GLM-5.2</a></li><li><a href="https://huggingface.co/models?sort=trending" target="_blank" rel="noreferrer">HF 趋势</a></li></ul> </div>
+<div class="radar-item"><h4>DeepSeek-V4-Flash-0731</h4><ul class="links"><li><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" target="_blank" rel="noreferrer">DeepSeek-V4-Flash-0731</a></li><li><a href="https://api-docs.deepseek.com/updates/" target="_blank" rel="noreferrer">API 更新日志</a></li></ul> </div>
+<div class="radar-item"><h4>MiniMax H3</h4><ul class="links"><li><a href="https://www.minimax.io/blog/minimax-h3" target="_blank" rel="noreferrer">MiniMax H3</a></li><li><a href="https://huggingface.co/MiniMaxAI/MiniMax-H3" target="_blank" rel="noreferrer">MiniMax-H3 HF</a></li></ul> </div>
+<div class="radar-item"><h4>Inkling-Small / Solar-Open2-250B</h4><ul class="links"><li><a href="https://huggingface.co/thinkingmachines/Inkling-Small" target="_blank" rel="noreferrer">Inkling-Small</a></li><li><a href="https://thinkingmachines.ai/news/inkling-small/" target="_blank" rel="noreferrer">Inkling 官方</a></li></ul> </div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>🌐 来源雷达</h2><div class="sub">确保今天扫描范围完整。不是所有来源都一定产出主线，但都要被覆盖。</div></div>
+      <div class="radar-grid"><article class="radar-item"><h3>Twitter / X</h3><p>实际用法集中在 MiniMax H3 vs Seedance 2.5 的电商/短视频工作流对比讨论；具体高互动帖暂无稳定原文链接。</p><ul class="links"><li><a href="https://x.com/search?q=MiniMax%20H3&amp;f=live" target="_blank" rel="noreferrer">X 搜索入口：MiniMax H3</a></li></ul></article>
+<article class="radar-item"><h3>HuggingFace Daily Papers</h3><p>企业抽取 + 安全审计主题簇。</p><ul class="links"><li><a href="https://huggingface.co/papers" target="_blank" rel="noreferrer">HF Daily Papers</a></li></ul></article>
+<article class="radar-item"><h3>HuggingFace 模型下载趋势</h3><p>Kimi K3 / GLM-5.2 / Unlimited-OCR / DeepSeek-V4-Flash-0731 / MiniMax-H3 共同构成私有化/开源部署热度雷达。</p><ul class="links"><li><a href="https://huggingface.co/models?sort=trending" target="_blank" rel="noreferrer">HF Trending Models</a></li></ul></article>
+<article class="radar-item"><h3>Papers With Code</h3><p>本期无特别标志性新榜单更新，保留扫读入口；暂无当日强信号原文链接。</p><ul class="links"><li><a href="https://paperswithcode.com/" target="_blank" rel="noreferrer">Papers With Code</a></li></ul></article>
+<article class="radar-item"><h3>arXiv cs.AI / cs.LG</h3><p>HANDBOOK.md（2607.25398）长文档策略遵循是今天关键论文信号。</p><ul class="links"><li><a href="https://arxiv.org/abs/2607.25398" target="_blank" rel="noreferrer">HANDBOOK.md arXiv</a></li><li><a href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noreferrer">cs.AI recent</a></li></ul></article>
+<article class="radar-item"><h3>GitHub Trending</h3><p>AI/Agent 生态活跃，surge-ai/handbook 等评测仓受关注。</p><ul class="links"><li><a href="https://github.com/trending" target="_blank" rel="noreferrer">GitHub Trending</a></li></ul></article>
+<article class="radar-item"><h3>The Batch</h3><p>第 364 期覆盖 Opus 表现、Hugging Face 被黑事件与 AI 算力投入。</p><ul class="links"><li><a href="https://www.deeplearning.ai/the-batch/issue-364" target="_blank" rel="noreferrer">The Batch 364</a></li></ul></article>
+<article class="radar-item"><h3>Benedict Evans Newsletter</h3><p>本期无与主线强相关新条目，保留扫读入口；暂无当日原文链接。</p><ul class="links"><li><a href="https://www.ben-evans.com/newsletter" target="_blank" rel="noreferrer">Benedict Evans Newsletter</a></li></ul></article>
+<article class="radar-item"><h3>LessWrong / Alignment Forum</h3><p>围绕开放权重滥用与 Agent 对齐讨论活跃；暂无当日单条原文链接。</p><ul class="links"><li><a href="https://www.lesswrong.com/" target="_blank" rel="noreferrer">LessWrong</a></li></ul></article>
+<article class="radar-item"><h3>AI Snakeoil</h3><p>本期无更新，保留扫读入口；暂无当日原文链接。</p><ul class="links"><li><a href="https://www.aisnakeoil.com/" target="_blank" rel="noreferrer">AI Snake Oil</a></li></ul></article>
+<article class="radar-item"><h3>Import AI</h3><p>第 467 期聚焦自维持 AI 病毒、pacing 与 AI 创造力争论。</p><ul class="links"><li><a href="https://importai.substack.com/p/import-ai-467-self-sustaining-ai" target="_blank" rel="noreferrer">Import AI 467</a></li></ul></article></div>
+    </section>
+
+    <section class="section">
+      <div class="notes-card">
+        <h3>📝 我的笔记</h3>
+        <p>点击下方开始记录。内容会自动保存在浏览器 localStorage 中，500ms 防抖自动保存，支持字数统计、导出 .txt 和一键清空。</p>
+        <div class="notes-actions">
+          <button class="btn secondary" id="focusBtn">开始编辑</button>
+          <button class="btn" id="exportBtn">导出 .txt</button>
+          <button class="btn danger" id="clearBtn">清空笔记</button>
+        </div>
+        <textarea id="notesInput" placeholder="例如：
+1. 今天最值得跟进给客户讲的是哪条？
+2. 哪条适合做 demo / PoC？
+3. 哪个信号需要继续追 7 天？"></textarea>
+        <div class="note-meta"><span id="saveStatus">尚未输入内容</span><span id="charCount">0 字</span></div>
+      </div>
+    </section>
+
+    <div class="footer">本页为 2026-08-04 早间自动生成版本。所有资讯都保留原文链接；若某一来源当天没有比主线更强的新信号，则在来源雷达中保留扫描入口而不强行扩写。</div>
+  </div>
+<script>
+  const storageKey = 'daily_llm_news_notes_2026-08-04';
+  const input = document.getElementById('notesInput');
+  const saveStatus = document.getElementById('saveStatus');
+  const charCount = document.getElementById('charCount');
+  const focusBtn = document.getElementById('focusBtn');
+  const exportBtn = document.getElementById('exportBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  let timer = null;
+
+  function updateMeta() {
+    const text = input.value || '';
+    charCount.textContent = `${text.length} 字`;
+    if (!text.trim()) {
+      saveStatus.textContent = '尚未输入内容';
+      return;
+    }
+    const now = new Date();
+    const hh = String(now.getHours()).padStart(2,'0');
+    const mm = String(now.getMinutes()).padStart(2,'0');
+    const ss = String(now.getSeconds()).padStart(2,'0');
+    saveStatus.textContent = `已自动保存 · ${hh}:${mm}:${ss}`;
+  }
+
+  function persist() {
+    localStorage.setItem(storageKey, input.value || '');
+    updateMeta();
+  }
+
+  function debounceSave() {
+    clearTimeout(timer);
+    timer = setTimeout(persist, 500);
+    charCount.textContent = `${(input.value || '').length} 字`;
+    saveStatus.textContent = '输入中…';
+  }
+
+  function exportTxt() {
+    const blob = new Blob([input.value || ''], { type: 'text/plain;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'llm_news_notes_2026-08-04.txt';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(a.href);
+  }
+
+  focusBtn.addEventListener('click', () => input.focus());
+  exportBtn.addEventListener('click', exportTxt);
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    localStorage.removeItem(storageKey);
+    updateMeta();
+    charCount.textContent = '0 字';
+    input.focus();
+  });
+  input.addEventListener('input', debounceSave);
+  input.value = localStorage.getItem(storageKey) || '';
+  updateMeta();
+  charCount.textContent = `${(input.value || '').length} 字`;
+</script>
+</body>
+</html>
