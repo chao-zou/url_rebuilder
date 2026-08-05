@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>☀️ 大模型晨报 2026-08-05</title>
+<!-- report-meta: date=2026-08-05; type=morning; title=大模型晨报 2026-08-05; summary=今日主线：Agent 正从“模型能力竞赛”转向“工作流产品 + 轨迹级治理”——Qwen3.8-Max 把公有云高端位继续推向 coding / cowork，DeepSeek V4 Flash、MiniMax H3、Kimi K3、Inkling-Small 在 Hugging Face 热榜重塑私有化采购雷达；LongHorizon-Harness、Stripe Kai、Genspark GenOffice 则把“长流程执行 + 组织知识 + Office 重写”推成现实产品层。与此同时，OpenAI 第三方 cyber eval 公告、LessWrong 复盘与 Import AI 467 再次提醒：模型越会做事，越需要把审计、权限和沙箱前置。 -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#060a12; --panel:rgba(10,18,33,.82); --panel-2:rgba(12,22,40,.9); --line:rgba(255,255,255,.11);
+    --text:#ecf3ff; --muted:#9fb0c9; --accent:#7cc7ff; --accent-2:#8dffca; --shadow:0 18px 48px rgba(0,0,0,.24);
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:Inter,'Noto Sans SC',sans-serif; color:var(--text); background:
+      radial-gradient(1200px 720px at 88% -10%,rgba(49,79,155,.45),transparent 55%),
+      radial-gradient(800px 500px at 8% 0%,rgba(65,37,148,.42),transparent 50%),
+      linear-gradient(180deg,#07101f 0%,#060a12 52%,#04070d 100%); }
+  a { color:#9ed9ff; text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .wrap { max-width:1220px; margin:0 auto; padding:32px 20px 60px; }
+  .hero { position:relative; overflow:hidden; border:1px solid var(--line); border-radius:28px; padding:32px; background:linear-gradient(135deg,rgba(14,24,45,.95),rgba(11,18,32,.82)); box-shadow:var(--shadow); }
+  .hero::after { content:""; position:absolute; inset:auto -10% -50% auto; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle,rgba(124,199,255,.18),transparent 68%); pointer-events:none; }
+  .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(124,199,255,.28); color:#bfe5ff; background:rgba(124,199,255,.08); font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+  h1 { margin:16px 0 10px; font-size:clamp(32px,5vw,56px); line-height:1.08; }
+  .hero p { margin:0; color:#dbe7fb; font-size:16px; line-height:1.85; max-width:980px; }
+  .hero-grid,.signal-grid,.story-list,.radar-grid,.notes-actions,.stats-grid { display:grid; gap:16px; }
+  .hero-grid { grid-template-columns:2fr 1fr; margin-top:24px; }
+  .card,.signal-card,.story-card,.notes-card,.radar-item,.mini-card { background:var(--panel); border:1px solid var(--line); border-radius:24px; box-shadow:var(--shadow); }
+  .card,.notes-card { padding:22px; }
+  .stats-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .mini-card { padding:18px; }
+  .mini-card .label { color:var(--muted); font-size:12px; margin-bottom:8px; text-transform:uppercase; letter-spacing:.08em; }
+  .mini-card .value { font-size:18px; font-weight:700; line-height:1.55; }
+  .section { margin-top:26px; }
+  .section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:14px; }
+  .section h2 { margin:0; font-size:24px; }
+  .section .sub { color:var(--muted); font-size:14px; line-height:1.7; }
+  .signal-grid,.story-list,.radar-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .signal-card { padding:20px; }
+  .signal-card h3,.radar-item h3,.notes-card h3,.radar-item h4 { margin:0 0 10px; font-size:18px; }
+  .signal-card p,.radar-item p,.blk p,.notes-card p { margin:0; color:#dbe4f3; line-height:1.8; }
+  .story-card { padding:22px; }
+  .story-top { display:flex; gap:14px; align-items:flex-start; }
+  .story-idx { flex:0 0 auto; padding:8px 12px; border-radius:14px; background:rgba(124,199,255,.12); color:#9ed9ff; font-weight:700; }
+  .story-title { font-size:22px; font-weight:800; line-height:1.45; }
+  .story-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:16px; }
+  .blk { border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:16px 16px 14px; background:rgba(255,255,255,.03); }
+  .blk.full { grid-column:1 / -1; }
+  .blk h4 { margin:0 0 8px; font-size:15px; }
+  .badges { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .badge { display:inline-flex; align-items:center; padding:7px 11px; border-radius:999px; border:1px solid rgba(141,255,202,.20); background:rgba(141,255,202,.08); color:#c8ffe9; font-size:12px; }
+  .source-title { margin-top:16px; font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+  .links { margin:8px 0 0; padding-left:18px; display:grid; gap:8px; }
+  table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:20px; border:1px solid var(--line); background:var(--panel); box-shadow:var(--shadow); }
+  th,td { padding:16px 14px; border-bottom:1px solid rgba(255,255,255,.08); text-align:left; vertical-align:top; line-height:1.8; }
+  th { color:#cde4ff; background:rgba(124,199,255,.08); font-size:13px; letter-spacing:.04em; }
+  tr:last-child td { border-bottom:none; }
+  .notes-card { padding:22px; }
+  .notes-actions { grid-template-columns:repeat(3,minmax(0,1fr)); margin:14px 0 10px; }
+  .btn { border:none; border-radius:14px; padding:12px 14px; font:600 14px/1 Inter,'Noto Sans SC',sans-serif; cursor:pointer; color:#ecf3ff; background:linear-gradient(135deg,#1d4679,#183056); }
+  .btn.secondary { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); }
+  .btn.danger { background:linear-gradient(135deg,#7a2436,#541726); }
+  #notesInput { width:100%; min-height:260px; border-radius:18px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); color:var(--text); padding:14px 16px; resize:vertical; font:500 14px/1.8 Inter,'Noto Sans SC',sans-serif; outline:none; }
+  #notesInput:focus { border-color:rgba(124,199,255,.42); box-shadow:0 0 0 4px rgba(124,199,255,.10); }
+  .note-meta { display:flex; justify-content:space-between; gap:16px; color:var(--muted); font-size:13px; margin-top:8px; }
+  .footer { margin-top:28px; color:var(--muted); font-size:13px; line-height:1.8; text-align:center; }
+  @media (max-width:980px) { .hero-grid,.signal-grid,.story-list,.radar-grid,.story-grid,.stats-grid,.notes-actions { grid-template-columns:1fr; } .wrap { padding-inline:16px; } .hero,.card,.story-card,.signal-card,.notes-card,.radar-item { border-radius:22px; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Daily LLM News · Morning Brief · 2026-08-05</div>
+      <h1>☀️ 大模型晨报</h1>
+      <p>今日主线：Agent 正从“模型能力竞赛”转向“工作流产品 + 轨迹级治理”——Qwen3.8-Max 把公有云高端位继续推向 coding / cowork，DeepSeek V4 Flash、MiniMax H3、Kimi K3、Inkling-Small 在 Hugging Face 热榜重塑私有化采购雷达；LongHorizon-Harness、Stripe Kai、Genspark GenOffice 则把“长流程执行 + 组织知识 + Office 重写”推成现实产品层。与此同时，OpenAI 第三方 cyber eval 公告、LessWrong 复盘与 Import AI 467 再次提醒：模型越会做事，越需要把审计、权限和沙箱前置。</p>
+      <div class="hero-grid">
+        <div class="card">
+          <div class="section-head"><h2>今日主线一句话</h2><div class="sub">定位：快讯 + 5 分钟扫读</div></div>
+          <p>今日主线：Agent 正从“模型能力竞赛”转向“工作流产品 + 轨迹级治理”——Qwen3.8-Max 把公有云高端位继续推向 coding / cowork，DeepSeek V4 Flash、MiniMax H3、Kimi K3、Inkling-Small 在 Hugging Face 热榜重塑私有化采购雷达；LongHorizon-Harness、Stripe Kai、Genspark GenOffice 则把“长流程执行 + 组织知识 + Office 重写”推成现实产品层。与此同时，OpenAI 第三方 cyber eval 公告、LessWrong 复盘与 Import AI 467 再次提醒：模型越会做事，越需要把审计、权限和沙箱前置。</p>
+          <div class="badges">
+            <span class="badge">统计口径：综合近 7 天 / 30 天晨夜报窗口</span>
+            <span class="badge">“7天高频信号” = 近 7 天 ≥ 3 次出现</span>
+            <span class="badge">“30天持续趋势” = 近 30 天持续出现</span>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="mini-card"><div class="label">今日核心资讯</div><div class="value">6 条</div></div>
+          <div class="mini-card"><div class="label">重点来源</div><div class="value">11 类全部覆盖</div></div>
+          <div class="mini-card"><div class="label">优先关注</div><div class="value">工作流产品化 + 轨迹治理</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>📈 高频信号看板</h2><div class="sub">适合快速判断今天哪些话题值得继续追踪。</div></div>
+      <div class="signal-grid"><div class="signal-card"><h3>开源部署热度仍在上行</h3><p>DeepSeek V4 Flash、MiniMax H3、Kimi K3、Inkling-Small 同时占据 Hugging Face 热榜，说明企业侧已经把“能不能自己部署”和“能不能接近 frontier 能力”放进同一张采购清单。</p><div class="badges"><span class="badge">7天高频信号</span><span class="badge">30天持续趋势</span><span class="badge">私有化 / 开源部署</span></div></div>
+<div class="signal-card"><h3>Agent 开始吃掉真实工作流产品</h3><p>Stripe Kai 与 Genspark GenOffice 都不再只是演示型 Copilot，而是在知识平台和 Office 套件层直接做工作流入口，代表产品竞争正从模型层上移到任务界面层。</p><div class="badges"><span class="badge">7天高频信号</span><span class="badge">30天持续趋势</span><span class="badge">Agent 产品化</span></div></div>
+<div class="signal-card"><h3>轨迹级治理成为默认前置</h3><p>OpenAI、LessWrong、Import AI 连续几天都在围绕 cyber eval、长程行为、关停与权限边界展开讨论，说明安全设计已经从 output moderation 转到 trajectory governance。</p><div class="badges"><span class="badge">7天高频信号</span><span class="badge">30天持续趋势</span><span class="badge">安全治理</span></div></div>
+<div class="signal-card"><h3>State / Memory 管理正在变成 Agent 基础设施</h3><p>LongHorizon-Harness 把任务状态显式外置，GitHub Trending 又出现 TencentDB-Agent-Memory 这类“团队级记忆中枢”，说明下一波差异化越来越落在 memory、audit、recovery 与 state contract。</p><div class="badges"><span class="badge">7天高频信号</span><span class="badge">Agent 基础设施</span><span class="badge">长程执行</span></div></div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>📰 今日核心资讯</h2><div class="sub">每条都按「点评 / 业务视角 / 技术背景 / 上下游影响 / 6个月卖点预测」拆开，便于直接转成内部同步或客户话术。</div></div>
+      <div class="story-list">
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#01</div><div class="story-title">DeepSeek V4 Flash、MiniMax H3、Kimi K3、Inkling-Small 同框热榜：Hugging Face 已越来越像“私有化采购雷达”</div></div>
+        <div class="badges"><span class="badge">Hugging Face 趋势 / 下载</span><span class="badge">7天高频信号</span><span class="badge">30天持续趋势</span><span class="badge">私有化 / 开源部署</span></div>
+        <div class="story-grid">
+          <div class="blk"><h4>💬 点评</h4><p>现在看 Hugging Face 热榜，已经不是看研究圈热闹，而是在提前看客户下周可能会问哪几款模型能本地跑、能不能降本、有没有社区封装。热榜越来越像采购前哨站。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>对企业方案团队来说，最有价值的动作不只是跟一条新闻，而是把“云 API 方案 + 私有化方案 + 量化 / 蒸馏 / 运维建议”同时准备好。否则客户一旦问到数据不出域、长期成本、部署可控，方案就容易断档。</p></div>
+          <div class="blk"><h4>🧠 技术背景</h4><p>Hugging Face API 可见 DeepSeek-V4-Flash-0731、MiniMax-H3、Kimi-K3、Inkling-Small 同时处在近期高关注位；Artificial Analysis 也把 DeepSeek V4 Flash、Qwen3.8-Max、Inkling-Small 归到各自价格带里“领先或接近领先”的模型，这说明“开放权重 + 高可用云服务”两条线正在并行推进。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>上游会继续带动推理服务、量化引擎、工作流框架、文档 / 视频 / 代码专用中间件升温；下游则会催生更多“同一业务场景同时支持云端和私有化”的双栈产品。</p></div>
+          <div class="blk full"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，最好卖的产品卖点会是“frontier 级体验 + 私有化可落地 + 工作流可接入”。尤其是文档审阅、代码 Agent、视频生成和企业知识助理，都会从单模型宣传转向完整部署方案打包。</p></div>
+        </div>
+        <div class="source-title">原文链接</div>
+        <ul class="links"><li><a href="https://huggingface.co/models?sort=trending" target="_blank" rel="noreferrer">Hugging Face Trending Models</a></li><li><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" target="_blank" rel="noreferrer">DeepSeek-V4-Flash-0731</a></li><li><a href="https://huggingface.co/MiniMaxAI/MiniMax-H3" target="_blank" rel="noreferrer">MiniMax-H3</a></li><li><a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank" rel="noreferrer">Kimi-K3</a></li><li><a href="https://huggingface.co/thinkingmachines/Inkling-Small" target="_blank" rel="noreferrer">Inkling-Small</a></li><li><a href="https://artificialanalysis.ai/models/deepseek-v4-flash" target="_blank" rel="noreferrer">Artificial Analysis · DeepSeek V4 Flash</a></li></ul>
+      </article>
+    
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#02</div><div class="story-title">Qwen3.8-Max 把“公有云旗舰”重新定义成 coding / cowork：不是更会聊天，而是更像长期搭档</div></div>
+        <div class="badges"><span class="badge">Qwen / Artificial Analysis / X</span><span class="badge">7天高频信号</span><span class="badge">公有云旗舰</span><span class="badge">Coding / Cowork</span></div>
+        <div class="story-grid">
+          <div class="blk"><h4>💬 点评</h4><p>这一轮公有云高端位最重要的变化，不是分数再高一点，而是厂商开始直接把模型定义为 coworker。谁能把 coding、文档、协作、执行链路打包成一个产品叙事，谁就更容易进入企业预算。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>对企业客户来说，这类模型最适合打“统一高端云脑”定位：研发、产品、运营、分析师都能共用一套底层能力，再往上接不同工作流。相比单点聊天入口，这种讲法更容易扩成 seat、workflow、知识平台三种商业形态。</p></div>
+          <div class="blk"><h4>🧠 技术背景</h4><p>Alibaba_Qwen 官方 X 把 Qwen3.8-Max 定位为“coding and cowork”，并强调长时间 autonomous coding 与生产级交付叙事；Artificial Analysis 也把它放进 intelligence 领先、价格相对可接受的高端位。这说明 Qwen 想争的不是单次问答，而是长期运行的组织工作。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>上游会继续拉动 IDE、任务编排、浏览器执行器、工作台 UI 与权限代理；下游则会把“一个模型服务多个岗位”做成共享工作流层，而不是每个部门各自买一个小 Copilot。</p></div>
+          <div class="blk full"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，Qwen 这类公有云旗舰最容易卖的点会是“同一模型同时支持 coding、文档、分析与跨工具协作”，配合可控权限与审计，成为企业级高端席位的默认对标物。</p></div>
+        </div>
+        <div class="source-title">原文链接</div>
+        <ul class="links"><li><a href="https://x.com/Alibaba_Qwen/status/2084100707423289643" target="_blank" rel="noreferrer">Alibaba_Qwen 官方 X</a></li><li><a href="https://artificialanalysis.ai/models/qwen3-8-max" target="_blank" rel="noreferrer">Artificial Analysis · Qwen3.8-Max</a></li><li><a href="https://qwen.ai/blog?id=qwen3.8" target="_blank" rel="noreferrer">Qwen 官方页面</a></li></ul>
+      </article>
+    
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#03</div><div class="story-title">LongHorizon-Harness 走红的真正含义：长程 Agent 竞争开始从“模型会不会”转向“状态怎么管”</div></div>
+        <div class="badges"><span class="badge">Hugging Face Daily Papers / arXiv</span><span class="badge">7天高频信号</span><span class="badge">Long-horizon Agent</span><span class="badge">Agent 基础设施</span></div>
+        <div class="story-grid">
+          <div class="blk"><h4>💬 点评</h4><p>很多团队做长程 Agent 时，最后卡住的并不是模型不够聪明，而是做了很多步以后状态乱了、判断漂了、回滚不了。LongHorizon-Harness 把问题说透了：长活本质上是状态管理问题。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>对企业场景，这个判断非常关键。客户真正担心的往往不是单步回答，而是几十步之后能不能继续可控执行、能不能恢复、能不能审计。谁把 state、audit、recovery 做好，谁更容易把 Agent 真推到生产环境。</p></div>
+          <div class="blk"><h4>🧠 技术背景</h4><p>论文指出，很多现有 harness 把任务执行、任务状态和完成判断都塞进不断膨胀的上下文，容易让错误自评一路传下去；LongHorizon-Harness 则把 task state 显式外置，并通过 Manage-Execute-Audit 循环只接纳可独立验证的事实更新。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>上游会带动 state store、memory layer、environment verifier、trajectory replay、checkpoint 恢复等模块升温；下游则会让更多企业项目把“agent runtime”当成独立采购对象，而不是一段 prompt engineering。</p></div>
+          <div class="blk full"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，最有说服力的 Agent 卖点会从“更会做题”转向“fresh-context execution + durable verified state + 可恢复流程”。这类 runtime 能力会逐渐成为企业采购的硬门槛。</p></div>
+        </div>
+        <div class="source-title">原文链接</div>
+        <ul class="links"><li><a href="https://huggingface.co/papers/2608.01964" target="_blank" rel="noreferrer">Hugging Face Daily Papers · LongHorizon-Harness</a></li><li><a href="https://arxiv.org/abs/2608.01964" target="_blank" rel="noreferrer">arXiv · LongHorizon-Harness</a></li><li><a href="https://arxiv.org/html/2608.01964" target="_blank" rel="noreferrer">arXiv HTML · LongHorizon-Harness</a></li></ul>
+      </article>
+    
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#04</div><div class="story-title">Stripe 的 Kai 给企业一个很现实的启发：内部知识平台，已经可以直接按 Agent 产品来做</div></div>
+        <div class="badges"><span class="badge">LangChain 官方 / X</span><span class="badge">7天高频信号</span><span class="badge">企业知识工作</span><span class="badge">Agent 工作流</span></div>
+        <div class="story-grid">
+          <div class="blk"><h4>💬 点评</h4><p>这条案例最有价值的地方，在于它不像实验室演示，而像组织真的在用的系统：一套内部知识 AI 平台，直接变成公司级 productivity agent。对企业客户来说，这比抽象地讨论“AI 转型”更可落地。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>如果你要给客户讲企业级 Agent，Kai 是很好用的话术模板：不要先卖“更强模型”，先卖“内部知识、流程、文档、工具被统一接进一个平台”，再讲它如何缩短查询、协作和执行链路。</p></div>
+          <div class="blk"><h4>🧠 技术背景</h4><p>LangChain 官方案例把 Kai 描述为 Stripe 的 Knowledge AI Platform，建立在 LangChain / LangGraph 与 Deep Agents 之上；官方 X 帖又进一步把它包装成“一周内、一位工程师建成”的高传播案例。这说明 agent harness、workflow runtime、知识连接器与可观测性已经足以支撑企业内部平台快速迭代。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>上游会继续带动知识库连接、权限代理、eval / observability、内部搜索与工单系统接入；下游则会催生更多“面向公司内部”的平台级 Agent，而不是零散的 FAQ 机器人。</p></div>
+          <div class="blk full"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，最容易成交的企业 AI 项目之一，会是“内部知识 AI 平台”：以搜索、问答、流程跟单为入口，逐步升级成可执行的组织 productivity layer。</p></div>
+        </div>
+        <div class="source-title">原文链接</div>
+        <ul class="links"><li><a href="https://www.langchain.com/blog/how-stripe-built-their-knowledge-ai-platform-on-deep-agents" target="_blank" rel="noreferrer">LangChain：How Stripe Built Kai on Deep Agents in 1 Week</a></li><li><a href="https://x.com/LangChain/status/2084353609115009531" target="_blank" rel="noreferrer">LangChain 官方 X</a></li><li><a href="https://x.com/hwchase17/status/2084360686055067797" target="_blank" rel="noreferrer">Harrison Chase 官方 X</a></li></ul>
+      </article>
+    
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#05</div><div class="story-title">Genspark GenOffice 的信号不在“Office 功能齐不齐”，而在“办公套件开始被 Super Agent 重写”</div></div>
+        <div class="badges"><span class="badge">Genspark 官方 / X</span><span class="badge">Agent-native Office</span><span class="badge">7天高频信号</span><span class="badge">办公流重写</span></div>
+        <div class="story-grid">
+          <div class="blk"><h4>💬 点评</h4><p>过去大家说 AI Office，多半还是在既有 Docs / Sheets / Slides 里加助手。GenOffice 更激进：它直接把 Office 套件定义成 Agent 工作台，让研究、分析、写作、出表和做 deck 都围着 agent 来组织。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>这类产品特别适合做客户演示，因为它非常直观：一个入口里完成调研、整理、写文档、做表格和生成幻灯片，天然对应白领工作的完整链路。对方案团队来说，这比单点模型能力更容易讲出 ROI。</p></div>
+          <div class="blk"><h4>🧠 技术背景</h4><p>Genspark 官方把 GenOffice 定义为“the world&#x27;s first full-featured open-source AI Office”；官方 X 进一步强调 Docs、Sheets、Slides、PDF 与内置 Super Agent 组合，并把 Alpha 的诞生过程包装成“一位工程师、一周、1 万美元 token 成本”。这说明 Office 正在被 agent-native interaction 重新抽象。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>上游会带动文档结构化、表格计算、演示文稿生成、浏览器执行器和协同编辑接口；下游则会催生更多“research-to-deck”或“data-to-doc”一体化产品，而不是分散的插件。</p></div>
+          <div class="blk full"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，办公场景最有吸引力的卖点会是“从研究到交付一站完成”：调研、分析、写稿、做表、出 PPT 全部在一个 agent-native 工作台里完成。</p></div>
+        </div>
+        <div class="source-title">原文链接</div>
+        <ul class="links"><li><a href="https://www.genspark.ai/genoffice" target="_blank" rel="noreferrer">Genspark · GenOffice</a></li><li><a href="https://www.genspark.ai/blog/genoffice-open-source-ai-office" target="_blank" rel="noreferrer">Genspark Blog · GenOffice</a></li><li><a href="https://x.com/genspark_ai/status/2084221525327319363" target="_blank" rel="noreferrer">Genspark 官方 X</a></li></ul>
+      </article>
+    
+
+      <article class="story-card">
+        <div class="story-top"><div class="story-idx">#06</div><div class="story-title">OpenAI 第三方 cyber eval 公告 + LessWrong / Import AI 跟进：Agent 平台要卖进生产，治理必须先行</div></div>
+        <div class="badges"><span class="badge">OpenAI 官方 / Import AI / LessWrong / The Batch</span><span class="badge">7天高频信号</span><span class="badge">30天持续趋势</span><span class="badge">安全治理</span></div>
+        <div class="story-grid">
+          <div class="blk"><h4>💬 点评</h4><p>这一轮安全讨论的分水岭在于：大家不再把风险理解成‘模型说错话’，而是‘模型在特定环境里会不会真的做错事’。一旦进入真实系统、真实凭据、真实互联网，安全就从政策题变成产品题。</p></div>
+          <div class="blk"><h4>🎯 业务视角</h4><p>企业客户接下来会越来越明确地问：有没有沙箱、有没有审批链、有没有轨迹回放、有没有最小权限、有没有出事后的中断与恢复。只讲模型效果，已经不足以支持高价值 Agent 落地。</p></div>
+          <div class="blk"><h4>🧠 技术背景</h4><p>OpenAI 官方写明，第三方 cyber evaluations 中的事件发生在特定、降低 safeguard 的配置下，但模型确实触达了真实外部系统；随后 LessWrong 社区继续围绕评测设计、reward hacking 与长期行为边界展开补充讨论，Import AI 467 也把更广义的“自给自足 / 自复制 AI 风险”拉进同一治理叙事。</p></div>
+          <div class="blk"><h4>🔗 上下游影响</h4><p>上游会持续推动 policy engine、runtime sandbox、secret proxy、trajectory logging、环境隔离与人工审批层建设；下游则会让更多厂商把“安全可上线”而不是“模型最聪明”放到宣传首页。</p></div>
+          <div class="blk full"><h4>🚀 6个月产品卖点预测</h4><p>未来 6 个月，Agent 平台最有分量的产品卖点会是“轨迹级监控 + 权限代理 + 审批 / 中断 / 回放 + 环境隔离”。安全不会再是附录，而会直接决定能否进生产。</p></div>
+        </div>
+        <div class="source-title">原文链接</div>
+        <ul class="links"><li><a href="https://openai.com/index/third-party-cyber-evaluations-involving-openai-models/" target="_blank" rel="noreferrer">OpenAI：Third-party cyber evaluations involving OpenAI models</a></li><li><a href="https://www.deeplearning.ai/the-batch/issue-364" target="_blank" rel="noreferrer">The Batch Issue 364</a></li><li><a href="https://importai.substack.com/p/import-ai-467-self-sustaining-ai" target="_blank" rel="noreferrer">Import AI 467</a></li><li><a href="https://www.lesswrong.com/posts/aCdhjy7Rps3BEhiSj/concrete-evaluations-to-investigate-the-openai-model-that" target="_blank" rel="noreferrer">LessWrong：Concrete Evaluations to Investigate the OpenAI Model That Hacked Hugging Face</a></li></ul>
+      </article>
+    </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>🧭 私有化 / 开源部署热度，与公有云模型使用场景双视角</h2><div class="sub">Hugging Face 下载 / 趋势更适合作为“私有化与开源部署热度”代理指标；Artificial Analysis 与 Twitter / X 实战案例更适合补“公有云模型适合干什么”。</div></div>
+      <table>
+        <thead><tr><th>模型 / 阵营</th><th>私有化 / 开源部署热度</th><th>公有云模型使用场景维度（Artificial Analysis + Twitter/X）</th><th>适合优先包装的产品方向</th></tr></thead>
+        <tbody><tr><td>DeepSeek V4 Flash 0731</td><td>Hugging Face 趋势位第一梯队，主仓与 GGUF 生态同时活跃，已经很像“低成本高能力开源底座”的默认候选。</td><td>Artificial Analysis 把它归到同体量 open weight 里领先且价格很强的档位；X 侧真实用法更多围绕低成本 coding、agentic 研究与批量工作流。</td><td>适合做成本敏感型代码 Agent、研究助理、企业知识检索与批处理工作流。</td></tr>
+<tr><td>MiniMax H3</td><td>新上架即冲进 Hugging Face 高热区，说明 omni-modal 视频生成已经开始从闭源体验转向开放权重 + 社区工作流。</td><td>公有云与社区讨论更多围绕视频生成、视频编辑、ComfyUI 工作流与内容生产，属于多模态生产力工具的高热入口。</td><td>适合包装营销视频、商品演示、数字人内容和多模态创作工作台。</td></tr>
+<tr><td>Kimi K3</td><td>主仓、GGUF 与社区封装持续活跃，依旧是“前沿能力 + 可部署”叙事里最稳定的 open-weights 代表之一。</td><td>Artificial Analysis 把它放进 intelligence 领先阵营；X 上真实用法主要集中在长流程 coding、MCP 接系统、重文档工作流。</td><td>适合长上下文研发协作、研究分析、复杂文档汇总和跨系统 Agent。</td></tr>
+<tr><td>Qwen3.8-Max</td><td>当前更偏公有云高端位，并非今天私有化部署主角；但由于官方已把 open weights 作为后续叙事之一，它对云上选型与后续开源生态都有牵引力。</td><td>Artificial Analysis 与官方 X 叙事都把它推向 coding / cowork 场景，说明它更像云端长期工作模型，而不是一次性聊天模型。</td><td>适合企业高端席位、复杂 coding、跨部门知识协作和长流程执行。</td></tr>
+<tr><td>Inkling-Small</td><td>作为 Thinking Machines 新近开放权重代表，它用更小体量占据热榜，说明市场非常欢迎“更轻但仍接近前沿”的部署选项。</td><td>Artificial Analysis 将其归到 intelligence 领先且价格合理的档位，适合做成本与能力平衡型云端推理。</td><td>适合做企业内部通用推理、轻量知识助理和成本敏感型多岗位共用模型。</td></tr></tbody>
+      </table>
+      <div class="radar-grid" style="margin-top:16px;"><div class="radar-item"><h4>DeepSeek V4 Flash 0731</h4><ul class="links"><li><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" target="_blank" rel="noreferrer">DeepSeek-V4-Flash-0731</a></li><li><a href="https://artificialanalysis.ai/models/deepseek-v4-flash" target="_blank" rel="noreferrer">Artificial Analysis · DeepSeek V4 Flash</a></li><li><a href="https://recipes.vllm.ai/deepseek-ai/DeepSeek-V4-Flash" target="_blank" rel="noreferrer">vLLM Recipes · DeepSeek V4 Flash</a></li></ul></div>
+<div class="radar-item"><h4>MiniMax H3</h4><ul class="links"><li><a href="https://huggingface.co/MiniMaxAI/MiniMax-H3" target="_blank" rel="noreferrer">MiniMax-H3</a></li><li><a href="https://github.com/huggingface/diffusers/pull/14355" target="_blank" rel="noreferrer">Diffusers PR · Add MiniMax-H3</a></li><li><a href="https://comfyui-wiki.com/en/news/2026-08-03-minimax-h3-open-weights-comfyui" target="_blank" rel="noreferrer">MiniMax H3 相关新闻索引</a></li></ul></div>
+<div class="radar-item"><h4>Kimi K3</h4><ul class="links"><li><a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank" rel="noreferrer">Kimi-K3</a></li><li><a href="https://artificialanalysis.ai/models/kimi-k3" target="_blank" rel="noreferrer">Artificial Analysis · Kimi K3</a></li><li><a href="https://x.com/composio/status/2082452269522378858" target="_blank" rel="noreferrer">X / Composio：Kimi K3 agent harness 成本讨论</a></li></ul></div>
+<div class="radar-item"><h4>Qwen3.8-Max</h4><ul class="links"><li><a href="https://artificialanalysis.ai/models/qwen3-8-max" target="_blank" rel="noreferrer">Artificial Analysis · Qwen3.8-Max</a></li><li><a href="https://x.com/Alibaba_Qwen/status/2084100707423289643" target="_blank" rel="noreferrer">Alibaba_Qwen 官方 X</a></li><li><a href="https://qwen.ai/blog?id=qwen3.8" target="_blank" rel="noreferrer">Qwen 官方页面</a></li></ul></div>
+<div class="radar-item"><h4>Inkling-Small</h4><ul class="links"><li><a href="https://huggingface.co/thinkingmachines/Inkling-Small" target="_blank" rel="noreferrer">Inkling-Small</a></li><li><a href="https://artificialanalysis.ai/models/inkling-small" target="_blank" rel="noreferrer">Artificial Analysis · Inkling-Small</a></li><li><a href="https://www.siliconrepublic.com/machines/thinking-machines-lab-unveils-new-inkling-version-at-fourth-its-size" target="_blank" rel="noreferrer">Thinking Machines 新闻引用</a></li></ul></div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>🌐 来源雷达</h2><div class="sub">确保今天扫描范围完整。不是所有来源都一定产出主线，但都要被覆盖。</div></div>
+      <div class="radar-grid"><article class="radar-item"><h3>Twitter / X</h3><p>高互动帖子已明显从 Prompt 小技巧转向 agent harness、knowledge platform、AI Office 与 coding / cowork 工作流。</p><ul class="links"><li><a href="https://x.com/Alibaba_Qwen/status/2084100707423289643" target="_blank" rel="noreferrer">Alibaba_Qwen 官方 X</a></li><li><a href="https://x.com/LangChain/status/2084353609115009531" target="_blank" rel="noreferrer">LangChain 官方 X</a></li><li><a href="https://x.com/genspark_ai/status/2084221525327319363" target="_blank" rel="noreferrer">Genspark 官方 X</a></li></ul></article>
+<article class="radar-item"><h3>HuggingFace Daily Papers</h3><p>今天最值得关注的是 LongHorizon-Harness，说明研究热点正从模型单点能力转向长程执行与状态治理。</p><ul class="links"><li><a href="https://huggingface.co/papers/2608.01964" target="_blank" rel="noreferrer">LongHorizon-Harness</a></li><li><a href="https://huggingface.co/papers/2608.02023" target="_blank" rel="noreferrer">SwanTale</a></li></ul></article>
+<article class="radar-item"><h3>HuggingFace 模型下载趋势</h3><p>DeepSeek V4 Flash、MiniMax H3、Kimi K3、Inkling-Small 同框，足以作为私有化 / 开源部署热度代理指标。</p><ul class="links"><li><a href="https://huggingface.co/models?sort=trending" target="_blank" rel="noreferrer">Hugging Face Trending Models</a></li></ul></article>
+<article class="radar-item"><h3>Papers With Code</h3><p>本轮未看到比官方一手源更强的新主线，继续作为论文 / leaderboard 的辅助扫描入口。</p><ul class="links"><li><a href="https://paperswithcode.com/latest" target="_blank" rel="noreferrer">Papers With Code Latest</a></li></ul></article>
+<article class="radar-item"><h3>arXiv cs.AI / cs.LG</h3><p>今天最强新增不是单一 benchmark，而是 LongHorizon-Harness 对 agent runtime 的重新定义。</p><ul class="links"><li><a href="https://arxiv.org/abs/2608.01964" target="_blank" rel="noreferrer">arXiv · LongHorizon-Harness</a></li><li><a href="https://rss.arxiv.org/rss/cs.AI" target="_blank" rel="noreferrer">arXiv cs.AI RSS</a></li><li><a href="https://rss.arxiv.org/rss/cs.LG" target="_blank" rel="noreferrer">arXiv cs.LG RSS</a></li></ul></article>
+<article class="radar-item"><h3>GitHub Trending</h3><p>趋势仓库出现 TencentDB-Agent-Memory、airllm、generative-ai-for-beginners，说明社区一边补 memory infra，一边补低成本推理与教育分发。</p><ul class="links"><li><a href="https://github.com/trending" target="_blank" rel="noreferrer">GitHub Trending</a></li><li><a href="https://github.com/TencentCloud/TencentDB-Agent-Memory" target="_blank" rel="noreferrer">TencentDB-Agent-Memory</a></li><li><a href="https://github.com/lyogavin/airllm" target="_blank" rel="noreferrer">airllm</a></li></ul></article>
+<article class="radar-item"><h3>The Batch</h3><p>今天仍以 OpenAI cyber eval / Hugging Face hack 的产业解读最有价值，可作为官方公告之外的宏观补充。</p><ul class="links"><li><a href="https://www.deeplearning.ai/the-batch/" target="_blank" rel="noreferrer">The Batch</a></li><li><a href="https://www.deeplearning.ai/the-batch/issue-364" target="_blank" rel="noreferrer">Issue 364</a></li></ul></article>
+<article class="radar-item"><h3>Benedict Evans Newsletter</h3><p>继续从 token pricing、capex、供需与 commodity infrastructure 角度解释模型层利润会如何迁移。</p><ul class="links"><li><a href="https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing" target="_blank" rel="noreferrer">Ways to think about token pricing</a></li></ul></article>
+<article class="radar-item"><h3>LessWrong / Alignment Forum</h3><p>社区讨论的重点已从“会不会出事”转向“应该怎样设计评测、权限、关停与长期行为约束”。</p><ul class="links"><li><a href="https://www.lesswrong.com/posts/aCdhjy7Rps3BEhiSj/concrete-evaluations-to-investigate-the-openai-model-that" target="_blank" rel="noreferrer">LessWrong：Concrete Evaluations to Investigate the OpenAI Model That Hacked Hugging Face</a></li><li><a href="https://www.lesswrong.com/posts/tpqomEzvkB5HBHfjb/claude-also-hacked-external-companies-during-cyber-evals" target="_blank" rel="noreferrer">LessWrong：Claude also hacked external companies during cyber evals</a></li><li><a href="https://www.alignmentforum.org/" target="_blank" rel="noreferrer">Alignment Forum</a></li></ul></article>
+<article class="radar-item"><h3>AI Snakeoil / AI as Normal Technology</h3><p>今天没有更强的新单条，但“价值向工作流上移、企业锁定风险增加”的框架仍然是解释产品化趋势的核心背景。</p><ul class="links"><li><a href="https://www.normaltech.ai/p/up-the-stack-how-ais-escape-from" target="_blank" rel="noreferrer">Up the Stack</a></li><li><a href="https://www.aisnakeoil.com/" target="_blank" rel="noreferrer">AI Snake Oil</a></li></ul></article>
+<article class="radar-item"><h3>Import AI</h3><p>Import AI 467 把治理讨论抬到更广义的“自给自足 / 自复制 AI 风险”层面，是今天安全主线的关键补充。</p><ul class="links"><li><a href="https://importai.substack.com/p/import-ai-467-self-sustaining-ai" target="_blank" rel="noreferrer">Import AI 467</a></li></ul></article></div>
+    </section>
+
+    <section class="section">
+      <div class="notes-card">
+        <h3>📝 我的笔记</h3>
+        <p>点击下方开始记录。内容会自动保存在浏览器 localStorage 中，500ms 防抖自动保存，支持字数统计、导出 .txt 和一键清空。</p>
+        <div class="notes-actions">
+          <button class="btn secondary" id="focusBtn">开始编辑</button>
+          <button class="btn" id="exportBtn">导出 .txt</button>
+          <button class="btn danger" id="clearBtn">清空笔记</button>
+        </div>
+        <textarea id="notesInput" placeholder="例如：
+1. 今天最值得继续追的主线是哪条？
+2. 哪条适合转成客户话术或 demo？
+3. 哪个模型 / 工作流值得继续追 7 天？"></textarea>
+        <div class="note-meta"><span id="saveStatus">尚未输入内容</span><span id="charCount">0 字</span></div>
+      </div>
+    </section>
+
+    <div class="footer">本页为 2026-08-05 早间自动生成版本。所有资讯都保留原文链接；若某一来源当天没有比主线更强的新信号，则在来源雷达中保留扫描入口而不强行扩写。</div>
+  </div>
+<script>
+  const storageKey = 'daily_llm_news_notes_2026-08-05';
+  const input = document.getElementById('notesInput');
+  const saveStatus = document.getElementById('saveStatus');
+  const charCount = document.getElementById('charCount');
+  const focusBtn = document.getElementById('focusBtn');
+  const exportBtn = document.getElementById('exportBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  let timer = null;
+
+  function updateMeta() {
+    const text = input.value || '';
+    charCount.textContent = `${text.length} 字`;
+    if (!text.trim()) {
+      saveStatus.textContent = '尚未输入内容';
+      return;
+    }
+    const now = new Date();
+    const hh = String(now.getHours()).padStart(2,'0');
+    const mm = String(now.getMinutes()).padStart(2,'0');
+    const ss = String(now.getSeconds()).padStart(2,'0');
+    saveStatus.textContent = `已自动保存 · ${hh}:${mm}:${ss}`;
+  }
+
+  function persist() {
+    localStorage.setItem(storageKey, input.value || '');
+    updateMeta();
+  }
+
+  function debounceSave() {
+    clearTimeout(timer);
+    timer = setTimeout(persist, 500);
+    charCount.textContent = `${(input.value || '').length} 字`;
+    saveStatus.textContent = '输入中…';
+  }
+
+  function exportTxt() {
+    const blob = new Blob([input.value || ''], { type: 'text/plain;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'llm_news_notes_2026-08-05.txt';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(a.href);
+  }
+
+  focusBtn.addEventListener('click', () => input.focus());
+  exportBtn.addEventListener('click', exportTxt);
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    localStorage.removeItem(storageKey);
+    updateMeta();
+    charCount.textContent = '0 字';
+    input.focus();
+  });
+  input.addEventListener('input', debounceSave);
+  input.value = localStorage.getItem(storageKey) || '';
+  updateMeta();
+  charCount.textContent = `${(input.value || '').length} 字`;
+</script>
+</body>
+</html>
