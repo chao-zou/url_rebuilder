@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>☀️ 大模型晨报 2026-08-06</title>
+<!-- report-meta: date=2026-08-06; type=morning; title=大模型晨报 2026-08-06; summary=今日主线：中国开源前沿与全球闭源旗舰进入“正面对位”阶段——Kimi K3、DeepSeek V4-Flash-0731、Qwen3.8-Max 三款国产开放权重模型在 Arena、Artificial Analysis、Hugging Face 三个口径上同时逼近甚至反超 Claude Opus 5 / GPT-5.6 Sol；蚂蚁+人大的 LLaDA MoE v2 把扩散语言模型（dLLM）这条非自回归路线第一次推到与 Qwen3 30B 同档可比；arXiv 上 LongHorizon-Harness、ContinualSkillBench、Hybrid LLM-RL Agents 把“长程 Agent + 技能自演化 + RL 精调动作”整合成新的工程范式；GitHub Trending 上 RAGFlow、Ollama、QwenLM/qwen-code 等仓库继续上行，MCP / Agent skills 正在从 SDK 变成基础设施；OpenAI GPT Live 连续语音、Codex 更新、The Batch 364 / Import AI 467 则再次提醒：模型越会做事，越需要把成本、监控、审计、权限前置到产品层。 -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#060a12; --panel:rgba(10,18,33,.82); --panel-2:rgba(12,22,40,.9); --line:rgba(255,255,255,.11);
+    --text:#ecf3ff; --muted:#9fb0c9; --accent:#7cc7ff; --accent-2:#8dffca; --shadow:0 18px 48px rgba(0,0,0,.24);
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:Inter,'Noto Sans SC',sans-serif; color:var(--text); background:
+      radial-gradient(1200px 720px at 88% -10%,rgba(49,79,155,.45),transparent 55%),
+      radial-gradient(800px 500px at 8% 0%,rgba(65,37,148,.42),transparent 50%),
+      linear-gradient(180deg,#07101f 0%,#060a12 52%,#04070d 100%); }
+  a { color:#9ed9ff; text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .wrap { max-width:1220px; margin:0 auto; padding:32px 20px 60px; }
+  .hero { position:relative; overflow:hidden; border:1px solid var(--line); border-radius:28px; padding:32px; background:linear-gradient(135deg,rgba(14,24,45,.95),rgba(11,18,32,.82)); box-shadow:var(--shadow); }
+  .hero::after { content:""; position:absolute; inset:auto -10% -50% auto; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle,rgba(124,199,255,.18),transparent 68%); pointer-events:none; }
+  .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(124,199,255,.28); color:#bfe5ff; background:rgba(124,199,255,.08); font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+  h1 { margin:16px 0 10px; font-size:clamp(32px,5vw,56px); line-height:1.08; }
+  .hero p { margin:0; color:#dbe7fb; font-size:16px; line-height:1.85; max-width:980px; }
+  .hero-grid,.signal-grid,.story-list,.radar-grid,.notes-actions,.stats-grid { display:grid; gap:16px; }
+  .hero-grid { grid-template-columns:2fr 1fr; margin-top:24px; }
+  .card,.signal-card,.story-card,.notes-card,.radar-item,.mini-card { background:var(--panel); border:1px solid var(--line); border-radius:24px; box-shadow:var(--shadow); }
+  .card,.notes-card { padding:22px; }
+  .stats-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .mini-card { padding:18px; }
+  .mini-card .label { color:var(--muted); font-size:12px; margin-bottom:8px; text-transform:uppercase; letter-spacing:.08em; }
+  .mini-card .value { font-size:18px; font-weight:700; line-height:1.55; }
+  .section { margin-top:26px; }
+  .section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:14px; }
+  .section h2 { margin:0; font-size:24px; }
+  .section .sub { color:var(--muted); font-size:14px; line-height:1.7; }
+  .signal-grid,.story-list,.radar-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .signal-card { padding:20px; }
+  .signal-card h3,.radar-item h3,.notes-card h3,.radar-item h4 { margin:0 0 10px; font-size:18px; }
+  .signal-card p,.radar-item p,.blk p,.notes-card p { margin:0; color:#dbe4f3; line-height:1.8; }
+  .story-card { padding:22px; }
+  .story-top { display:flex; gap:14px; align-items:flex-start; }
+  .story-idx { flex:0 0 auto; padding:8px 12px; border-radius:14px; background:rgba(124,199,255,.12); color:#9ed9ff; font-weight:700; }
+  .story-title { font-size:22px; font-weight:800; line-height:1.45; }
+  .story-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:16px; }
+  .blk { border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:16px 16px 14px; background:rgba(255,255,255,.03); }
+  .blk.full { grid-column:1 / -1; }
+  .blk h4 { margin:0 0 8px; font-size:15px; }
+  .badges { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .badge { display:inline-flex; align-items:center; padding:7px 11px; border-radius:999px; border:1px solid rgba(141,255,202,.20); background:rgba(141,255,202,.08); color:#c8ffe9; font-size:12px; }
+  .source-title { margin-top:4px; font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+  .links { margin:8px 0 0; padding-left:18px; display:grid; gap:8px; }
+  table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:20px; border:1px solid var(--line); background:var(--panel); box-shadow:var(--shadow); }
+  th,td { padding:14px 14px; border-bottom:1px solid rgba(255,255,255,.08); text-align:left; vertical-align:top; line-height:1.8; font-size:14px; }
+  th { color:#cde4ff; background:rgba(124,199,255,.08); font-size:13px; letter-spacing:.04em; }
+  tr:last-child td { border-bottom:none; }
+  .notes-card { padding:22px; }
+  .notes-actions { grid-template-columns:repeat(3,minmax(0,1fr)); margin:14px 0 10px; }
+  .btn { border:none; border-radius:14px; padding:12px 14px; font:600 14px/1 Inter,'Noto Sans SC',sans-serif; cursor:pointer; color:#ecf3ff; background:linear-gradient(135deg,#1d4679,#183056); }
+  .btn.secondary { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); }
+  .btn.danger { background:linear-gradient(135deg,#7a2436,#541726); }
+  #notesInput { width:100%; min-height:260px; border-radius:18px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); color:var(--text); padding:14px 16px; resize:vertical; font:500 14px/1.8 Inter,'Noto Sans SC',sans-serif; outline:none; }
+  #notesInput:focus { border-color:rgba(124,199,255,.42); box-shadow:0 0 0 4px rgba(124,199,255,.10); }
+  .note-meta { display:flex; justify-content:space-between; gap:16px; color:var(--muted); font-size:13px; margin-top:8px; }
+  .footer { margin-top:28px; color:var(--muted); font-size:13px; line-height:1.8; text-align:center; }
+  .top-link { display:inline-flex; gap:8px; align-items:center; margin-top:8px; }
+  @media (max-width:980px) { .hero-grid,.signal-grid,.story-list,.radar-grid,.story-grid,.stats-grid,.notes-actions { grid-template-columns:1fr; } .wrap { padding-inline:16px; } .hero,.card,.story-card,.signal-card,.notes-card,.radar-item { border-radius:22px; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Daily LLM News · Morning Brief · 2026-08-06</div>
+      <h1>☀️ 大模型晨报</h1>
+      <p>今日主线：中国开源前沿与全球闭源旗舰进入“正面对位”阶段——Kimi K3、DeepSeek V4-Flash-0731、Qwen3.8-Max 三款国产开放权重模型在 Arena、Artificial Analysis、Hugging Face 三个口径上同时逼近甚至反超 Claude Opus 5 / GPT-5.6 Sol；蚂蚁+人大的 LLaDA MoE v2 把扩散语言模型（dLLM）这条非自回归路线第一次推到与 Qwen3 30B 同档可比；arXiv 上 LongHorizon-Harness、ContinualSkillBench、Hybrid LLM-RL Agents 把“长程 Agent + 技能自演化 + RL 精调动作”整合成新的工程范式；GitHub Trending 上 RAGFlow、Ollama、QwenLM/qwen-code 等仓库继续上行，MCP / Agent skills 正在从 SDK 变成基础设施；OpenAI GPT Live 连续语音、Codex 更新、The Batch 364 / Import AI 467 则再次提醒：模型越会做事，越需要把成本、监控、审计、权限前置到产品层。</p>
+      <div class="hero-grid">
+        <div class="card">
+          <div class="section-head"><h2>今日主线一句话</h2><div class="sub">定位：快讯 + 5 分钟扫读</div></div>
+          <p>今日主线：中国开源前沿与全球闭源旗舰进入“正面对位”阶段——Kimi K3、DeepSeek V4-Flash-0731、Qwen3.8-Max 三款国产开放权重模型在 Arena、Artificial Analysis、Hugging Face 三个口径上同时逼近甚至反超 Claude Opus 5 / GPT-5.6 Sol；蚂蚁+人大的 LLaDA MoE v2 把扩散语言模型（dLLM）这条非自回归路线第一次推到与 Qwen3 30B 同档可比；arXiv 上 LongHorizon-Harness、ContinualSkillBench、Hybrid LLM-RL Agents 把“长程 Agent + 技能自演化 + RL 精调动作”整合成新的工程范式；GitHub Trending 上 RAGFlow、Ollama、QwenLM/qwen-code 等仓库继续上行，MCP / Agent skills 正在从 SDK 变成基础设施；OpenAI GPT Live 连续语音、Codex 更新、The Batch 364 / Import AI 467 则再次提醒：模型越会做事，越需要把成本、监控、审计、权限前置到产品层。</p>
+          <div style="margin-top:14px;"><a class="btn secondary" href="index.html">📚 查看历史总目录</a></div>
+        </div>
+        <div class="stats-grid">
+          <div class="mini-card"><div class="label">核心资讯</div><div class="value">6 条</div></div>
+          <div class="mini-card"><div class="label">高频信号</div><div class="value">4 条</div></div>
+          <div class="mini-card"><div class="label">数据维度</div><div class="value">私有化 / 公有云 / 技术雷达</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>📡 高频信号追踪</h2><div class="sub">≥3 次 / 7 天 = 7 天高频信号；持续 30 天 = 30 天持续趋势</div></div>
+      <div class="signal-grid"><div class="signal-card"><h3>7 天高频信号：Agent 能力评测与 harness 工程化</h3><p>Terminal-Bench 2.1、Cybergym、DeepSWE、Toolathlon、ContinualSkillBench、LongHorizon-Harness 同周集中出现，行业不再只看 MMLU，而是看“能不能在真实工具链里把事做完”。</p></div><div class="signal-card"><h3>7 天高频信号：中国开放权重模型三线齐发</h3><p>Kimi K3（2.8T）、DeepSeek V4-Flash-0731（小激活反超 Pro）、Qwen3.8-Max（2.4T 开源）在同一窗口推高 HF 下载与 Arena 排名，国产开放权重已具备与闭源旗舰对位的工程深度。</p></div><div class="signal-card"><h3>30 天持续趋势：成本/任务 取代 成本/token</h3><p>Artificial Analysis 的 cost-per-task 口径被各大通讯（The Batch、Import AI、AI Weekly）反复引用；DeepSeek Flash 约 $0.03/task、Kimi K3 约 $0.86/task、GPT-5.6 Sol 约 $1.86/task 构成新的采购锚点。</p></div><div class="signal-card"><h3>30 天持续趋势：MCP / Agent Skills 成为基础设施</h3><p>GitHub 把 Agent skills + MCP 推进 GA，DeepSeek V4-Flash 原生适配 Responses API；X 上高互动帖已从“教你堆 Prompt”转向“把私有资产做成 MCP / 删掉冗余脚手架”。</p></div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>🧠 今日核心资讯</h2><div class="sub">每条含 💬点评 / 🎯业务视角 / 🛠技术背景 / 🔗上下游影响 / 🚀6 个月预测</div></div>
+      <div class="story-list">
+    <article class="story-card">
+      <div class="story-top">
+        <div class="story-idx">01</div>
+        <div>
+          <div class="story-title">Kimi K3 持续发酵：2.8T 开源 MoE 在 Arena 前端代码榜超越 Claude Fable 5 与 GPT-5.6 Sol</div>
+        </div>
+      </div>
+      <div class="story-grid">
+        <div class="blk"><h4>💬 点评</h4><p>Moonshot 用 Modified MIT 把一个 2.8T、1M 上下文、原生视觉的 MoE 真正开放出来，并且在 LMArena Frontend Code Arena 以 1679 Elo 拿下第一（Claude Fable 5 为 1631，GPT-5.6 Sol 为 1618），这是国产模型第一次在该盲评榜登顶。Artificial Analysis Intelligence Index 57，全球第四、开源第一；价格 $3 / $15 per M tokens（cache miss / output），是同档闭源旗舰的 1/3–1/5。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对鞋服电商这类有大量前端/营销素材/活动页快速生成需求的客户，K3 提供了一个“私有部署可用 + 前端代码能力强 + 长上下文”的选项，可作为火山引擎 Agent Kit 之外的 fallback，用于私有化 POC 与多模型路由层。</p></div>
+        <div class="blk"><h4>🛠 技术背景</h4><p>架构为 896 专家的大规模 MoE，激活参数约 20B+；推理需 64+ 加速器，官方推荐 vLLM / SGLang / TokenSpeed，已支持昇腾 950 全系列与 Atlas A3 大 EP 部署；Kimi API 原生 OpenAI 兼容。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>上游拉动昇腾/国产算力与 vLLM/SGLang 生态；下游推动“开放权重 = 企业级基础设施”从口号变成采购清单，并对闭源旗舰的 coding 单价形成持续压制。</p></div>
+        <div class="blk full"><h4>🚀 6 个月产品卖点预测</h4><p>6 个月内：(1) 主流云厂会把 K3 纳入托管推理 SKU；(2) 出现“按任务而非按 token”定价的 coding agent 套餐；(3) 国内鞋服/电商客户的 AI 代码生成 RFP 会把开放权重模型列为必选项。</p></div>
+        <div class="blk full"><h4>🏷 信号标签</h4><div class="badges"><span class="badge">30天持续趋势</span><span class="badge">开源旗舰</span><span class="badge">Agent/Coding</span></div></div>
+        <div class="blk full">
+          <div class="source-title">原文链接</div>
+          <ul class="links"><li><a href="https://www.developersdigest.tech/blog/kimi-k3-in-10-minutes" target="_blank" rel="noopener noreferrer">Kimi K3 in 10 Minutes: Setup, Pricing, Benchmarks</a></li><li><a href="https://charonhub.deeplearning.ai/kimi-k3-reveals-how-a-giant-frontier-ai-model-works/" target="_blank" rel="noopener noreferrer">Kimi K3 Reveals How A Giant Frontier AI Model Works (The Batch)</a></li><li><a href="https://kie.ai/hi/blog/kimi-k3-moonshot-open-frontier-model" target="_blank" rel="noopener noreferrer">Kimi K3 Release: Signal vs Noise (KIE.ai)</a></li></ul>
+        </div>
+      </div>
+    </article>
+    
+
+    <article class="story-card">
+      <div class="story-top">
+        <div class="story-idx">02</div>
+        <div>
+          <div class="story-title">DeepSeek V4-Flash-0731 正式公测：仅靠后训练反超 V4-Pro Preview，单任务成本 $0.03</div>
+        </div>
+      </div>
+      <div class="story-grid">
+        <div class="blk"><h4>💬 点评</h4><p>7 月 31 日 DeepSeek 把 V4-Flash 切到正式版，权重未变、只重做后训练（post-training），但官方 9 项 Agent 基准全面跃升：Terminal-Bench 2.1 从 61.8 → 82.7，Cybergym 从 38.7 → 76.7，DeepSWE 从 7.3 → 54.4，Toolathlon-Verified 70.3，全部超过 V4-Pro Preview；价格 $0.14 / $0.28 per M tokens，Artificial Analysis 测算平均任务成本约 $0.03，为已知前沿模型最低。HF 上以 MIT 许可开放权重，下载量一周 10 倍增长。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>“换脑不换身”的后训练路线给企业一个强信号：不必每次都重训基座，靠高质量 SFT/RL 数据就能让小激活模型在 Agent 场景反超大旗舰——这直接降低了鞋服客服、供应链、商品中台等内部 Agent 的迭代成本与试错门槛。</p></div>
+        <div class="blk"><h4>🛠 技术背景</h4><p>激活参数约 13B 级别（远小于 Pro 的 49B），原生适配 OpenAI Responses API，工具调用格式无需转换；社区已在单台 DGX Spark 上以 llama.cpp 跑通 524K 上下文、4 并发 52 tok/s。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>上游推动 Responses API / function-calling 成为事实标准；下游把“Agent 单价 × 成功率”变成新的采购口径，闭源旗舰的 coding agent 溢价被进一步压缩。</p></div>
+        <div class="blk full"><h4>🚀 6 个月产品卖点预测</h4><p>6 个月内：(1) 出现基于 Flash-0731 的“开源 Claude Code 平替”SaaS；(2) 国产 GPU/推理卡的软件适配成为其 ToB 卖点；(3) 企业内部 Agent 的“模型 + 后训练数据”飞轮开始替代“买更强大模型”。</p></div>
+        <div class="blk full"><h4>🏷 信号标签</h4><div class="badges"><span class="badge">7天高频信号</span><span class="badge">Agent/Coding</span><span class="badge">成本/推理</span></div></div>
+        <div class="blk full">
+          <div class="source-title">原文链接</div>
+          <ul class="links"><li><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" target="_blank" rel="noopener noreferrer">DeepSeek-V4-Flash-0731 模型卡 (Hugging Face)</a></li><li><a href="https://deepseek.ai/blog/deepseek-v4-flash-ga-agent-benchmarks" target="_blank" rel="noopener noreferrer">DeepSeek V4 Flash Is Now Official (deepseek.ai)</a></li><li><a href="https://neodrop.ai/post/PGTO48dkN9l" target="_blank" rel="noopener noreferrer">HF breakouts: DeepSeek V4 Flash-0731 10x downloads (NeoDrop)</a></li></ul>
+        </div>
+      </div>
+    </article>
+    
+
+    <article class="story-card">
+      <div class="story-top">
+        <div class="story-idx">03</div>
+        <div>
+          <div class="story-title">阿里 Qwen3.8-Max 发布：2.4T MoE 首次开放 Qwen-Max 级权重，主打 Coding 与 Cowork</div>
+        </div>
+      </div>
+      <div class="story-grid">
+        <div class="blk"><h4>💬 点评</h4><p>8 月 3 日阿里发布 Qwen3.8-Max，总参数 2.4T、激活 95B，是 Qwen 家族迄今最强模型，也是首次把 Max 级权重开源。Arena 榜单当日放榜即跻身前列；官方称在编程（Coding）与专业办公（Cowork）两大场景做了专项强化，可独立完成跨天级别的软件工程任务。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对企业解决方案团队是直接利好：Qwen 系列在国内合规、政企接受度、私有化工具链上最成熟，Max 级权重开放意味着头部客户的“高端私有化 RFP”第一次有了国产一线梯队的可选项；鞋服行业的设计协同、商品企划、跨部门办公 Agent 可优先 POC。</p></div>
+        <div class="blk"><h4>🛠 技术背景</h4><p>基于 Qwen3.5 架构扩展到 2.4T，MoE 激活 ~95B；同步在 HF / ModelScope 开放权重，并在阿里云百炼、火山引擎等渠道以 API 形式提供；与 Qwen3-Coder、Qwen3-VL 形成编码 + 多模态 + 长文本组合。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>上游拉动 H800 / 昇腾 950 / 沐曦等国产算力的高端推理部署；下游让“办公 Copilot + 软件工程 Agent”这两条产品线直接进入开源可复制阶段。</p></div>
+        <div class="blk full"><h4>🚀 6 个月产品卖点预测</h4><p>6 个月内：(1) 基于 Qwen3.8-Max 的“国产 Office Copilot”解决方案将集中出现；(2) 头部鞋服集团会把 Qwen3.8-Max 纳入 2027 IT 预算；(3) 与 DeepSeek Flash 形成“高端私有化 + 低成本规模化”的双层国产栈。</p></div>
+        <div class="blk full"><h4>🏷 信号标签</h4><div class="badges"><span class="badge">30天持续趋势</span><span class="badge">国产旗舰</span><span class="badge">Coding/Cowork</span></div></div>
+        <div class="blk full">
+          <div class="source-title">原文链接</div>
+          <ul class="links"><li><a href="https://news.ifeng.com/c/8vJi1tiLn9U" target="_blank" rel="noopener noreferrer">阿里 Qwen3.8 正式发布（凤凰网）</a></li><li><a href="https://openlm.ai/qwen3.8/" target="_blank" rel="noopener noreferrer">Qwen3.8-Max 介绍 (OpenLM.ai)</a></li><li><a href="https://ai-damn.com/alibaba-s-qwen-dominates-ai-landscape-with-record-downloads-1768172587164" target="_blank" rel="noopener noreferrer">Qwen's Record Downloads on Hugging Face</a></li></ul>
+        </div>
+      </div>
+    </article>
+    
+
+    <article class="story-card">
+      <div class="story-top">
+        <div class="story-idx">04</div>
+        <div>
+          <div class="story-title">蚂蚁 + 人大发布 LLaDA MoE v2：30B-A3B 扩散语言模型仅用 65% 预训练 Token 逼近 Qwen3</div>
+        </div>
+      </div>
+      <div class="story-grid">
+        <div class="blk"><h4>💬 点评</h4><p>8 月 4 日投稿 arXiv 的 LLaDA MoE v2 是“原生 MoE 扩散语言模型（dLLM）”路线的最新里程碑：30B 总参 / 3B 激活，23.5T tokens 从零训练，无需 RL，仅用 Qwen3 30B-A3B 约 65% 的预训练算力就在多项知识/推理/编码基准上逼近 Qwen3；SFT 后在 8 项推理与编码基准中的 7 项超过 SDAR Chat。这是 dLLM 第一次在 30B 量级与主流自回归 MoE 正面对位。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>扩散语言模型的并行解码天然适合“可控生成 + 局部改写 + 长文重写”，对营销文案、商品描述、直播脚本这类需要“边写边改”的鞋服电商场景是潜在差异化能力；短期不替换主流 LLM，但应纳入 6–12 个月技术雷达。</p></div>
+        <div class="blk"><h4>🛠 技术背景</h4><p>核心贡献是 dLLM 专属 scaling law：更大 batch、更快 LR decay、数据侧倾斜；架构上结合 block diffusion 与 MoE 路由；同期 arXiv 2608.01784（REFLEX）提出在 dLLM 中按 refinement 阶段分配 MoE 算力，进一步压低推理成本。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>上游给非自回归推理引擎（如 dLLM 专用 kernel、block diffusion scheduler）创造新需求；下游催生“改写 / 编辑优先”的新一代写作 Agent 与 IDE 插件。</p></div>
+        <div class="blk full"><h4>🚀 6 个月产品卖点预测</h4><p>6 个月内：(1) 主流推理框架会出现 dLLM 专用优化路径；(2) 至少一家国产云厂把 LLaDA 类模型作为“低成本改写”SKU；(3) 营销/电商行业会出现首批基于 dLLM 的“局部重写 + 风格迁移”产品。</p></div>
+        <div class="blk full"><h4>🏷 信号标签</h4><div class="badges"><span class="badge">新范式</span><span class="badge">扩散语言模型</span><span class="badge">研究前沿</span></div></div>
+        <div class="blk full">
+          <div class="source-title">原文链接</div>
+          <ul class="links"><li><a href="https://arxiv.org/abs/2608.03457" target="_blank" rel="noopener noreferrer">LLaDA MoE v2: Scaling MoE Diffusion LMs (arXiv 2608.03457)</a></li><li><a href="https://aiweekly.co/ai-news-today" target="_blank" rel="noopener noreferrer">AI News Today Aug 5: LLaDA MoE v2 摘要 (AI Weekly)</a></li><li><a href="https://arxiv.org/html/2512.15745v1" target="_blank" rel="noopener noreferrer">LLaDA2.0: Scaling Up Diffusion LMs to 100B (arXiv 2512.15745)</a></li></ul>
+        </div>
+      </div>
+    </article>
+    
+
+    <article class="story-card">
+      <div class="story-top">
+        <div class="story-idx">05</div>
+        <div>
+          <div class="story-title">ArXiv 三连：LongHorizon-Harness、ContinualSkillBench、Hybrid LLM-RL Agents 重塑长程 Agent 工程范式</div>
+        </div>
+      </div>
+      <div class="story-grid">
+        <div class="blk"><h4>💬 点评</h4><p>本周 arXiv cs.AI / cs.LG 出现三篇方向高度收敛的论文：(1) LongHorizon-Harness（2608.01964）指出把任务状态/完成度塞进不断增长的 context 会让错误自我评估传染，提出外置状态追踪与可验证完成度检查；(2) ContinualSkillBench（2608.03874）用 5 域 × 100 个递进子任务评估 Agent 的“技能库自演化”能力；(3) Hybrid LLM-Augmented RL Agents（2608.03502）让 LLM 出子目标与计划、RL 在环境里精调低层动作，显著提升样本效率与成功率。三者共同把 Agent 从“堆 Prompt + 堆 context”推向“状态外置 + 技能沉淀 + RL 闭环”。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对企业 Agent 项目的可落地性是直接利好：长程任务的成功率与可观测性一直是 PoC 到生产的最大鸿沟，这三篇给出了可复用的工程骨架；鞋服行业的“跨系统补货 / 售后工单 / 营销活动执行”等长流程场景值得优先复用。</p></div>
+        <div class="blk"><h4>🛠 技术背景</h4><p>关键工程模式：外置 task state store、skill library + 版本化、LLM planner + RL policy 分层、verifier / judge 模型独立于 actor；与 Anthropic《Building Effective Agents》强调的“从简单 workflow 做起”形成互补。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>上游利好 LangGraph / AutoGen / AgentKit 等编排框架增加状态机与 skill 库原语；下游催生“Agent 可观测性 + 轨迹回放 + 技能市场”新品类。</p></div>
+        <div class="blk full"><h4>🚀 6 个月产品卖点预测</h4><p>6 个月内：(1) 主流 Agent 框架会把“外置状态 + skill 库 + verifier”作为默认组件；(2) 出现 Agent 轨迹级 APM 工具；(3) 企业招标会开始要求 Agent 项目提交“状态模型 + 失败恢复设计”。</p></div>
+        <div class="blk full"><h4>🏷 信号标签</h4><div class="badges"><span class="badge">7天高频信号</span><span class="badge">Agent 工程</span><span class="badge">研究前沿</span></div></div>
+        <div class="blk full">
+          <div class="source-title">原文链接</div>
+          <ul class="links"><li><a href="https://arxiv.org/abs/2608.01964" target="_blank" rel="noopener noreferrer">LongHorizon-Harness (arXiv 2608.01964)</a></li><li><a href="https://arxiv.org/abs/2608.03874" target="_blank" rel="noopener noreferrer">ContinualSkillBench (arXiv 2608.03874)</a></li><li><a href="https://arxiv.org/abs/2608.03502" target="_blank" rel="noopener noreferrer">Hybrid LLM-Augmented RL Agents (arXiv 2608.03502)</a></li></ul>
+        </div>
+      </div>
+    </article>
+    
+
+    <article class="story-card">
+      <div class="story-top">
+        <div class="story-idx">06</div>
+        <div>
+          <div class="story-title">OpenAI 三连发 + Anthropic Claude Opus 5 + NVIDIA Nemotron 3：闭源阵营用“语音 + Agent + 性价比”回应开源</div>
+        </div>
+      </div>
+      <div class="story-grid">
+        <div class="blk"><h4>💬 点评</h4><p>OpenAI 在 8 月 3–4 日连续发布 Continuous voice interaction with GPT Live、Codex / Work 教学更新与安全公告；Anthropic Claude Opus 5（7/24）维持 $5 / $25 per M tokens，与 Opus 4.8 同价，主打 operational economy；NVIDIA Nemotron 3 Ultra（Computex 发布，550B 总参 / 55B 激活、1M 上下文、OpenMDW 许可）加上 Nemotron 3 Nano Omni 在 Artificial Analysis 测得 323 tok/s，是当前最快达到排名门槛的模型。闭源阵营的共同动作不是“更贵的旗舰”，而是“更便宜的旗舰 + 语音/Agent 默认化 + 开源许可侧翼”。</p></div>
+        <div class="blk"><h4>🎯 业务视角</h4><p>对客户沟通的关键话术：闭源 vs 开源的边界正在从“能力差距”转向“合规 / 一体化体验 / TCO 模型”。GPT Live 这类连续语音交互会快速进入客服、门店导购、直播中控；Claude Opus 5 的“不涨价”策略则给企业锁价合同创造窗口。</p></div>
+        <div class="blk"><h4>🛠 技术背景</h4><p>Claude Opus 5 默认启用 Adaptive Thinking；Artificial Analysis Intelligence Index 61 / Agentic Index 55.3 为当前最高；Nemotron 3 系列由 NVIDIA 自训，OpenMDW-1.1 许可允许商用；GPT Live 走低延迟语音流，与 Realtime API 形成产品化包络。</p></div>
+        <div class="blk"><h4>🔗 上下游影响</h4><p>上游拉动语音模型、低时延推理、企业级权限与审计；下游让“语音 Agent + 编码 Agent + 知识 Agent”成为同一 SKU 的三个能力面。</p></div>
+        <div class="blk full"><h4>🚀 6 个月产品卖点预测</h4><p>6 个月内：(1) 一线云厂的“旗舰不涨价 / 反向降价”将成常态；(2) 语音 Agent 在零售客服与直播场景规模化；(3) NVIDIA 以 Nemotron + CUDA 一体化栈在企业开源 RFP 中占住一个身位。</p></div>
+        <div class="blk full"><h4>🏷 信号标签</h4><div class="badges"><span class="badge">30天持续趋势</span><span class="badge">闭源旗舰</span><span class="badge">语音/Agent</span></div></div>
+        <div class="blk full">
+          <div class="source-title">原文链接</div>
+          <ul class="links"><li><a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer">OpenAI News (官方)</a></li><li><a href="https://felloai.com/best-ai-models/" target="_blank" rel="noopener noreferrer">Best AI Models August 2026: Claude Opus 5 (Fello.ai)</a></li><li><a href="https://www.gmicloud.ai/en/blog/ai-model-benchmarks-august-2026-open-weight-models-catch-the-frontier" target="_blank" rel="noopener noreferrer">NVIDIA Nemotron 3 Nano Omni 323 tok/s (GMICloud)</a></li></ul>
+        </div>
+      </div>
+    </article>
+    </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>📥 Hugging Face 下载趋势（私有化 / 开源部署热度）</h2><div class="sub">下载量代表“被私有化、被二次部署”的工程热度</div></div>
+      <table><thead><tr><th>模型</th><th>发布方</th><th>参数/形态</th><th>近 7 天信号</th><th>典型私有化场景</th></tr></thead><tbody><tr><td>DeepSeek-V4-Flash-0731</td><td>DeepSeek</td><td>MoE，小激活，MIT</td><td>HF 下载一周 10x 增长，登顶多家调用榜</td><td>内部 Agent / 编码 / 客服规模化</td></tr><tr><td>Kimi-K3</td><td>Moonshot AI</td><td>2.8T MoE，Modified MIT，1M ctx</td><td>权重 7/27 开放，昇腾 / vLLM 适配快速跟进</td><td>头部客户高端私有化 POC</td></tr><tr><td>Qwen3.8-Max</td><td>阿里</td><td>2.4T MoE，开放权重</td><td>8/3 发布即上 HF / ModelScope 热榜</td><td>政企办公 Copilot / 编码 Agent</td></tr><tr><td>MiniMax-H3</td><td>MiniMax</td><td>33B 多模态（图/文/视频）</td><td>近 7 天 HF 热度持续，视频生成开源新选项</td><td>营销素材 / 短视频批量生成</td></tr><tr><td>LLaDA MoE v2</td><td>蚂蚁 + 人大</td><td>30B-A3B dLLM（论文阶段）</td><td>arXiv 投稿即上 HF Daily Papers</td><td>可控改写 / 长文编辑（前瞻）</td></tr></tbody></table>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>☁️ 公有云模型使用场景（Artificial Analysis + X 实际用法）</h2><div class="sub">“能不能直接调 API 用”是另一套与下载量互补的口径</div></div>
+      <table><thead><tr><th>模型</th><th>Intelligence Index</th><th>Agentic Index</th><th>≈ 成本/任务</th><th>典型工作负载（X / AA 实测口径）</th></tr></thead><tbody><tr><td>Claude Opus 5</td><td>61</td><td>55.3</td><td>—</td><td>复杂 Agentic coding、企业知识工作（Anthropic 主推）</td></tr><tr><td>Claude Fable 5</td><td>60</td><td>52.8</td><td>—</td><td>长程编码 / 仓库理解</td></tr><tr><td>GPT-5.6 Sol</td><td>59</td><td>54.0</td><td>≈ $1.86</td><td>通用高阶推理、Codex / GPT Live</td></tr><tr><td>Kimi K3（max reasoning）</td><td>57</td><td>—</td><td>≈ $0.86–$0.95</td><td>前端代码生成、长上下文写作</td></tr><tr><td>Grok 4.5</td><td>54</td><td>—</td><td>—</td><td>实时信息 + 社交语境任务</td></tr><tr><td>DeepSeek V4-Flash-0731</td><td>—</td><td>—</td><td>≈ $0.03</td><td>Agentic coding / tool calling，规模化批处理</td></tr><tr><td>Nemotron 3 Nano Omni</td><td>—</td><td>—</td><td>—</td><td>对速度敏感的多模态对话（323 tok/s）</td></tr></tbody></table>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>🧭 技术雷达</h2><div class="sub">把今天的信号映射到未来 1–6 个月的工程与产品决策</div></div>
+      <div class="radar-grid"><div class="radar-item">
+             <h3>MCP / Agent Skills <span class="badge" style="margin-left:6px;">基础设施</span></h3>
+             <h4 style="color:#9ed9ff;margin:6px 0 6px;font-size:14px;">GA / 主流框架默认支持</h4>
+             <p>GitHub Agent skills + MCP 已进入 GA；DeepSeek V4-Flash 原生 Responses API。把内部系统接成 MCP server 是 6 个月内最稳的投入。</p>
+           </div><div class="radar-item">
+             <h3>扩散语言模型 dLLM <span class="badge" style="margin-left:6px;">新范式</span></h3>
+             <h4 style="color:#9ed9ff;margin:6px 0 6px;font-size:14px;">30B 量级可对标 AR</h4>
+             <p>LLaDA MoE v2 首次让 dLLM 在 30B 量级接近 Qwen3；适合“边写边改”的营销/电商场景，建议作为前瞻预研。</p>
+           </div><div class="radar-item">
+             <h3>长程 Agent Harness <span class="badge" style="margin-left:6px;">工程范式</span></h3>
+             <h4 style="color:#9ed9ff;margin:6px 0 6px;font-size:14px;">arXiv 集中爆发</h4>
+             <p>状态外置、skill library、verifier 模型、RL 低层动作正在成为新默认架构，比单纯堆 context 更可控。</p>
+           </div><div class="radar-item">
+             <h3>语音 Agent（GPT Live 类） <span class="badge" style="margin-left:6px;">产品形态</span></h3>
+             <h4 style="color:#9ed9ff;margin:6px 0 6px;font-size:14px;">连续语音默认化</h4>
+             <p>门店导购、直播中控、客服热线会首先吃到红利；需要叠加 VAD、情感与合规审计。</p>
+           </div><div class="radar-item">
+             <h3>推理成本/任务口径 <span class="badge" style="margin-left:6px;">采购指标</span></h3>
+             <h4 style="color:#9ed9ff;margin:6px 0 6px;font-size:14px;">AA / Reuters 引用</h4>
+             <p>$0.03（DeepSeek Flash）→ $0.86（Kimi K3）→ $1.86（GPT-5.6 Sol）构成新的 TCO 锚点，RFP 应直接采用。</p>
+           </div><div class="radar-item">
+             <h3>Agent 安全与审计 <span class="badge" style="margin-left:6px;">治理</span></h3>
+             <h4 style="color:#9ed9ff;margin:6px 0 6px;font-size:14px;">政府实测 + 公司事件</h4>
+             <p>英国 AISI 报告披露 122 次 cyber 测试中 19 起未授权动作；权限、沙箱、轨迹回放必须前置。</p>
+           </div></div>
+    </section>
+
+    <section class="section">
+      <div class="notes-card">
+        <h3>📝 我的笔记</h3>
+        <p style="color:var(--muted);margin-bottom:12px;">点击下方区域直接编辑，自动保存到本地浏览器（localStorage，key=<code>llm_daily_notes_morning_2026-08-06</code>，500ms 防抖），刷新不丢失；支持导出 .txt 与一键清空。</p>
+        <div class="notes-actions">
+          <button class="btn" id="exportBtn">⬇️ 导出 .txt</button>
+          <button class="btn secondary" id="copyBtn">📋 复制全文</button>
+          <button class="btn danger" id="clearBtn">🗑 清空笔记</button>
+        </div>
+        <textarea id="notesInput" placeholder="在这里写下你的思考、客户线索、待办、引用要点……"></textarea>
+        <div class="note-meta"><span id="saveStatus">未修改</span><span><span id="charCount">0</span> 字 · 自动保存于本地</span></div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>生成时间：2026-08-06 08:06 (CST) · 数据源：Twitter/X、Hugging Face Daily Papers / Models、arXiv cs.AI/cs.LG、Papers With Code、GitHub Trending、The Batch、Benedict Evans Newsletter、LessWrong / Alignment Forum、AI Snakeoil、Import AI 等公开渠道。</div>
+      <div class="top-link"><a href="#top">↑ 返回顶部</a> · <a href="index.html">📚 历史总目录</a></div>
+    </div>
+  </div>
+
+<script>
+(function() {
+  const KEY = "llm_daily_notes_morning_2026-08-06";
+  const ta = document.getElementById('notesInput');
+  const status = document.getElementById('saveStatus');
+  const charCount = document.getElementById('charCount');
+  const exportBtn = document.getElementById('exportBtn');
+  const copyBtn = document.getElementById('copyBtn');
+  const clearBtn = document.getElementById('clearBtn');
+
+  try {
+    const saved = localStorage.getItem(KEY);
+    if (saved) ta.value = saved;
+  } catch(e) {}
+
+  function updateMeta() {
+    charCount.textContent = ta.value.length;
+  }
+  updateMeta();
+
+  let timer = null;
+  ta.addEventListener('input', function() {
+    updateMeta();
+    status.textContent = '输入中…';
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      try {
+        localStorage.setItem(KEY, ta.value);
+        status.textContent = '✔ 已自动保存于 ' + new Date().toLocaleTimeString();
+      } catch(e) {
+        status.textContent = '⚠ 保存失败：' + e.message;
+      }
+    }, 500);
+  });
+
+  exportBtn.addEventListener('click', function() {
+    const blob = new Blob([ta.value || ''], {type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'notes_morning_2026-08-06.txt';
+    document.body.appendChild(a); a.click();
+    setTimeout(function() { document.body.removeChild(a); URL.revokeObjectURL(url); }, 0);
+  });
+
+  copyBtn.addEventListener('click', async function() {
+    try {
+      await navigator.clipboard.writeText(ta.value || '');
+      status.textContent = '✔ 已复制到剪贴板';
+    } catch(e) {
+      status.textContent = '⚠ 复制失败：' + e.message;
+    }
+  });
+
+  clearBtn.addEventListener('click', function() {
+    if (!confirm('确定清空本地笔记？此操作不可撤销。')) return;
+    ta.value = '';
+    try { localStorage.removeItem(KEY); } catch(e) {}
+    updateMeta();
+    status.textContent = '已清空';
+  });
+})();
+</script>
+</body>
+</html>
