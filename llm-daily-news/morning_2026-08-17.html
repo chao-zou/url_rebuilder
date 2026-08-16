@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>☀️ 大模型晨报 2026-08-17</title>
+  <style>
+    :root{--bg:#f7f3ea;--ink:#23312f;--muted:#65736d;--card:#fffaf1;--line:#e9dcc4;--gold:#d9921f;--orange:#f97316;--green:#16866d;--blue:#315fcb;--red:#b45309;--shadow:0 18px 55px rgba(86,61,31,.13)}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:radial-gradient(circle at 10% 0%,#fff1ba 0,#f7f3ea 34%,#edf6f2 100%);color:var(--ink)}a{color:inherit}.wrap{max-width:1180px;margin:auto;padding:34px 20px 72px}.hero{position:relative;overflow:hidden;border:1px solid rgba(217,146,31,.24);border-radius:32px;padding:34px;background:linear-gradient(135deg,rgba(255,250,240,.96),rgba(255,255,255,.72));box-shadow:var(--shadow)}.hero:after{content:"";position:absolute;right:-80px;top:-110px;width:330px;height:330px;border-radius:50%;background:conic-gradient(from 140deg,#f59e0b,#84cc16,#22c55e,#60a5fa,#f59e0b);opacity:.18;filter:blur(2px)}.eyebrow{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:#fff2c9;color:#8a5300;font-size:13px;font-weight:800}.hero h1{font-size:43px;line-height:1.1;margin:18px 0 12px;letter-spacing:-.04em;max-width:950px}.lead{font-size:18px;line-height:1.85;color:#52605a;max-width:920px}.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.pill{padding:8px 12px;border-radius:999px;background:white;border:1px solid var(--line);font-size:13px;color:#59645f}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:20px}.card{grid-column:span 12;background:rgba(255,250,240,.9);border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 12px 36px rgba(67,49,24,.08);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.card:hover{transform:translateY(-3px);box-shadow:0 18px 54px rgba(67,49,24,.12);border-color:#e9b45c}.half{grid-column:span 6}.third{grid-column:span 4}.section-title{font-size:26px;margin:34px 0 8px;letter-spacing:-.02em}.section-desc{color:var(--muted);line-height:1.8;margin:0 0 14px}.tag{display:inline-flex;margin:0 6px 8px 0;padding:6px 10px;border-radius:999px;background:#f3ead7;border:1px solid #eadbbd;color:#725126;font-size:12px;font-weight:700}.hot{background:#fff0e6;color:#b45309;border-color:#fed7aa}.trend{background:#ecfdf5;color:#047857;border-color:#a7f3d0}.cloud{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}.item h3{font-size:23px;margin:0 0 10px}.item p{line-height:1.78;color:#495650}.lens{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}.lens div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;font-size:13px;line-height:1.65}.lens b{display:block;color:#2f3a37;margin-bottom:4px}.lens a,.source a{color:#315fcb;text-decoration:none}.matrix{width:100%;border-collapse:separate;border-spacing:0 10px}.matrix th{font-size:12px;text-align:left;color:#6b746f;padding:0 10px}.matrix td{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 10px;line-height:1.55}.matrix td:first-child{border-left:1px solid var(--line);border-radius:14px 0 0 14px;font-weight:800}.matrix td:last-child{border-right:1px solid var(--line);border-radius:0 14px 14px 0}.note{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px}.toolbar{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:10px 0}.btn{border:0;border-radius:12px;padding:10px 13px;background:#26312f;color:white;cursor:pointer;font-weight:800}.btn.secondary{background:#ede2cf;color:#4a3b24}.editor{min-height:180px;border:1px dashed #d6c4a3;border-radius:18px;background:#fffaf4;padding:16px;line-height:1.75;outline:none}.tiny{font-size:12px;color:#76817b}.ref-list{font-size:12px;line-height:1.9;color:#5f6b65;columns:2}.ref-list a{word-break:break-all;color:#315fcb}.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#fff;border:1px solid var(--line);padding:2px 6px;border-radius:6px}.footer{margin-top:28px;color:#6c7871;font-size:13px;line-height:1.8}@media(max-width:860px){.half,.third{grid-column:span 12}.lens{grid-template-columns:1fr}.hero h1{font-size:34px}.ref-list{columns:1}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <span class="eyebrow">☀️ 2026-08-17 · 大模型晨报 · 5 分钟扫读</span>
+      <h1>今日主线：Agent 正从“模型能力竞争”转向“可观测、可审计、可压缩、可私有化部署”的工程系统竞争。</h1>
+      <p class="lead">今天的信号非常集中：HF Daily Papers 与 ArXiv 强调 Agent harness、LLM Router、长期记忆和科研 Agent；HF 下载榜继续体现开源/私有化部署热度；X/Twitter 实操帖把话题推向 context、compression、trajectory view、multi-agent delegation；The Batch 与 Import AI 则把技能、评测、透明度和治理放到更重要的位置。</p>
+      <div class="meta"><span class="pill">覆盖 12 类来源</span><span class="pill">HF 下载量=私有化/开源部署热度</span><span class="pill">公有云场景单独拆分</span><span class="pill">每条资讯附原文链接</span></div>
+    </section>
+
+    <h2 class="section-title">高频信号追踪</h2>
+    <p class="section-desc">统计口径：结合近 7 天可访问公开来源与本地近 30 天历史晨/夜报主题。若无统一官方数据，以下仅作为信号强度判断，不作为官方排名。</p>
+    <section class="grid">
+      <div class="card third"><span class="tag hot">7天高频信号</span><h3>Agent harness 与运行轨迹</h3><p>DarwinX、AutoDesign、DeepSeek Harness、trajectory view、proof-of-work 日志反复出现，说明 Agent 的“执行过程可解释”正在产品化。</p></div>
+      <div class="card third"><span class="tag hot">7天高频信号</span><h3>Context 压缩与成本治理</h3><p>LLMRouter、vToken、Headroom、1M context auto compact 等信号集中，核心是让长任务不被 Token、KV Cache 和成本拖垮。</p></div>
+      <div class="card third"><span class="tag trend">30天持续趋势</span><h3>私有化开源 + 公有云路由分层</h3><p>HF 下载热度适合看本地部署意愿，Artificial Analysis 和 X 实操更适合看 API 路由、任务分层和真实 workflow 使用。</p></div>
+    </section>
+
+    <h2 class="section-title">今日重点资讯</h2>
+    <section class="grid">
+      <article class="card item">
+        <span class="tag hot">7天高频信号</span><span class="tag">HF Daily Papers</span><span class="tag">LLM Router</span>
+        <h3>1. LLMRouter 登上 HF Daily Papers：模型路由从“省钱工具”升级为 LLM 基础设施</h3>
+        <p>💬点评：Router 不只是把请求发给便宜模型，而是把评测、部署、失败回退和多模型策略统一到一层基础设施里。</p>
+        <div class="lens"><div><b>🎯业务视角</b>客户不会只买一个模型，售前方案要按复杂推理、客服高并发、批量生成、代码修复拆路由。</div><div><b>技术背景</b>LLMRouter 关注模型选择、评估和部署的统一基础设施，和模型网关、评测集、成本控制强相关。</div><div><b>🔗上下游影响</b>上游带动 Benchmark、价格监控、网关；下游影响 Agent SLA、降级策略和成本看板。</div><div><b>🚀6个月卖点预测</b>“按任务自动选模型”“失败自动降级”“成本/质量双目标路由”会成为平台标配。</div><div><b>原文链接</b><a href="https://huggingface.co/papers/2608.06867" target="_blank">HF Paper [1]</a></div></div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag hot">7天高频信号</span><span class="tag">Agent Harness</span>
+        <h3>2. DarwinX / AutoDesign：Agent harness 开始“自我进化”和“元优化”</h3>
+        <p>💬点评：未来的 Agent 优化对象不只是 Prompt，而是 prompts、tools、skills、control flow 和验收规则的组合体。</p>
+        <div class="lens"><div><b>🎯业务视角</b>企业需要把优秀交付经验沉淀成可复用 harness，而不是每个项目重新调 Prompt。</div><div><b>技术背景</b>DarwinX 把 harness 当作可选择、可保留、可扩展的种群；AutoDesign 关注长周期设计任务的 meta-harness 优化。</div><div><b>🔗影响</b>上游推动 Skill registry、评测环境、版本控制；下游影响 Agent Kit 行业模板和 AICC 流程编排。</div><div><b>🚀预测</b>“自动进化行业 Agent 模板”“按任务复制最佳 harness”会成为高阶卖点。</div><div><b>原文</b><a href="https://huggingface.co/papers/2608.07545" target="_blank">DarwinX [2]</a> / <a href="https://huggingface.co/papers/2608.13560" target="_blank">AutoDesign [3]</a></div></div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag hot">7天高频信号</span><span class="tag">ArXiv cs.AI/cs.LG</span>
+        <h3>3. ArXiv 近期论文：Agent 可验证、可记忆、可合同化成为研究密集区</h3>
+        <p>💬点评：从 Vero、Agent Behavioral Contracts、SkillShapley 到 long-horizon trajectory reuse，研究重点正在从最终分数转向过程证据。</p>
+        <div class="lens"><div><b>🎯业务视角</b>POC 验收不应只看“回答对不对”，还要看每一步调用、证据、权限和回滚记录。</div><div><b>技术背景</b>cs.AI/cs.LG 近一周出现正式验证、行为合同、技能归因、轨迹复用、Agent 安全等方向。</div><div><b>🔗影响</b>上游影响 eval/trace/spec 工具；下游影响代码 Agent、数据 Agent、合规审计。</div><div><b>🚀预测</b>“执行轨迹评分”“行为合同测试”“可回放 Agent 证据链”会变成企业验收语言。</div><div><b>原文</b><a href="https://arxiv.org/list/cs.AI/recent" target="_blank">cs.AI recent [4]</a> / <a href="https://arxiv.org/list/cs.LG/recent" target="_blank">cs.LG recent [5]</a></div></div>
+      </article>
+
+      <article class="card item">
+        <span class="tag trend">30天持续趋势</span><span class="tag">HF 模型下载</span><span class="tag">私有化/开源部署热度</span>
+        <h3>4. HF 下载榜：Embedding、Reranker、小模型与 Qwen 系列继续代表“拿回本地跑”的需求</h3>
+        <p>💬点评：HF 下载量不等于 API 使用量，但很适合作为私有化部署、离线批处理、开源复现和企业合规热度的代理指标。</p>
+        <div class="lens"><div><b>🎯业务视角</b>鞋服电商、客服、知识库、素材审核等场景可用本地 Embedding/Reranker/小 LLM 降成本和控隐私。</div><div><b>技术背景</b>HF Most downloads 页面显示 sentence-transformers、BGE、Qwen、MiniMax-H3 等模型/组件下载热度高。</div><div><b>🔗影响</b>上游影响 GPU、向量库、vLLM、Ollama、量化；下游影响私有云交付、行业知识库和边缘推理。</div><div><b>🚀预测</b>“开源模型私有化部署包 + 行业 RAG/Skill 套件 + 低代码验收”会成为 6 个月主流组合。</div><div><b>原文</b><a href="https://huggingface.co/models?sort=downloads" target="_blank">HF Most Downloads [6]</a> / <a href="https://peoplesdaily.pdnews.cn/tech/er/30052944965" target="_blank">Qwen 下载报道 [7]</a></div></div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag cloud">公有云模型使用场景</span><span class="tag">Artificial Analysis</span>
+        <h3>5. 公有云模型选择：从“谁最强”变成“质量、速度、价格、长上下文”的任务路由</h3>
+        <p>💬点评：企业真正关心的是“这个任务应该用哪个模型、花多少钱、延迟多少、失败怎么兜底”。</p>
+        <div class="lens"><div><b>🎯业务视角</b>可把售前场景拆成复杂推理用强模型、实时客服用快模型、批量内容用低成本模型、敏感数据用本地模型。</div><div><b>技术背景</b>Artificial Analysis 提供 Intelligence、速度、成本等维度；The Batch 也引用其模型/视频榜单做独立比较。</div><div><b>🔗影响</b>上游影响模型 API、推理加速、价格战；下游影响 Agent 网关、SLA 和成本治理。</div><div><b>🚀预测</b>“模型推荐器”“成本上限保护”“自动降级/重试策略”会成为公有云平台卖点。</div><div><b>原文</b><a href="https://artificialanalysis.ai/" target="_blank">Artificial Analysis [8]</a></div></div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag hot">7天高频信号</span><span class="tag">X/Twitter 实际用法</span>
+        <h3>6. X 实操帖：Context Engineering、auto compact、trajectory view 和多 Agent delegation 升温</h3>
+        <p>💬点评：一线用户已经不满足于“提示词技巧”，而是在追问如何给 Agent 配上下文预算、轨迹视图、委派能力和本地执行环境。</p>
+        <div class="lens"><div><b>🎯业务视角</b>对客户讲 Agent 时，应少讲神奇 Prompt，多讲上下文管理、可视化轨迹、权限和费用保护。</div><div><b>技术背景</b>X 帖提到 Agent roadmap、Codex 1M context/auto compact、Ollama 支持 DeepSeek Harness、multi agents v2 delegation。</div><div><b>🔗影响</b>上游推动 IDE/CLI/模型网关；下游影响 POC 演示、交付验收和运维监控。</div><div><b>🚀预测</b>“可视化轨迹 + 上下文自动压缩 + 子 Agent 委派”会成为 Agent Demo 标配。</div><div><b>原文</b><a href="https://x.com/divaagurlxw/status/2087756697469440442" target="_blank">Agent roadmap [9]</a> / <a href="https://x.com/thsottiaux/status/2089082893804896524" target="_blank">Codex context [10]</a> / <a href="https://x.com/ollama/status/2088392765021528319" target="_blank">Ollama + DSH [11]</a></div></div>
+      </article>
+
+      <article class="card item">
+        <span class="tag hot">7天高频信号</span><span class="tag">The Batch</span>
+        <h3>7. Andrew Ng 的 AI Engineering Skills Map：Coding Agent 使用能力成为通用工程技能</h3>
+        <p>💬点评：AI 工程能力不再只是会调 API，而是会构建 RAG、agentic workflows、evals、error analysis，并能用工程语言约束 coding agents。</p>
+        <div class="lens"><div><b>🎯业务视角</b>企业培训和解决方案交付可以从“工具培训”升级为“AI 工程能力地图”。</div><div><b>技术背景</b>The Batch 将关键技能归纳为构建部署 AI 应用、软件工程基础、使用 coding agents、shaping the build。</div><div><b>🔗影响</b>上游影响课程、IDE、Agent 框架；下游影响企业招聘、交付方法论和咨询服务。</div><div><b>🚀预测</b>“AI 工程成熟度评估”“Coding Agent 工作流培训”“Evals/治理实践包”会变成产品化服务。</div><div><b>原文</b><a href="https://www.deeplearning.ai/the-batch/issue-366" target="_blank">The Batch Issue 366 [12]</a></div></div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag hot">7天高频信号</span><span class="tag">Alignment / Safety</span>
+        <h3>8. LessWrong/Alignment Forum：AI swarm 与多 Agent 协作风险继续被讨论</h3>
+        <p>💬点评：多 Agent 风险不是单个模型“答错”，而是多个 Agent 共享线索、复制行为、互相委托后出现非预期协调。</p>
+        <div class="lens"><div><b>🎯业务视角</b>多 Agent 方案必须讲清权限隔离、跨 Agent 通信审计、工具白名单和人工审批节点。</div><div><b>技术背景</b>社区讨论 unsanctioned coordination、message boards、Agent swarm 间接 takeover risk 等主题。</div><div><b>🔗影响</b>上游推动 policy engine、sandbox、audit log；下游影响金融、政企、代码生产等高风险场景准入。</div><div><b>🚀预测</b>“Agent 防串谋”“跨 Agent 通信审计”“任务级权限沙箱”会进入企业采购清单。</div><div><b>原文</b><a href="https://www.lesswrong.com/posts/8oFYZdXkTaNGRtcn8/ai-swarms-are-starting-to-pose-indirect-takeover-risk" target="_blank">AI swarms [13]</a></div></div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag">Critical Lens</span><span class="tag">Import AI / AI Snakeoil / Benedict Evans</span>
+        <h3>9. 批判性与产业视角：评测、透明度和“正常技术”叙事约束过度承诺</h3>
+        <p>💬点评：Import AI 关注 PostTrainBench+、透明度和 AI racing；AI Snakeoil/Normal Technology 提醒 Agent 仍难稳定完成开放式 AI research；Benedict Evans 的公开页继续强调每周技术变化的上下文分析。</p>
+        <div class="lens"><div><b>🎯业务视角</b>对外可讲“提升研究和执行效率”，谨慎承诺“替代专家”或“完全自治”。</div><div><b>技术背景</b>批判性来源帮助识别 Benchmark、公开评测、失败案例和商业边界。</div><div><b>🔗影响</b>上游影响独立评测与政策讨论；下游影响销售话术、POC 边界和验收指标。</div><div><b>🚀预测</b>“人机协作边界清单”“失败案例库”“透明评测报告”会成为企业咨询组件。</div><div><b>原文</b><a href="https://importai.substack.com/p/import-ai-468-23-rsi-ideas-posttrainbench" target="_blank">Import AI [14]</a> / <a href="https://www.normaltech.ai/p/ai-agents-cant-yet-do-open-ended" target="_blank">AI Snakeoil [15]</a> / <a href="https://www.ben-evans.com/newsletter" target="_blank">Benedict Evans [16]</a></div></div>
+      </article>
+    </section>
+
+    <h2 class="section-title">私有化/开源部署热度 vs 公有云使用场景</h2>
+    <p class="section-desc">口径说明：HF 下载/趋势更代表“私有化、开源部署、社区复现”热度；Artificial Analysis 与 X/Twitter 实际用法更适合看“公有云 API、模型路由、真实 workflow 使用”。两类信号不可混为一个排名。</p>
+    <section class="card"><table class="matrix"><thead><tr><th>维度</th><th>今日信号</th><th>适合场景</th><th>售前表达</th></tr></thead><tbody><tr><td>HF 私有化热度</td><td>Embedding/Reranker、小模型、Qwen、MiniMax-H3 等下载热度高；Qwen 系列在公开报道中被反复提及。</td><td>敏感数据、离线推理、知识库检索、批量内容处理、行业微调。</td><td>“先用开源模型承载低成本和合规场景，再用云端强模型补复杂推理。”</td></tr><tr><td>公有云模型路由</td><td>Artificial Analysis、LLMRouter 与 X 实操共同指向质量/速度/成本/上下文的组合选择。</td><td>实时客服、复杂推理、代码 Agent、内容生成、自动评测。</td><td>“按任务自动选模型：强模型负责难题，快模型负责高并发，便宜模型负责批量。”</td></tr><tr><td>X 实际用法</td><td>Context engineering、auto compact、trajectory view、multi-agent delegation、DeepSeek Harness 本地运行。</td><td>企业知识库问答、工单处理、代码协作、运营自动化。</td><td>“真正的 Agent 不是一次回答，而是可停止、可审计、可回放、可控费的工作流。”</td></tr></tbody></table></section>
+
+    <h2 class="section-title">来源覆盖清单</h2>
+    <section class="grid"><div class="card half"><h3>已覆盖来源</h3><p><span class="tag">Twitter/X</span><span class="tag">HuggingFace Daily Papers</span><span class="tag">HF 模型下载趋势</span><span class="tag">Papers With Code</span><span class="tag">ArXiv cs.AI/cs.LG</span><span class="tag">GitHub Trending</span><span class="tag">The Batch</span><span class="tag">Benedict Evans</span><span class="tag">LessWrong/Alignment Forum</span><span class="tag">AI Snakeoil</span><span class="tag">Import AI</span><span class="tag">Artificial Analysis</span></p></div><div class="card half"><h3>今日可对外讲的一句话</h3><p>Agent 的竞争正在从“谁的模型最强”转向“谁能把模型变成可观测、可治理、可控成本、可私有化交付的业务系统”。</p><p class="tiny">仅供内部参考：涉及 LessWrong/Alignment Forum 安全叙事时，建议使用“社区讨论”“公开帖称”，不要表述为官方结论。</p></div></section>
+
+    <h2 class="section-title">我的笔记</h2>
+    <section class="note"><p class="section-desc">点击下方区域即可编辑。内容会写入浏览器 <span class="kbd">localStorage</span>，500ms 防抖自动保存。</p><div class="toolbar"><span class="tiny" id="saveStatus">尚未编辑</span><div><button class="btn secondary" id="exportBtn">导出 .txt</button> <button class="btn" id="clearBtn">清空</button></div></div><div id="noteEditor" class="editor" contenteditable="true" aria-label="我的笔记">可记录：客户可讲点、鞋服电商 Agent 场景、需要跟进的模型/论文/项目……</div><div class="toolbar"><span class="tiny" id="wordCount">字数：0</span><span class="tiny">本地保存键：llm_morning_notes_2026-08-17</span></div></section>
+
+    <h2 class="section-title">参考链接</h2>
+    <section class="card ref-list">
+      [1] <a href="https://huggingface.co/papers/2608.06867" target="_blank">LLMRouter</a><br>[2] <a href="https://huggingface.co/papers/2608.07545" target="_blank">DarwinX</a><br>[3] <a href="https://huggingface.co/papers/2608.13560" target="_blank">AutoDesign</a><br>[4] <a href="https://arxiv.org/list/cs.AI/recent" target="_blank">ArXiv cs.AI recent</a><br>[5] <a href="https://arxiv.org/list/cs.LG/recent" target="_blank">ArXiv cs.LG recent</a><br>[6] <a href="https://huggingface.co/models?sort=downloads" target="_blank">HF Most Downloads</a><br>[7] <a href="https://peoplesdaily.pdnews.cn/tech/er/30052944965" target="_blank">Qwen downloads report</a><br>[8] <a href="https://artificialanalysis.ai/" target="_blank">Artificial Analysis</a><br>[9] <a href="https://x.com/divaagurlxw/status/2087756697469440442" target="_blank">Agentic AI Roadmap on X</a><br>[10] <a href="https://x.com/thsottiaux/status/2089082893804896524" target="_blank">Codex 1M context on X</a><br>[11] <a href="https://x.com/ollama/status/2088392765021528319" target="_blank">Ollama supports DeepSeek Harness on X</a><br>[12] <a href="https://www.deeplearning.ai/the-batch/issue-366" target="_blank">The Batch Issue 366</a><br>[13] <a href="https://www.lesswrong.com/posts/8oFYZdXkTaNGRtcn8/ai-swarms-are-starting-to-pose-indirect-takeover-risk" target="_blank">LessWrong AI swarms</a><br>[14] <a href="https://importai.substack.com/p/import-ai-468-23-rsi-ideas-posttrainbench" target="_blank">Import AI 468</a><br>[15] <a href="https://www.normaltech.ai/p/ai-agents-cant-yet-do-open-ended" target="_blank">AI Snakeoil / Normal Technology</a><br>[16] <a href="https://www.ben-evans.com/newsletter" target="_blank">Benedict Evans Newsletter</a><br>[17] <a href="https://paperswithcode.com/" target="_blank">Papers With Code</a><br>[18] <a href="https://github.com/trending?since=daily" target="_blank">GitHub Trending</a><br>[19] <a href="https://github.com/headroomlabs-ai/headroom" target="_blank">Headroom</a><br>[20] <a href="https://huggingface.co/papers" target="_blank">Hugging Face Daily Papers</a>
+    </section>
+    <p class="footer">生成时间：2026-08-17 07:47 CST。无链接来源均未伪造；若某来源最新正文受订阅或登录限制，本页仅引用可公开访问的入口或搜索可见摘要。</p>
+  </main>
+  <script>
+    const key='llm_morning_notes_2026-08-17';const editor=document.getElementById('noteEditor');const statusEl=document.getElementById('saveStatus');const countEl=document.getElementById('wordCount');const saved=localStorage.getItem(key);if(saved!==null){editor.innerHTML=saved;statusEl.textContent='已加载本地笔记';}
+    function textCount(){const t=editor.innerText.replace(/\s+/g,'').trim();countEl.textContent='字数：'+(t?t.length:0);}textCount();let timer=null;editor.addEventListener('input',()=>{textCount();statusEl.textContent='保存中…';clearTimeout(timer);timer=setTimeout(()=>{localStorage.setItem(key,editor.innerHTML);statusEl.textContent='已自动保存 · '+new Date().toLocaleTimeString();},500);});
+    document.getElementById('exportBtn').addEventListener('click',()=>{const blob=new Blob([editor.innerText],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='llm_morning_notes_2026-08-17.txt';a.click();URL.revokeObjectURL(a.href);});
+    document.getElementById('clearBtn').addEventListener('click',()=>{if(confirm('确认清空我的笔记？')){editor.innerHTML='';localStorage.removeItem(key);textCount();statusEl.textContent='已清空';}});
+  </script>
+</body>
+</html>
