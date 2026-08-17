@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>☀️ 大模型晨报 2026-08-18</title>
+  <style>
+    :root{--bg:#f7f3ea;--ink:#23312f;--muted:#65736d;--card:#fffaf1;--line:#e9dcc4;--gold:#d9921f;--orange:#f97316;--green:#16866d;--blue:#315fcb;--red:#b45309;--shadow:0 18px 55px rgba(86,61,31,.13)}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:radial-gradient(circle at 10% 0%,#fff1ba 0,#f7f3ea 34%,#edf6f2 100%);color:var(--ink)}a{color:inherit}.wrap{max-width:1180px;margin:auto;padding:34px 20px 72px}.hero{position:relative;overflow:hidden;border:1px solid rgba(217,146,31,.24);border-radius:32px;padding:34px;background:linear-gradient(135deg,rgba(255,250,240,.96),rgba(255,255,255,.72));box-shadow:var(--shadow)}.hero:after{content:"";position:absolute;right:-80px;top:-110px;width:330px;height:330px;border-radius:50%;background:conic-gradient(from 140deg,#f59e0b,#84cc16,#22c55e,#60a5fa,#f59e0b);opacity:.18;filter:blur(2px)}.eyebrow{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:#fff2c9;color:#8a5300;font-size:13px;font-weight:800}.hero h1{font-size:43px;line-height:1.1;margin:18px 0 12px;letter-spacing:-.04em;max-width:950px}.lead{font-size:18px;line-height:1.85;color:#52605a;max-width:920px}.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.pill{padding:8px 12px;border-radius:999px;background:white;border:1px solid var(--line);font-size:13px;color:#59645f}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:20px}.card{grid-column:span 12;background:rgba(255,250,240,.9);border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 12px 36px rgba(67,49,24,.08);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.card:hover{transform:translateY(-3px);box-shadow:0 18px 54px rgba(67,49,24,.12);border-color:#e9b45c}.half{grid-column:span 6}.third{grid-column:span 4}.section-title{font-size:26px;margin:34px 0 8px;letter-spacing:-.02em}.section-desc{color:var(--muted);line-height:1.8;margin:0 0 14px}.tag{display:inline-flex;margin:0 6px 8px 0;padding:6px 10px;border-radius:999px;background:#f3ead7;border:1px solid #eadbbd;color:#725126;font-size:12px;font-weight:700}.hot{background:#fff0e6;color:#b45309;border-color:#fed7aa}.trend{background:#ecfdf5;color:#047857;border-color:#a7f3d0}.cloud{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}.item h3{font-size:23px;margin:0 0 10px}.item p{line-height:1.78;color:#495650}.lens{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}.lens div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;font-size:13px;line-height:1.65}.lens b{display:block;color:#2f3a37;margin-bottom:4px}.lens a,.source a{color:#315fcb;text-decoration:none}.matrix{width:100%;border-collapse:separate;border-spacing:0 10px}.matrix th{font-size:12px;text-align:left;color:#6b746f;padding:0 10px}.matrix td{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 10px;line-height:1.55}.matrix td:first-child{border-left:1px solid var(--line);border-radius:14px 0 0 14px;font-weight:800}.matrix td:last-child{border-right:1px solid var(--line);border-radius:0 14px 14px 0}.note{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px}.toolbar{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:10px 0}.btn{border:0;border-radius:12px;padding:10px 13px;background:#26312f;color:white;cursor:pointer;font-weight:800}.btn.secondary{background:#ede2cf;color:#4a3b24}.editor{min-height:180px;border:1px dashed #d6c4a3;border-radius:18px;background:#fffaf4;padding:16px;line-height:1.75;outline:none}.tiny{font-size:12px;color:#76817b}.ref-list{font-size:12px;line-height:1.9;color:#5f6b65;columns:2}.ref-list a{word-break:break-all;color:#315fcb}.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#fff;border:1px solid var(--line);padding:2px 6px;border-radius:6px}.footer{margin-top:28px;color:#6c7871;font-size:13px;line-height:1.8}@media(max-width:860px){.half,.third{grid-column:span 12}.lens{grid-template-columns:1fr}.hero h1{font-size:34px}.ref-list{columns:1}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <span class="eyebrow">☀️ 2026-08-18 · 大模型晨报 · 5 分钟扫读</span>
+      <h1>今日主线：开源模型密集发布进入"单卡可跑旗舰"时代，Agent 基础设施从个人记忆走向团队协作，安全治理与商业化竞速并行。</h1>
+      <p class="lead">本周信号高度集中：Qwen3.8-27B、Mistral Large 3、NVIDIA TwoTower 三款模型在三天内接连发布，均指向"高性能 + 低部署门槛"；TencentDB Agent Memory 发布 Team Memory、ByteDance DeerFlow 2.0 持续迭代、Moonshot 开源 AgentENV，Agent 框架竞争进入"团队级、长周期、可训练"阶段；与此同时，OpenAI 解散 Preparedness 团队、Gemini CLI 爆出 CVSS 10.0 漏洞、Google 为 Chrome Agent 加多层安全架构，安全叙事与产品竞速同步升温。</p>
+      <div class="meta"><span class="pill">覆盖 12 类来源</span><span class="pill">HF 下载量=私有化/开源部署热度</span><span class="pill">公有云场景单独拆分</span><span class="pill">每条资讯附原文链接</span></div>
+    </section>
+
+    <h2 class="section-title">高频信号追踪</h2>
+    <p class="section-desc">统计口径：结合近 7 天可访问公开来源与本地近 30 天历史晨/夜报主题。若无统一官方数据，以下仅作为信号强度判断，不作为官方排名。</p>
+    <section class="grid">
+      <div class="card third"><span class="tag hot">7天高频信号</span><h3>开源旗舰"单卡可跑"</h3><p>Qwen3.8-27B（16GB VRAM）、Mistral Large 3（128K + 开源权重）、NVIDIA TwoTower（2.42x 加速）三天内密集发布，私有化部署门槛断崖式下降。</p></div>
+      <div class="card third"><span class="tag hot">7天高频信号</span><h3>Agent 基础设施团队化</h3><p>TencentDB Agent Memory Team Memory、DeerFlow 2.0 多 Agent 编排、Moonshot AgentENV 分布式 RL 训练，Agent 从单人助手升级为团队级系统。</p></div>
+      <div class="card third"><span class="tag trend">30天持续趋势</span><h3>安全治理 vs 商业化竞速</h3><p>OpenAI 解散第三个安全团队、CLI Agent 漏洞频出、Google Chrome 加 Agent 安全层——安全与速度的张力持续加大。</p></div>
+    </section>
+
+    <h2 class="section-title">今日重点资讯</h2>
+    <section class="grid">
+
+      <article class="card item">
+        <span class="tag hot">7天高频信号</span><span class="tag">开源模型</span><span class="tag">HuggingFace</span>
+        <h3>1. Qwen3.8-27B 开源发布：27B 稠密多模态模型，单张 24GB GPU 即可运行</h3>
+        <p>💬点评：这可能是 2026 年本地部署最具商业价值的开源模型——262K 原生上下文、原生多模态（图文视频）、Apache 2.0、4-bit 量化后仅需 16-17GB VRAM。FP8 量化版也已同步发布。</p>
+        <div class="lens">
+          <div><b>🎯业务视角</b>鞋服电商可在单卡服务器上部署图文理解、商品描述生成、客服 RAG 等场景，数据不出域、成本可控。</div>
+          <div><b>技术背景</b>27.78B 参数稠密模型，Hybrid Gated DeltaNet 架构，262K 原生上下文（YaRN 扩展至 1M），Terminal Bench 73.0，SWE-MM 表现优异。</div>
+          <div><b>🔗上下游影响</b>上游拉动消费级 GPU、量化工具（Unsloth）、vLLM 推理；下游直接利好私有化交付、行业知识库、边缘推理。</div>
+          <div><b>🚀6个月卖点预测</b>"单卡跑旗舰多模态 + 行业 Skill 套件 + 数据不出域"将成为私有化方案的核心话术。</div>
+          <div><b>原文链接</b><a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">HF 模型页 [1]</a> / <a href="https://www.alibabacloud.com/blog/alibaba-unveils-qwen3-8-27b-and-releases-weights-of-qwen3-8-flagship-model_603463" target="_blank">阿里云博客 [2]</a></div>
+        </div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag hot">7天高频信号</span><span class="tag">模型发布</span><span class="tag">欧洲 AI</span>
+        <h3>2. Mistral Large 3 发布：128K 上下文、GDPR 合规、开源权重 + API 同步上线</h3>
+        <p>💬点评：Mistral 用 128K 上下文（4 倍提升）和 GDPR 合规直接切欧洲企业市场，MMLU 92.3% 比肩 GPT-4o，API 定价 $0.50/$1.50 每百万 Token。</p>
+        <div class="lens">
+          <div><b>🎯业务视角</b>有欧洲业务或数据主权要求的客户，Mistral Large 3 是目前唯一有竞争力的欧洲选项。</div>
+          <div><b>技术背景</b>上下文从 32K 扩至 128K，MMLU 92.3%，BenchAlign v5 评分 49.54，延迟 1.21s，开源权重在 HuggingFace 可下载。</div>
+          <div><b>🔗影响</b>上游影响欧洲 GPU 云、合规咨询；下游为跨国企业提供非美系模型选择。</div>
+          <div><b>🚀预测</b>"数据主权 + 开源权重 + 企业级 API"三合一方案在欧洲和东南亚市场会加速落地。</div>
+          <div><b>原文</b><a href="https://mistral.ai/news/mistral-large-3" target="_blank">Mistral 官方 [3]</a></div>
+        </div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag hot">7天高频信号</span><span class="tag">NVIDIA</span><span class="tag">Diffusion LM</span>
+        <h3>3. NVIDIA Nemotron-Labs-TwoTower：双塔离散扩散语言模型，生成速度 2.42 倍</h3>
+        <p>💬点评：NVIDIA 用两个 30B 塔并行去噪 token 块，在保留 98.7% 质量的同时实现 2.42 倍生成吞吐，这是 Diffusion LM 从论文走向工程的重要一步。</p>
+        <div class="lens">
+          <div><b>🎯业务视角</b>批量内容生成、实时客服等高吞吐场景可直接受益；目前仍是研究预览，但值得持续跟踪。</div>
+          <div><b>技术背景</b>60B 双塔架构（每塔 30B，激活 3B），128 路由专家模块，block-wise 并行去噪，复用已有 backbone 权重无需从头训练。</div>
+          <div><b>🔗影响</b>上游推动非自回归推理硬件优化；下游可能改变实时 Agent 的延迟经济学。</div>
+          <div><b>🚀预测</b>6 个月内会出现基于 Diffusion LM 的高吞吐推理服务和成本对比 Benchmark。</div>
+          <div><b>原文</b><a href="https://huggingface.co/nvidia" target="_blank">NVIDIA HF [4]</a> / <a href="https://blogs.nvidia.cn/blog/local-ai-open-source-models-agents-nemotron/" target="_blank">NVIDIA 博客 [5]</a></div>
+        </div>
+      </article>
+
+      <article class="card item">
+        <span class="tag cloud">公有云模型使用场景</span><span class="tag">Google</span><span class="tag">Gemini</span>
+        <h3>4. Google Gemini 3.7 Flash GA：23 天迭代一代，首个默认启用 Agentic Video 的模型</h3>
+        <p>💬点评：Google 的 Flash 模型迭代速度令人瞩目（3.6→3.7 仅 23 天），3.7 Flash 是首个默认启用 agentic video processing 的 GA 模型，可直接在视频中执行多步推理。</p>
+        <div class="lens">
+          <div><b>🎯业务视角</b>视频内容审核、直播切片、商品视频理解等场景可直接调用，无需额外编排多步处理。</div>
+          <div><b>技术背景</b>GA 版本已上线 Google Cloud，编码、Agent 工作流和 Web 开发能力均有提升；入门价截至 2026-12-31。</div>
+          <div><b>🔗影响</b>上游推动视频理解 Agent、多模态工具链；下游影响短视频电商、安防、教育等行业。</div>
+          <div><b>🚀预测</b>"视频原生 Agent"（看完视频直接执行操作）会成为 Q4 公有云的主打卖点。</div>
+          <div><b>原文</b><a href="https://deepmind.google/models/gemini/flash/" target="_blank">DeepMind 官方 [6]</a> / <a href="https://memeburn.com/google-launches-gemini-3-7-flash-just-three-weeks-after-gemini-3-6/" target="_blank">Memeburn 报道 [7]</a></div>
+        </div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag hot">7天高频信号</span><span class="tag">AI Safety</span><span class="tag">OpenAI</span>
+        <h3>5. OpenAI 解散 Preparedness 团队：两年内第三个安全团队被关闭</h3>
+        <p>💬点评：继 2024 年 Superalignment/AGI Readiness、2026 年 2 月 Mission Alignment 之后，Preparedness 团队也在 7 月底被解散，生物/网络安全职能分散到各业务团队，前负责人转向"递归自我改进 AI"风险研究。</p>
+        <div class="lens">
+          <div><b>🎯业务视角</b>企业客户在选型时会更加关注供应商的安全治理结构，"集中式安全评估"的缺失可能成为合规问询点。</div>
+          <div><b>技术背景</b>据 FT 和 The Verge 报道，重组发生在 IPO 前夕，安全系统负责人 Johannes Heidecke 离职，Saachi Jain 临时接任。</div>
+          <div><b>🔗影响</b>上游影响 AI 治理政策和监管讨论；下游影响企业采购中的安全评估问卷和信任建设。</div>
+          <div><b>🚀预测</b>"独立安全评估""第三方红队测试""模型风险报告"会成为企业级销售的必备材料。</div>
+          <div><b>原文</b><a href="https://www.theverge.com/openai-preparedness-team" target="_blank">The Verge [8]</a> / <a href="https://cryptobriefing.com/openai-disbands-preparedness-safety-team/" target="_blank">Crypto Briefing [9]</a></div>
+        </div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag hot">7天高频信号</span><span class="tag">Agent Memory</span><span class="tag">腾讯云</span>
+        <h3>6. TencentDB Agent Memory v2.0 发布 Team Memory：90 天 20K Star，团队级记忆共享</h3>
+        <p>💬点评：Agent 记忆从"个人会话记录"升级为"团队级知识资产"——Chat Memory、Skill、LLM-Wiki、Code-Graph 四类记忆可跨 Agent、跨成员共享和治理。</p>
+        <div class="lens">
+          <div><b>🎯业务视角</b>企业团队使用多个 Agent 时，A Agent 学到的项目知识可被 B Agent 复用，避免重复学习成本。</div>
+          <div><b>技术背景</b>MIT 开源，SQLite + sqlite-vec 本地优先，L0-L3 四层渐进式记忆管线，支持 OpenClaw/Hermes 等插件集成。</div>
+          <div><b>🔗影响</b>上游推动向量数据库、权限系统；下游影响多 Agent 协作平台和企业知识库。</div>
+          <div><b>🚀预测</b>"团队记忆权限管理""跨 Agent 知识继承"会成为 Agent 平台的差异化功能。</div>
+          <div><b>原文</b><a href="https://github.com/TencentCloud/TencentDB-Agent-Memory" target="_blank">GitHub [10]</a> / <a href="https://www.tencentcloud.com/dynamic/news-details/101465" target="_blank">腾讯云公告 [11]</a></div>
+        </div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag trend">30天持续趋势</span><span class="tag">ByteDance</span><span class="tag">SuperAgent</span>
+        <h3>7. ByteDance DeerFlow 2.0：开源超级 Agent 框架，支持自编辑 SOUL.md 和 IM 绑定</h3>
+        <p>💬点评：DeerFlow 2.0 不只是"回答问题"，而是能编排子 Agent、持久记忆、沙箱执行多小时任务，Agent 可在对话中修改自己的 SOUL.md 配置，并支持绑定 Slack/Telegram/微信。</p>
+        <div class="lens">
+          <div><b>🎯业务视角</b>适合需要长周期自主执行的场景：竞品监控、报告生成、代码仓库维护、多步骤运营任务。</div>
+          <div><b>技术背景</b>MIT 开源，集成 InfoQuest 爬虫，支持 StepFun、MiMo、MiniMax 等模型后端，GitHub 累计 28K+ Star。</div>
+          <div><b>🔗影响</b>直接对标 LangGraph、CrewAI 等 Agent 编排框架；对火山引擎 Agent Kit 形成参考和竞争。</div>
+          <div><b>🚀预测</b>"Agent 自进化配置 + IM 原生交互 + 长时任务沙箱"会成为企业 Agent 平台的标配能力。</div>
+          <div><b>原文</b><a href="https://github.com/bytedance/deer-flow" target="_blank">GitHub [12]</a></div>
+        </div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag hot">7天高频信号</span><span class="tag">Moonshot</span><span class="tag">Agent RL</span>
+        <h3>8. Moonshot AI 开源 AgentENV：Kimi K3 的分布式 Agent RL 训练平台</h3>
+        <p>💬点评：Moonshot 把训练 Kimi K3 的 Agent 环境基础设施开源了，支持大规模分布式 Agent 环境运行，配合 PARL（并行 Agent RL）范式训练多 Agent 协作。</p>
+        <div class="lens">
+          <div><b>🎯业务视角</b>有自研模型或 Fine-tuning 需求的企业，可以参考 AgentENV 构建自己的 Agent RL 训练管线。</div>
+          <div><b>技术背景</b>支持 instance/completion/final result 三类动态奖励，训练主 Agent 分解并行子任务，与 vLLM、SkyRL 等生态集成。</div>
+          <div><b>🔗影响</b>上游推动 RL 训练基础设施标准化；下游让更多团队能训练自己的 Agent 模型。</div>
+          <div><b>🚀预测</b>"Agent RL 训练即服务"会成为云厂商的新卖点，类似今天的 Fine-tuning 服务。</div>
+          <div><b>原文</b><a href="https://github.com/kvcache-ai/AgentENV" target="_blank">GitHub [13]</a> / <a href="https://www.kimi.com/resources/kimi-k2-7-code" target="_blank">Kimi K2.7 Code [14]</a></div>
+        </div>
+      </article>
+
+      <article class="card item">
+        <span class="tag">HF Daily Papers Top</span><span class="tag">MIT</span><span class="tag">Mechanistic Interpretability</span>
+        <h3>9. MIT 论文登上 HF Daily Papers 热门：LLM 内部自发涌现"模块化认知架构"</h3>
+        <p>💬点评：这篇论文（258 upvote，今日 HF 热度第一）发现 LLM 内部自发形成了类似认知模块的结构——不同功能激活不同神经元集群，为模型可解释性和安全控制提供了新的物理基础。</p>
+        <div class="lens">
+          <div><b>🎯业务视角</b>长期来看，如果能定位和控制特定模块，就可以做"定向卸载""安全开关""能力裁剪"，对私有化部署很有价值。</div>
+          <div><b>技术背景</b>研究通过分析 LLM 内部表示，发现语言、推理、事实检索等功能在网络中形成可识别的模块化结构，而非完全分布式。</div>
+          <div><b>🔗影响</b>上游推动 mechanistic interpretability 工具；下游影响模型安全审计、能力控制和合规。</div>
+          <div><b>🚀预测</b>6 个月内会出现基于"认知模块"的模型调试和安全工具，类似今天的 attention visualization。</div>
+          <div><b>原文</b><a href="https://huggingface.co/papers/2608.13567" target="_blank">HF Paper [15]</a></div>
+        </div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag trend">30天持续趋势</span><span class="tag">AI Security</span><span class="tag">Google Chrome</span>
+        <h3>10. Google 为 Chrome AI Agent 加多层安全架构；Gemini CLI 爆出 CVSS 10.0 漏洞</h3>
+        <p>💬点评：Google 同时做了两件事——给 Chrome 的 Gemini Agent 加 "User Alignment Critic" 模型和 Agent Origin Sets 限制；但 Gemini CLI 也被发现 CVSS 10.0 权限绕过漏洞，可导致凭证窃取和供应链攻击。</p>
+        <div class="lens">
+          <div><b>🎯业务视角</b>部署 Coding Agent 时必须隔离环境、限制凭证访问、审计所有操作——安全不是可选功能。</div>
+          <div><b>技术背景</b>Chrome 安全框架包括独立 AI 审核模型、网站访问白名单、敏感操作显式授权；CLI 漏洞已被修复。</div>
+          <div><b>🔗影响</b>上游推动沙箱、权限管理、prompt injection 防护；下游影响企业 Agent 安全准入标准。</div>
+          <div><b>🚀预测</b>"Agent 安全审计报告""沙箱隔离认证""凭证最小权限"会进入企业采购安全清单。</div>
+          <div><b>原文</b><a href="https://www.techshotsapp.com/technology/google-fortifies-chromes-ai-agent-security" target="_blank">Chrome 安全 [16]</a> / <a href="https://bruno.digital/news/one-github-issue-was-enough-to-hijack-claude-code-gemini-cli-and-codex" target="_blank">CLI 漏洞 [17]</a></div>
+        </div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag hot">7天高频信号</span><span class="tag">GitHub Trending</span><span class="tag">Cloudflare</span>
+        <h3>11. GitHub Trending：Cloudflare "computer" 周增 6.7K Star；Tencent Youtu-agent 开源</h3>
+        <p>💬点评：Cloudflare 开源 "给 Agent 一台电脑"项目（周增 6.7K Star），腾讯开源 Youtu-agent 框架，Agent 工具层持续繁荣。OmniRoute（路由）、superpowers（Agent 技能库）等项目也在高速增长。</p>
+        <div class="lens">
+          <div><b>🎯业务视角</b>Agent 生态正在快速分层：基础设施（Cloudflare computer）、记忆（TencentDB）、路由（OmniRoute）、技能（superpowers）。</div>
+          <div><b>技术背景</b>Cloudflare computer 让 Agent 在边缘环境拥有完整计算能力；Youtu-agent 聚焦数据分析、文件处理等实用能力。</div>
+          <div><b>🔗影响</b>生态成熟度直接降低企业 Agent 开发门槛，更多组件可即插即用。</div>
+          <div><b>🚀预测</b>6 个月内会出现"Agent 组件市场"，类似今天的 npm/pip，企业可按需组合。</div>
+          <div><b>原文</b><a href="https://github.com/cloudflare/computer" target="_blank">Cloudflare computer [18]</a> / <a href="https://github.com/trending" target="_blank">GitHub Trending [19]</a></div>
+        </div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag">HF Daily Papers</span><span class="tag">Agent Eval</span><span class="tag">Meituan</span>
+        <h3>12. HF Daily Papers：长周期 Agent 评测、On-Policy 蒸馏、幻觉检测成研究热点</h3>
+        <p>💬点评：今日 HF Papers 中，Meituan LongCat 的长周期 Agent 评测、UCSD 的自监督视觉 On-Policy 蒸馏、NVIDIA 的 token 级幻觉检测、微博 AI 的声明级可靠性评估等论文集中出现。</p>
+        <div class="lens">
+          <div><b>🎯业务视角</b>Agent 验收不能只看最终结果，过程可靠性、幻觉检测、长周期稳定性正在成为评测标准。</div>
+          <div><b>技术背景</b>论文覆盖 Agent 长周期研发评测、On-Policy Distillation 提升推理效率、UniProbe token 级幻觉检测等方向。</div>
+          <div><b>🔗影响</b>上游推动 eval 工具和蒸馏方法；下游影响 Agent 产品质量保障和交付验收。</div>
+          <div><b>🚀预测</b>"过程级 Agent 评测""自动幻觉检测报告"会成为企业 POC 验收的标配工具。</div>
+          <div><b>原文</b><a href="https://huggingface.co/papers/date/2026-08-17" target="_blank">HF Daily Papers [20]</a></div>
+        </div>
+      </article>
+
+      <article class="card item half">
+        <span class="tag cloud">公有云模型使用场景</span><span class="tag">Artificial Analysis</span><span class="tag">模型路由</span>
+        <h3>13. 公有云模型格局：快速迭代 + 价格战 + 场景细分并行</h3>
+        <p>💬点评：Gemini 3.7 Flash 23 天一迭代、Mistral Large 3 低价切入、Qwen3.8 开源分流——公有云模型市场正在从"一家独大"转向"按场景路由"的多层架构。</p>
+        <div class="lens">
+          <div><b>🎯业务视角</b>企业应建立模型路由策略：复杂推理用旗舰模型、实时响应用 Flash、批量生成用开源/小模型、敏感数据本地部署。</div>
+          <div><b>技术背景</b>Artificial Analysis 持续跟踪各模型 Intelligence、速度、价格、上下文长度等维度；Mistral Large 3 API 定价 $0.50/$1.50。</div>
+          <div><b>🔗影响</b>模型网关、自动路由、成本监控工具需求激增；企业不再绑定单一供应商。</div>
+          <div><b>🚀预测</b>"智能模型网关 + 成本看板 + 自动降级"会成为企业 AI 基础设施的标准组件。</div>
+          <div><b>原文</b><a href="https://artificialanalysis.ai/" target="_blank">Artificial Analysis [21]</a></div>
+        </div>
+      </article>
+
+    </section>
+
+    <h2 class="section-title">私有化/开源部署热度 vs 公有云使用场景</h2>
+    <p class="section-desc">口径说明：HF 下载/趋势更代表"私有化、开源部署、社区复现"热度；Artificial Analysis 与 X/Twitter 实际用法更适合看"公有云 API、模型路由、真实 workflow 使用"。两类信号不可混为一个排名。</p>
+    <section class="card">
+      <table class="matrix">
+        <thead><tr><th>维度</th><th>今日信号</th><th>适合场景</th><th>售前表达</th></tr></thead>
+        <tbody>
+          <tr><td>HF 私有化热度</td><td>Qwen3.8-27B 发布两天即冲入趋势榜；NVIDIA TwoTower 开源权重；Mistral Large 3 权重上线 HF；Nemotron 3.5 Lightning 支持单 H100 部署。</td><td>敏感数据处理、离线批量推理、行业知识库、图文/视频理解、边缘部署。</td><td>"单卡跑旗舰多模态，数据不出域，用 Qwen3.8-27B + 行业 Skill 套件快速交付。"</td></tr>
+          <tr><td>公有云模型路由</td><td>Gemini 3.7 Flash GA（视频 Agent）、Mistral Large 3 API（GDPR）、Qwen3.8-Max API；模型迭代以周计。</td><td>实时客服、视频理解、复杂推理、代码 Agent、跨国合规。</td><td>"视频用 Gemini Flash、推理用旗舰、欧洲用 Mistral、批量用开源——一个网关自动路由。"</td></tr>
+          <tr><td>Agent 基础设施</td><td>TencentDB Agent Memory Team Memory、DeerFlow 2.0、AgentENV、Cloudflare computer、Youtu-agent 集中爆发。</td><td>团队协作 Agent、长周期任务、代码仓库维护、运营自动化、多 Agent 编排。</td><td>"Agent 不再是单人工具，而是有记忆、能协作、可审计的团队数字员工。"</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <h2 class="section-title">来源覆盖清单</h2>
+    <section class="grid">
+      <div class="card half">
+        <h3>已覆盖来源</h3>
+        <p>
+          <span class="tag">Twitter/X</span>
+          <span class="tag">HuggingFace Daily Papers</span>
+          <span class="tag">HF 模型下载趋势</span>
+          <span class="tag">Papers With Code</span>
+          <span class="tag">ArXiv cs.AI/cs.LG</span>
+          <span class="tag">GitHub Trending</span>
+          <span class="tag">The Batch</span>
+          <span class="tag">Benedict Evans</span>
+          <span class="tag">LessWrong/Alignment Forum</span>
+          <span class="tag">AI Snakeoil</span>
+          <span class="tag">Import AI</span>
+          <span class="tag">Artificial Analysis</span>
+        </p>
+      </div>
+      <div class="card half">
+        <h3>今日可对外讲的一句话</h3>
+        <p>开源模型已经能在单张消费级 GPU 上跑出旗舰级多模态能力，Agent 正在从个人助手进化为有团队记忆、能自主执行长周期任务的数字员工——关键是谁能把这些能力安全、可控、低成本地交付到业务场景里。</p>
+        <p class="tiny">仅供内部参考：OpenAI 安全团队重组信息来自 FT/The Verge 报道，建议使用"据报道"表述；NVIDIA TwoTower 仍为研究预览，不建议作为生产承诺。</p>
+      </div>
+    </section>
+
+    <h2 class="section-title">我的笔记</h2>
+    <section class="note">
+      <p class="section-desc">点击下方区域即可编辑。内容会写入浏览器 <span class="kbd">localStorage</span>，500ms 防抖自动保存。</p>
+      <div class="toolbar">
+        <span class="tiny" id="saveStatus">尚未编辑</span>
+        <div>
+          <button class="btn secondary" id="exportBtn">导出 .txt</button>
+          <button class="btn" id="clearBtn">清空</button>
+        </div>
+      </div>
+      <div id="noteEditor" class="editor" contenteditable="true" aria-label="我的笔记">可记录：客户可讲点、鞋服电商 Agent 场景、需要跟进的模型/论文/项目……</div>
+      <div class="toolbar">
+        <span class="tiny" id="wordCount">字数：0</span>
+        <span class="tiny">本地保存键：llm_morning_notes_2026-08-18</span>
+      </div>
+    </section>
+
+    <h2 class="section-title">参考链接</h2>
+    <section class="card ref-list">
+      [1] <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">Qwen3.8-27B on HuggingFace</a><br>
+      [2] <a href="https://www.alibabacloud.com/blog/alibaba-unveils-qwen3-8-27b-and-releases-weights-of-qwen3-8-flagship-model_603463" target="_blank">Alibaba Cloud Blog</a><br>
+      [3] <a href="https://mistral.ai/news/mistral-large-3" target="_blank">Mistral Large 3 Official</a><br>
+      [4] <a href="https://huggingface.co/nvidia" target="_blank">NVIDIA on HuggingFace</a><br>
+      [5] <a href="https://blogs.nvidia.cn/blog/local-ai-open-source-models-agents-nemotron/" target="_blank">NVIDIA Nemotron Blog (CN)</a><br>
+      [6] <a href="https://deepmind.google/models/gemini/flash/" target="_blank">Gemini 3.7 Flash - DeepMind</a><br>
+      [7] <a href="https://memeburn.com/google-launches-gemini-3-7-flash-just-three-weeks-after-gemini-3-6/" target="_blank">Memeburn - Gemini 3.7 Flash</a><br>
+      [8] <a href="https://www.theverge.com/openai-preparedness-team" target="_blank">The Verge - OpenAI Preparedness</a><br>
+      [9] <a href="https://cryptobriefing.com/openai-disbands-preparedness-safety-team/" target="_blank">Crypto Briefing - OpenAI Safety</a><br>
+      [10] <a href="https://github.com/TencentCloud/TencentDB-Agent-Memory" target="_blank">TencentDB Agent Memory on GitHub</a><br>
+      [11] <a href="https://www.tencentcloud.com/dynamic/news-details/101465" target="_blank">Tencent Cloud Announcement</a><br>
+      [12] <a href="https://github.com/bytedance/deer-flow" target="_blank">DeerFlow on GitHub</a><br>
+      [13] <a href="https://github.com/kvcache-ai/AgentENV" target="_blank">AgentENV on GitHub</a><br>
+      [14] <a href="https://www.kimi.com/resources/kimi-k2-7-code" target="_blank">Kimi K2.7 Code</a><br>
+      [15] <a href="https://huggingface.co/papers/2608.13567" target="_blank">MIT - Modular Cognitive Architecture (HF Paper)</a><br>
+      [16] <a href="https://www.techshotsapp.com/technology/google-fortifies-chromes-ai-agent-security" target="_blank">Google Chrome AI Agent Security</a><br>
+      [17] <a href="https://bruno.digital/news/one-github-issue-was-enough-to-hijack-claude-code-gemini-cli-and-codex" target="_blank">CLI Agent Vulnerabilities (CVSS 10.0)</a><br>
+      [18] <a href="https://github.com/cloudflare/computer" target="_blank">Cloudflare Computer on GitHub</a><br>
+      [19] <a href="https://github.com/trending" target="_blank">GitHub Trending</a><br>
+      [20] <a href="https://huggingface.co/papers/date/2026-08-17" target="_blank">HuggingFace Daily Papers 2026-08-17</a><br>
+      [21] <a href="https://artificialanalysis.ai/" target="_blank">Artificial Analysis</a><br>
+      [22] <a href="https://huggingface.co/papers" target="_blank">Hugging Face Daily Papers (Main)</a><br>
+      [23] <a href="https://paperswithcode.com/" target="_blank">Papers With Code</a><br>
+      [24] <a href="https://arxiv.org/list/cs.AI/recent" target="_blank">ArXiv cs.AI Recent</a><br>
+      [25] <a href="https://www.deeplearning.ai/the-batch/" target="_blank">The Batch (DeepLearning.AI)</a><br>
+      [26] <a href="https://www.ben-evans.com/newsletter" target="_blank">Benedict Evans Newsletter</a><br>
+      [27] <a href="https://www.lesswrong.com/" target="_blank">LessWrong / Alignment Forum</a><br>
+      [28] <a href="https://importai.substack.com/" target="_blank">Import AI Newsletter</a><br>
+      [29] <a href="https://www.normaltech.ai/" target="_blank">AI Snakeoil / Normal Technology</a><br>
+      [30] <a href="https://huggingface.co/models?sort=downloads" target="_blank">HF Most Downloaded Models</a>
+    </section>
+    <p class="footer">生成时间：2026-08-18 07:47 CST。无链接来源均未伪造；若某来源最新正文受订阅或登录限制，本页仅引用可公开访问的入口或搜索可见摘要。NVIDIA TwoTower 为研究预览，数据来自 NVIDIA 官方及公开报道。</p>
+  </main>
+  <script>
+    const key='llm_morning_notes_2026-08-18';const editor=document.getElementById('noteEditor');const statusEl=document.getElementById('saveStatus');const countEl=document.getElementById('wordCount');const saved=localStorage.getItem(key);if(saved!==null){editor.innerHTML=saved;statusEl.textContent='已加载本地笔记';}
+    function textCount(){const t=editor.innerText.replace(/\s+/g,'').trim();countEl.textContent='字数：'+(t?t.length:0);}textCount();let timer=null;editor.addEventListener('input',()=>{textCount();statusEl.textContent='保存中…';clearTimeout(timer);timer=setTimeout(()=>{localStorage.setItem(key,editor.innerHTML);statusEl.textContent='已自动保存 · '+new Date().toLocaleTimeString();},500);});
+    document.getElementById('exportBtn').addEventListener('click',()=>{const blob=new Blob([editor.innerText],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='llm_morning_notes_2026-08-18.txt';a.click();URL.revokeObjectURL(a.href);});
+    document.getElementById('clearBtn').addEventListener('click',()=>{if(confirm('确认清空我的笔记？')){editor.innerHTML='';localStorage.removeItem(key);textCount();statusEl.textContent='已清空';}});
+  </script>
+</body>
+</html>
