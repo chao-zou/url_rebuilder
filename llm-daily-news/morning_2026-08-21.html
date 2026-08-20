@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>☀️ 大模型晨报 2026-08-21</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b1020;--card:rgba(255,255,255,.08);--line:rgba(255,255,255,.14);--text:#eef4ff;--muted:#aab6d3;--sun:#ffd166;--cyan:#6ee7ff;--green:#8ef5b4;--violet:#c4b5fd}
+    body{font-family:'Noto Sans SC',system-ui,sans-serif;background:radial-gradient(circle at 20% 0%,#1d3b70 0,#0b1020 36%,#090b12 100%);color:var(--text)}
+    .glass{background:var(--card);border:1px solid var(--line);backdrop-filter:blur(18px);box-shadow:0 22px 80px rgba(0,0,0,.32)}
+    .tag{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);border-radius:999px;padding:.22rem .6rem;font-size:.78rem;color:#dbe7ff}
+    .signal{background:linear-gradient(90deg,rgba(255,209,102,.22),rgba(110,231,255,.16));border:1px solid rgba(255,209,102,.42)}
+    .card{transition:transform .2s ease,border-color .2s ease,background .2s ease}.card:hover{transform:translateY(-3px);border-color:rgba(110,231,255,.55);background:rgba(255,255,255,.11)}
+    a{color:#93c5fd}.btn{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);border-radius:12px;padding:.55rem .85rem}.btn:hover{background:rgba(255,255,255,.18)}
+    textarea{min-height:160px;background:rgba(3,8,23,.72);border:1px solid rgba(255,255,255,.16);outline:none;color:#eef4ff}.metric{background:linear-gradient(135deg,rgba(110,231,255,.16),rgba(196,181,253,.12))}
+  </style>
+</head>
+<body>
+  <main class="max-w-6xl mx-auto px-5 py-8">
+    <section class="glass rounded-3xl p-7 md:p-10 overflow-hidden relative">
+      <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-cyan-300 opacity-20 blur-3xl"></div>
+      <div class="relative">
+        <div class="flex flex-wrap items-center gap-3 mb-5"><span class="tag">☀️ Morning Brief</span><span class="tag">2026-08-21 07:47 CST</span><span class="tag">5分钟扫读</span></div>
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight">大模型晨报</h1>
+        <p class="mt-4 text-xl text-slate-200 leading-relaxed">今日主线：Agent 从“能演示”进入“可治理、可评估、可协作、可私有化部署”的工程化阶段；开源下载热度继续被小模型、Embedding、Reranker、GGUF/量化模型拉动，公有云侧则更看重 API 性能、成本与可靠性。</p>
+        <div class="mt-6 grid md:grid-cols-4 gap-3">
+          <div class="metric rounded-2xl p-4"><div class="text-2xl font-bold">11</div><div class="text-sm text-slate-300">覆盖来源</div></div>
+          <div class="metric rounded-2xl p-4"><div class="text-2xl font-bold">7天高频</div><div class="text-sm text-slate-300">Agent / RAG / 工具调用</div></div>
+          <div class="metric rounded-2xl p-4"><div class="text-2xl font-bold">30天趋势</div><div class="text-sm text-slate-300">小模型与私有化部署</div></div>
+          <div class="metric rounded-2xl p-4"><div class="text-2xl font-bold">业务优先</div><div class="text-sm text-slate-300">ROI / 治理 / 成本</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-7 grid lg:grid-cols-3 gap-5">
+      <aside class="glass rounded-3xl p-5 lg:sticky lg:top-5 h-fit">
+        <h2 class="text-xl font-bold mb-4">今日导航</h2>
+        <nav class="space-y-2 text-sm">
+          <a class="block btn" href="#signals">高频信号追踪</a>
+          <a class="block btn" href="#news">核心快讯</a>
+          <a class="block btn" href="#hf">HuggingFace 热度</a>
+          <a class="block btn" href="#cloud">公有云模型使用场景</a>
+          <a class="block btn" href="#sources">来源覆盖</a>
+          <a class="block btn" href="#notes">我的笔记</a>
+          <a class="block btn" href="index.html">历史总目录</a>
+        </nav>
+      </aside>
+
+      <div class="lg:col-span-2 space-y-6">
+        <section id="signals" class="glass rounded-3xl p-6">
+          <h2 class="text-2xl font-bold mb-4">高频信号追踪</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="signal rounded-2xl p-4"><b>7天高频信号｜Agent 工程化</b><p class="text-slate-300 mt-2">HF Daily Papers、Twitter/X、GitHub、The Batch、LessWrong 均出现 Agent Harness、工具调用、评估、治理与协作式编码相关信号。</p></div>
+            <div class="signal rounded-2xl p-4"><b>7天高频信号｜Context / RAG</b><p class="text-slate-300 mt-2">从 Andrew Ng 的 AI Engineering Skills Map 到 RAG 实战教程，重点从“写 Prompt”升级到“设计 Context、检索链路与质量评估”。</p></div>
+            <div class="signal rounded-2xl p-4"><b>30天持续趋势｜小模型与量化</b><p class="text-slate-300 mt-2">HuggingFace 下载榜与开源模型观察显示，小参数模型、Embedding、Reranker、GGUF/INT4/FP8 是私有化部署热度核心。</p></div>
+            <div class="signal rounded-2xl p-4"><b>30天持续趋势｜安全与可验证</b><p class="text-slate-300 mt-2">Alignment Forum、AI Snake Oil 与 Agent 安全讨论持续提醒：上线 Agent 前需要边界、权限、评估与回滚机制。</p></div>
+          </div>
+        </section>
+
+        <section id="news" class="space-y-5">
+          <article class="glass card rounded-3xl p-6">
+            <div class="flex flex-wrap gap-2 mb-3"><span class="tag">Research</span><span class="tag">Agent Harness</span><span class="tag">7天高频信号</span></div>
+            <h3 class="text-2xl font-bold">HF Daily Papers：今日论文热度集中在 Agent 评估、工具调用和闭环执行</h3>
+            <p class="mt-3 text-slate-300">HuggingFace Daily Papers 今日榜单出现 SemComp-Bench、SemaPLC、Co-RL、SPADE、Looped Language Models、SkillGate、Bounded Agents 等方向，集中指向“复杂任务如何被拆解、验证、执行和约束”。[11976]</p>
+            <p class="mt-3">💬点评：研究热点已经从单次推理质量转向过程质量，尤其是验证门控、长周期管理、工具调用组合与安全边界。</p>
+            <p class="mt-2">🎯业务视角：企业客户不会只问模型多强，而会问 Agent 是否能审计、能回放、能限制权限、能和现有流程闭环。</p>
+            <p class="mt-2">技术背景：Agent Harness 可以理解为把 Prompt、工具、状态、评估器、权限控制和 Human-in-the-loop 组合成可运行系统。</p>
+            <p class="mt-2">🔗上下游影响：上游会拉动 Benchmark、评估数据、工具协议；下游会影响 AICC、ITSM、研发效能、营销自动化和数据分析产品。</p>
+            <p class="mt-2">🚀6个月产品卖点预测：可视化 Agent Trace、自动回归评测、任务级成本看板、权限沙箱、企业知识库 RAG 可信回答会成为标配。</p>
+            <a class="inline-block mt-4 btn" href="https://huggingface.co/papers" target="_blank" rel="noopener">原文链接：HuggingFace Daily Papers</a>
+          </article>
+
+          <article class="glass card rounded-3xl p-6">
+            <div class="flex flex-wrap gap-2 mb-3"><span class="tag">Open Models</span><span class="tag">Private Deployment</span><span class="tag">30天持续趋势</span></div>
+            <h3 class="text-2xl font-bold">HuggingFace 下载榜：Embedding、小模型与量化生态继续代表私有化热度</h3>
+            <p class="mt-3 text-slate-300">HuggingFace 模型下载排序中，sentence-transformers/all-MiniLM-L6-v2、google-bert/bert-base-uncased、cross-encoder/ms-marco-MiniLM-L6-v2、BAAI/bge-small-en-v1.5、BAAI/bge-m3、Qwen/Qwen3-0.6B 等模型下载量靠前；HuggingFace 观察也指出，参数规模小于 1B 的模型贡献了大多数下载量。[11844]</p>
+            <p class="mt-3">💬点评：下载量不是“谁最聪明”的榜单，更接近“谁最容易被集成进私有化、RAG、搜索、分类、边缘推理”的热度指标。</p>
+            <p class="mt-2">🎯业务视角：面向鞋服电商、客服、导购和素材检索，Embedding/Reranker/小模型往往比超大模型更接近 ROI。</p>
+            <p class="mt-2">技术背景：Embedding 与 Reranker 是 RAG 检索质量底座，小模型和量化模型降低 GPU/CPU 部署门槛。</p>
+            <p class="mt-2">🔗上下游影响：上游带动模型压缩、向量数据库、推理框架；下游推动私有知识库、商品理解、客服质检和内容审核。</p>
+            <p class="mt-2">🚀6个月产品卖点预测：一键私有化 RAG 套件、行业词表增强 Embedding、低成本本地 Reranker、端侧 VLM 会更容易卖给企业客户。</p>
+            <a class="inline-block mt-4 btn" href="https://huggingface.co/models?sort=downloads" target="_blank" rel="noopener">原文链接：HuggingFace Models 下载榜</a>
+          </article>
+
+          <article class="glass card rounded-3xl p-6">
+            <div class="flex flex-wrap gap-2 mb-3"><span class="tag">Twitter/X</span><span class="tag">AI Engineering</span><span class="tag">7天高频信号</span></div>
+            <h3 class="text-2xl font-bold">Andrew Ng：AI Engineering 的核心从 Prompt 转向 Context、RAG、Agentic Workflow 与治理</h3>
+            <p class="mt-3 text-slate-300">Andrew Ng 在 X 上发布 AI Engineering Skills Map，强调构建和部署 AI 应用需要掌握 LLM、context engineering、RAG、agentic workflows、统计评估、治理和 spec 塑造等能力。[12515]</p>
+            <p class="mt-3">💬点评：这是“AI 工程师”角色的再定义：不只是调 Prompt，而是把不确定输出变成可测、可控、可迭代系统。</p>
+            <p class="mt-2">🎯业务视角：售前方案要从“模型能力演示”升级为“流程指标、质量闭环、权限与风险控制”的完整方案。</p>
+            <p class="mt-2">技术背景：Context engineering 关注输入上下文、工具状态、检索证据、约束与输出格式的系统设计。</p>
+            <p class="mt-2">🔗上下游影响：培训、咨询、低代码工作流、Agent Studio、评测平台和日志观测会被一起拉动。</p>
+            <p class="mt-2">🚀6个月产品卖点预测：企业版 Agent Kit 将强调模板化 spec、评测集生成、流程回放、线上灰度和业务 KPI 映射。</p>
+            <a class="inline-block mt-4 btn" href="https://x.com/AndrewYNg/status/2088302050706686198" target="_blank" rel="noopener">原文链接：Andrew Ng on X</a>
+          </article>
+
+          <article class="glass card rounded-3xl p-6">
+            <div class="flex flex-wrap gap-2 mb-3"><span class="tag">Twitter/X</span><span class="tag">Coding Agent</span></div>
+            <h3 class="text-2xl font-bold">实际工作流帖子：Codex 语音、Grok Bot、Slack Code 指向“Agent 协作层”</h3>
+            <p class="mt-3 text-slate-300">X 上的高互动工作流讨论包括用手机控制 Codex Live Voice，把 AI 从一次性任务助手变成持续环境；Grok Bot 被描述为云端长期运行的 AI teammate；Slack Code 则把编码 Agent 拉进团队频道与上下文协作。[12709]</p>
+            <p class="mt-3">💬点评：用户在意的不是“Chat UI”，而是 Agent 是否能接住真实工作上下文、跨设备持续执行、并让团队可见。</p>
+            <p class="mt-2">🎯业务视角：企业场景最容易成交的不是通用聊天，而是“群聊/工单/代码库/文档”中的任务闭环。</p>
+            <p class="mt-2">技术背景：外层 Agent 负责收集上下文和意图，内层 Agent 负责代码、检索、测试、修复等具体执行。</p>
+            <p class="mt-2">🔗上下游影响：协作软件、身份权限、沙箱浏览器、代码托管、CI/CD、审计日志都会变成 Agent 平台的一部分。</p>
+            <p class="mt-2">🚀6个月产品卖点预测：群聊唤起 Agent、自动拉取上下文、生成任务频道、分派子 Agent、产出可审计交付物会成为协作套件新卖点。</p>
+            <a class="inline-block mt-4 btn" href="https://x.com/alliekmiller/article/2089756603239076275" target="_blank" rel="noopener">原文链接：Allie K. Miller on X</a>
+          </article>
+
+          <article class="glass card rounded-3xl p-6">
+            <div class="flex flex-wrap gap-2 mb-3"><span class="tag">GitHub</span><span class="tag">Developer Tools</span><span class="tag">7天高频信号</span></div>
+            <h3 class="text-2xl font-bold">GitHub Trending：Dify、nanobot、Composio、Langflow 等继续验证 Agent 工具链需求</h3>
+            <p class="mt-3 text-slate-300">GitHub 相关榜单与主题页显示，Dify、agency-agents、nanobot、Composio、Langflow 等项目围绕 Agent、RAG、MCP、自托管、多工具连接器和工作流自动化持续活跃。[12661]</p>
+            <p class="mt-3">💬点评：开源生态的热度正在从单一模型调用，转向“把模型接入企业系统”的中间层。</p>
+            <p class="mt-2">🎯业务视角：客户真正采购的是连接能力、模板能力、运维能力和治理能力，不只是某个模型 API。</p>
+            <p class="mt-2">技术背景：MCP、Connector、Workflow Builder、Observability、Memory 是 Agent 平台工程化的关键组件。</p>
+            <p class="mt-2">🔗上下游影响：上游模型厂商需要兼容协议；下游 SaaS/ERP/CRM/电商平台会开放更多工具接口。</p>
+            <p class="mt-2">🚀6个月产品卖点预测：标准 Connector Marketplace、行业流程模板、开箱即用权限策略和成本治理面板会快速增多。</p>
+            <a class="inline-block mt-4 btn" href="https://github.com/trending" target="_blank" rel="noopener">原文链接：GitHub Trending</a>
+          </article>
+
+          <article class="glass card rounded-3xl p-6">
+            <div class="flex flex-wrap gap-2 mb-3"><span class="tag">ArXiv</span><span class="tag">RAG</span><span class="tag">Cost</span></div>
+            <h3 class="text-2xl font-bold">ArXiv：Agentic RAG 研究强调“少跑几轮也要可验证”</h3>
+            <p class="mt-3 text-slate-300">arXiv 2026 年相关论文包括 Dissecting Agentic RAG、Structured Inference with Large Language Gibbs、CROP、AI Economist Agent 等，核心主题是本地模型预算、结构化推理、Token 成本和证据可追踪。</p>
+            <p class="mt-3">💬点评：Agentic RAG 不应无限加循环，关键是找到“检索轮数、Rerank、证据质量、延迟成本”的最佳组合。</p>
+            <p class="mt-2">🎯业务视角：面向售前知识库、商品问答、合同审阅，用户最关心的是答案可信和成本稳定。</p>
+            <p class="mt-2">技术背景：Agentic RAG 通过 query decomposition、hybrid retrieval、reranking、evidence revision 提升多跳问答能力。</p>
+            <p class="mt-2">🔗上下游影响：检索评估集、日志追踪、向量数据库、Reranker、小模型推理框架将形成组合采购。</p>
+            <p class="mt-2">🚀6个月产品卖点预测：RAG 自动体检、证据覆盖率、幻觉风险评分、Token 预算优化会成为知识库产品卖点。</p>
+            <a class="inline-block mt-4 btn" href="http://arxiv.org/abs/2606.21553v1" target="_blank" rel="noopener">原文链接：Dissecting Agentic RAG</a>
+          </article>
+
+          <article class="glass card rounded-3xl p-6">
+            <div class="flex flex-wrap gap-2 mb-3"><span class="tag">Safety</span><span class="tag">Alignment</span></div>
+            <h3 class="text-2xl font-bold">Alignment / AI Snake Oil：能力越接近真实系统，越需要评估边界与反炒作</h3>
+            <p class="mt-3 text-slate-300">LessWrong/Alignment Forum 近期讨论 SOTA alignment assessment 是否足以降低 misalignment 判断风险；AI Snake Oil 相关报道继续提醒企业不要把算法预测和“思考机器”叙事过度外推。[12537]</p>
+            <p class="mt-3">💬点评：Agent 不可靠不只表现为回答错，还可能表现为越权、奖励黑客、错误自信和难以审计。</p>
+            <p class="mt-2">🎯业务视角：对外方案要主动说明边界：可做辅助决策、流程自动化和质检，不应承诺完全无人负责的高风险决策。</p>
+            <p class="mt-2">技术背景：安全评估需要覆盖 Prompt Injection、工具权限、数据泄露、长链路错误累积和异常回滚。</p>
+            <p class="mt-2">🔗上下游影响：模型厂商、Agent 平台、企业安全团队和合规团队会共同定义上线门槛。</p>
+            <p class="mt-2">🚀6个月产品卖点预测：权限最小化、审计报表、红队测试、策略沙箱、敏感动作二次确认将变成企业 Agent 标配。</p>
+            <a class="inline-block mt-4 btn" href="https://www.lesswrong.com/posts/oirrSj3itFLSyscW8/sota-alignment-assessments-don-t-strongly-update-us-against" target="_blank" rel="noopener">原文链接：LessWrong</a>
+          </article>
+        </section>
+
+        <section id="hf" class="glass rounded-3xl p-6">
+          <h2 class="text-2xl font-bold mb-4">HuggingFace 下载量：私有化 / 开源部署热度</h2>
+          <div class="overflow-x-auto"><table class="w-full text-sm"><thead><tr class="text-left text-slate-300 border-b border-white/10"><th class="py-3">模型/组件</th><th>观察</th><th>业务含义</th></tr></thead><tbody class="divide-y divide-white/10"><tr><td class="py-3">all-MiniLM-L6-v2</td><td>下载量靠前，轻量 Sentence Similarity</td><td>RAG、相似召回、低成本私有化</td></tr><tr><td class="py-3">ms-marco-MiniLM / bge 系列</td><td>Rerank / Embedding 组件持续高热</td><td>知识库质量提升的性价比抓手</td></tr><tr><td class="py-3">Qwen 小模型 / MiniMax-H3</td><td>开源模型下载与社区适配活跃</td><td>本地推理、行业微调、端侧试点</td></tr><tr><td class="py-3">GGUF / INT4 / FP8</td><td>社区量化版本传播快</td><td>降低 GPU 门槛，适合 PoC 与边缘部署</td></tr></tbody></table></div>
+          <p class="text-xs text-slate-400 mt-3">口径说明：HuggingFace 下载量更适合作为私有化、开源部署和组件集成热度信号，不代表公有云 API 调用量。[11844]</p>
+        </section>
+
+        <section id="cloud" class="glass rounded-3xl p-6">
+          <h2 class="text-2xl font-bold mb-4">公有云模型使用场景：Artificial Analysis + Twitter/X 实际用法</h2>
+          <p class="text-slate-300">Artificial Analysis 更适合作为公有云模型 API 的性能、价格、延迟和模型供应商对比入口；本次检索未获得可完整核验的官方榜单明细，因此不引用第三方转载数字作为官方结论。[12647]</p>
+          <div class="grid md:grid-cols-2 gap-4 mt-4">
+            <div class="rounded-2xl p-4 bg-white/5"><b>场景一：高价值复杂推理</b><p class="text-slate-300 mt-2">适合使用闭源 Frontier Model API，关注 reasoning quality、长上下文、工具调用稳定性与 SLA。</p></div>
+            <div class="rounded-2xl p-4 bg-white/5"><b>场景二：高频客服/导购</b><p class="text-slate-300 mt-2">优先混合使用小模型、RAG、缓存和低价 API，目标是降低每次对话成本。</p></div>
+            <div class="rounded-2xl p-4 bg-white/5"><b>场景三：编码与流程 Agent</b><p class="text-slate-300 mt-2">Twitter/X 工作流显示 Codex、Claude Code、Grok Bot、Slack Code 等正把 Agent 变成持续协作环境。[12709]</p></div>
+            <div class="rounded-2xl p-4 bg-white/5"><b>场景四：合规和安全敏感业务</b><p class="text-slate-300 mt-2">需要私有化检索、审计日志、人工确认与策略隔离，模型能力不是唯一采购因素。</p></div>
+          </div>
+        </section>
+
+        <section id="sources" class="glass rounded-3xl p-6">
+          <h2 class="text-2xl font-bold mb-4">来源覆盖清单</h2>
+          <div class="grid md:grid-cols-2 gap-3 text-sm">
+            <a class="btn" href="https://x.com/AndrewYNg/status/2088302050706686198" target="_blank">Twitter/X：AI Engineering Skills Map</a>
+            <a class="btn" href="https://huggingface.co/papers" target="_blank">HuggingFace Daily Papers</a>
+            <a class="btn" href="https://huggingface.co/models?sort=downloads" target="_blank">HuggingFace 模型下载趋势</a>
+            <a class="btn" href="https://paperswithcode.com/trending" target="_blank">Papers With Code Trending</a>
+            <a class="btn" href="https://arxiv.org/list/cs.AI/recent" target="_blank">ArXiv cs.AI</a>
+            <a class="btn" href="https://arxiv.org/list/cs.LG/recent" target="_blank">ArXiv cs.LG</a>
+            <a class="btn" href="https://github.com/trending" target="_blank">GitHub Trending</a>
+            <a class="btn" href="https://charonhub.deeplearning.ai/tag/the-batch/" target="_blank">The Batch</a>
+            <a class="btn" href="https://www.ben-evans.com/newsletter" target="_blank">Benedict Evans Newsletter</a>
+            <a class="btn" href="https://www.alignmentforum.org/" target="_blank">LessWrong / Alignment Forum</a>
+            <a class="btn" href="https://www.aisnakeoil.com/" target="_blank">AI Snakeoil</a>
+            <a class="btn" href="https://jack-clark.net/" target="_blank">Import AI</a>
+          </div>
+          <p class="text-xs text-slate-400 mt-4">说明：未能检索到当日独立原文的来源，已使用其官方主页或栏目页作为原文入口；未伪造不存在的深链。</p>
+        </section>
+
+        <section id="notes" class="glass rounded-3xl p-6">
+          <h2 class="text-2xl font-bold mb-2">我的笔记</h2>
+          <p class="text-slate-300 mb-4">点击下方区域即可编辑；内容会通过 localStorage 持久化，并在停止输入 500ms 后自动保存。</p>
+          <textarea id="noteBox" class="w-full rounded-2xl p-4" placeholder="记录今天值得跟进的客户话术、产品卖点或竞品线索……"></textarea>
+          <div class="flex flex-wrap items-center justify-between gap-3 mt-3"><span id="noteMeta" class="text-sm text-slate-400">0 字 · 未保存</span><div class="flex gap-2"><button id="exportBtn" class="btn">导出 .txt</button><button id="clearBtn" class="btn">清空</button></div></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const key='llm_daily_notes_morning_2026-08-21';
+    const box=document.getElementById('noteBox');
+    const meta=document.getElementById('noteMeta');
+    const saved=localStorage.getItem(key)||''; box.value=saved;
+    function updateMeta(state){meta.textContent=`${box.value.length} 字 · ${state}`}
+    updateMeta(saved?'已加载本地笔记':'未保存'); let timer;
+    box.addEventListener('input',()=>{updateMeta('输入中…'); clearTimeout(timer); timer=setTimeout(()=>{localStorage.setItem(key,box.value); updateMeta('已自动保存 '+new Date().toLocaleTimeString('zh-CN',{hour12:false}));},500)});
+    document.getElementById('exportBtn').addEventListener('click',()=>{const blob=new Blob([box.value],{type:'text/plain;charset=utf-8'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='notes_morning_2026-08-21.txt'; a.click(); URL.revokeObjectURL(a.href)});
+    document.getElementById('clearBtn').addEventListener('click',()=>{if(confirm('确认清空今天的笔记？')){box.value='';localStorage.removeItem(key);updateMeta('已清空')}});
+  </script>
+</body>
+</html>
