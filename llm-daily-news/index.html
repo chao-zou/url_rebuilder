@@ -1,29 +1,508 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>大模型晨报 / 夜报历史总目录</title>
-<style>
-:root{--bg:#08111f;--panel:#101b2c;--text:#e8f1ff;--muted:#96a9c7;--line:rgba(255,255,255,.12);--sun:#fbbf24;--moon:#a78bfa;--accent:#67e8f9}*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:radial-gradient(circle at 12% 0%,rgba(251,191,36,.16),transparent 28%),radial-gradient(circle at 86% 12%,rgba(167,139,250,.18),transparent 32%),linear-gradient(180deg,#08111f,#070b13);color:var(--text)}.wrap{max-width:1160px;margin:0 auto;padding:34px 18px 70px}.hero{border:1px solid var(--line);border-radius:28px;padding:30px;background:rgba(16,27,44,.86);box-shadow:0 18px 48px rgba(0,0,0,.33)}h1{margin:0 0 10px;font-size:36px}.sub{color:var(--muted);line-height:1.7}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 12px;color:#dbeafe;font-size:13px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:22px}.card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:22px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));transition:.18s ease;min-height:142px}.card:hover{transform:translateY(-3px);border-color:rgba(103,232,249,.65);box-shadow:0 16px 36px rgba(0,0,0,.28);background:linear-gradient(180deg,rgba(103,232,249,.1),rgba(167,139,250,.05))}.badge{display:inline-flex;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:900}.morning{background:rgba(251,191,36,.17);color:#fde68a}.night{background:rgba(167,139,250,.18);color:#ddd6fe}.date{font-size:13px;color:var(--muted);margin-top:12px}.title{font-size:18px;font-weight:900;margin-top:10px}.go{margin-top:18px;color:#93c5fd}.footer{text-align:center;color:var(--muted);margin-top:36px;font-size:13px}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>大模型晨报 / 夜报 · 历史总目录</title>
+  <style>
+    :root { --line:rgba(255,255,255,.12); --text:#eaf2ff; --muted:#9db1d1; --accent:#7cc7ff; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,'Noto Sans SC',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; color:var(--text); background:radial-gradient(1100px 600px at 80% -5%,#1b2c52 0%,transparent 55%),radial-gradient(900px 500px at 0% 0%,#20184a 0%,transparent 50%),linear-gradient(180deg,#0a1224,#070d1a 60%,#05080f); min-height:100vh; }
+    .wrap { max-width:1120px; margin:0 auto; padding:40px 20px 72px; }
+    .hero { margin-bottom:26px; padding:28px; border:1px solid var(--line); border-radius:26px; background:rgba(255,255,255,.055); box-shadow:0 20px 60px rgba(0,0,0,.28); }
+    .hero h1 { margin:0 0 10px; font-size:36px; line-height:1.15; }
+    .hero p { margin:0; color:#bfd0ea; max-width:900px; line-height:1.7; }
+    .badges { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .badge { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; background:rgba(124,199,255,.12); color:var(--accent); border:1px solid rgba(124,199,255,.2); font-size:13px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
+    .card { text-decoration:none; color:inherit; background:rgba(255,255,255,.06); border:1px solid var(--line); border-radius:20px; padding:18px 18px 16px; backdrop-filter:blur(10px); transition:.18s ease; display:block; }
+    .card:hover { transform:translateY(-4px); border-color:rgba(124,199,255,.45); box-shadow:0 24px 64px rgba(0,0,0,.3); }
+    .card-top { display:flex; align-items:center; gap:10px; color:var(--muted); font-size:12.5px; margin-bottom:14px; }
+    .type { display:inline-flex; align-items:center; padding:5px 10px; border-radius:999px; font-weight:700; }
+    .type.morning { background:rgba(255,188,92,.16); color:#ffd28d; }
+    .type.night { background:rgba(140,150,255,.16); color:#c9d0ff; }
+    .card-top .jump { margin-left:auto; color:var(--accent); }
+    .card h3 { margin:0 0 12px; font-size:20px; line-height:1.4; font-weight:700; }
+    .card p { margin:0; color:#c8d7ef; line-height:1.7; font-size:13.5px; }
+    .footer { margin-top:24px; color:#8ea3c3; font-size:12px; text-align:center; }
+    @media (max-width:720px) { .hero h1 { font-size:30px; } .grid { grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <section class="hero">
-    <h1>大模型晨报 / 夜报历史总目录</h1>
-    <p class="sub">卡片式索引，整张卡片可点击；根据文件名前缀自动区分晨报 / 夜报类型徽章。当前最新：🌙 大模型夜报 2026-08-24。</p>
-    <div class="toolbar"><span class="pill">公网目录：https://chao-zou.github.io/url_rebuilder/llm-daily-news/</span><span class="pill">更新：2026-08-24</span><span class="pill">路径：llm-daily-news/</span></div>
-  </section>
-  <main class="grid" id="cards"></main>
-  <div class="footer">自动索引页 ｜ hover 高亮 ｜ 点击卡片阅读全文</div>
-</div>
-<script>
-const entries = [
-  'night_2026-08-24.html','morning_2026-08-24.html','night_2026-08-23.html','night_2026-08-21.html','morning_2026-08-21.html','night_2026-08-20.html','morning_2026-08-20.html','night_2026-08-19.html','morning_2026-08-19.html','night_2026-08-18.html','morning_2026-08-18.html','night_2026-08-17.html','morning_2026-08-17.html','night_2026-08-16.html','night_2026-08-14.html','morning_2026-08-14.html','night_2026-08-13.html','morning_2026-08-13.html','night_2026-08-12.html','morning_2026-08-12.html','night_2026-08-11.html','morning_2026-08-11.html','night_2026-08-10.html','morning_2026-08-10.html','night_2026-08-09.html','night_2026-08-07.html','morning_2026-08-07.html','night_2026-08-06.html','morning_2026-08-06.html','night_2026-08-05.html','morning_2026-08-05.html','night_2026-08-04.html','morning_2026-08-04.html','night_2026-08-03.html','morning_2026-08-03.html','night_2026-08-02.html','night_2026-07-31.html','morning_2026-07-31.html','night_2026-07-30.html','morning_2026-07-30.html','night_2026-07-29.html','morning_2026-07-29.html','night_2026-07-28.html','morning_2026-07-28.html','night_2026-07-27.html','morning_2026-07-27.html','night_2026-07-26.html','night_2026-07-24.html','morning_2026-07-24.html','night_2026-07-23.html','morning_2026-07-23.html','night_2026-07-22.html','morning_2026-07-22.html','night_2026-07-21.html','morning_2026-07-21.html','night_2026-07-20.html','morning_2026-07-20.html','night_2026-07-19.html','night_2026-07-17.html','morning_2026-07-17.html','night_2026-07-16.html','morning_2026-07-16.html','night_2026-07-15.html','morning_2026-07-15.html','night_2026-07-14.html','morning_2026-07-14.html','night_2026-07-13.html','morning_2026-07-13.html','night_2026-07-12.html','night_2026-07-10.html','morning_2026-07-10.html','night_2026-07-09.html','morning_2026-07-09.html','night_2026-07-08.html','morning_2026-07-08.html','night_2026-07-07.html','morning_2026-07-07.html','night_2026-07-06.html','morning_2026-07-06.html','night_2026-07-05.html','morning_2026-07-05.html','night_2026-07-04.html','morning_2026-07-04.html','night_2026-07-03.html','morning_2026-07-03.html','night_2026-07-02.html','morning_2026-07-02.html','night_2026-07-01.html','morning_2026-07-01.html','night_2026-06-30.html','morning_2026-06-30.html','night_2026-06-29.html'
-];
-const cards=document.getElementById('cards');
-entries.forEach(file=>{const isMorning=file.startsWith('morning_');const date=(file.match(/\d{4}-\d{2}-\d{2}/)||[''])[0];const a=document.createElement('a');a.className='card';a.href=file;a.innerHTML=`<span class="badge ${isMorning?'morning':'night'}">${isMorning?'☀️ 晨报':'🌙 夜报'}</span><div class="date">${date}</div><div class="title">大模型${isMorning?'晨报':'夜报'} ${date}</div><div class="go">阅读全文 →</div>`;cards.appendChild(a);});
-</script>
+  <div class="wrap">
+    <section class="hero">
+      <h1>大模型晨报 / 夜报 历史总目录</h1>
+      <p>卡片式索引，整张卡片可点击；根据文件名前缀自动区分晨报 / 夜报类型徽章。当前最新：☀️ 大模型晨报 2026-08-25。</p>
+      <div class="badges"><div class="badge">共 93 份报告</div><div class="badge">☀️ 晨报 43 份</div><div class="badge">🌙 夜报 50 份</div><div class="badge">公网目录：https://chao-zou.github.io/url_rebuilder/llm-daily-news/</div></div>
+    </section>
+    <section class="grid">
+      <a class="card" href="night_2026-08-24.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-24</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-24</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-23.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-23</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-23</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-21.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-21</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-21</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-20.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-20</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-20</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-19.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-19</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-19</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-18.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-18</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-18</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-17.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-17</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-17</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-16.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-16</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-16</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-14.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-14</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-14</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-13.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-13</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-13</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-12.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-12</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-12</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-11.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-11</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-11</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-10.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-10</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-10</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-09.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-09</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-09</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-07.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-07</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-07</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-06.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-06</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-06</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-05.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-05</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-05</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-04.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-04</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-04</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-03.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-03</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-03</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-08-02.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-08-02</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-08-02</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-31.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-31</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-31</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-30.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-30</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-30</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-29.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-29</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-29</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-28.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-28</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-28</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-27.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-27</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-27</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-26.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-26</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-26</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-24.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-24</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-24</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-23.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-23</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-23</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-22.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-22</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-22</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-21.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-21</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-21</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-20.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-20</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-20</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-19.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-19</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-19</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-17.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-17</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-17</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-16.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-16</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-16</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-15.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-15</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-15</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-14.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-14</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-14</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-13.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-13</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-13</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-12.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-12</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-12</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-10.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-10</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-10</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-09.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-09</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-09</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-08.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-08</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-08</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-07.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-07</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-07</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-06.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-06</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-06</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-05.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-05</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-05</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-04.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-04</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-04</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-03.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-03</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-03</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-02.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-02</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-02</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-07-01.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-07-01</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-07-01</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-06-30.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-06-30</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-06-30</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="night_2026-06-29.html">
+        <div class="card-top"><span class="type night">🌙 夜报</span><span class="date">2026-06-29</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型夜报 2026-06-29</h3>
+        <p>夜间复盘：模型动态、论文趋势与业务视角沉淀。</p>
+      </a>
+      <a class="card" href="morning_2026-08-25.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-25</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-25</h3>
+        <p>Agent 工作流、开源私有化部署、任务级评测与治理能力成为今日主线。</p>
+      </a>
+      <a class="card" href="morning_2026-08-24.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-24</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-24</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-21.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-21</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-21</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-20.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-20</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-20</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-19.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-19</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-19</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-18.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-18</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-18</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-17.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-17</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-17</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-14.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-14</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-14</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-13.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-13</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-13</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-12.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-12</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-12</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-11.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-11</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-11</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-10.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-10</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-10</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-07.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-07</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-07</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-06.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-06</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-06</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-05.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-05</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-05</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-04.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-04</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-04</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-08-03.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-08-03</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-08-03</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-31.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-31</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-31</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-30.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-30</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-30</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-29.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-29</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-29</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-28.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-28</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-28</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-27.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-27</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-27</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-24.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-24</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-24</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-23.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-23</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-23</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-22.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-22</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-22</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-21.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-21</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-21</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-20.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-20</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-20</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-17.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-17</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-17</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-16.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-16</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-16</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-15.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-15</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-15</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-14.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-14</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-14</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-13.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-13</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-13</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-10.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-10</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-10</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-09.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-09</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-09</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-08.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-08</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-08</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-07.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-07</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-07</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-06.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-06</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-06</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-05.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-05</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-05</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-04.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-04</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-04</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-03.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-03</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-03</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-02.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-02</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-02</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-07-01.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-07-01</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-07-01</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+      <a class="card" href="morning_2026-06-30.html">
+        <div class="card-top"><span class="type morning">☀️ 晨报</span><span class="date">2026-06-30</span><span class="jump">点击进入 →</span></div>
+        <h3>大模型晨报 2026-06-30</h3>
+        <p>5分钟扫读：模型、论文、开源项目与行业信号追踪。</p>
+      </a>
+    </section>
+    <div class="footer">自动扫描 output/daily_llm_news/ 生成目录 · 最后更新：2026-08-25 大模型晨报</div>
+  </div>
 </body>
 </html>
