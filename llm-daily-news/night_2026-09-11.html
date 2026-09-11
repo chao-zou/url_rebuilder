@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🌙 大模型夜报 2026-09-11</title>
+  <style>
+    :root{--bg:#0b1020;--panel:#11182d;--card:#151f38;--ink:#edf2ff;--muted:#a9b4cf;--line:#263454;--brand:#8b5cf6;--cyan:#22d3ee;--green:#34d399;--yellow:#fbbf24;--red:#fb7185;--shadow:0 24px 60px rgba(0,0,0,.35)}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0%,rgba(139,92,246,.28),transparent 32%),radial-gradient(circle at 85% 12%,rgba(34,211,238,.18),transparent 30%),linear-gradient(180deg,#081020 0%,#0b1020 42%,#0e1324 100%);font:15px/1.72 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink)}
+    a{color:#93c5fd;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1160px;margin:0 auto;padding:36px 18px 80px}.hero{position:relative;border:1px solid rgba(148,163,184,.25);background:linear-gradient(135deg,rgba(17,24,45,.96),rgba(28,23,58,.92));box-shadow:var(--shadow);border-radius:28px;padding:32px;overflow:hidden}.hero:after{content:"";position:absolute;right:-90px;top:-90px;width:260px;height:260px;border-radius:50%;background:rgba(139,92,246,.18);filter:blur(2px)}.kicker{display:inline-flex;gap:8px;align-items:center;padding:6px 12px;border:1px solid rgba(147,197,253,.35);border-radius:999px;background:rgba(59,130,246,.12);color:#bfdbfe;font-weight:800}.hero h1{font-size:42px;line-height:1.12;margin:18px 0 10px;letter-spacing:-.03em}.hero p{max-width:850px;margin:0;color:var(--muted);font-size:16px}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.pill{border:1px solid rgba(148,163,184,.26);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 12px;color:#dbeafe}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}.mini{background:rgba(255,255,255,.055);border:1px solid rgba(148,163,184,.22);border-radius:20px;padding:16px}.mini b{font-size:22px;color:#fff}.mini span{display:block;color:var(--muted);font-size:13px}.section{margin-top:22px;border:1px solid rgba(148,163,184,.22);background:rgba(17,24,45,.72);border-radius:24px;padding:24px;box-shadow:0 12px 36px rgba(0,0,0,.22)}.section h2{margin:0 0 14px;font-size:25px}.toc{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.toc a{display:block;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.045);padding:12px 14px;color:var(--ink)}.item{border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.035));padding:20px;margin:14px 0}.item h3{margin:0 0 10px;font-size:20px}.tags{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.tag{font-size:12px;font-weight:900;border-radius:999px;padding:4px 9px;background:rgba(139,92,246,.16);color:#ddd6fe;border:1px solid rgba(139,92,246,.35)}.tag.green{background:rgba(52,211,153,.14);color:#bbf7d0;border-color:rgba(52,211,153,.35)}.tag.yellow{background:rgba(251,191,36,.13);color:#fde68a;border-color:rgba(251,191,36,.35)}.tag.red{background:rgba(251,113,133,.13);color:#fecdd3;border-color:rgba(251,113,133,.35)}.block{display:grid;grid-template-columns:140px 1fr;gap:10px;border-top:1px dashed rgba(148,163,184,.22);padding-top:12px;margin-top:12px}.label{color:#c4b5fd;font-weight:900}.note{background:#0b1224;border:1px solid #263454;border-radius:18px;padding:16px}.source-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.source{border:1px solid var(--line);border-radius:16px;padding:12px;background:rgba(255,255,255,.04)}.source small{color:var(--muted);display:block;margin-top:4px}.notes textarea{width:100%;min-height:190px;border:1px solid var(--line);border-radius:18px;background:#080f20;color:var(--ink);padding:16px;font:15px/1.7 inherit;outline:none;resize:vertical}.note-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}.btn{border:1px solid rgba(148,163,184,.3);background:rgba(255,255,255,.06);color:var(--ink);border-radius:999px;padding:8px 12px;cursor:pointer}.btn:hover{background:rgba(255,255,255,.1)}.footer{color:var(--muted);text-align:center;margin-top:28px}.warn{color:#fde68a}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:820px){.grid,.toc,.source-list,.two{grid-template-columns:1fr}.hero h1{font-size:32px}.block{grid-template-columns:1fr}.wrap{padding:22px 12px 56px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <span class="kicker">🌙 今日大模型夜报 · 2026-09-11 · 周五</span>
+      <h1>Agent 托管化、Flash 化降本与企业工作流改造同时加速</h1>
+      <p>今晚的主线很清晰：OpenAI 把 Codex/ChatGPT Work 背后的托管 Agent 能力开放给开发者，DeepSeek 继续用 Flash 版本压低多模态与推理成本，社区侧则围绕「可审计工作流、私有化部署、模型实际使用场景」形成高频讨论。</p>
+      <div class="meta"><span class="pill">覆盖范围：2026-09-11 当日 AI / 大模型资讯</span><span class="pill">口径：周一至周五正常夜报</span><span class="pill">所有条目均附原文链接或标注暂无原文链接</span></div>
+    </section>
+
+    <section class="grid">
+      <div class="mini"><b>8</b><span>条重点资讯复盘</span></div>
+      <div class="mini"><b>3</b><span>条 7天高频信号</span></div>
+      <div class="mini"><b>2</b><span>条 30天持续趋势</span></div>
+    </section>
+
+    <section class="section">
+      <h2>一图摘要</h2>
+      <div class="two">
+        <div class="note"><b>今晚结论：</b>模型新闻的重心从「谁更聪明」转向「谁能把 Agent 以可控成本、可审计流程、可迁移工具链交到开发者和企业手里」。</div>
+        <div class="note"><b>产品判断：</b>未来 6 个月最容易变成卖点的不是单点 Benchmark，而是托管运行时、上下文压缩、低价多模态、私有化热度、以及企业侧信任校准与审计链路。</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>快速目录</h2>
+      <div class="toc">
+        <a href="#openai">1. OpenAI Agents API 公测：Agent 底座平台化</a>
+        <a href="#deepseek">2. DeepSeek V4.1 Flash：Flash 化降本与 Pro 路由迁移</a>
+        <a href="#hf">3. HuggingFace：下载量折射私有化/开源部署热度</a>
+        <a href="#research">4. 论文与 Benchmark：Agent 安全、Token 成本与工作流评测</a>
+        <a href="#github">5. GitHub Trending：本地优先、Agent 框架与工具链继续升温</a>
+        <a href="#podcast">6. 小宇宙播客洞察：从模型发布转向升级前检查清单</a>
+        <a href="#newsletter">7. 海外 Newsletter：企业转型、AI hype 与治理</a>
+        <a href="#cloud">8. 公有云模型使用场景：从聊天转向托管执行</a>
+      </div>
+    </section>
+
+    <section class="section" id="openai">
+      <h2>重点资讯深度复盘</h2>
+      <article class="item">
+        <h3>1. OpenAI Agents API 进入 public beta：把 Codex 同款托管 Agent harness 交给开发者</h3>
+        <div class="tags"><span class="tag red">7天高频信号</span><span class="tag">Agent</span><span class="tag">Developer Platform</span></div>
+        <p>OpenAI 官方页面显示 Agents API 处于 public beta，定位是让开发者构建和运行云端 Agent；检索结果中多篇开发者文章强调其关键能力包括托管执行、长会话、上下文管理与 Codex harness 能力开放。</p>
+        <div class="block"><div class="label">💬点评</div><div>这不是「又一个 API」，而是把 Agent 的运行环境、任务状态与工具编排从应用侧迁移到平台侧。开发者的核心工作会从写 orchestration glue code，转向定义任务、工具边界、验收标准和审计策略。</div></div>
+        <div class="block"><div class="label">🎯业务视角</div><div>企业客户会更关心三件事：是否能接业务系统、是否能控成本、是否能审计每一步。销售话术也会从「模型能力」升级为「可上线的 Agent 工作流运行底座」。</div></div>
+        <div class="block"><div class="label">技术背景</div><div>Agent 系统的难点在长任务状态、工具失败重试、上下文压缩、权限隔离和沙箱执行。平台化 API 的价值是把这些工程问题沉淀成可复用 runtime。</div></div>
+        <div class="block"><div class="label">🔗上下游影响</div><div>上游会拉动模型、工具调用、沙箱和日志观测；下游会影响 RPA、客服、代码助手、数据分析 Agent 与企业知识库产品。</div></div>
+        <div class="block"><div class="label">🚀6个月卖点预测</div><div>「托管 Agent + 企业工具连接器 + 全链路 trace + 按任务验收」会成为云厂商和大模型平台的核心包装。</div></div>
+        <p>🔗 原文链接：<a href="https://openai.com/index/introducing-the-agents-api/" target="_blank">OpenAI Introducing the Agents API</a></p>
+      </article>
+
+      <article class="item" id="deepseek">
+        <h3>2. DeepSeek V4.1 Flash 发布：低价、多模态、旧 Pro 接口路由迁移成为开发者关注点</h3>
+        <div class="tags"><span class="tag red">7天高频信号</span><span class="tag green">开源/私有化热度</span><span class="tag">Inference Cost</span></div>
+        <p>DeepSeek API 更新日志显示，DeepSeek-V4.1-Flash 已发布，并计划在 2026-09-14 12:00 北京时间后，将 deepseek-v4-pro 请求路由至 V4.1 Flash，按 V4.1 Flash 价格计费。</p>
+        <div class="block"><div class="label">💬点评</div><div>Flash 版本正在从「便宜备选」变成「默认生产入口」。它把性能、延迟和账单管理放在同一个讨论框架里，逼迫团队重新做模型路由与 Prompt 成本核算。</div></div>
+        <div class="block"><div class="label">🎯业务视角</div><div>对客服、内容审核、素材理解、图文检索等高频场景，Flash 化意味着可以把更多请求从小样本试点推向常态化生产，同时保留 Pro 模型处理疑难样本。</div></div>
+        <div class="block"><div class="label">技术背景</div><div>API 名称兼容与后端路由迁移会带来回归测试需求：同一 model name 下行为、token 使用、响应速度、图像输入能力和异常码都需要重新验收。</div></div>
+        <div class="block"><div class="label">🔗上下游影响</div><div>上游影响推理服务、缓存、计费和压测；下游影响业务 SLA、Prompt 模板、模型灰度与成本看板。</div></div>
+        <div class="block"><div class="label">🚀6个月卖点预测</div><div>「自动选 Flash/Pro」「离峰调度」「缓存命中成本优化」「多模态低价工单处理」会成为平台型产品的标配卖点。</div></div>
+        <p>🔗 原文链接：<a href="https://api-docs.deepseek.com/updates/" target="_blank">DeepSeek API Docs Change Log</a>；<a href="https://api-docs.deepseek.com/quick_start/pricing/" target="_blank">DeepSeek Models & Pricing</a></p>
+      </article>
+
+      <article class="item" id="hf">
+        <h3>3. HuggingFace 模型下载趋势：下载量更像「私有化/开源部署热度」而不是公有云调用热度</h3>
+        <div class="tags"><span class="tag yellow">30天持续趋势</span><span class="tag green">私有化/开源部署热度</span><span class="tag">HuggingFace</span></div>
+        <p>HuggingFace 模型页仍是开源模型分发的核心入口；其官方 Open Models 观察提到，小参数模型贡献了大部分下载量，这说明下载量往往代表「能在本地硬件、边缘或私有环境落地」的部署热度，而不是公有云托管模型的直接使用量。</p>
+        <div class="block"><div class="label">💬点评</div><div>企业看 HF downloads 时要避免误读：下载量高不等于 API 收入高，更可能意味着生态兼容、私有化部署和低门槛试用。</div></div>
+        <div class="block"><div class="label">🎯业务视角</div><div>如果客户担心数据出域或成本不可控，HF 热门模型可作为「私有化 PoC 备选池」；但生产上线还要补齐评测、推理优化、监控和安全策略。</div></div>
+        <div class="block"><div class="label">技术背景</div><div>小模型、量化格式、llama.cpp/ONNX/本地推理引擎降低了部署门槛；模型下载热度会被 CI、镜像同步、二次分发放大，需结合实际调用日志判断真实使用。</div></div>
+        <div class="block"><div class="label">🔗上下游影响</div><div>上游推动模型压缩、量化、推理引擎；下游推动私有知识库、离线客服、端侧助手和行业小模型。</div></div>
+        <div class="block"><div class="label">🚀6个月卖点预测</div><div>「从 HF 热门模型一键迁移到私有推理服务」「下载热度 + 企业 Benchmark 双维选型」会成为解决方案工具链。</div></div>
+        <p>🔗 原文链接：<a href="https://huggingface.co/models" target="_blank">HuggingFace Models</a>；<a href="https://huggingface.co/blog/state-of-open-models-summer-2026" target="_blank">State of Open Models: Summer 2026 Observations</a></p>
+      </article>
+
+      <article class="item" id="research">
+        <h3>4. 论文信号：Agentic AI 的治理、Token 成本与可审计执行成为研究主线</h3>
+        <div class="tags"><span class="tag red">7天高频信号</span><span class="tag yellow">30天持续趋势</span><span class="tag">ArXiv cs.AI/cs.LG</span><span class="tag">Papers With Code</span></div>
+        <p>今日论文池与 Papers With Code/ArXiv recent 信号集中在三类问题：Agent workflow 的安全与鲁棒、复杂推理的 Token 成本压缩、以及面向企业任务的 governed execution。</p>
+        <div class="block"><div class="label">💬点评</div><div>论文侧已经不再只讨论「模型答得对不对」，而是讨论「多步执行是否可控、成本是否可预测、过程是否能复盘」。这和企业落地的痛点高度重合。</div></div>
+        <div class="block"><div class="label">🎯业务视角</div><div>Agent 项目售前要尽快把 POC 验收指标从最终答案扩展到 trace 完整性、约束违规率、人工接管率、平均 Token/任务和失败恢复时间。</div></div>
+        <div class="block"><div class="label">技术背景</div><div>arXiv 检索中，CROP 关注通过 Prompt Optimization 减少推理 token；Trustworthy Agentic AI survey 关注安全、鲁棒、隐私和系统安全；POLARIS 将企业后端自动化建模为 typed planning 与 guarded execution。</div></div>
+        <div class="block"><div class="label">🔗上下游影响</div><div>上游影响 Benchmark 与评测数据集；中游影响 Agent framework 与 governance layer；下游影响金融、法务、客服、供应链等高风险自动化。</div></div>
+        <div class="block"><div class="label">🚀6个月卖点预测</div><div>「Agent 任务级成本预算」「过程 Benchmark」「政策守卫 + 审计报告自动生成」会成为企业 Agent 平台必须讲清的产品能力。</div></div>
+        <p>🔗 原文链接：<a href="https://arxiv.org/abs/2604.14214v1" target="_blank">CROP: Token-Efficient Reasoning</a>；<a href="https://arxiv.org/abs/2605.23989v1" target="_blank">Towards trustworthy agentic AI</a>；<a href="https://arxiv.org/abs/2601.11816v1" target="_blank">POLARIS</a>；<a href="https://paperswithcode.co/" target="_blank">Papers With Code</a></p>
+      </article>
+
+      <article class="item" id="github">
+        <h3>5. GitHub Trending：local-first、Agent 编排与工作流工具继续吸收开发者注意力</h3>
+        <div class="tags"><span class="tag green">开源生态</span><span class="tag">GitHub Trending</span><span class="tag">Local AI</span></div>
+        <p>GitHub/OSSInsight 与 GitHub topics 中，AI Agent、local AI、RAG、self-hosted AI、computer-use 等标签持续活跃；搜索结果还显示 AnythingLLM 等本地优先项目在 local-ai 话题中保持更新。</p>
+        <div class="block"><div class="label">💬点评</div><div>开发者侧的核心诉求是「我能不能掌控整个栈」：模型、向量库、工具、文件系统、权限和日志。local-first 不是反云，而是要求云平台提供可迁移、可审计、可回退的方案。</div></div>
+        <div class="block"><div class="label">🎯业务视角</div><div>面向中大型客户，方案里要给出云上托管与私有化部署的双路径，避免只讲单一 SaaS 体验。</div></div>
+        <div class="block"><div class="label">技术背景</div><div>Agent 工具链的技术栈正在向 MCP、沙箱、文件系统、向量检索、浏览器自动化、CI 验证闭环聚合。</div></div>
+        <div class="block"><div class="label">🔗上下游影响</div><div>上游拉动开源模型与推理引擎；下游影响知识管理、研发提效、办公自动化与合规部署。</div></div>
+        <div class="block"><div class="label">🚀6个月卖点预测</div><div>「企业可控 Agent workspace」「本地/云端混合执行」「可插拔工具协议」会成为开源与商业产品共同竞争点。</div></div>
+        <p>🔗 原文链接：<a href="https://ossinsight.io/trending/ai" target="_blank">OSSInsight Trending AI Repositories</a>；<a href="https://github.com/topics/local-ai" target="_blank">GitHub local-ai topic</a></p>
+      </article>
+
+      <article class="item" id="podcast">
+        <h3>6. 小宇宙播客洞察：从「发布了什么」转向「升级前该检查什么」</h3>
+        <div class="tags"><span class="tag">小宇宙播客</span><span class="tag">产品方法论</span></div>
+        <p>小宇宙搜索结果中，《全球AI进展观察》在 2026-09-11 围绕 DeepSeek V4.1 Flash 与旧 Pro 接口切换，提出升级前检查口径；《每日AI新鲜事》同日也将模型效率、成本与算力瓶颈作为主线。</p>
+        <div class="block"><div class="label">💬点评</div><div>播客内容的价值在于把新闻转译成操作清单：接口是否兼容、价格是否变化、输出是否漂移、线上监控是否覆盖。</div></div>
+        <div class="block"><div class="label">🎯业务视角</div><div>给客户做模型升级建议时，可以把「升级前评估表」作为交付物：覆盖样本集、成本、延迟、失败率、业务口径一致性和回滚方案。</div></div>
+        <div class="block"><div class="label">技术背景</div><div>同名 API 后端路由变化会带来隐性模型迁移；若没有固定评测集和线上对照，业务很难解释回答风格、准确率和成本变化。</div></div>
+        <div class="block"><div class="label">🔗上下游影响</div><div>上游影响模型发布策略；下游影响客户成功、运维、SLA 与合同口径。</div></div>
+        <div class="block"><div class="label">🚀6个月卖点预测</div><div>「模型升级影响评估」「Prompt 回归测试」「灰度+回滚」会成为企业模型平台的标准模块。</div></div>
+        <p>🔗 原文链接：<a href="https://www.xiaoyuzhoufm.com/podcast/69dd88abfd5df49770fea35a" target="_blank">全球AI进展观察</a>；<a href="https://www.xiaoyuzhoufm.com/podcast/6858a94801afa4d2bf71f54a" target="_blank">每日AI新鲜事</a></p>
+      </article>
+
+      <article class="item" id="newsletter">
+        <h3>7. 海外 Newsletter：企业转型不等于人人造工具，AI hype 也需要被持续校准</h3>
+        <div class="tags"><span class="tag">Benedict Evans</span><span class="tag">AI Snakeoil</span><span class="tag">Import AI</span><span class="tag">The Batch</span></div>
+        <p>Benedict Evans 近期文章强调，AI 不会简单让所有人成为工具构建者，企业转型仍受组织流程、系统遗留与采购路径影响；AI Snake Oil 继续提醒要辨别能力边界与炒作；Import AI 472 聚焦 DeepMind 数学 Agent、AI 政策等研究脉络；The Batch 则持续追踪模型、产业与研究新闻。</p>
+        <div class="block"><div class="label">💬点评</div><div>海外长文的共同点是降温：模型能力很强，但组织改造、治理、分发和服务能力才是落地胜负手。</div></div>
+        <div class="block"><div class="label">🎯业务视角</div><div>对企业客户不要只卖「人人可造 App」，更应卖「识别高价值流程 + 改造流程 + 验收收益 + 形成运营机制」。</div></div>
+        <div class="block"><div class="label">技术背景</div><div>Agent 能力需要与权限、数据、工具、流程 Owner、反馈闭环结合；否则只是个人效率工具，很难成为组织级生产力。</div></div>
+        <div class="block"><div class="label">🔗上下游影响</div><div>上游影响模型供应商的 GTM；中游影响系统集成商和 forward-deployed engineer；下游影响企业采购与流程咨询。</div></div>
+        <div class="block"><div class="label">🚀6个月卖点预测</div><div>「AI transformation playbook」「FDE/解决方案工程」「流程级 ROI 衡量」会比单纯模型榜单更能打动管理层。</div></div>
+        <p>🔗 原文链接：<a href="https://www.ben-evans.com/benedictevans/2026/9/3/ai-tools-and-transformation" target="_blank">Benedict Evans: AI, tools and transformation</a>；<a href="https://www.aisnakeoil.com/" target="_blank">AI as Normal Technology / AI Snake Oil</a>；<a href="https://jack-clark.net/" target="_blank">Import AI</a>；<a href="https://www.deeplearning.ai/the-batch" target="_blank">The Batch</a></p>
+      </article>
+
+      <article class="item" id="cloud">
+        <h3>8. 公有云模型使用场景：Artificial Analysis + X 实际用法共同指向「按任务选模型」</h3>
+        <div class="tags"><span class="tag">Public Cloud</span><span class="tag">Artificial Analysis</span><span class="tag">Twitter/X</span></div>
+        <p>Artificial Analysis 近期模型评测继续强化「智能水平、延迟、价格」三维权衡；X 上高互动实践帖更强调 coding workflow：先写 spec、用 skills/MCPs、拆小步迭代，并始终人工 review 模型建议。</p>
+        <div class="block"><div class="label">💬点评</div><div>公有云模型使用场景不应只按模型名选型，而要按任务分层：高价值推理、代码长任务、批量抽取、图片理解、低延迟客服分别对应不同的模型和计费策略。</div></div>
+        <div class="block"><div class="label">🎯业务视角</div><div>售前方案可以明确「旗舰模型负责难题、Flash/mini 模型负责规模化、高下载开源模型负责私有化兜底」的三层架构。</div></div>
+        <div class="block"><div class="label">技术背景</div><div>评测榜单给出模型静态能力信号，X 实际用法提供工作流信号；二者结合才能判断模型在真实产品中的可用性。</div></div>
+        <div class="block"><div class="label">🔗上下游影响</div><div>上游影响模型定价与路由；下游影响应用架构、成本看板、Prompt 规范和人工复核机制。</div></div>
+        <div class="block"><div class="label">🚀6个月卖点预测</div><div>「模型路由策略模板」「按任务成本模拟器」「Agent 过程质检」会成为公有云模型平台的差异化功能。</div></div>
+        <p>🔗 原文链接：<a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3" target="_blank">Artificial Analysis Intelligence Index v4.3</a>；<a href="https://x.com/addyosmani/status/2002438238309658656" target="_blank">Addy Osmani on X: LLM coding workflow</a></p>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2>高频信号追踪</h2>
+      <div class="source-list">
+        <div class="source"><b>7天高频信号：Agent 托管运行时</b><small>OpenAI Agents API、X workflow、GitHub Agent 工具链与论文治理框架共同出现。</small></div>
+        <div class="source"><b>7天高频信号：Flash/mini 降本</b><small>DeepSeek V4.1 Flash 与 HF 小模型下载热度共同指向低成本规模化。</small></div>
+        <div class="source"><b>7天高频信号：模型升级回归测试</b><small>API 路由迁移、Prompt 行为漂移、成本变化需要统一评测和灰度。</small></div>
+        <div class="source"><b>30天持续趋势：私有化/开源部署</b><small>HF downloads、local-ai topic、企业数据合规持续推动开源模型进入 PoC。</small></div>
+        <div class="source"><b>30天持续趋势：企业 AI transformation</b><small>Benedict Evans、AI Snake Oil、The Batch 等持续强调从模型崇拜转向流程改造与治理。</small></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>来源覆盖与口径说明</h2>
+      <div class="source-list">
+        <div class="source"><b>小宇宙播客</b><small>已覆盖：全球AI进展观察、每日AI新鲜事、AI前沿日报等当日/近期节目。</small></div>
+        <div class="source"><b>Twitter/X</b><small>已覆盖：高互动实际用法/工作流帖子；无法确认互动量时不伪造。</small></div>
+        <div class="source"><b>HuggingFace Daily Papers</b><small>已覆盖：HF Papers / Trending Papers 入口与 arXiv 论文交叉信号。</small></div>
+        <div class="source"><b>HuggingFace 模型下载趋势</b><small>已覆盖：HF Models、State of Open Models；下载量按私有化/开源部署热度理解。</small></div>
+        <div class="source"><b>Papers With Code</b><small>已覆盖：Trending research 入口，结合 arXiv recent 论文信号。</small></div>
+        <div class="source"><b>ArXiv cs.AI/cs.LG</b><small>已覆盖：paper-tool 检索 Agent、Token 成本、多模态方向。</small></div>
+        <div class="source"><b>GitHub Trending</b><small>已覆盖：OSSInsight Trending AI、GitHub local-ai topic。</small></div>
+        <div class="source"><b>The Batch / Benedict Evans / LessWrong / AI Snake Oil / Import AI</b><small>已覆盖：官方/原站入口与近期内容；LessWrong/Alignment Forum 今日未发现更高置信单篇主线，纳入治理趋势观察。</small></div>
+      </div>
+      <p class="warn">注：本夜报对未能核实的互动量、下载量排名和非官方转述不做确定性表述；若无可访问原文链接则不伪造链接。</p>
+    </section>
+
+    <section class="section notes">
+      <h2>我的笔记</h2>
+      <p>点击下方区域即可编辑；内容会保存在本机浏览器 localStorage 中，500ms 防抖自动保存。</p>
+      <textarea id="myNotes" placeholder="写下你今晚想跟进的客户话术、产品判断或技术问题……"></textarea>
+      <div class="note-tools"><span id="saveState">尚未编辑</span><span id="count">0 字</span><button class="btn" id="exportBtn">导出 .txt</button><button class="btn" id="clearBtn">清空</button></div>
+    </section>
+
+    <p class="footer">生成时间：2026-09-11 23:10 CST · 历史总目录：<a href="index.html">index.html</a></p>
+  </main>
+<script>
+const key='daily_llm_news_notes_night_2026-09-11';
+const ta=document.getElementById('myNotes'), state=document.getElementById('saveState'), count=document.getElementById('count');
+ta.value=localStorage.getItem(key)||'';
+function updateCount(){count.textContent=[...ta.value].length+' 字'}
+updateCount();
+let timer=null;
+ta.addEventListener('input',()=>{updateCount();state.textContent='编辑中…';clearTimeout(timer);timer=setTimeout(()=>{localStorage.setItem(key,ta.value);state.textContent='已自动保存 '+new Date().toLocaleTimeString('zh-CN',{hour12:false});},500)});
+document.getElementById('exportBtn').onclick=()=>{const blob=new Blob([ta.value],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='night_2026-09-11_notes.txt';a.click();URL.revokeObjectURL(a.href)};
+document.getElementById('clearBtn').onclick=()=>{if(confirm('确认清空我的笔记？')){ta.value='';localStorage.removeItem(key);updateCount();state.textContent='已清空'}};
+</script>
+</body>
+</html>
