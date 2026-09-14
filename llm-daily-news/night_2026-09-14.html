@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>大模型夜报 2026-09-14</title>
+  <style>
+    :root{--bg:#060914;--panel:#0d1324;--panel2:#111a31;--text:#ecf5ff;--muted:#9fb0ce;--line:rgba(255,255,255,.12);--brand:#8b5cf6;--cyan:#22d3ee;--gold:#f59e0b;--green:#34d399;--red:#fb7185}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% -5%,rgba(139,92,246,.35),transparent 34%),radial-gradient(circle at 90% 3%,rgba(34,211,238,.26),transparent 30%),linear-gradient(180deg,#050714 0%,#0b1020 46%,#101827 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC",Inter,sans-serif;line-height:1.68}.wrap{max-width:1180px;margin:0 auto;padding:36px 18px 72px}.hero{border:1px solid var(--line);border-radius:30px;background:linear-gradient(135deg,rgba(139,92,246,.22),rgba(34,211,238,.09)),rgba(13,19,36,.86);box-shadow:0 28px 90px rgba(0,0,0,.35);padding:34px}.kicker{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(34,211,238,.35);background:rgba(34,211,238,.08);color:#a5f3fc;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:800}h1{font-size:clamp(34px,6vw,68px);line-height:1.02;margin:18px 0 12px;letter-spacing:-.04em}.lead{max-width:900px;color:#cbd5e1;font-size:18px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:18px}.card{grid-column:span 4;border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.055);padding:20px;transition:.18s transform,.18s border-color}.card:hover{transform:translateY(-3px);border-color:rgba(34,211,238,.5)}.card.wide{grid-column:span 8}.card.full{grid-column:1/-1}.tag{display:inline-flex;border-radius:999px;padding:4px 10px;background:rgba(139,92,246,.18);color:#ddd6fe;font-size:12px;font-weight:800;margin:0 6px 8px 0}.tag.hot{background:rgba(245,158,11,.18);color:#fde68a}.tag.trend{background:rgba(52,211,153,.16);color:#bbf7d0}.tag.warn{background:rgba(251,113,133,.16);color:#fecdd3}h2{font-size:26px;margin:8px 0 14px}h3{font-size:20px;margin:0 0 10px}.metric{font-size:30px;font-weight:900}.muted{color:var(--muted)}a{color:#67e8f9;text-decoration:none}a:hover{text-decoration:underline}.news{border-top:1px solid var(--line);padding-top:18px;margin-top:18px}.news:first-child{border-top:0;padding-top:0;margin-top:0}.news-title{display:flex;gap:10px;align-items:flex-start;justify-content:space-between}.pill{white-space:nowrap;border-radius:999px;padding:4px 9px;font-size:12px;border:1px solid var(--line);color:#cbd5e1}.sections{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}.mini{border:1px solid rgba(255,255,255,.09);background:rgba(0,0,0,.16);border-radius:16px;padding:12px;font-size:13px}.mini b{display:block;color:#fff;margin-bottom:5px}.source-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.source{border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:12px;background:rgba(0,0,0,.15)}.status{font-size:12px;color:#cbd5e1}.notes{min-height:170px;outline:none;border:1px dashed rgba(34,211,238,.45);border-radius:18px;padding:16px;background:rgba(2,6,23,.5);color:#e2e8f0}.btn{border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.08);color:#e2e8f0;padding:8px 12px;cursor:pointer}.btn:hover{background:rgba(255,255,255,.14)}footer{margin-top:28px;color:#94a3b8;font-size:13px}@media(max-width:900px){.card,.card.wide{grid-column:1/-1}.sections,.source-list{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="kicker">🌙 今日大模型夜报 · 2026-09-14 · 周一正常口径</div>
+      <h1>从 full-duplex 语音 Agent 到开源本地推理：AI 正在从“会答”转向“可托管地干活”</h1>
+      <p class="lead">今日主线很清晰：公有云模型开始把实时语音、金融上下文、工具委托做成产品层能力；开源社区则围绕 Qwen/DeepSeek、GGUF、本地 Voice、Agent Skills、代码审查和安全红队快速补齐“可部署、可改造、可审计”的工程环节。</p>
+      <div><span class="tag hot">7天高频信号：Agent 工程化</span><span class="tag hot">7天高频信号：本地化/私有化部署</span><span class="tag trend">30天持续趋势：语音与多模态工作流</span><span class="tag warn">核验提示：X 与部分订阅源仅抓到公开可访问片段</span></div>
+    </section>
+
+    <section class="grid">
+      <div class="card"><div class="metric">5</div><div class="muted">今日核心资讯主线</div></div>
+      <div class="card"><div class="metric">12+</div><div class="muted">来源类型覆盖：播客、论文、模型、开源、Newsletter、论坛/社区</div></div>
+      <div class="card"><div class="metric">3</div><div class="muted">本期高频信号：Agent、私有化推理、语音/多模态</div></div>
+
+      <div class="card full">
+        <h2>一页摘要</h2>
+        <p>今天不是单点模型发布日，而是“产品形态重组日”：OpenAI 把 GPT‑Live‑1 的 full-duplex voice 能力开放到 API，推动电话客服、口语陪练、预约/订单等语音 Agent 从 STT–LLM–TTS 串联架构转向一体化实时模型；Anthropic 的 Claude Money 泄露则提示大模型正在进入个人财务等高敏感、长上下文账户场景；Hugging Face 和 GitHub 端则继续验证另一个方向——开源模型、GGUF 量化、本地语音克隆、Agent Skills 与安全/代码工具链成为开发者最愿意下载和 star 的资产。</p>
+        <p class="muted">口径说明：今天是周一，按“今日大模型夜报”正常口径生成，覆盖 2026-09-14 当天公开可访问资讯，并补充 9 月内仍在发酵的周度 Newsletter 作为背景。无法访问或当天无公开更新的来源，在“来源覆盖表”中显式标注，不伪造链接。</p>
+      </div>
+
+      <div class="card full">
+        <h2>深度复盘：今日 5 条关键资讯</h2>
+        <article class="news">
+          <div class="news-title"><h3>1. OpenAI GPT‑Live‑1 API：full-duplex voice 正式进入开发者工作流</h3><span class="pill">公有云模型使用场景</span></div>
+          <p>OpenAI 官方发布 GPT‑Live‑1 in the API，主打“同时听和说”的 full-duplex voice、Interruption handling、后台模型/工具委托、长会话稳定性、Telephony support，并给出前端语音层 $0.05/min 的价格。<a href="https://openai.com/index/introducing-gpt-live-1-in-the-api/" target="_blank">原文链接</a></p>
+          <div class="sections"><div class="mini"><b>💬点评</b>这不是又一个 Voice API，而是把语音层从“转写/合成管道”升级为可调度的前端实时代理。</div><div class="mini"><b>🎯业务视角</b>客服、导购、预约、坐席辅助会优先受益，尤其适合对打断、沉默、背景噪声敏感的电话场景。</div><div class="mini"><b>技术背景</b>传统架构依赖 STT→LLM→TTS 串联，GPT‑Live‑1 将听说合并，并把复杂推理委托给后端模型。</div><div class="mini"><b>🔗上下游影响</b>上游利好语音评测、电话渠道、工具调用框架；下游会压缩传统 IVR 与基础 TTS/ASR 集成商空间。</div><div class="mini"><b>🚀6个月卖点</b>“像真人一样可打断的 AI 电话员工”“一套 Prompt 管理语气、节奏、动作委托”。</div></div>
+        </article>
+        <article class="news">
+          <div class="news-title"><h3>2. 小宇宙《AIGC日报》：DeepSeek v4.1-Flash 与 Causal Encoder-Decoder 叙事升温</h3><span class="pill">小宇宙播客洞察</span></div>
+          <p>小宇宙《AIGC日报》今日聚焦 DeepSeek v4.1-Flash：播客称其 763B 总参数、8B 激活参数之外，更受关注的是 Causal Encoder-Decoder 架构、视觉原生输入和多模态部署成本下降；同集还提及 system prompt leaks、Chollet 的开源生态观点和多项行业融资合作。<a href="https://www.xiaoyuzhoufm.com/podcast/695ca552a10c1b55eb68f871" target="_blank">原文链接</a></p>
+          <div class="sections"><div class="mini"><b>💬点评</b>播客把“模型架构路线”放在参数规模之前，这是今天最有价值的叙事变化。</div><div class="mini"><b>🎯业务视角</b>企业选型会从“最大模型”转向“架构是否适合多模态、成本是否可控、能否私有部署”。</div><div class="mini"><b>技术背景</b>Decoder-only 之外的结构探索，实际是在为视觉输入、低成本推理和跨模态任务重新分配计算。</div><div class="mini"><b>🔗上下游影响</b>推理引擎、模型压缩、国产算力适配、VLM 应用链路都会被重新定价。</div><div class="mini"><b>🚀6个月卖点</b>“低激活参数多模态模型”“视觉 Agent 可私有化落地”“从文本 LLM 到原生 VLM 工作流”。</div></div>
+        </article>
+        <article class="news">
+          <div class="news-title"><h3>3. Hugging Face Daily Papers：RLVR 数据策略、Cyber Agent、稀疏注意力同日上榜</h3><span class="pill">论文/技术深度</span></div>
+          <p>HF Daily Papers 今日热度论文包括 DataFlex-RL、Feyospace-v1、Benchmark Radar、SAS、COBRA-Skills、StepAudio 3 Gen 等；arXiv 全文显示 DataFlex-RL 在固定 GRPO recipe 下比较 13 种配置，强调数据策略未稳定超越 uniform sampling；Feyospace-v1 展示独立小团队通过可执行环境和审计轨迹训练 Cyber Agent；SAS 则用端到端 gating 优化长上下文稀疏注意力。<a href="https://huggingface.co/papers?date=2026-09-14" target="_blank">原文链接</a></p>
+          <div class="sections"><div class="mini"><b>💬点评</b>今天的论文不是“更大模型”，而是训练数据、Agent 安全环境和推理效率三件硬事。</div><div class="mini"><b>🎯业务视角</b>企业落地会更关心 RL 数据配方是否可复现、安全能力能否评测、长上下文成本能否下降。</div><div class="mini"><b>技术背景</b>RLVR/GRPO、执行验证轨迹、FlashAttention-style sparse kernel 都在逼近生产级瓶颈。</div><div class="mini"><b>🔗上下游影响</b>评测平台、训练数据治理、Agent 安全沙箱、长上下文推理供应商都会受益。</div><div class="mini"><b>🚀6个月卖点</b>“可复现 RLVR 数据策略评测”“Cyber Agent 训练环境包”“低预算长上下文推理”。</div></div>
+        </article>
+        <article class="news">
+          <div class="news-title"><h3>4. Hugging Face 模型趋势：Qwen3.8 与 GGUF 继续代表私有化/开源部署热度</h3><span class="pill">私有化部署热度</span></div>
+          <p>HF 模型趋势榜显示 Qwen3.8-27B、unsloth/Qwen3.8-27B-GGUF、LTX-2.5、MiniMax-H3、DeepSeek-V4.1-Flash 等保持高热度；其中 Qwen3.8-27B 与 GGUF 量化版本的下载量被多份榜单强调，代表开发者对“可本地跑、可二次改造、可控成本”的强需求。<a href="https://github.com/ghub1821239/agents-radar/issues/226" target="_blank">原文链接</a></p>
+          <div class="sections"><div class="mini"><b>💬点评</b>下载量不等于公有云调用量，它更像私有化部署与边缘实验的温度计。</div><div class="mini"><b>🎯业务视角</b>对鞋服、电商、零售客户，私有化 VLM/LLM 可承接商品图审核、客服知识库、门店培训等低延迟场景。</div><div class="mini"><b>技术背景</b>GGUF、FP8、量化核和本地运行时共同降低内存门槛，推动模型从云端 API 走向终端/私有云。</div><div class="mini"><b>🔗上下游影响</b>上游模型社区增强，下游本地 Agent、RAG、AIGC 视频工具会获得更多可替代底座。</div><div class="mini"><b>🚀6个月卖点</b>“开源模型私有部署包”“低成本视频生成流水线”“本地知识库无需上传敏感资料”。</div></div>
+        </article>
+        <article class="news">
+          <div class="news-title"><h3>5. GitHub Trending：Agent Skills、VoiceStudio、colibri、Claude-Red 把工程化推到前台</h3><span class="pill">开源/产品方法论</span></div>
+          <p>GitHub AI 开源趋势中，VoiceStudio、colibri、agent-skills、OpenMontage、Claude-Red、open-code-review、MathModelAgent 等项目集中出现，主题覆盖本地语音、MoE 推理、Agent 技能注册、视频生产、安全红队和代码审查。<a href="https://github.com/96loveslife/big_model_radar/issues/489" target="_blank">原文链接</a></p>
+          <div class="sections"><div class="mini"><b>💬点评</b>社区在用开源项目回答一个问题：模型变强后，周边“技能、工具、审查、沙箱”如何标准化。</div><div class="mini"><b>🎯业务视角</b>对企业客户，最容易销售的不是“模型多强”，而是“某个流程能被 Agent 接管多少步骤”。</div><div class="mini"><b>技术背景</b>Agent Skills 类似能力包/插件市场，配合 MCP、工具调用和权限控制构成新的应用层。</div><div class="mini"><b>🔗上下游影响</b>IDE、DevOps、安全、CRM、视频生产工具会先出现“Agent 化改造”。</div><div class="mini"><b>🚀6个月卖点</b>“行业 Skills 市场”“代码审查 Agent”“安全红队 Agent”“本地语音生成工作台”。</div></div>
+        </article>
+      </div>
+
+      <div class="card wide">
+        <h2>高频信号追踪</h2>
+        <p><span class="tag hot">7天高频信号</span><b>Agent 工程化</b>：小宇宙连续多日讨论 Agent 成本、Astra、AI 工程师、system prompt、Agent 安全；GitHub 今日又集中出现 agent-skills、Claude-Red、MathModelAgent、OpenResearch。</p>
+        <p><span class="tag hot">7天高频信号</span><b>本地化/私有化部署</b>：Qwen3.8、GGUF、VoiceStudio、colibri、Ollama 类项目构成同一条线——企业要的是低成本、可控数据边界、可离线运行。</p>
+        <p><span class="tag trend">30天持续趋势</span><b>多模态与语音工作流</b>：从 GPT‑Live‑1、StepAudio 3 Gen、VoiceStudio 到 LTX-2.5/MiniMax-H3，语音与视频正在成为 Agent 的自然交互层，而不是独立 AIGC 工具。</p>
+      </div>
+      <div class="card">
+        <h2>公有云模型使用场景</h2>
+        <p><b>OpenAI GPT‑Live‑1</b>：面向客服、预约、语音陪练、电话 Agent，强调 full-duplex、可打断、工具委托。</p>
+        <p><b>Gemini API</b>：公开文档强调文本/图片/多模态输入与对话代理集成，适合多模态应用快速接入。<a href="https://ai.google.dev/gemini-api/docs?hl=zh-cn" target="_blank">原文链接</a></p>
+        <p><b>Twitter/X 实际用法</b>：本期可核验的 X 来源主要来自 TestingCatalog 嵌入帖，围绕 Claude Money 的个人财务入口测试；未抓取到更多高互动原帖，因此不扩写互动量。</p>
+      </div>
+
+      <div class="card full">
+        <h2>来源覆盖表</h2>
+        <div class="source-list">
+          <div class="source"><b>小宇宙播客</b><div class="status">已覆盖：《AIGC日报》2026-09-14；另参考 9/8–9/13 同节目高频线索。<a href="https://www.xiaoyuzhoufm.com/podcast/695ca552a10c1b55eb68f871" target="_blank">链接</a></div></div>
+          <div class="source"><b>Twitter/X</b><div class="status">已覆盖公开嵌入帖：Claude Money 测试线索；未获取到更完整互动排序。<a href="https://x.com/testingcatalog/status/2099485567163510804" target="_blank">链接</a></div></div>
+          <div class="source"><b>HuggingFace Daily Papers</b><div class="status">已覆盖 2026-09-14 Daily Papers。<a href="https://huggingface.co/papers?date=2026-09-14" target="_blank">链接</a></div></div>
+          <div class="source"><b>HuggingFace 模型下载趋势</b><div class="status">已覆盖 Qwen3.8/GGUF/视频模型下载热度。<a href="https://github.com/ghub1821239/agents-radar/issues/226" target="_blank">链接</a></div></div>
+          <div class="source"><b>Papers With Code</b><div class="status">已访问公开首页；页面仅给出 Trending 入口，未能抓到当日详细条目。<a href="https://paperswithcode.co/" target="_blank">链接</a></div></div>
+          <div class="source"><b>ArXiv cs.AI/cs.LG</b><div class="status">已通过 paper-tool 读取 DataFlex-RL、Feyospace-v1、SAS 的 arXiv 文本。<a href="https://arxiv.org/list/cs.AI/recent" target="_blank">链接</a></div></div>
+          <div class="source"><b>GitHub Trending</b><div class="status">已覆盖 GitHub Trending + Search API 整理页。<a href="https://github.com/96loveslife/big_model_radar/issues/489" target="_blank">链接</a></div></div>
+          <div class="source"><b>The Batch</b><div class="status">最新公开期为 Sep 11, 2026，作为本周 AI Engineering 背景。<a href="https://www.deeplearning.ai/the-batch/" target="_blank">链接</a></div></div>
+          <div class="source"><b>Benedict Evans Newsletter</b><div class="status">公开页显示 Premium 周日、Free 周二机制；未获取当日公开全文。<a href="https://www.ben-evans.com/newsletter" target="_blank">链接</a></div></div>
+          <div class="source"><b>LessWrong / Alignment Forum</b><div class="status">LessWrong 页面触发浏览器校验，搜索未返回当天可核验条目；本期不编造内容。<span>暂无可用原文链接</span></div></div>
+          <div class="source"><b>AI Snakeoil / AI as Normal Technology</b><div class="status">已覆盖当日“loss-of-control incidents”公开页入口。<a href="https://www.normaltech.ai/p/the-ai-as-normal-technology-view" target="_blank">链接</a></div></div>
+          <div class="source"><b>Import AI</b><div class="status">最新公开期为 Sep 7, 2026；今日未见新一期公开页。<a href="https://importai.substack.com/" target="_blank">链接</a></div></div>
+        </div>
+      </div>
+
+      <div class="card full">
+        <h2>我的笔记</h2>
+        <p class="muted">点击下方区域即可编辑；内容自动保存到当前浏览器 localStorage（500ms 防抖）。</p>
+        <div id="notes" class="notes" contenteditable="true" spellcheck="false">在这里记录你的判断、客户沟通话术或下一步跟进动作……</div>
+        <p><span id="count" class="muted">0 字</span> <button class="btn" id="exportBtn">导出 .txt</button> <button class="btn" id="clearBtn">清空</button></p>
+      </div>
+    </section>
+    <footer>生成时间：2026-09-14 23:10 CST｜页面归档：llm-daily-news/night_2026-09-14.html｜所有无法核验的来源均已显式标注。</footer>
+  </div>
+<script>
+const key='llm_night_notes_2026-09-14';const box=document.getElementById('notes');const count=document.getElementById('count');let t=null;function update(){const text=box.innerText.trim();count.textContent=text.length+' 字'}const saved=localStorage.getItem(key);if(saved){box.innerText=saved}update();box.addEventListener('input',()=>{update();clearTimeout(t);t=setTimeout(()=>localStorage.setItem(key,box.innerText),500)});document.getElementById('exportBtn').onclick=()=>{const blob=new Blob([box.innerText],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='night_2026-09-14_notes.txt';a.click();URL.revokeObjectURL(a.href)};document.getElementById('clearBtn').onclick=()=>{if(confirm('确认清空本页笔记？')){box.innerText='';localStorage.removeItem(key);update();}};
+</script>
+</body>
+</html>
