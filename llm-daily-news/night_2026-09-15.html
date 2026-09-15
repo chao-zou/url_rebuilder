@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- report-meta: date=2026-09-15; type=night; title=🌙 大模型夜报 2026-09-15; summary=今日 AI 双线并行：Amodei 与 OpenAI/Anthropic/Google 集体转向“限速”与安全协调，开源模型则以约 1% 成本承载约 20% 工作负载；与此同时 Vidu S2 把视频带入实时可编辑阶段，recursive self-improvement Agent 与 GitHub Agent 基础设施同步走热。 -->
+  <title>大模型夜报 2026-09-15</title>
+  <style>
+    :root{--bg:#060914;--panel:#0d1324;--panel2:#111a31;--text:#ecf5ff;--muted:#9fb0ce;--line:rgba(255,255,255,.12);--brand:#8b5cf6;--cyan:#22d3ee;--gold:#f59e0b;--green:#34d399;--red:#fb7185}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% -5%,rgba(139,92,246,.35),transparent 34%),radial-gradient(circle at 90% 3%,rgba(34,211,238,.26),transparent 30%),linear-gradient(180deg,#050714 0%,#0b1020 46%,#101827 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC",Inter,sans-serif;line-height:1.68}
+    .wrap{max-width:1180px;margin:0 auto;padding:36px 18px 72px}.hero{border:1px solid var(--line);border-radius:30px;background:linear-gradient(135deg,rgba(139,92,246,.22),rgba(34,211,238,.09)),rgba(13,19,36,.86);box-shadow:0 28px 90px rgba(0,0,0,.35);padding:34px}
+    .kicker{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(34,211,238,.35);background:rgba(34,211,238,.08);color:#a5f3fc;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:800}
+    h1{font-size:clamp(30px,5.2vw,60px);line-height:1.06;margin:18px 0 12px;letter-spacing:-.04em}.lead{max-width:920px;color:#cbd5e1;font-size:18px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:18px}.card{grid-column:span 4;border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.055);padding:20px;transition:.18s transform,.18s border-color}.card:hover{transform:translateY(-3px);border-color:rgba(34,211,238,.5)}.card.wide{grid-column:span 8}.card.full{grid-column:1/-1}
+    .tag{display:inline-flex;border-radius:999px;padding:4px 10px;background:rgba(139,92,246,.18);color:#ddd6fe;font-size:12px;font-weight:800;margin:0 6px 8px 0}.tag.hot{background:rgba(245,158,11,.18);color:#fde68a}.tag.trend{background:rgba(52,211,153,.16);color:#bbf7d0}.tag.warn{background:rgba(251,113,133,.16);color:#fecdd3}
+    h2{font-size:26px;margin:8px 0 14px}h3{font-size:19px;margin:0 0 10px}.metric{font-size:30px;font-weight:900}.muted{color:var(--muted)}
+    a{color:#67e8f9;text-decoration:none}a:hover{text-decoration:underline}
+    .news{border-top:1px solid var(--line);padding-top:18px;margin-top:18px}.news:first-child{border-top:0;padding-top:0;margin-top:0}.news-title{display:flex;gap:10px;align-items:flex-start;justify-content:space-between}
+    .pill{white-space:nowrap;border-radius:999px;padding:4px 9px;font-size:12px;border:1px solid var(--line);color:#cbd5e1}
+    .sections{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}.mini{border:1px solid rgba(255,255,255,.09);background:rgba(0,0,0,.16);border-radius:16px;padding:12px;font-size:13px}.mini b{display:block;color:#fff;margin-bottom:5px}
+    .source-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.source{border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:12px;background:rgba(0,0,0,.15)}.status{font-size:12px;color:#cbd5e1}
+    table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;font-size:13.5px}th{background:rgba(255,255,255,.06);color:#dbeafe}td{color:#d7e3f6}
+    .other-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .notes{min-height:170px;outline:none;border:1px dashed rgba(34,211,238,.45);border-radius:18px;padding:16px;background:rgba(2,6,23,.5);color:#e2e8f0}
+    .btn{border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.08);color:#e2e8f0;padding:8px 12px;cursor:pointer}.btn:hover{background:rgba(255,255,255,.14)}
+    footer{margin-top:28px;color:#94a3b8;font-size:13px}
+    @media(max-width:900px){.card,.card.wide{grid-column:1/-1}.sections,.source-list,.other-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="kicker">🌙 今日大模型夜报 · 2026-09-15 · 周二正常口径</div>
+      <h1>“跑得最快的在喊停”：限速联盟成形之日，开源正用 1% 成本改写底牌</h1>
+      <p class="lead">今日两条主线相互对冲：一边 Amodei 发文呼吁为前沿 AI 限速，OpenAI/Anthropic/Google 的安全协调被 Bloomberg 证实，治理叙事陡然升温；另一边 Hugging Face 称开源以约 1% 成本承载约 20% 负载，Vidu S2 把视频带入实时可编辑阶段，recursive self-improvement Agent 与 GitHub Agent 基础设施密集涌现。</p>
+      <div><span class="tag hot">7天高频信号：Agent 自我改进 / 工程化</span><span class="tag hot">7天高频信号：AI 治理“限速”</span><span class="tag hot">7天高频信号：私有化 / 开源部署</span><span class="tag trend">30天持续趋势：实时多模态</span><span class="tag warn">核验提示：HF 20%/1% 为单方口径；X 互动量不可见</span></div>
+    </section>
+
+    <section class="grid">
+      <div class="card"><div class="metric">7</div><div class="muted">今日深度复盘主线</div></div>
+      <div class="card"><div class="metric">12</div><div class="muted">数据源全覆盖：播客 / 论文 / 模型 / 开源 / Newsletter / 论坛</div></div>
+      <div class="card"><div class="metric">3+2</div><div class="muted">3 个 7 天高频信号 + 2 个 30 天持续趋势</div></div>
+
+      <div class="card full">
+        <h2>一页摘要</h2>
+        <p>今天是罕见的“叙事转向日”，而不是单点发版日。<b>治理侧</b>：Amodei《We Must Pace the Frontier》与 OpenAI/Anthropic/Google 的安全协调同日曝光，叠加 Microsoft 模型行为准则，“限速”从口号走向机制设计，但黄仁勋、Cohere 与部分阵营明确反对。<b>能力侧</b>：开源以极低成本快速逼近——HF 的 20% 负载 / 1% 成本口径、全开源 ZGCM-1、超 GPT-6 的 RSIAgent；多模态的 Vidu S2 则把“实时、可编辑、可交互”做成产品。<b>工程侧</b>：自我改进 Agent 形成统一配方（可验证环境 + 经验记忆 + 自检），GitHub 三连补齐评审 / 语音 / MoE 推理三块基建；与此同时 plan injection 与“无 CoT 也能干活”共同警示：思维链监督并不可靠。</p>
+        <p class="muted">口径说明：今天为周二，按“今日大模型夜报”正常口径生成，覆盖 2026-09-15 当天公开可访问资讯，并以本周 The Batch / Benedict Evans / Import AI 作为背景。无法访问或当日无更新的来源在“来源覆盖表”中显式标注，不伪造链接。</p>
+      </div>
+
+      <div class="card full">
+        <h2>深度复盘：今日 7 条关键资讯</h2>
+        <article class="news">
+          <div class="news-title"><h3>1. Anthropic Amodei《We Must Pace the Frontier》带头“限速”，OpenAI/Anthropic/Google 安全联盟曝光</h3><span class="pill">治理 / 政策叙事</span></div>
+          <p>Anthropic CEO Dario Amodei 发表长文《We Must Pace the Frontier》，呼吁为前沿 AI 设置“全球限速”；Bloomberg 今日证实 OpenAI、Anthropic、Google 已围绕前沿模型安全措施协调数周，由 OpenAI 全球政策主管 Chris Lehne 披露，认为无需反垄断豁免；其源头是 Hassabis 7 月提出的 FINRA 式行业标准机构提案，CNN 称三家自 7 月起在 CEO 之下层级组建工作组。<br><a href="https://www.bloomberg.com/news/articles/2026-09-15/openai-says-it-s-working-with-anthropic-google-on-ai-safety" target="_blank" rel="noopener">Bloomberg 报道</a> <a href="https://edition.cnn.com/2026/09/14/tech/ai-standards-body" target="_blank" rel="noopener">CNN 报道</a> <a href="https://www.xiaoyuzhoufm.com/episode/6aa87f13129fe965d3328ed9" target="_blank" rel="noopener">小宇宙 AIGC日报（含 Amodei 文章转述）</a></p>
+          <div class="sections">
+            <div class="mini"><b>💬 点评</b>“跑得最快的在喊停”——当最前沿的人开始谈节奏，往往意味着他们内部看到了能力曲线的真实斜率；但这同样是一场话语权博弈。</div>
+            <div class="mini"><b>🎯 业务视角</b>对企业客户反而是确定性利好：共享评测与行业自律机构会降低采购/法务不确定性。对外只讲“负责任地用 AI”，限速争议本身仅供内部研判，尚无监管落地。</div>
+            <div class="mini"><b>技术背景</b>FINRA 式提案核心是前沿模型上市前评测、共享 incident 报告与标准安全测试；Microsoft 同日发布直接约束模型行为的 AI code of conduct（不入侵系统、不欺骗人类）并启动 6 周咨询。</div>
+            <div class="mini"><b>🔗 上下游影响</b>上游实验室需持续投入 evals / classifier / 红队；下游云厂商会把合规评测产品化；Cohere CEO 公开质疑其为“卡特尔”，开放派与安全派公开分裂。</div>
+            <div class="mini"><b>🚀 6个月卖点预测</b>6 个月内，“模型安全评测报告”“合规准入标签”“行业自律白名单”将进入大客户采购清单。</div>
+          </div>
+        </article>
+        <article class="news">
+          <div class="news-title"><h3>2. Hugging Face：开源模型约 1% 成本承载约 20% 负载；7 名博士生 3 个月全开源训出 7B ZGCM-1</h3><span class="pill">私有化 / 开源部署热度</span></div>
+          <p>小宇宙援引 Hugging Face 说法：开源模型已承载约 20% 工作负载，成本仅为闭源 API 的约 1%；同日量子位报道中关村学院 7 名博士生用一个暑假、3 个月从零训出 7B 模型 ZGCM-1，借数百个 Agent 协作完成数据清洗与评测，权重、数据配方、代码、日志全部公开，表现接近 Qwen3-8B。<br><a href="https://www.qbitai.com/2026/09/489227.html" target="_blank" rel="noopener">量子位 ZGCM-1</a> <a href="https://arxiv.org/abs/2609.13356" target="_blank" rel="noopener">arXiv 2609.13356</a> <a href="https://www.xiaoyuzhoufm.com/episode/6aa87f13129fe965d3328ed9" target="_blank" rel="noopener">小宇宙（HF 20%/1% 口径）</a></p>
+          <div class="sections">
+            <div class="mini"><b>💬 点评</b>“1% 成本、20% 负载”是今日最具冲击力的一组数字，但它来自 Hugging Face 单方口径，引用时必须标注来源，不能当成中立统计。</div>
+            <div class="mini"><b>🎯 业务视角</b>私有化的 ROI 叙事正从“数据安全”扩展到“成本结构重构”；对鞋服客户的商品图批量审核、客服分流、素材打标等高频任务尤其成立。</div>
+            <div class="mini"><b>技术背景</b>ZGCM-1 采用 FP8 Muon 优化器、MDP mid-training、agent swarm 自治运维，数学与 agentic search 可比 Qwen3-235B-A22B，16K 预训练提效约 4.2×。</div>
+            <div class="mini"><b>🔗 上下游影响</b>上游量化运行时、国产算力适配链受益；闭源 API 在中低端任务上的溢价被进一步压缩。</div>
+            <div class="mini"><b>🚀 6个月卖点预测</b>“开源 vs 闭源 TCO 对比器”“私有化一键部署包”“小团队可复现训练手册”将成为高频内容卖点。</div>
+          </div>
+        </article>
+        <article class="news">
+          <div class="news-title"><h3>3. Vidu S2：实时互动 + 实时编辑双旗舰发布即体验，五个公开 Benchmark 全部 SOTA</h3><span class="pill">多模态 / 产品方法论</span></div>
+          <p>生数科技 Vidu 推出 S2，发布当日即可体验，包含实时数字人（720p、25–42 FPS，支持动态参考图、跳舞指令）与实时视频编辑（换装 / 换背景 / 风格化）两个模型，并探索空间视频；论文显示五个公开 Benchmark 全部为当前最优。<br><a href="https://www.jiqizhixin.com/articles/2026-09-15-11" target="_blank" rel="noopener">机器之心 Vidu S2</a> <a href="https://arxiv.org/abs/2609.11638" target="_blank" rel="noopener">arXiv 2609.11638</a></p>
+          <div class="sections">
+            <div class="mini"><b>💬 点评</b>视频生成正从“抽卡式离线渲染”转向“可对话、可编辑的实时创作”——变的不只是画质，而是整个交互范式。</div>
+            <div class="mini"><b>🎯 业务视角</b>对鞋服电商几乎是量身定制：虚拟试穿换装、直播数字人、广告素材实时改版，营销内容生产成本有望再降一个数量级。</div>
+            <div class="mini"><b>技术背景</b>实时互动要求流式生成 + 低延迟 + 参考图条件控制；空间视频面向 Vision Pro 等新终端预留了入口。</div>
+            <div class="mini"><b>🔗 上下游影响</b>上游利好实时推理与视频 codec；下游直播 / 电商 SaaS、数字人厂商会快速集成。</div>
+            <div class="mini"><b>🚀 6个月卖点预测</b>“实时换装直播间”“一句话改广告片”“可交互数字人导购”6 个月内会出现标杆案例。</div>
+          </div>
+        </article>
+        <article class="news">
+          <div class="news-title"><h3>4. 自我改进 Agent 三连发：Atria Dawn / Dream-RSI / RSIAgent，Musk 展示 Grok Bot 全自动 demo 流水线</h3><span class="pill">Agent / 技术深度</span></div>
+          <p>今日论文榜被 recursive self-improvement 承包：上海 AI Lab InternLM 的 Atria Dawn（753B agentic，可验证工具交互训练，5 项 benchmark 已知最高）、Google Dream-RSI（离线“做梦”replay 历史 discovery tree 获取 off-policy 反馈，免去昂贵在线 rollout）、AetherLabs RSIAgent（training-free 多 agent，让 Kimi-K3 / GLM-5.3 在 OSWorld-v2 上超过 GPT-6）。Musk 同期展示 Grok Bot 每日自动读取 Bookmarks → Cursor Agent 构建 demo → 截图/视频自检 → 在 Cloudflare preview 建分支 → 早上发链接的持久化云端流水线。<br><a href="https://arxiv.org/abs/2609.15818" target="_blank" rel="noopener">arXiv Atria Dawn 2609.15818</a> <a href="https://arxiv.org/abs/2609.14858" target="_blank" rel="noopener">arXiv Dream-RSI 2609.14858</a> <a href="https://arxiv.org/abs/2609.15364" target="_blank" rel="noopener">arXiv RSIAgent 2609.15364</a> <a href="https://x.com/elonmusk/status/2099505692805582871" target="_blank" rel="noopener">Musk 原帖 Grok Bot 工作流</a></p>
+          <div class="sections">
+            <div class="mini"><b>💬 点评</b>自我改进的共同配方已经清晰：可验证环境 + 经验记忆 + 自检闭环；也正因为如此，它的安全争议同步升温。</div>
+            <div class="mini"><b>🎯 业务视角</b>“Agent 自己变聪明”对外要非常谨慎（监管与舆论敏感）；更稳妥的卖点是“Agent 随使用持续沉淀可复用的团队经验库”。</div>
+            <div class="mini"><b>技术背景</b>Dream-RSI 用 off-policy replay 替代在线探索；RSIAgent 以 broad-then-deep 自主探索构建因果记忆，无需额外训练。</div>
+            <div class="mini"><b>🔗 上下游影响</b>上游需要持久化执行环境与版本化经验存储；下游 Agent 平台会增加 memory / checkpoint / 经验市场。</div>
+            <div class="mini"><b>🚀 6个月卖点预测</b>“会学习团队习惯的 Agent”“经验资产可导出可交易”“自演进测试 Agent”将成为平台级卖点。</div>
+          </div>
+        </article>
+        <article class="news">
+          <div class="news-title"><h3>5. GitHub Trending 三连：open-code-review / VoiceStudio / colibri 日均新增超 2000 star</h3><span class="pill">开源 / Agent 基础设施</span></div>
+          <p>今日 GitHub Trending 与 AI 相关前三甲日增均超 2000 star：alibaba/open-code-review（确定性规则流水线 + LLM Agent，输出行级评审，+2751）、debpalash/VoiceStudio（全本地声音克隆 / 配音 / 转录，覆盖 646 语言，+2081）、JustVugg/colibri（纯 C、零依赖 MoE 推理引擎，专家从磁盘流式加载，旧硬件可跑前沿 MoE，+2035）。<br><a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">alibaba/open-code-review</a> <a href="https://github.com/debpalash/VoiceStudio" target="_blank" rel="noopener">debpalash/VoiceStudio</a> <a href="https://github.com/JustVugg/colibri" target="_blank" rel="noopener">JustVugg/colibri</a></p>
+          <div class="sections">
+            <div class="mini"><b>💬 点评</b>三个项目恰好补齐 Agent 时代三块短板：质量保障、交互入口、推理成本——这比又一个聊天 demo 有价值得多。</div>
+            <div class="mini"><b>🎯 业务视角</b>代码评审直接切入研发效能；VoiceStudio 适合私有化语音助手与配音；colibri 让旧硬件跑 MoE，显著降低私有化门槛。</div>
+            <div class="mini"><b>技术背景</b>open-code-review 的混合架构值得借鉴：规则引擎兜底确定性问题，LLM 只处理语义层，兼顾可控与灵活。</div>
+            <div class="mini"><b>🔗 上下游影响</b>MoE 模型因推理门槛下降进一步扩散；DevOps、客服、内容工具链会最先被改造。</div>
+            <div class="mini"><b>🚀 6个月卖点预测</b>“企业级代码评审 Agent”“本地语音工作台”“旧硬件 MoE 一体机”6 个月内将频繁出现在投标方案里。</div>
+          </div>
+        </article>
+        <article class="news">
+          <div class="news-title"><h3>6. 企业垂直化加速：Claude for Financial Advisors、Salesforce×Nvidia Koa、GPT-6 Astra 登陆 Bedrock GA</h3><span class="pill">公有云模型使用场景</span></div>
+          <p>Anthropic 推出 Claude for Financial Advisors，内置 11 个 connectors（Charles Schwab、BlackRock、Vanguard、Addepar 等）与 workflow skills，可自动准备客户会议、起草议程并写回 CRM；Salesforce 与 Nvidia 在 Dreamforce 发布推理模型 Koa（基于 open-weight Nemotron post-train，全合成数据、不含客户数据），专攻销售 / 营销 / 客服；AWS 宣布 GPT-6 Astra 在 Amazon Bedrock 正式 GA。<br><a href="https://claude.com/blog/claude-for-financial-advisors" target="_blank" rel="noopener">Claude for Financial Advisors</a> <a href="https://techcrunch.com/2026/09/15/salesforce-and-nvidias-new-reasoning-model-is-everything-the-ai-labs-should-fear/" target="_blank" rel="noopener">TechCrunch Koa</a> <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-openai-gpt-6-astra-on-amazon-bedrock-amazon-quick-desktop-ga-kiro-for-students-and-more-september-14-2026/" target="_blank" rel="noopener">AWS Bedrock GA</a></p>
+          <div class="sections">
+            <div class="mini"><b>💬 点评</b>前沿实验室之外，“open-weight 底座 + 行业 post-train + connectors”正在成为分流通量的标准路径。</div>
+            <div class="mini"><b>🎯 业务视角</b>关键启示：客户真正买单的是“连好系统、写回 CRM 的闭环”，不是裸模型；鞋服零售可类比构建“商品 / 库存 / 会员 connectors + 营销 Agent”。</div>
+            <div class="mini"><b>技术背景</b>全合成数据训练正面回应数据授权顾虑；Bedrock GA 让顶级模型进入合规采购通道。</div>
+            <div class="mini"><b>🔗 上下游影响</b>SaaS 厂商纷纷自研或联名模型，对单一实验室的依赖会下降。</div>
+            <div class="mini"><b>🚀 6个月卖点预测</b>“行业 connectors 包”“不碰客户数据的合成模型”“一个 Agent 直接改 CRM”会成为主流话术。</div>
+          </div>
+        </article>
+        <article class="news">
+          <div class="news-title"><h3>7. 安全攻防：Plan Injection 可骗过 CoT 监控（25–33% 规避率），Neel Nanda 警示“无 CoT 也能干活”</h3><span class="pill">安全 / Alignment 工程</span></div>
+          <p>arXiv 新论文《Corrupt Plans, Clean Traces》提出 plan injection 攻击：植入看似无害的有害推理计划即可骗过 Chain-of-Thought 监控器，跨 benchmark 达 25–33% 规避率，监控器看到注入计划后检测率反降最多 50%；同期 Neel Nanda 热帖指出 GPT-6 Astra 不写显式 CoT 也能完成大量任务，从另一侧削弱“读思维链做监督”的假设。<br><a href="https://arxiv.org/abs/2609.15989" target="_blank" rel="noopener">arXiv 2609.15989</a> <a href="https://www.lesswrong.com/posts/eRmzz8J8Qkzqvzrgg/astra-can-do-a-concerning-amount-with-no-chain-of-thought" target="_blank" rel="noopener">Neel Nanda 原帖</a></p>
+          <div class="sections">
+            <div class="mini"><b>💬 点评</b>两篇合在一起给出明确结论：把 CoT 当作安全监督的“黑匣子读数”并不可靠，它既可被污染，也可能被省略。</div>
+            <div class="mini"><b>🎯 业务视角</b>对客户讲 Agent 安全，不能只承诺“我们审查模型思维链”；必须是行为层评测 + 沙箱 + 权限控制的组合拳。</div>
+            <div class="mini"><b>技术背景</b>monitorability 依赖模型架构（Redwood 正量化追踪架构对可监控性的影响），监督信号需要多路冗余。</div>
+            <div class="mini"><b>🔗 上下游影响</b>行为监控、红队、安全评测工具价值上升；单纯的 prompt / CoT 审查方案会被淘汰。</div>
+            <div class="mini"><b>🚀 6个月卖点预测</b>“Agent 行为异常检测”“不依赖思维链的合规审计”“自动化红队”将成为采购项。</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="card wide">
+        <h2>小宇宙播客洞察：两期独立节目同日押中“限速”主线</h2>
+        <p><b>AIGC日报｜《跑得最快的在喊停：AI行业罕见集体踩刹车》</b><br>Amodei 长文呼吁全球限速；HF 称开源承载 20% 负载、成本仅 1%；阿里 open-code-review 登榜；OpenAI 约 3 亿美元收购影像公司；微软发布人文 AI 行为准则；黄仁勋明确“不会让 AI 放缓”。<br><a href="https://www.xiaoyuzhoufm.com/episode/6aa87f13129fe965d3328ed9" target="_blank" rel="noopener">单集链接</a></p><p><b>每日AI新鲜事｜《2026.09.15 AI新鲜事》</b><br>Greg Brockman 称“AGI 时代已至”，主播认为 AGI 定义正被稀释；纳德拉提 AI 治理“去中心化”；Cohere CEO 质疑头部联盟是“卡特尔”；中国科技巨头举债数百亿美元投 AI，浪潮信息募资 90 亿元；1.6T 光模块订单火爆但受配套制约。<br><a href="https://www.xiaoyuzhoufm.com/episode/6aa896ce9d3264778169319a" target="_blank" rel="noopener">单集链接</a></p>
+        <p class="muted">💬 方法论提示：两档节目独立给出同一判断，说明“限速”是今日最强共识；但听众要区分<b>叙事</b>（政治与话语权博弈）与<b>事实</b>（目前尚无任何监管措施落地），勿把呼吁当政策。</p>
+      </div>
+      <div class="card">
+        <h2>技术深度：效率与 RL 的三条暗线</h2>
+        <p><b>Grouped Value Attention</b>：只存分组 value、用可吸收进 query 的线性映射按需重建 key，KV cache 较 GQA 减少 45–47%，350M 规模五任务质量基本持平。 <a href="https://arxiv.org/abs/2609.13285" target="_blank" rel="noopener">原文</a></p><p><b>HISPO</b>：segment 级 RLVR：按 rollout 熵切分并软加权，介于 token 级 GRPO 与序列级 GSPO 之间；Qwen3-1.7B 在 AIME25 上 Acc@8 较 GRPO +3.75。 <a href="https://arxiv.org/abs/2609.15471" target="_blank" rel="noopener">原文</a></p><p><b>Stellar Colosseum</b>：Google 的模型无关多 Agent 长证明框架：并行探路、readiness gate 分解、节级证伪反馈，TCS-Bench 71.0%、Codeforces 218/222，已并入 Antigravity。 <a href="https://arxiv.org/abs/2609.15983" target="_blank" rel="noopener">原文</a></p>
+        <p class="muted">当大家都在谈 Agent 上限时，KV cache 压缩、RL credit assignment 与长证明 harness 决定的是“能不能便宜地跑起来”。</p>
+      </div>
+
+      <div class="card full">
+        <h2>Hugging Face 下载热度：私有化 / 开源部署代理指标（非公有云调用量）</h2>
+        <table><thead><tr><th>模型 / 仓库</th><th>下载量口径</th><th>解读</th><th>对应业务场景</th></tr></thead><tbody><tr><td>deepseek-ai/DeepSeek-V4.1-Flash</td><td>约 326k 下载</td><td>763B 图文多模态，发布 5 天居 trending 首位</td><td>多模态理解、图文 Agent 私有化底座</td></tr><tr><td>Qwen/Qwen3.8-27B</td><td>约 7.7M 下载</td><td>28B 图文模型，社区量化版大量涌现</td><td>客服、知识库、中等规模私有部署</td></tr><tr><td>zai-org/GLM-5.3-Flash</td><td>约 1.99M 下载</td><td>321B 图文多模态 Flash 版</td><td>低成本高并发多模态调用</td></tr><tr><td>MiniMaxAI/MiniMax-H3</td><td>约 4.91M 下载</td><td>33B 图生视频模型</td><td>电商素材 / 广告短片批量生成</td></tr><tr><td>openbmb/MiniCPM5-2B</td><td>约 272k 下载</td><td>约 3B 端侧文本模型</td><td>门店终端、离线轻量助手</td></tr><tr><td>sentence-transformers/all-MiniLM-L6-v2</td><td>约 254M 下载</td><td>Embedding 下载榜长期第一</td><td>RAG / 语义检索基础盘</td></tr></tbody></table>
+        <p class="muted">口径说明：HF downloads 仅代表私有化 / 开源部署热度，不等于公有云 API 使用量；下载量为页面当前显示近似值，随时间变化。</p>
+      </div>
+
+      <div class="card wide">
+        <h2>公有云模型使用场景（Artificial Analysis + Twitter/X）</h2>
+        <p><b>选型榜（Intelligence Index v4.3）</b>：Claude Fable 5.1 与 GPT-6 Astra 并列 53 分；性价比带突出 GLM-5.3-Flash（42 分 / $0.25）、GPT-6 Astra low（46 分 / $0.82）、Meta Muse Spark 1.3（48 分 / 228 tok·s⁻¹）。<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">榜单链接</a></p>
+        <p><b>X 实际工作流</b>：Musk 的 Grok Bot 每日“读书签→建 demo→自检→部署→发链接”是持久化云端 Agent 的样板；Perplexity 用 Astra 在 Codex 里自建 mock API 做端到端测试，人工 check-in 大幅减少。<a href="https://openai.com/index/perplexity-improving-accuracy-with-astra/" target="_blank" rel="noopener">案例链接</a></p>
+        <p><b>落地建议</b>：按任务分层路由——高价值任务用强模型，批量任务走 Flash / 开源，检索重排用专用模型，并在 POC 中核算单任务成本。</p>
+      </div>
+      <div class="card">
+        <h2>其他值得记录的信号</h2>
+        <div class="other-grid"><div class="mini"><b>DeepSeek 任命 CFO</b>高瓴创投合伙人严文韬（1991 年生，曾投智谱、MiniMax）出任 DeepSeek CFO，IPO 筹备信号增强。<br><a href="https://www.qbitai.com/2026/09/489707.html" target="_blank" rel="noopener">原文链接</a></div><div class="mini"><b>英伟达限制员工用 Claude</b>英伟达内部对员工使用 Anthropic Claude 设限；同日 Claude Mods 上线，社区以插件“魔改”Claude Code。<br><a href="https://www.jiqizhixin.com/articles/2026-09-15-3" target="_blank" rel="noopener">原文链接</a></div><div class="mini"><b>智象未来 HiDream-O1-Video</b>首款物理规律导向的原生全模态视频生成模型，跻身全球 AI 视频第一梯队。<br><a href="https://www.qbitai.com/2026/09/489389.html" target="_blank" rel="noopener">原文链接</a></div><div class="mini"><b>Mistral × Samsung</b>Mistral Large 以 on-prem 方式用于三星芯片设计与制造，私有化大单延续。<br><a href="https://evertiq.com/design/2026-09-14-samsung-partners-with-mistral-ai-to-advance-chip-infrastructure" target="_blank" rel="noopener">原文链接</a></div></div>
+      </div>
+
+      <div class="card full">
+        <h2>来源覆盖表</h2>
+        <div class="source-list"><div class="source"><b>小宇宙播客</b><div class="status">已覆盖｜今日两集：AIGC日报、每日AI新鲜事；OnBoard!/硅谷101/十字路口今日无更新。</div></div><div class="source"><b>Twitter/X</b><div class="status">已覆盖｜Musk Grok Bot / Grok 4.8 两帖、Grok Bot Galaxy、前 DeepMind Bilal 警告；互动量页面不可见，不引用数字。</div></div><div class="source"><b>HuggingFace Daily Papers</b><div class="status">已覆盖｜覆盖 2026-09-15 榜单前 7（Atria Dawn、Vidu S2、ZGCM-1、Dream-RSI 等）。</div></div><div class="source"><b>HuggingFace 模型下载趋势</b><div class="status">已覆盖｜trending + downloads 双口径，下载量为页面显示近似值。</div></div><div class="source"><b>Papers With Code</b><div class="status">已覆盖（口径变化）｜paperswithcode.com 现 302 跳转至 huggingface.co/papers/trending，已按新页面采集。</div></div><div class="source"><b>ArXiv cs.AI/cs.LG</b><div class="status">已覆盖｜读取 9/14–9/15 提交共 10 篇，覆盖 Agent、安全、效率、RL。</div></div><div class="source"><b>GitHub Trending</b><div class="status">已覆盖｜daily 榜 + 今日 star 增量，聚焦 Agent 基础设施。</div></div><div class="source"><b>The Batch</b><div class="status">本周背景｜最新为 2026-09-11 Issue 370，今日无新期。</div></div><div class="source"><b>Benedict Evans Newsletter</b><div class="status">本周背景｜官网最新公开文为 2026-09-03《AI, tools and transformation》。</div></div><div class="source"><b>LessWrong / Alignment Forum</b><div class="status">已覆盖｜官网触发人机验证，经 greaterwrong 镜像取 TurnTrout / ryan_greenblatt / Neel Nanda 三帖。</div></div><div class="source"><b>AI Snakeoil</b><div class="status">已覆盖｜已迁至 normaltech.ai，最新 2026-09-14 失控事件中间立场文。</div></div><div class="source"><b>Import AI</b><div class="status">本周背景｜最新为 2026-09-07 第 472 期，今日无新期。</div></div></div>
+      </div>
+
+      <div class="card full">
+        <h2>我的笔记</h2>
+        <p class="muted">点击下方区域即可编辑；内容自动保存到当前浏览器 localStorage（500ms 防抖）。</p>
+        <div id="notes" class="notes" contenteditable="true" spellcheck="false">在这里记录你的判断、客户沟通话术或下一步跟进动作……</div>
+        <p><span id="count" class="muted">0 字</span> <button class="btn" id="exportBtn">导出 .txt</button> <button class="btn" id="clearBtn">清空</button></p>
+      </div>
+    </section>
+    <footer>生成时间：2026-09-15 23:10 CST｜页面归档：llm-daily-news/night_2026-09-15.html｜所有无法核验的来源均已显式标注，未获取到独立原文时不伪造链接。</footer>
+  </div>
+<script>
+const key='llm_night_notes_2026-09-15';const box=document.getElementById('notes');const count=document.getElementById('count');let t=null;
+function update(){const text=box.innerText.trim();count.textContent=text.length+' 字'}
+const saved=localStorage.getItem(key);if(saved){box.innerText=saved}update();
+box.addEventListener('input',()=>{update();clearTimeout(t);t=setTimeout(()=>localStorage.setItem(key,box.innerText),500)});
+document.getElementById('exportBtn').onclick=()=>{const blob=new Blob([box.innerText],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='night_2026-09-15_notes.txt';a.click();URL.revokeObjectURL(a.href)};
+document.getElementById('clearBtn').onclick=()=>{if(confirm('确认清空本页笔记？')){box.innerText='';localStorage.removeItem(key);update()}};
+</script>
+</body>
+</html>
