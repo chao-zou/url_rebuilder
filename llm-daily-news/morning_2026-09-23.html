@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>大模型晨报 2026-09-23</title>
+  <meta name="description" content="2026-09-23 大模型晨报：Agent Harness 自我改进、记忆与上下文压缩、成本路由、企业 RAG 与安全治理。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    :root{--ink:#24211e;--muted:#766d63;--paper:#fffaf0;--card:#ffffffcc;--line:#eadcc7;--amber:#e7a82f;--coral:#e45f45;--green:#2f8f71;--blue:#3867d6;--violet:#7d5fff;--shadow:0 20px 60px rgba(73,45,16,.12)}
+    *{box-sizing:border-box} body{margin:0;font-family:'Noto Sans SC',system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at top left,#fff3cb 0,#fffaf0 34%,#f3f7ff 100%);line-height:1.65} a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:28px}.hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:34px;background:linear-gradient(135deg,rgba(255,255,255,.86),rgba(255,247,224,.76));box-shadow:var(--shadow);padding:42px}.hero:after{content:"";position:absolute;right:-80px;top:-100px;width:360px;height:360px;background:conic-gradient(from 180deg,var(--amber),#fff, var(--violet), var(--coral), var(--amber));filter:blur(24px);opacity:.23;border-radius:50%}.kicker{display:inline-flex;gap:8px;align-items:center;padding:8px 14px;border-radius:999px;background:#fff4d8;border:1px solid #f2d18d;color:#8a5b00;font-weight:700}.hero h1{font-size:clamp(34px,6vw,72px);line-height:1.05;margin:18px 0 14px;letter-spacing:-1.5px}.lead{max-width:860px;font-size:20px;color:#5a5148}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:22px}.stat,.card,.news,.notes,.source-box{border:1px solid var(--line);border-radius:24px;background:var(--card);backdrop-filter:blur(12px);box-shadow:0 14px 34px rgba(73,45,16,.08)}.stat{grid-column:span 3;padding:18px}.stat b{font-size:30px;display:block}.stat span{color:var(--muted);font-size:14px}.section{margin:34px 0 18px;display:flex;align-items:flex-end;justify-content:space-between;gap:14px}.section h2{margin:0;font-size:28px}.section p{margin:0;color:var(--muted)}.card{padding:22px}.span-8{grid-column:span 8}.span-4{grid-column:span 4}.span-6{grid-column:span 6}.tag{display:inline-flex;align-items:center;gap:6px;margin:4px 6px 4px 0;padding:5px 10px;border-radius:999px;background:#f7ead3;color:#79521a;font-size:12px;font-weight:700}.tag.hot{background:#ffe1dc;color:#a93624}.tag.trend{background:#e8f4ed;color:#1b6d51}.tag.cloud{background:#eaf0ff;color:#244fb8}.news{padding:24px;transition:.22s ease;position:relative}.news:hover{transform:translateY(-3px);box-shadow:0 22px 50px rgba(73,45,16,.13)}.news h3{margin:4px 0 8px;font-size:22px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}.pill{padding:4px 9px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:12px;color:#675d54}.mini{font-size:13px;color:var(--muted)}.insights{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}.insight{background:#fffaf4;border:1px solid #f1dfc4;border-radius:16px;padding:12px}.insight strong{display:block;margin-bottom:4px}.impact{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.impact .card{min-height:160px}.rank{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}.rank:last-child{border-bottom:none}.rank small{color:var(--muted)}.notes{padding:22px;margin-top:28px}.note-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.toolbar button{border:0;border-radius:999px;padding:9px 14px;margin-left:8px;cursor:pointer;background:#2f2a24;color:#fff;font-weight:700}.toolbar button.secondary{background:#fff;border:1px solid var(--line);color:#6a5a45}#notes{width:100%;min-height:170px;border:1px solid var(--line);border-radius:18px;padding:16px;font:15px/1.7 'Noto Sans SC',sans-serif;background:#fffdfa;color:var(--ink);outline:none;resize:vertical}.footer{padding:28px 0 10px;color:var(--muted);font-size:13px}.source-box{padding:18px}.source-list{columns:2;column-gap:34px}.source-list li{break-inside:avoid;margin:5px 0}.badge{display:inline-block;font-size:12px;border-radius:999px;padding:4px 9px;background:#eef6ff;color:#275497;margin-left:6px}@media(max-width:860px){.stat,.span-8,.span-4,.span-6{grid-column:span 12}.insights,.impact{grid-template-columns:1fr}.source-list{columns:1}.hero{padding:28px}.wrap{padding:16px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker"><span class="material-symbols-outlined">wb_sunny</span> 大模型晨报 · 2026-09-23 周三</div>
+      <h1>Agent 进入「Harness 工程学」竞争：模型不再是唯一变量。</h1>
+      <p class="lead">今日主线：论文、GitHub 与开发者社区同时指向——决定企业实际 ROI 的，正从"模型多聪明"转向外层 Harness 的递归自我改进、记忆/上下文压缩、失败恢复与多模型路由。开源量化模型 + Embedding 继续撑起私有化热度，云端则是高智能闭源模型与低成本开源模型分层共存。</p>
+      <div class="grid">
+        <div class="stat"><b>12</b><span>覆盖来源与原文入口</span></div>
+        <div class="stat"><b>4</b><span>7天高频信号：Harness/记忆/成本/CUA</span></div>
+        <div class="stat"><b>5 min</b><span>扫读定位：快讯 + 业务解释</span></div>
+        <div class="stat"><b>HF</b><span>下载量视作私有化/开源部署热度</span></div>
+      </div>
+    </section>
+
+    <section class="section"><div><h2>今日高频信号</h2><p>按近 7 天多源重复出现、近 30 天连续出现的主题归纳。</p></div></section>
+    <div class="impact">
+      <article class="card"><span class="tag hot">7天高频信号</span><h3>Harness 本身成为可训练、可蒸馏的对象</h3><p>HF Daily Papers 同日出现 RRSI（正则化递归自我改进）、Harness-Zero（Agent-as-Harness 蒸馏）、ACLArena（持续学习）；Composio 又实测同一模型在 6 种 Harness 下的差异。竞争焦点从模型外移到脚手架。</p></article>
+      <article class="card"><span class="tag hot">7天高频信号</span><h3>记忆与上下文压缩走向 tool call 级精细化</h3><p>Jev-Mem、DolphinBench 与 X 上多条 Jev compaction、supermemory 复刻帖共同指向：不再用"总结历史"，而是对每次 tool call / 检索结果做相关性打分与失效控制，直接省 Token。</p></article>
+      <article class="card"><span class="tag trend">30天持续趋势</span><h3>成本与安全下沉为 Agent 平台的默认能力</h3><p>多模型路由、小专模型（CUA-S1-FORMS）、FP8/FP4 量化与 Meta Muse 的 VM 隔离/凭证分离一起，说明"按任务选最便宜模型 + 默认模型会被骗"正在变成产品基线，而非卖点噱头。</p></article>
+    </div>
+
+    <section class="section"><div><h2>5 分钟扫读</h2><p>每条均给出点评、业务视角、技术背景、上下游影响和 6 个月产品卖点预测。</p></div></section>
+    <div class="grid">
+      <article class="news span-6">
+        <div class="meta"><span class="pill">HuggingFace Daily Papers</span><span class="pill">Agent / RSI</span><span class="tag hot">7天高频信号</span></div>
+        <h3>RRSI：让 Agent Harness 递归自我改进，且不跑偏</h3>
+        <p>论文提出让 Agent 的 prompts、tooling、memory、context management 等 Harness 组件自动迭代优化，并用正则化抑制自我改进中的退化与过拟合。同批还有 Harness-Zero（把外部 Harness 蒸馏进模型）、ACLArena（LoRA experts + offline replay 持续学习）。</p>
+        <div class="insights"><div class="insight"><strong>💬点评</strong>护城河正从"模型权重"转向"会自我进化的运行系统"。</div><div class="insight"><strong>🎯业务视角</strong>可包装成"越用越懂业务流程"的运营型 Agent，而非一次性交付。</div><div class="insight"><strong>技术背景</strong>自动改写 Prompt/工具/记忆需要防退化、防过拟合与可回滚版本。</div><div class="insight"><strong>🔗上下游影响</strong>上游依赖可观测轨迹与评测；下游影响 Agent 平台与行业交付 SLA。</div></div>
+        <p><strong>🚀6个月卖点预测：</strong>"Harness 自动优化 + 效果可回滚 + 改进过程可审计"会成为企业 Agent 平台高阶卖点。<br><a href="https://huggingface.co/papers/2609.24972" target="_blank">RRSI 原文</a> · <a href="https://huggingface.co/papers/2609.24974" target="_blank">Harness-Zero</a> · <a href="https://huggingface.co/papers/2609.23989" target="_blank">ACLArena</a></p>
+      </article>
+
+      <article class="news span-6">
+        <div class="meta"><span class="pill">X / HuggingFace</span><span class="pill">Memory / Context</span><span class="tag hot">7天高频信号</span></div>
+        <h3>Jev compaction + Jev-Mem：给 Agent 的上下文做"实时瘦身"</h3>
+        <p>X 上多位开发者演示用 Jev 对 Claude Code / Coding Agent 的每次 tool call、搜索结果、文件读取做相关性打分，只保留仍相关内容；对应论文 Jev-Mem 用快速 System-One 机制控制记忆，DolphinBench 则刻画记忆机制的效果-成本 Pareto 前沿，supermemory 作者称约 60 行即可复刻极简 Agent Memory。</p>
+        <div class="insights"><div class="insight"><strong>💬点评</strong>上下文管理从"事后总结"进化为"逐条筛选 + 即时压缩"。</div><div class="insight"><strong>🎯业务视角</strong>长会话客服/导购/研报场景可直接降 Token、减遗忘。</div><div class="insight"><strong>技术背景</strong>记忆需要索引、失效控制、身份画像与 compaction recap 分层组织。</div><div class="insight"><strong>🔗上下游影响</strong>上游是向量/检索层；下游影响 AICC、Copilot 与长周期 Agent。</div></div>
+        <p><strong>🚀6个月卖点预测：</strong>"上下文自动瘦身：长任务不爆窗、Token 可省 X%"会成为 Agent 平台标配指标。<br><a href="https://huggingface.co/papers/2609.23986" target="_blank">Jev-Mem 论文</a> · <a href="https://x.com/tamarajtran/status/2100694549362553153" target="_blank">X 演示①</a> · <a href="https://x.com/DhravyaShah/status/2101745550752428340" target="_blank">supermemory</a></p>
+      </article>
+
+      <article class="news span-6">
+        <div class="meta"><span class="pill">X</span><span class="pill">Cost / Routing</span><span class="tag hot">7天高频信号</span></div>
+        <h3>成本治理：失败时多耗 3–5 倍 Token + 多模型路由</h3>
+        <p>Composio 把同一 GPT-6 Astra 放进 Codex、Claude Code、OpenCode 等 6 种 Harness 跑 29 个 agentic tasks：成功率接近，但失败时不同 Harness 多消耗 3–5 倍 Token；另有开发者用 ModelRouterMiddleware 让 fast 模型做 lookup/extraction、powerful 模型做架构/高风险决策，指令是"选能完成任务的最低成本模型"。</p>
+        <div class="insights"><div class="insight"><strong>💬点评</strong>真正烧钱的不是成功，而是失败恢复与"大材小用"。</div><div class="insight"><strong>🎯业务视角</strong>可对客户按"云上高阶 / 私有高频 / 端侧低延迟"三档分别报价。</div><div class="insight"><strong>技术背景</strong>需要错误检测、及时止损的编排策略和任务难度分类器。</div><div class="insight"><strong>🔗上下游影响</strong>上游是 Model Router / 网关；下游影响所有 Copilot 与 Agent 的成本曲线。</div></div>
+        <p><strong>🚀6个月卖点预测：</strong>"按任务自动路由 + 失败快速止损 + 成本看板"会成为公有云 AI 平台核心卖点。<br><a href="https://x.com/composio/status/2100308380980068538" target="_blank">Composio 实测</a> · <a href="https://x.com/0xMovez/status/2101007482919227841" target="_blank">模型路由代码</a></p>
+      </article>
+
+      <article class="news span-6">
+        <div class="meta"><span class="pill">ArXiv / X</span><span class="pill">Computer Use</span><span class="tag hot">7天高频信号</span></div>
+        <h3>CUA 双线推进：过程级评测 OSWorld-Pro + 小专模型填表单</h3>
+        <p>OSWorld-Pro 针对 Computer-Use Agent 只看结果的缺陷，做过程级评测、定位中间失败；trycua 开源 CUA-S1-FORMS，用"小而专"模型一次决定表单如何填、再由 Driver 执行，替代通用 Agent 的高成本逐步推理。</p>
+        <div class="insights"><div class="insight"><strong>💬点评</strong>CUA 从"炫技操作桌面"走向"可定位失败 + 专用降本"。</div><div class="insight"><strong>🎯业务视角</strong>电商后台批量上架、报活动、填报表是天然落地场景。</div><div class="insight"><strong>技术背景</strong>过程评测看每步动作；小专模型用 System-One 一次性规划替代逐步推理。</div><div class="insight"><strong>🔗上下游影响</strong>上游是屏幕感知 VLM；下游影响 RPA、运营自动化与后台操作 SaaS。</div></div>
+        <p><strong>🚀6个月卖点预测：</strong>"专用小模型 + 过程可验"的 CUA 方案会比"通用 Agent 全自动"更易被采购。<br><a href="https://arxiv.org/abs/2609.24890" target="_blank">OSWorld-Pro</a> · <a href="https://x.com/trycua/status/2101014004927729737" target="_blank">CUA-S1-FORMS</a></p>
+      </article>
+
+      <article class="news span-6">
+        <div class="meta"><span class="pill">HuggingFace Daily Papers</span><span class="pill">RAG / Enterprise</span></div>
+        <h3>D-RAC：面向企业复杂文档的"检索感知切块"</h3>
+        <p>论文针对企业知识库里的 PDF、Word、PPT、扫描件，做 PDF 归一化 + 多模态 Markdown 转换的检索感知 ingestion/chunking，提升真实企业文档上的 RAG 可用性。</p>
+        <div class="insights"><div class="insight"><strong>💬点评</strong>RAG 效果的瓶颈常在"文档怎么切"，而不是模型。</div><div class="insight"><strong>🎯业务视角</strong>商品手册、质检规范、加盟政策等复杂文档问答可显著提准。</div><div class="insight"><strong>技术背景</strong>切块要感知标题层级、表格、图文关系，而非定长切片。</div><div class="insight"><strong>🔗上下游影响</strong>上游依赖文档解析/OCR；下游影响知识库、客服与导购问答。</div></div>
+        <p><strong>🚀6个月卖点预测：</strong>"企业文档一键高保真入库 + 检索感知切块"会成为知识库产品的基础卖点。<br><a href="https://huggingface.co/papers/2609.24220" target="_blank">原文链接</a></p>
+      </article>
+
+      <article class="news span-6">
+        <div class="meta"><span class="pill">The Batch</span><span class="pill">Agent Safety</span><span class="tag trend">30天持续趋势</span></div>
+        <h3>Meta Muse 的安全设计：默认"模型会被骗"，用系统层兜底</h3>
+        <p>The Batch Issue 371 介绍 Meta 个人 Agent「Muse」：VM 隔离、凭证分离、Sentinel 审批、提示注入检测；同期还报道 Proactive Memory Agent 用独立记忆代理在关键时刻提醒行动代理。Andrew Ng 在开篇强调现实风险是网络安全能力上升与治理不足，而非"末日叙事"。</p>
+        <div class="insights"><div class="insight"><strong>💬点评</strong>Agent 安全从"内容合规"升级为"动作安全 + 权限隔离"。</div><div class="insight"><strong>🎯业务视角</strong>企业会追问审计回放、越权拦截、交易前审批。</div><div class="insight"><strong>技术背景</strong>假设模型可被注入，因此在系统/沙箱层做最小权限与审批。</div><div class="insight"><strong>🔗上下游影响</strong>与 IAM、浏览器自动化、支付授权和 Agent 平台深度耦合。</div></div>
+        <p><strong>🚀6个月卖点预测：</strong>"Agent 安全沙箱 + 动作级审批 + 全轨迹审计"会成为企业版必选项。<br><a href="https://www.deeplearning.ai/the-batch/issue-371" target="_blank">原文链接</a></p>
+      </article>
+
+      <article class="news span-6">
+        <div class="meta"><span class="pill">X / vLLM</span><span class="pill">Inference</span><span class="tag trend">30天持续趋势</span></div>
+        <h3>vLLM：视频解码从 CPU 挪到 GPU NVDEC，吞吐翻倍</h3>
+        <p>vLLM 集成 PyNvVideoCodec，用 GPU NVDEC 处理视频解码、消除 CPU bottleneck，在 8×H100 场景吞吐提升 2 倍以上，适合视频 captioning、大规模多模态数据处理。另有踩坑帖提醒：vLLM 默认 near-greedy sampling 下，某些 RL 模型可能在单次响应里重复同一 tool call 直到 max_tokens。</p>
+        <div class="insights"><div class="insight"><strong>💬点评</strong>多模态推理瓶颈常在数据搬运/解码，而非纯算力。</div><div class="insight"><strong>🎯业务视角</strong>短视频/直播切片理解、商品视频打标可大幅降本提速。</div><div class="insight"><strong>技术背景</strong>GPU 硬解 + 显式 sampling 参数，能同时治吞吐和死循环。</div><div class="insight"><strong>🔗上下游影响</strong>上游是视频编解码与推理框架；下游影响内容审核、视频理解 Agent。</div></div>
+        <p><strong>🚀6个月卖点预测：</strong>"多模态推理加速 + Agent 采样参数模板"会成为私有化推理方案页关键词。<br><a href="https://x.com/vllm_project/status/2102142730134814943" target="_blank">vLLM 原文</a> · <a href="https://x.com/Tech2Wild/status/2102263581060309172" target="_blank">踩坑帖</a></p>
+      </article>
+
+      <article class="news span-6">
+        <div class="meta"><span class="pill">GitHub Trending</span><span class="pill">Agent Runtime</span><span class="tag hot">7天高频信号</span></div>
+        <h3>GitHub 今日趋势：Agent runtime / 编排赛道集体升温</h3>
+        <p>趋势榜上 google/ax（开放式 agentic orchestration runtime，今日 +2.3k★）、dream-num/univer（面向 AI Agent 的表格/文档/幻灯片/PDF Office Harness）、agent-substrate/substrate、superdesigndev/treg（agent tools 的 OpenRouter）、davila7/claude-code-templates、browser-use/video-use 同框出现。</p>
+        <div class="insights"><div class="insight"><strong>💬点评</strong>开发者注意力集中在"运行时/编排/可被 Agent 操作的软件"。</div><div class="insight"><strong>🎯业务视角</strong>少讲万能模型，多展示文档、表格、浏览器、工具的闭环。</div><div class="insight"><strong>技术背景</strong>软件需要暴露结构化可操作接口，Agent 才能稳定驱动。</div><div class="insight"><strong>🔗上下游影响</strong>上游是工具/路由标准；下游影响办公套件、运营与投放自动化。</div></div>
+        <p><strong>🚀6个月卖点预测：</strong>"Agent-native 办公/工具运行时 + 编排引擎"会成为 SaaS 改造主线。<br><a href="https://github.com/google/ax" target="_blank">google/ax</a> · <a href="https://github.com/dream-num/univer" target="_blank">univer</a> · <a href="https://github.com/trending?since=daily" target="_blank">Trending 总榜</a></p>
+      </article>
+
+      <article class="news span-6">
+        <div class="meta"><span class="pill">Artificial Analysis</span><span class="pill">Cloud API</span><span class="tag cloud">公有云模型场景</span></div>
+        <h3>公有云选型：高智能看 Claude/GPT，低成本看开源模型</h3>
+        <p>模型榜上 Claude Opus 5.5（intelligence 58，1M context）居首，GPT-6 Astra（53）、Claude Fable 5.1（53）紧随；成本侧 GPT-6 Luna、Granite 4.2 3B 每任务成本最低；开放权重的 GLM-5.3、MiMo-V2.6-Pro 在 Fireworks/DeepInfra/Modular 等不同 Provider 上速度与首 token 延迟差异显著（同一 GLM-5.3 首块延迟从 0.64s 到 1.54s 不等）。</p>
+        <div class="insights"><div class="insight"><strong>💬点评</strong>选型从"模型名"变成"任务 × Provider × 价格/延迟曲线"。</div><div class="insight"><strong>🎯业务视角</strong>复杂决策用高智能模型，高频生成用低成本开源端点。</div><div class="insight"><strong>技术背景</strong>同一模型在不同 Provider 的 context、吞吐、延迟可能差很多。</div><div class="insight"><strong>🔗上下游影响</strong>上游是 API 网关/路由与缓存；下游影响营销、客服、代码等全部场景。</div></div>
+        <p><strong>🚀6个月卖点预测：</strong>"多 Provider 统一接入 + 按性价比实时路由"会成为模型网关的关键卖点。<br><a href="https://artificialanalysis.ai/leaderboards/models" target="_blank">模型榜</a> · <a href="https://artificialanalysis.ai/leaderboards/providers" target="_blank">Provider 榜</a></p>
+      </article>
+
+      <article class="news span-6">
+        <div class="meta"><span class="pill">AI Snakeoil / Import AI</span><span class="pill">Governance</span><span class="tag trend">30天持续趋势</span></div>
+        <h3>失控事件治理 + AI pacing：把"减速"变成可执行机制</h3>
+        <p>Kapoor/Narayanan 把近期失控事件定位为"AI 控制 + 网络安全 + 组织治理"问题，主张企业对 Agent 行为担责；Import AI 473 介绍 RAND 的"Freedom of Action"超级智能战略与 AI pacing 议程（触发条件、合规验证、退出机制），并测绘"去审查"开源权重大规模再分发的滥用风险。</p>
+        <div class="insights"><div class="insight"><strong>💬点评</strong>治理讨论正从立场口号转向可触发、可验证、可退出的工具。</div><div class="insight"><strong>🎯业务视角</strong>企业应建立事故报告、权限边界与 Agent 可靠性验收标准。</div><div class="insight"><strong>技术背景</strong>能力分数 ≠ 可靠性，需一致性、鲁棒性、校准与失败安全。</div><div class="insight"><strong>🔗上下游影响</strong>影响评测、合规审计、行业监管与 Agent 交付流程。</div></div>
+        <p><strong>🚀6个月卖点预测：</strong>"Agent 可靠性评估 + 事故可追责 + 合规报告自动化"会成为政企采购加分项。<br><a href="https://www.normaltech.ai/p/the-ai-as-normal-technology-view" target="_blank">Normal Tech</a> · <a href="https://importai.substack.com/p/import-ai-473-the-uss-superintelligence" target="_blank">Import AI 473</a></p>
+      </article>
+    </div>
+
+    <section class="section"><div><h2>来源雷达</h2><p>已覆盖指定来源；如站点无今日可读更新，则采用最新可访问条目并注明。</p></div></section>
+    <div class="source-box">
+      <ol class="source-list">
+        <li>Twitter/X：Jev 上下文压缩、多模型路由、vLLM NVDEC、CUA-S1、Composio Harness 实测等实战帖。<a href="https://x.com/0x_kaize/status/2100913118528393596" target="_blank">示例</a></li>
+        <li>HuggingFace Daily Papers：2026-09-21 的 RRSI、D-RAC、ACLArena、Jev-Mem、Harness-Zero 等。<a href="https://huggingface.co/papers" target="_blank">原文</a></li>
+        <li>HuggingFace 模型下载趋势：text-generation / embedding / 多模态下载榜，作为私有化/开源部署热度代理。<a href="https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads" target="_blank">原文</a></li>
+        <li>Papers With Code：本次抓取页面内容异常（返回为 HF Daily Papers），未能核验其真实最新列表，故不列入具体条目。<a href="https://paperswithcode.com/" target="_blank">站点入口</a></li>
+        <li>ArXiv cs.AI / cs.LG：Critical-State RL、OSWorld-Pro、DolphinBench、Rare Event、Emergent Collusion、LoRA Hypernetwork 等。<a href="https://arxiv.org/list/cs.AI/recent" target="_blank">cs.AI</a> / <a href="https://arxiv.org/list/cs.LG/recent" target="_blank">cs.LG</a></li>
+        <li>GitHub Trending：google/ax、univer、substrate、treg、claude-code-templates、video-use 等。<a href="https://github.com/trending?since=daily" target="_blank">原文</a></li>
+        <li>The Batch：最新 Issue 371（2026-09-18）Meta Agent 安全、Navier-Stokes 争议、Claude 被转售等。<a href="https://www.deeplearning.ai/the-batch/issue-371" target="_blank">原文</a></li>
+        <li>Benedict Evans：最新可访问 AI 文章为 2026-09-03《AI, tools and transformation》，强调组织采纳与变更管理。<a href="https://www.ben-evans.com/benedictevans/2026/9/3/ai-tools-and-transformation" target="_blank">原文</a></li>
+        <li>LessWrong / Alignment Forum：Swarm Scaling、臭氧治理类比、Talker vs Doer 等（Alignment Forum 直站触发安全校验，以 LessWrong 镜像为准）。<a href="https://www.lesswrong.com/" target="_blank">原文</a></li>
+        <li>AI Snakeoil / Normal Technology：失控事件的"正常技术"解释框架与 Agent 可靠性科学。<a href="https://www.normaltech.ai/" target="_blank">原文</a></li>
+        <li>Import AI：473 期（2026-09-21）美国超级智能战略、AI pacing、去审查开源权重测绘。<a href="https://importai.substack.com/" target="_blank">原文</a></li>
+        <li>Artificial Analysis：250+ 模型 / 500+ 端点的 intelligence、价格、速度、延迟、context 横评。<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank">原文</a></li>
+      </ol>
+    </div>
+
+    <section class="section"><div><h2>HF 下载热度榜观察</h2><p>口径：HuggingFace Hub API，2026-09-23 抓取；下载量仅代表开源/私有化部署热度，不等同于公有云 API 调用量。</p></div></section>
+    <div class="card">
+      <div class="rank"><strong>Qwen/Qwen3-0.6B</strong><span>25,377,576 downloads <a href="https://huggingface.co/Qwen/Qwen3-0.6B" target="_blank">链接</a></span></div>
+      <div class="rank"><strong>Qwen/Qwen3-8B</strong><span>12,687,299 downloads <a href="https://huggingface.co/Qwen/Qwen3-8B" target="_blank">链接</a></span></div>
+      <div class="rank"><strong>unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF</strong><span>12,639,703 downloads <a href="https://huggingface.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF" target="_blank">链接</a></span></div>
+      <div class="rank"><strong>Qwen/Qwen2.5-7B-Instruct</strong><span>9,610,820 downloads <a href="https://huggingface.co/Qwen/Qwen2.5-7B-Instruct" target="_blank">链接</a></span></div>
+      <div class="rank"><strong>Qwen/Qwen2.5-0.5B-Instruct</strong><span>8,568,538 downloads <a href="https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct" target="_blank">链接</a></span></div>
+      <div class="rank"><strong>nvidia/Qwen3.6-35B-A3B-NVFP4</strong><span>7,736,009 downloads <a href="https://huggingface.co/nvidia/Qwen3.6-35B-A3B-NVFP4" target="_blank">链接</a></span></div>
+      <p class="mini" style="margin-top:12px">配套基础设施热度：Embedding 侧 BAAI/bge-small-en-v1.5 达 <strong>64,490,920</strong>、Qwen3-Embedding-0.6B 8,854,502；Reranker 侧 bge-reranker-v2-m3 17,313,621；多模态侧 Qwen/Qwen3-VL-8B-Instruct 20,173,542。说明 RAG 检索栈与多模态私有部署需求同样旺盛。</p>
+    </div>
+
+    <section class="notes">
+      <div class="note-head"><div><h2>我的笔记</h2><p class="mini">点击编辑，500ms 防抖自动保存到本地浏览器 localStorage。</p></div><div class="toolbar"><span class="mini" id="count">0 字</span><button id="exportBtn">导出 .txt</button><button class="secondary" id="clearBtn">清空</button></div></div>
+      <textarea id="notes" placeholder="记录今天想追踪的模型、客户话术、产品包装点……"></textarea>
+      <p class="mini" id="saveState">尚未编辑</p>
+    </section>
+
+    <footer class="footer">生成时间：2026-09-23 07:50 CST · 页面仅整理公开可访问来源，不伪造缺失链接；Papers With Code 本次抓取异常已如实标注，未用历史印象填充。</footer>
+  </main>
+  <script>
+    const key='llm_morning_notes_2026-09-23';
+    const notes=document.getElementById('notes');
+    const count=document.getElementById('count');
+    const saveState=document.getElementById('saveState');
+    const exportBtn=document.getElementById('exportBtn');
+    const clearBtn=document.getElementById('clearBtn');
+    let timer=null;
+    function updateCount(){count.textContent=(notes.value||'').trim().length+' 字'}
+    function save(){localStorage.setItem(key,notes.value);saveState.textContent='已自动保存 · '+new Date().toLocaleTimeString('zh-CN',{hour12:false});}
+    notes.value=localStorage.getItem(key)||'';updateCount();
+    notes.addEventListener('input',()=>{updateCount();saveState.textContent='保存中…';clearTimeout(timer);timer=setTimeout(save,500);});
+    exportBtn.addEventListener('click',()=>{const blob=new Blob([notes.value],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='大模型晨报笔记_2026-09-23.txt';a.click();URL.revokeObjectURL(a.href);});
+    clearBtn.addEventListener('click',()=>{if(confirm('确认清空今天的笔记？')){notes.value='';localStorage.removeItem(key);updateCount();saveState.textContent='已清空';}});
+  </script>
+</body>
+</html>
