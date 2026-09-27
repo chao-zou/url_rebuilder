@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>☀️ 大模型晨报 2026-09-28</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#08111f;--card:rgba(255,255,255,.08);--line:rgba(255,255,255,.14);--text:#eef6ff;--muted:#a8b7cc;--accent:#7dd3fc;--accent2:#c084fc;--hot:#fb7185;--green:#34d399;--amber:#fbbf24}
+    *{box-sizing:border-box} body{font-family:'Noto Sans SC',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:radial-gradient(circle at 10% 0%,rgba(56,189,248,.25),transparent 30%),radial-gradient(circle at 90% 10%,rgba(168,85,247,.22),transparent 28%),linear-gradient(180deg,#08111f,#101827 48%,#0f172a);color:var(--text);min-height:100vh}
+    .glass{background:var(--card);border:1px solid var(--line);backdrop-filter:blur(18px);box-shadow:0 24px 80px rgba(0,0,0,.28)}
+    .chip{border:1px solid rgba(125,211,252,.28);background:rgba(14,165,233,.12);color:#bae6fd}.chip-hot{border-color:rgba(251,113,133,.4);background:rgba(251,113,133,.14);color:#fecdd3}.chip-trend{border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.14);color:#bbf7d0}.chip-cloud{border-color:rgba(192,132,252,.4);background:rgba(192,132,252,.14);color:#e9d5ff}
+    .card-hover{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}.card-hover:hover{transform:translateY(-4px);border-color:rgba(125,211,252,.55);box-shadow:0 30px 90px rgba(14,165,233,.18)}
+    a{color:#7dd3fc;text-decoration:none} a:hover{text-decoration:underline}.note-area{min-height:180px;outline:none}.meter{height:8px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}.meter>span{display:block;height:100%;background:linear-gradient(90deg,#7dd3fc,#c084fc,#fb7185)}
+  </style>
+</head>
+<body>
+  <main class="max-w-6xl mx-auto px-5 py-8 md:py-12">
+    <header class="glass rounded-3xl p-7 md:p-10 mb-6 overflow-hidden relative">
+      <div class="absolute inset-0 opacity-40 pointer-events-none" style="background:radial-gradient(circle at 70% 20%,rgba(125,211,252,.25),transparent 26%),radial-gradient(circle at 20% 90%,rgba(251,191,36,.14),transparent 24%)"></div>
+      <div class="relative">
+        <div class="flex flex-wrap gap-2 mb-5"><span class="chip rounded-full px-3 py-1 text-sm">☀️ 晨报</span><span class="chip-trend rounded-full px-3 py-1 text-sm">2026-09-28</span><span class="chip-cloud rounded-full px-3 py-1 text-sm">5分钟扫读</span></div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">大模型晨报</h1>
+        <p class="text-xl md:text-2xl text-sky-100 leading-relaxed max-w-4xl">今日主线：Agent 进入“更便宜的决策层 + 更强的安全审计 + 更细的模型路由”阶段，开源端的 Qwen/多模态/量化热度继续支撑私有化部署，公有云侧则转向 Intelligence × Cost × Latency 的组合选型。</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
+          <div class="glass rounded-2xl p-4"><div class="text-3xl font-bold">12</div><div class="text-sm text-slate-300">覆盖信源</div></div>
+          <div class="glass rounded-2xl p-4"><div class="text-3xl font-bold">8</div><div class="text-sm text-slate-300">重点快讯</div></div>
+          <div class="glass rounded-2xl p-4"><div class="text-3xl font-bold">3</div><div class="text-sm text-slate-300">高频信号</div></div>
+          <div class="glass rounded-2xl p-4"><div class="text-3xl font-bold">6个月</div><div class="text-sm text-slate-300">产品卖点预测</div></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="glass rounded-3xl p-6 mb-6">
+      <h2 class="text-2xl font-bold mb-4">🔥 先看结论</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="rounded-2xl bg-sky-400/10 border border-sky-300/20 p-4"><div class="font-bold mb-2">7天高频信号：Agent 成本治理</div><p class="text-slate-300 text-sm leading-6">X/Twitter、The Batch、Artificial Analysis 与 HF 模型榜同时出现“小模型/决策模型/路由/Token 效率”线索，说明 Agent 从“能做事”转向“能稳定低成本做事”。</p></div>
+        <div class="rounded-2xl bg-emerald-400/10 border border-emerald-300/20 p-4"><div class="font-bold mb-2">30天持续趋势：开源私有化部署</div><p class="text-slate-300 text-sm leading-6">HF 下载量榜继续由 Qwen、GGUF、视觉/语音模型占据显著位置，代表企业对私有化、端侧、垂直任务模型的热度仍在延续。</p></div>
+        <div class="rounded-2xl bg-fuchsia-400/10 border border-fuchsia-300/20 p-4"><div class="font-bold mb-2">业务判断：卖点变成“可控交付”</div><p class="text-slate-300 text-sm leading-6">未来半年，客户不只问模型分数，会更关心可审计工作流、失败回放、成本上限、私有数据闭环与多模型 SLA。</p></div>
+      </div>
+    </section>
+
+    <section class="grid lg:grid-cols-2 gap-5 mb-6">
+      <article class="glass card-hover rounded-3xl p-6">
+        <div class="flex flex-wrap gap-2 mb-3"><span class="chip-hot rounded-full px-3 py-1 text-xs">7天高频信号</span><span class="chip rounded-full px-3 py-1 text-xs">Twitter/X</span></div>
+        <h3 class="text-xl font-bold mb-2">1. Builder 社区在讨论“Jev/决策模型 + LLM”双层 Agent</h3>
+        <p class="text-slate-300 leading-7">X 上多条高互动帖子把注意力放在 33ms open-weight decision models、price-vs-IQ routing、以及把 LLM 留给开放式推理的架构上；还有帖子给出面向 Claude/Codex/Grok 的 10 步可控系统蓝图。<a href="https://x.com/Austen/status/2103449897437429920" target="_blank">原文</a> <a href="https://x.com/0xwhrrari/status/2103157617715491278" target="_blank">补充</a> [17945]</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-200 leading-6">
+          <li>💬点评：核心不是“又一个模型”，而是把判断、分类、路由从高价 LLM 中拆出去。</li>
+          <li>🎯业务视角：客服、营销审核、线索分层、售后工单等高频低风险任务适合先用决策模型降本。</li>
+          <li>技术背景：小模型/分类器承担受限动作空间，LLM 负责复杂推理与异常兜底。</li>
+          <li>🔗上下游影响：上游需要日志标注与决策样本；下游需要 A/B 实验验证召回、误判和成本。</li>
+          <li>🚀6个月产品卖点预测：Agent 平台会内置“轻量决策层 + LLM fallback + 成本仪表盘”。</li>
+        </ul>
+      </article>
+
+      <article class="glass card-hover rounded-3xl p-6">
+        <div class="flex flex-wrap gap-2 mb-3"><span class="chip-hot rounded-full px-3 py-1 text-xs">7天高频信号</span><span class="chip rounded-full px-3 py-1 text-xs">HuggingFace Daily Papers</span></div>
+        <h3 class="text-xl font-bold mb-2">2. HF Daily Papers：World Model、Agent-Editing、Qwen-Planner-Agent 同日聚集</h3>
+        <p class="text-slate-300 leading-7">HuggingFace Daily Papers 页面显示，9月25日前后高热论文包括 Training Object Permanence in World Models、Agent-Editing World Model、Coding Agents for Generalized Task and Motion Planning Problems、Qwen-Planner-Agent、IterSynth 等。<a href="https://huggingface.co/papers" target="_blank">原文</a> [HF]</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-200 leading-6">
+          <li>💬点评：Agent 研究从“语言计划”扩展到 world model、动作规划、闭环验证。</li>
+          <li>🎯业务视角：零售/鞋服场景可迁移到“商品图理解—脚本生成—投放复盘”的闭环 Agent。</li>
+          <li>技术背景：VLM、环境状态记忆、planner、execution verifier 正在组合成更长链路系统。</li>
+          <li>🔗上下游影响：上游依赖多模态数据与动作轨迹；下游影响内容生产、门店巡检、商品运营自动化。</li>
+          <li>🚀6个月产品卖点预测：行业 Agent 会从“问答助手”包装为“可执行的运营编排器”。</li>
+        </ul>
+      </article>
+
+      <article class="glass card-hover rounded-3xl p-6">
+        <div class="flex flex-wrap gap-2 mb-3"><span class="chip-trend rounded-full px-3 py-1 text-xs">30天持续趋势</span><span class="chip rounded-full px-3 py-1 text-xs">HuggingFace Models</span></div>
+        <h3 class="text-xl font-bold mb-2">3. HF 模型趋势：Qwen、GGUF、多模态下载热继续走强</h3>
+        <p class="text-slate-300 leading-7">HF Trending Models 显示，Qwen-Image-2.1、Qwen3.8-27B、DeepSeek-V4.1-Flash、MiMo-V2.6 系列、GGUF 量化模型与 OCR/ASR 模型均在近期榜单中出现；例如 Qwen3.8-27B 页面显示 6.73M 下载，Ternary-Bonsai-2-27B-gguf 显示 3.34M 下载。<a href="https://huggingface.co/models?sort=trending" target="_blank">原文</a> [HF]</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-200 leading-6">
+          <li>💬点评：下载量更能代表私有化/开源部署热度，而不等同于公有云 API 调用量。</li>
+          <li>🎯业务视角：客户若强调数据安全、成本可控、本地 GPU 利用率，开源模型仍是主线。</li>
+          <li>技术背景：GGUF、vLLM、llama.cpp、MLX 等生态降低了边缘和私有部署门槛。</li>
+          <li>🔗上下游影响：模型提供方需要量化版本与推理文档；应用方需要评测、灰度与模型治理。</li>
+          <li>🚀6个月产品卖点预测：平台会主打“一键私有部署 + 量化评估 + 多模态推理套餐”。</li>
+        </ul>
+      </article>
+
+      <article class="glass card-hover rounded-3xl p-6">
+        <div class="flex flex-wrap gap-2 mb-3"><span class="chip-cloud rounded-full px-3 py-1 text-xs">公有云模型使用场景</span><span class="chip rounded-full px-3 py-1 text-xs">Artificial Analysis</span></div>
+        <h3 class="text-xl font-bold mb-2">4. 公有云模型选型从“榜单第一”转向 Intelligence × Cost × Latency</h3>
+        <p class="text-slate-300 leading-7">Artificial Analysis 今日可见的更新包括 MiMo-V2.6-Flash 评测、GLM-5.3、DeepSeek V4.1 Flash、Mercury 2.5，以及 GPT-6 Sol/Luna 与 Claude Opus 5.5 相关文章；其页面同时提供 Intelligence Index、Coding Agent Index、Cost per Task、Output Speed、Latency 等维度。<a href="https://www.artificialanalysis.ai/" target="_blank">原文</a> [AA]</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-200 leading-6">
+          <li>💬点评：公有云模型的真实卖点会变成“场景最优路由”，而不是固定一家模型。</li>
+          <li>🎯业务视角：AICC、客服质检、内容生成、Agent 办公流可按质量/时延/成本做分层调度。</li>
+          <li>技术背景：Benchmark 正在加入 agentic knowledge work、terminal use、document reasoning 等业务任务。</li>
+          <li>🔗上下游影响：上游模型商卷低价和缓存；下游 SaaS/Agent 平台需要统一评测与预算控制。</li>
+          <li>🚀6个月产品卖点预测：企业 AI 网关将宣传“按任务自动挑模型，稳定 SLA，成本可预测”。</li>
+        </ul>
+      </article>
+
+      <article class="glass card-hover rounded-3xl p-6">
+        <div class="flex flex-wrap gap-2 mb-3"><span class="chip-hot rounded-full px-3 py-1 text-xs">7天高频信号</span><span class="chip rounded-full px-3 py-1 text-xs">ArXiv / Papers With Code</span></div>
+        <h3 class="text-xl font-bold mb-2">5. 研究侧关注 Agent 记忆、安全与可解释执行</h3>
+        <p class="text-slate-300 leading-7">ArXiv 检索显示，近期相关论文覆盖 CROP 的 Token-efficient reasoning、The Probabilistic Structure of LLMs、Structured Inference with Large Language Gibbs；Papers With Code 检索还出现 Jev-Mem 与 Agent-Editing World Model。<a href="http://arxiv.org/abs/2604.14214v1" target="_blank">CROP</a> <a href="http://arxiv.org/abs/2609.25134v1" target="_blank">Probabilistic Structure</a> <a href="https://paperswithcode.co/paper/2609.23986" target="_blank">Jev-Mem</a> [17998]</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-200 leading-6">
+          <li>💬点评：工程痛点正在倒逼研究主题：少 Token、可控记忆、可解释决策、可复盘 trace。</li>
+          <li>🎯业务视角：对企业客户最有价值的是“少花钱、不乱答、能追责”。</li>
+          <li>技术背景：Prompt optimization、概率建模、memory controller、trace tampering 检测构成 Agent 可靠性栈。</li>
+          <li>🔗上下游影响：上游需要评测数据集；下游需要观测、审计、回滚与权限边界。</li>
+          <li>🚀6个月产品卖点预测：Agent 产品会把“安全记忆”和“执行轨迹防篡改”做成标准模块。</li>
+        </ul>
+      </article>
+
+      <article class="glass card-hover rounded-3xl p-6">
+        <div class="flex flex-wrap gap-2 mb-3"><span class="chip-trend rounded-full px-3 py-1 text-xs">30天持续趋势</span><span class="chip rounded-full px-3 py-1 text-xs">GitHub Trending</span></div>
+        <h3 class="text-xl font-bold mb-2">6. GitHub Trending：AI Agent Skills 与 CLI 工具生态继续扩散</h3>
+        <p class="text-slate-300 leading-7">GitHub Trending 聚合结果显示，2026-09-28 的开源趋势中 9 个 Trending 仓库有 6 个与 AI/ML 相关；同日还有 AI CLI Tools Digest，覆盖 Claude Code、OpenAI Codex、Gemini CLI、GitHub Copilot CLI、Qwen Code、Ollama、llama.cpp 等工具。<a href="https://github.com/stevenko2002/agents-radar/issues/1482" target="_blank">原文</a> <a href="https://github.com/stevenko2002/agents-radar/issues/1495" target="_blank">CLI 工具</a> [17992]</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-200 leading-6">
+          <li>💬点评：Agent 不再只是模型能力，而是 CLI、Repo、workflow、skills 的组合生态。</li>
+          <li>🎯业务视角：企业内部可以用“技能市场 + 工具权限 + 审批流”把 Agent 复制到不同团队。</li>
+          <li>技术背景：MCP、代码代理、终端代理、模型路由和工作区隔离是基础设施关键词。</li>
+          <li>🔗上下游影响：上游工具链竞争插件入口；下游业务团队将要求低代码化模板与审计日志。</li>
+          <li>🚀6个月产品卖点预测：Agent Kit 类产品会强调“企业技能编排、权限治理、多人协同”。</li>
+        </ul>
+      </article>
+
+      <article class="glass card-hover rounded-3xl p-6">
+        <div class="flex flex-wrap gap-2 mb-3"><span class="chip rounded-full px-3 py-1 text-xs">The Batch / Import AI</span><span class="chip-hot rounded-full px-3 py-1 text-xs">安全与治理</span></div>
+        <h3 class="text-xl font-bold mb-2">7. Newsletter 主线：模型发布很热，但 Agent 风险治理同步升温</h3>
+        <p class="text-slate-300 leading-7">The Batch 最新一期标题直接覆盖 Opus、Jev 与“Running Two Models in One Agent”；上期仍围绕 Meta’s Agent Security、Fraud on Claude。Import AI 最新公开期关注美国 superintelligence strategy、机器诠释学等治理议题。<a href="https://www.deeplearning.ai/the-batch/issue-372" target="_blank">The Batch</a> <a href="https://importai.substack.com/p/import-ai-473-the-uss-superintelligence" target="_blank">Import AI</a> [17970]</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-200 leading-6">
+          <li>💬点评：行业叙事从“谁最强”转向“谁能被放心接入业务流程”。</li>
+          <li>🎯业务视角：对外方案要把安全、审批、可观测作为卖点，而不是补充页。</li>
+          <li>技术背景：Agent Security 涉及权限边界、工具调用审计、数据外泄和多步任务失败恢复。</li>
+          <li>🔗上下游影响：上游模型方要提供安全评测；下游企业要建立红队、灰度、回滚机制。</li>
+          <li>🚀6个月产品卖点预测：“可控 Agent”会成为企业级 AI 合同里的核心验收项。</li>
+        </ul>
+      </article>
+
+      <article class="glass card-hover rounded-3xl p-6">
+        <div class="flex flex-wrap gap-2 mb-3"><span class="chip rounded-full px-3 py-1 text-xs">Benedict Evans / LessWrong / AI Snakeoil</span></div>
+        <h3 class="text-xl font-bold mb-2">8. 批判性视角：AI 工具不会自动改造企业，需嵌入组织流程</h3>
+        <p class="text-slate-300 leading-7">Benedict Evans 在 9月文章中提醒，“每个人都能让模型生成工具”并不等于企业软件会自然消失；LessWrong 对 AI alignment 的定义强调让高级 Agent 在真实世界产生良好结果；AI Snake Oil/AI as Normal Technology 则持续从“正常技术”视角审视 AI 能做什么与不能做什么。<a href="https://www.ben-evans.com/benedictevans/2026/9/3/ai-tools-and-transformation" target="_blank">Benedict Evans</a> <a href="https://www.lesswrong.com/w/ai-alignment" target="_blank">LessWrong</a> <a href="https://www.aisnakeoil.com/" target="_blank">AI Snake Oil</a> [16953]</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-200 leading-6">
+          <li>💬点评：生成工具容易，改变流程、权限、指标与责任边界更难。</li>
+          <li>🎯业务视角：客户方案要从“能力演示”升级到“流程重构 + KPI 归因”。</li>
+          <li>技术背景：Agent alignment 不只是模型输出对齐，也包括工具权限、目标函数和组织约束对齐。</li>
+          <li>🔗上下游影响：上游产品经理需要设计可运营的模板；下游客户成功要跟踪 adoption 与业务指标。</li>
+          <li>🚀6个月产品卖点预测：最佳实践库、行业 workflow 模板和 ROI 看板会成为成交关键。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="glass rounded-3xl p-6 mb-6">
+      <h2 class="text-2xl font-bold mb-4">📡 信源覆盖与口径说明</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left border-separate border-spacing-y-2">
+          <thead class="text-slate-300"><tr><th class="px-3 py-2">来源</th><th class="px-3 py-2">今日读取结果</th><th class="px-3 py-2">使用口径</th></tr></thead>
+          <tbody class="text-slate-200">
+            <tr class="bg-white/5"><td class="px-3 py-3 rounded-l-xl">Twitter/X</td><td class="px-3 py-3">Jev、Agent harness token efficiency、open-source agent repos、OpenAI DevDay teaser 等高互动线索</td><td class="px-3 py-3 rounded-r-xl">实际用法/工作流优先，不把单条帖文当官方结论</td></tr>
+            <tr class="bg-white/5"><td class="px-3 py-3 rounded-l-xl">HuggingFace Daily Papers</td><td class="px-3 py-3">World Model、Agent-Editing、Qwen-Planner-Agent、IterSynth 等</td><td class="px-3 py-3 rounded-r-xl">用作研究热度与论文发现入口</td></tr>
+            <tr class="bg-white/5"><td class="px-3 py-3 rounded-l-xl">HuggingFace Models</td><td class="px-3 py-3">Qwen、GGUF、MiMo、DeepSeek、多模态/OCR/ASR 模型</td><td class="px-3 py-3 rounded-r-xl">下载量代表私有化/开源部署热度，不代表公有云 API 调用量</td></tr>
+            <tr class="bg-white/5"><td class="px-3 py-3 rounded-l-xl">Artificial Analysis</td><td class="px-3 py-3">Intelligence、Cost、Speed、Coding Agent Index 与新模型评测</td><td class="px-3 py-3 rounded-r-xl">用于公有云模型选择与 API 使用场景判断</td></tr>
+            <tr class="bg-white/5"><td class="px-3 py-3 rounded-l-xl">Papers With Code / ArXiv</td><td class="px-3 py-3">Jev-Mem、Agent-Editing World Model、CROP、LLM probabilistic structure</td><td class="px-3 py-3 rounded-r-xl">论文标题、摘要与代码链接为准</td></tr>
+            <tr class="bg-white/5"><td class="px-3 py-3 rounded-l-xl">GitHub Trending</td><td class="px-3 py-3">AI 开源趋势与 CLI 工具聚合结果</td><td class="px-3 py-3 rounded-r-xl">作为开源工程热度参考，非官方排名结论</td></tr>
+            <tr class="bg-white/5"><td class="px-3 py-3 rounded-l-xl">The Batch / Benedict Evans / Import AI / LessWrong / AI Snake Oil</td><td class="px-3 py-3">模型发布、Agent 安全、组织变革、AI alignment、正常技术视角</td><td class="px-3 py-3 rounded-r-xl">用于行业叙事与风险框架补充</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="glass rounded-3xl p-6 mb-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div><h2 class="text-2xl font-bold">📝 我的笔记</h2><p class="text-slate-400 text-sm">点击下方区域直接编辑；500ms 防抖自动保存到本机 localStorage。</p></div>
+        <div class="flex gap-2"><button id="exportBtn" class="rounded-xl px-4 py-2 bg-sky-400/20 hover:bg-sky-400/30 border border-sky-300/30">导出 .txt</button><button id="clearBtn" class="rounded-xl px-4 py-2 bg-rose-400/20 hover:bg-rose-400/30 border border-rose-300/30">清空</button></div>
+      </div>
+      <div id="noteArea" class="note-area rounded-2xl bg-slate-950/60 border border-white/10 p-4 text-slate-100 leading-7" contenteditable="true" spellcheck="false">写下今天值得跟进的模型、Agent 工作流或客户场景……</div>
+      <div class="mt-3 flex items-center gap-3 text-sm text-slate-400"><span id="saveState">尚未编辑</span><span>·</span><span id="wordCount">0 字</span></div>
+    </section>
+
+    <footer class="text-center text-slate-400 text-sm py-6">
+      <p>生成时间：2026-09-28 07:47 CST ｜ 公开链接：<a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/morning_2026-09-28.html">GitHub Pages</a> ｜ <a href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/">历史总目录</a></p>
+      <p class="mt-2">说明：含搜索与抓取不到正文的来源时，保留“原文链接/暂无原文链接”口径；不伪造未验证链接。</p>
+    </footer>
+  </main>
+  <script>
+    const key='llmMorningNotes-2026-09-28';
+    const note=document.getElementById('noteArea');
+    const state=document.getElementById('saveState');
+    const wc=document.getElementById('wordCount');
+    const saved=localStorage.getItem(key); if(saved){note.innerHTML=saved; state.textContent='已加载本地笔记'}
+    function updateCount(){const text=note.innerText.trim(); wc.textContent=(text?text.length:0)+' 字'}
+    let timer=null; note.addEventListener('input',()=>{updateCount(); state.textContent='保存中…'; clearTimeout(timer); timer=setTimeout(()=>{localStorage.setItem(key,note.innerHTML); state.textContent='已自动保存 '+new Date().toLocaleTimeString('zh-CN',{hour12:false});},500)}); updateCount();
+    document.getElementById('exportBtn').addEventListener('click',()=>{const blob=new Blob([note.innerText],{type:'text/plain;charset=utf-8'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='morning_2026-09-28_notes.txt'; a.click(); URL.revokeObjectURL(a.href)});
+    document.getElementById('clearBtn').addEventListener('click',()=>{if(confirm('确认清空今天的本地笔记吗？')){note.innerHTML=''; localStorage.removeItem(key); updateCount(); state.textContent='已清空'}});
+  </script>
+</body>
+</html>
