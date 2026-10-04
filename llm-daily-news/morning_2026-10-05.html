@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>☀️ 大模型晨报 2026-10-05</title>
+<style>
+:root{--bg:#f7fafc;--card:#fff;--ink:#142033;--muted:#64748b;--line:#e5e7eb;--brand:#2563eb;--sun:#f59e0b;--green:#059669;--purple:#7c3aed;--cyan:#0891b2;--red:#dc2626;--shadow:0 14px 42px rgba(15,23,42,.09)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 8% 0,#fff7ed 0,#f8fafc 320px,#eef6ff 100%);color:var(--ink);font:15px/1.68 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif}a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:28px 18px 68px}.hero{padding:30px 28px;border:1px solid #fed7aa;border-radius:30px;background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(239,246,255,.88));box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:linear-gradient(135deg,rgba(251,191,36,.25),rgba(59,130,246,.14));right:-80px;top:-90px}.kicker{display:flex;gap:10px;align-items:center;color:#9a3412;font-weight:800;letter-spacing:.03em}.title{font-size:39px;line-height:1.14;margin:10px 0}.summary{font-size:18px;color:#334155;margin:8px 0 0;max-width:960px}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 10px;background:#eef2ff;color:#3730a3;font-size:12px;font-weight:800}.pill.sun{background:#fff7ed;color:#c2410c}.pill.green{background:#ecfdf5;color:#047857}.pill.red{background:#fef2f2;color:#b91c1c}.grid{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:20px}.card,.item{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow)}h2{font-size:22px;margin:0 0 14px}h3{font-size:21px;margin:0 0 8px}.lead{color:#475569}.signals{display:grid;gap:10px}.signal{border-left:4px solid var(--brand);background:#f8fafc;border-radius:14px;padding:11px 13px}.signal b{display:block}.badge{display:inline-block;border-radius:8px;padding:2px 7px;font-size:12px;font-weight:800;margin-right:6px}.b7{background:#fff7ed;color:#c2410c}.b30{background:#f3e8ff;color:#7c3aed}.source-list{display:flex;gap:8px;flex-wrap:wrap}.source{border:1px solid var(--line);border-radius:999px;padding:4px 9px;background:#fff;font-size:12px;color:#475569}.news{display:grid;gap:16px;margin-top:18px}.item{position:relative;overflow:hidden}.item:before{content:attr(data-rank);position:absolute;right:18px;top:2px;font-size:68px;font-weight:900;color:rgba(37,99,235,.06)}.item-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.item h3{margin-right:70px}.tagrow{margin:8px 0}.tag{display:inline-block;border-radius:999px;padding:3px 8px;background:#f1f5f9;color:#475569;font-size:12px;font-weight:800;margin:0 5px 5px 0}.tag.hot{background:#fff7ed;color:#c2410c}.tag.trend{background:#f3e8ff;color:#7c3aed}.tag.warn{background:#fef2f2;color:#b91c1c}.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}.mini{border:1px solid #eef2f7;border-radius:14px;padding:10px;background:#fbfdff}.mini b{display:block;margin-bottom:3px}.quote{padding:12px 14px;background:#fff7ed;border:1px solid #fed7aa;border-radius:16px;color:#7c2d12}.table{width:100%;border-collapse:separate;border-spacing:0 8px}.table th{text-align:left;color:#64748b;font-size:12px}.table td{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px;vertical-align:top}.table td:first-child{border-left:1px solid var(--line);border-radius:12px 0 0 12px;font-weight:800}.table td:last-child{border-right:1px solid var(--line);border-radius:0 12px 12px 0}.notes textarea{width:100%;min-height:200px;border:1px solid var(--line);border-radius:16px;padding:14px;resize:vertical;font:14px/1.6 inherit;color:var(--ink);background:#fbfdff}.note-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}.btn{border:0;border-radius:12px;padding:9px 12px;font-weight:800;cursor:pointer;background:#e2e8f0;color:#334155}.btn.primary{background:var(--brand);color:#fff}.btn.warn{background:#fee2e2;color:#991b1b}.foot{margin-top:22px;color:#64748b;font-size:13px;text-align:center}.ref{font-size:12px;color:#64748b}.note{font-size:13px;color:#64748b;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:14px;padding:10px}@media(max-width:860px){.grid,.cols{grid-template-columns:1fr}.title{font-size:29px}.item-head{display:block}.item h3{margin-right:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <div class="kicker">☀️ 5分钟扫读 · 大模型晨报</div>
+    <h1 class="title">大模型晨报 2026-10-05</h1>
+    <p class="summary"><b>今日主线：</b>大模型竞争继续从“单模型能力上限”迁移到“Agent workflow 可控执行、RAG/推理成本治理、开源私有化部署、公有云模型路由”四条产品化主线；研究侧关注如何减少无效 Token、在推理过程中自适应检索、以及给 Agent 增加可验证的执行轨迹。</p>
+    <div class="meta"><span class="pill sun">晨报</span><span class="pill green">覆盖 12 类来源</span><span class="pill red">含 7天高频信号 / 30天持续趋势</span><span class="pill">生成时间：2026-10-05 07:47 CST</span></div>
+  </section>
+
+  <div class="grid">
+    <section class="card">
+      <h2>今日先看这 4 个判断</h2>
+      <div class="signals">
+        <div class="signal"><span class="badge b7">7天高频信号</span><b>Agent workflow 的关键卖点变成“会规划、会并行、会复盘”。</b>Twitter/X、GitHub Trending、The Batch 都在把 Agent 从单次工具调用推向可执行编排和工程治理。</div>
+        <div class="signal"><span class="badge b7">7天高频信号</span><b>Context / RAG / Token 成本被放到同一张账本里。</b>从 CROP 到 ReaLM-Retrieve，研究重点是少生成、准检索、按步骤补证据。</div>
+        <div class="signal"><span class="badge b30">30天持续趋势</span><b>HF 下载量继续代表私有化/开源部署热度。</b>它不是公有云 API 用量，但能提前反映开发者愿意本地化、量化和二次封装什么。</div>
+        <div class="signal"><span class="badge b30">30天持续趋势</span><b>Safety 与反 hype 走向产品验收项。</b>可审计、权限隔离、可回滚、证据链透明，正在从“风险章节”变成“交付清单”。</div>
+      </div>
+    </section>
+    <aside class="card">
+      <h2>来源覆盖</h2>
+      <div class="source-list">
+        <span class="source">Twitter/X</span><span class="source">HuggingFace Daily Papers</span><span class="source">HF 模型下载趋势</span><span class="source">Papers With Code</span><span class="source">ArXiv cs.AI/cs.LG</span><span class="source">GitHub Trending</span><span class="source">The Batch</span><span class="source">Benedict Evans</span><span class="source">LessWrong/Alignment Forum</span><span class="source">AI Snakeoil</span><span class="source">Import AI</span><span class="source">Artificial Analysis</span>
+      </div>
+      <p class="lead">口径说明：本期把 HuggingFace 下载/趋势明确作为“私有化与开源部署热度”代理；公有云模型场景单独用 Artificial Analysis 与 Twitter/X 实际用法观察，不混同统计。</p>
+    </aside>
+  </div>
+
+  <section class="news">
+    <article class="item" data-rank="01">
+      <div class="item-head"><h3>1. Twitter/X：Claude Code Dynamic Workflows 继续引爆“多 Agent 编排”用法讨论</h3><a href="https://x.com/ClaudeDevs/status/2060044853279617150" target="_blank" rel="noopener">原文链接</a></div>
+      <div class="tagrow"><span class="tag">Twitter/X 实际用法</span><span class="tag">Agent</span><span class="tag">Workflow</span><span class="tag hot">7天高频信号</span><span class="tag trend">30天持续趋势</span></div>
+      <p>公开 X 搜索结果显示，Claude Code Dynamic Workflows 的核心表述是：在 prompt 中提到 workflow 后，Claude 会动态生成 orchestration plan，并并行调度大量 subagents 来处理复杂任务；相关帖子出现百万级 views，说明开发者兴趣点已从“让模型写代码”转向“让模型组织工程流程”。</p>
+      <div class="cols"><div class="mini"><b>💬 点评</b>这类传播不是单纯炫技，而是在回答真实痛点：长任务如何拆、谁来验收、上下文如何交接、失败如何回滚。</div><div class="mini"><b>🎯 业务视角</b>对企业讲 Agent Kit 时，可把它包装成“流程编排层 + 轨迹审计层 + 结果验收层”，而不是单点机器人。</div><div class="mini"><b>技术背景</b>涉及 planner/executor/reviewer 分工、parallel subagents、tool permission、memory handoff、eval harness 与 sandbox。</div><div class="mini"><b>🔗 上下游影响</b>上游利好 MCP、IDE、Agent runtime 和可观测性；下游影响研发、客服、运营、营销素材生产等可流程化场景。</div></div>
+      <p class="quote">🚀 6个月产品卖点预测：从“支持多 Agent”升级为“自动拆解任务、并行执行、阶段验收、失败重跑、全链路可审计”。</p>
+      <p class="ref">补充链接：<a href="https://x.com/_catwu/status/2060054180379689074" target="_blank" rel="noopener">动态 workflow 说明</a>；<a href="https://x.com/trq212/status/2061907538741006796" target="_blank" rel="noopener">best practices 讨论</a>。</p>
+    </article>
+
+    <article class="item" data-rank="02">
+      <div class="item-head"><h3>2. HuggingFace 模型趋势：Xing4.0-29B-A4B 等开源模型体现私有化部署温度</h3><a href="https://github.com/THTHDGCS/agents-radar/issues/1060" target="_blank" rel="noopener">原文链接</a></div>
+      <div class="tagrow"><span class="tag">HuggingFace 模型下载趋势</span><span class="tag">Open Weights</span><span class="tag">Private Deployment</span><span class="tag hot">7天高频信号</span><span class="tag trend">30天持续趋势</span></div>
+      <p>检索到的 HuggingFace Trending Models Digest 2026-10-01 提到 XingChen-AGI/Xing4.0-29B-A4B，摘要中给出 Likes 1,817、Downloads 47,613，并强调 29B conversational LLM 与 A4B 量化/消费级硬件优化。本文只将这类下载热度解释为“可下载、可自托管、可二次封装”的私有化/开源部署信号。</p>
+      <div class="cols"><div class="mini"><b>💬 点评</b>下载量像“开发者投票”：它不能代表云上真实调用，但能提示哪类模型会被拿去内网 PoC、边缘部署或量化实验。</div><div class="mini"><b>🎯 业务视角</b>鞋服电商可优先把热门开源模型用于商品图理解、客服知识库、导购话术生成、质检抽检等数据敏感场景。</div><div class="mini"><b>技术背景</b>重点看 license、量化格式、显存需求、vLLM/Ollama/LM Studio 兼容性、fine-tuning 成本与中文能力。</div><div class="mini"><b>🔗 上下游影响</b>上游影响模型压缩和推理框架；下游推动“企业模型商店 + 模型网关 + 行业模板”的组合方案。</div></div>
+      <p class="quote">🚀 6个月产品卖点预测：“热门开源模型一键私有化部署”“低显存量化托管”“开源模型合规扫描”会成为标配话术。</p>
+      <p class="ref">官方入口：<a href="https://huggingface.co/models?sort=trending" target="_blank" rel="noopener">HuggingFace Trending Models</a>。</p>
+    </article>
+
+    <article class="item" data-rank="03">
+      <div class="item-head"><h3>3. HuggingFace Daily Papers：从 MaLiang-Harness 到 Traverse-AutoGen，论文开始围绕“可编程生成”和“长程搜索 QA”</h3><a href="https://huggingface.co/papers" target="_blank" rel="noopener">原文链接</a></div>
+      <div class="tagrow"><span class="tag">HuggingFace Daily Papers</span><span class="tag">Multimodal</span><span class="tag">Agentic Search</span><span class="tag hot">7天高频信号</span></div>
+      <p>HuggingFace Daily Papers 相关公开摘要中出现 MaLiang-Harness：把 MLLMs 变成“会写代码的视觉生成系统”，通过持续构建、检查和修正来生成图像/视频；同时出现 ByteDance Traverse-AutoGen 数据集，面向长程 web search 的 information-seeking QA。两条线共同指向：多模态生成与搜索问答都在转向可程序化、可迭代的 Agent 流程。</p>
+      <div class="cols"><div class="mini"><b>💬 点评</b>生成式 AI 的竞争正在从“单次出图/回答”转向“能否像工艺流程一样反复检查、修正、沉淀经验”。</div><div class="mini"><b>🎯 业务视角</b>营销素材、商品短视频、行业研究助手都可以从“单次生成”升级为“脚本—生成—质检—重写”的流水线。</div><div class="mini"><b>技术背景</b>涉及 MLLM code generation、visual program、persistent construction、long-horizon web search、QA difficulty labeling 与自动评测。</div><div class="mini"><b>🔗 上下游影响</b>上游影响多模态模型与数据集；下游影响广告制作、素材工厂、知识搜索和 Data Agent。</div></div>
+      <p class="quote">🚀 6个月产品卖点预测：“会自检的多模态生成工作流”“长程搜索 QA 评测集”“企业检索 Agent 基准”会更适合做产品 demo。</p>
+      <p class="ref">补充入口：<a href="https://x.com/HuggingPapers" target="_blank" rel="noopener">HuggingPapers on X</a>。</p>
+    </article>
+
+    <article class="item" data-rank="04">
+      <div class="item-head"><h3>4. ArXiv cs.AI/cs.LG：推理效率和自适应检索成为 Agentic RAG 的两条硬技术线</h3><a href="http://arxiv.org/abs/2604.26649v1" target="_blank" rel="noopener">原文链接</a></div>
+      <div class="tagrow"><span class="tag">ArXiv cs.AI/cs.LG</span><span class="tag">RAG</span><span class="tag">Reasoning</span><span class="tag hot">7天高频信号</span><span class="tag trend">30天持续趋势</span></div>
+      <p>arXiv-first 检索显示，ReaLM-Retrieve 关注“推理过程中何时检索”，通过 step-level uncertainty detector 与 retrieval intervention policy 在多跳任务中减少无效检索；CROP 则通过 Cost-Regularized Prompt Optimization 让推理答案更短，在保持准确性时降低 token 消耗；SLIDER 用 Partial Information Decomposition 衡量 reasoning trajectory 的重复性。</p>
+      <div class="cols"><div class="mini"><b>💬 点评</b>RAG 的下一步不是“每次都多搜一点”，而是让模型知道“什么时候需要证据、什么时候该停止啰嗦”。</div><div class="mini"><b>🎯 业务视角</b>企业知识库的卖点可从“接入文档”升级为“按步骤补证据、引用可追溯、Token 成本可控”。</div><div class="mini"><b>技术背景</b>关键模块包括 uncertainty detection、retrieval policy、reranker、evidence injection、prompt regularization、trajectory quality metric。</div><div class="mini"><b>🔗 上下游影响</b>上游影响检索框架、向量库、prompt optimizer；下游影响客服、售前知识库、法务合规、财报/研报助手。</div></div>
+      <p class="quote">🚀 6个月产品卖点预测：“自适应检索”“证据不足自动追问”“Token 预算守门员”“回答冗余度评分”会被写进 RAG/Agent 平台。</p>
+      <p class="ref">补充链接：<a href="http://arxiv.org/abs/2604.14214v1" target="_blank" rel="noopener">CROP</a>；<a href="http://arxiv.org/abs/2610.00571v1" target="_blank" rel="noopener">SLIDER</a>。</p>
+    </article>
+
+    <article class="item" data-rank="05">
+      <div class="item-head"><h3>5. GitHub Trending / Papers With Code：开源生态在补“论文到生产”的中间层</h3><a href="https://ossinsight.io/trending/ai" target="_blank" rel="noopener">原文链接</a></div>
+      <div class="tagrow"><span class="tag">GitHub Trending</span><span class="tag">Papers With Code</span><span class="tag">Developer Tools</span><span class="tag hot">7天高频信号</span></div>
+      <p>GitHub AI Trending 入口把 agent frameworks、LLM tools、MCP servers、coding agents 等纳入实时观察；Papers With Code 仍是论文—代码—数据集—评测链路的补充入口。近期信号集中在 context compression、agent memory、RAG workspace、local inference 与 coding agent verification。</p>
+      <div class="cols"><div class="mini"><b>💬 点评</b>真正有落地价值的开源项目，往往不是“又一个模型”，而是把模型接入生产约束的中间件。</div><div class="mini"><b>🎯 业务视角</b>PoC 建议展示“论文复现 + 代码库 + 评测 + 部署 + 监控”完整闭环，避免只展示 prompt 效果。</div><div class="mini"><b>技术背景</b>涉及 MCP server、tool registry、eval harness、workspace synthesis、CI/CD hooks、observability 与 model router。</div><div class="mini"><b>🔗 上下游影响</b>上游利好开发者平台与模型网关；下游推动企业 AI 工程化交付、研发提效与知识库自动化。</div></div>
+      <p class="quote">🚀 6个月产品卖点预测：“从 paper 到 runnable demo 的自动化工厂”“Agent 工作区模板市场”会成为开发者增长抓手。</p>
+      <p class="ref">补充入口：<a href="https://paperswithcode.com/" target="_blank" rel="noopener">Papers With Code</a>；<a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">GitHub Trending</a>。</p>
+    </article>
+
+    <article class="item" data-rank="06">
+      <div class="item-head"><h3>6. The Batch：AI coding automation 正把工程师时间迁移到架构、需求和验收</h3><a href="https://www.deeplearning.ai/the-batch" target="_blank" rel="noopener">原文链接</a></div>
+      <div class="tagrow"><span class="tag">The Batch</span><span class="tag">AI Engineering</span><span class="tag trend">30天持续趋势</span></div>
+      <p>The Batch 最新页面摘要提到：随着 AI increasingly automates coding，开发者将更多时间用于技术架构和产品需求范围界定等高级软件开发任务。这个判断与 GitHub/X 的 Agent workflow 讨论一致：AI 编程的重点从“写出代码”变成“重塑工程协作”。</p>
+      <div class="cols"><div class="mini"><b>💬 点评</b>AI coding 的价值不是替代工程师敲键盘，而是让高阶判断更早进入需求、架构和验收流程。</div><div class="mini"><b>🎯 业务视角</b>对客户可讲“AI 帮你把初稿、测试、文档、回归跑起来，人负责边界和决策”。</div><div class="mini"><b>技术背景</b>需要 codebase retrieval、test generation、static analysis、human review、trace 与变更审计。</div><div class="mini"><b>🔗 上下游影响</b>上游推动 IDE、DevOps、代码安全；下游影响研发组织分工、需求管理和测试成本结构。</div></div>
+      <p class="quote">🚀 6个月产品卖点预测：“AI 研发副驾 + 自动验收清单 + 架构评审助手”会比“自动写代码”更容易被企业接受。</p>
+    </article>
+
+    <article class="item" data-rank="07">
+      <div class="item-head"><h3>7. Benedict Evans：AI 转型的难点仍在组织流程，而非模型 API 本身</h3><a href="https://www.ben-evans.com/" target="_blank" rel="noopener">原文链接</a></div>
+      <div class="tagrow"><span class="tag">Benedict Evans Newsletter</span><span class="tag">Enterprise AI</span><span class="tag trend">30天持续趋势</span></div>
+      <p>Benedict Evans 主页与 newsletter 入口继续把 AI 放在宏观技术转型中观察；其 2026 年专题 “AI eats the world” 和 AI 相关文章持续强调：AI 不只是模型能力问题，更是产业结构、成本、分发和组织采纳问题。</p>
+      <div class="cols"><div class="mini"><b>💬 点评</b>“模型变强”与“企业真的提效”之间隔着流程识别、权限、责任、培训、维护和预算。</div><div class="mini"><b>🎯 业务视角</b>方案建议从 lighthouse pilot 切入，用具体岗位流程衡量节省时间、转化率、客诉率、素材产出效率。</div><div class="mini"><b>技术背景</b>需要 workflow mining、system integration、access control、ROI attribution、change management 与持续运营。</div><div class="mini"><b>🔗 上下游影响</b>上游平台商会更像“产品 + 咨询 + 实施”混合体；下游客户会要求行业模板和可量化成效。</div></div>
+      <p class="quote">🚀 6个月产品卖点预测：“AI 流程盘点工作坊 + 行业模板库 + 价值看板”会成为企业 AI 售前标配。</p>
+      <p class="ref">补充链接：<a href="https://www.ben-evans.com/presentations" target="_blank" rel="noopener">Presentations</a>；<a href="https://www.ben-evans.com/newsletter" target="_blank" rel="noopener">Newsletter</a>。</p>
+    </article>
+
+    <article class="item" data-rank="08">
+      <div class="item-head"><h3>8. LessWrong / Alignment Forum：开放权重、越权能力与模型下架事件让安全治理更具体</h3><a href="https://www.lesswrong.com/" target="_blank" rel="noopener">原文链接</a></div>
+      <div class="tagrow"><span class="tag">LessWrong/Alignment Forum</span><span class="tag">AI Safety</span><span class="tag warn">风险校准</span><span class="tag trend">30天持续趋势</span></div>
+      <p>LessWrong 搜索摘要提到围绕 open-weight models 与能力防护的讨论，并引用了 Hugging Face disabled 某个去除拒答过滤、面向 offensive cyber 的模型仓库这一线索。由于这类信息涉及安全与平台治理，本期仅将其作为“开源模型风控正在产品化”的信号，不扩展未经确认细节。</p>
+      <div class="cols"><div class="mini"><b>💬 点评</b>安全问题正在从抽象对齐争论落到具体产品动作：谁能上传、谁能下载、能力边界如何标注、违规如何下架。</div><div class="mini"><b>🎯 业务视角</b>对外可讲“权限隔离、模型准入、敏感能力拦截、审计留痕”；仅供内部参考的是高风险能力绕过与红队细节。</div><div class="mini"><b>技术背景</b>涉及 policy enforcement、model card、eval gating、capability filtering、abuse monitoring 与 incident response。</div><div class="mini"><b>🔗 上下游影响</b>上游影响模型托管平台与安全评测；下游影响金融、政企、医疗是否允许开源模型进入生产。</div></div>
+      <p class="quote">🚀 6个月产品卖点预测：“模型上架审核、风险分级、越权拦截、行为日志导出”会成为私有模型平台的刚需。</p>
+      <p class="ref">补充入口：<a href="https://www.alignmentforum.org/" target="_blank" rel="noopener">Alignment Forum</a>。</p>
+    </article>
+
+    <article class="item" data-rank="09">
+      <div class="item-head"><h3>9. AI Snakeoil / Import AI：反 hype 与前沿研究周报共同提醒“不要把演示当生产能力”</h3><a href="https://www.normaltech.ai/" target="_blank" rel="noopener">原文链接</a></div>
+      <div class="tagrow"><span class="tag">AI Snakeoil</span><span class="tag">Import AI</span><span class="tag">Risk</span><span class="tag trend">30天持续趋势</span></div>
+      <p>AI Snake Oil / AI as Normal Technology 近期归档显示“AI agents can't yet do open-ended AI research”等文章，强调用实证案例校准 Agent 能力边界；Import AI 作为 Jack Clark 的前沿研究 newsletter，仍适合作为研究、政策与安全叙事的二阶观察源。本期未检索到 10 月 5 日稳定可核验新文，因此保留官方入口并不编造具体标题。</p>
+      <div class="cols"><div class="mini"><b>💬 点评</b>晨报需要兴奋，也需要刹车：能 demo 不代表能规模化、能科研自动化不代表能开放式替代研究团队。</div><div class="mini"><b>🎯 业务视角</b>客户沟通建议把“能力边界、失败模式、人工接管”提前讲清，反而增强可信度。</div><div class="mini"><b>技术背景</b>核心是 benchmark validity、open-ended task evaluation、agent autonomy、oversight、reproducibility 与 evidence standard。</div><div class="mini"><b>🔗 上下游影响</b>上游影响评测和监管；下游影响采购验收、SLA、责任边界和上线审批。</div></div>
+      <p class="quote">🚀 6个月产品卖点预测：“反幻觉证据链”“能力边界说明书”“失败可恢复机制”会成为企业 AI 交付可信度卖点。</p>
+      <p class="ref">补充链接：<a href="https://importai.substack.com/" target="_blank" rel="noopener">Import AI</a>。</p>
+    </article>
+
+    <article class="item" data-rank="10">
+      <div class="item-head"><h3>10. 公有云模型使用场景：单列 Artificial Analysis，不与 HF 下载量混用</h3><a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">原文链接</a></div>
+      <div class="tagrow"><span class="tag">Artificial Analysis</span><span class="tag">Public Cloud</span><span class="tag">Model Routing</span><span class="tag trend">30天持续趋势</span></div>
+      <p>Artificial Analysis 提供 benchmark、pricing、performance、leaderboard 等模型服务维度，适合观察公有云 API 的能力、速度、价格、延迟与模型发布状态。本文将其作为“公有云模型使用场景”维度来源，与 HuggingFace 下载量代表的私有化/开源部署热度严格分开。</p>
+      <table class="table"><thead><tr><th>场景</th><th>优先看什么</th><th>产品化含义</th></tr></thead><tbody><tr><td>在线客服 / AICC</td><td>低延迟、稳定性、工具调用、成本上限</td><td>需要 model router、fallback、对话质检与 SLA 看板。</td></tr><tr><td>研发 / Coding Agent</td><td>推理质量、长上下文、代码仓库理解、测试闭环</td><td>需要多 Agent 编排、沙箱、代码审计和回滚。</td></tr><tr><td>营销内容 / 商品素材</td><td>多模态能力、批处理成本、生成一致性</td><td>需要模板化工作流、品牌风格约束与夜间批量生成。</td></tr><tr><td>企业知识库 / Data Agent</td><td>RAG 证据质量、权限过滤、引用链路</td><td>需要证据健康分、冲突检测、权限继承与审计。</td></tr></tbody></table>
+      <p class="quote">🚀 6个月产品卖点预测：“按任务自动选 GPT/Claude/Gemini/Qwen/DeepSeek 的模型路由器 + 成本/延迟/质量三维看板”会成为公有云方案核心。</p>
+    </article>
+  </section>
+
+  <section class="card" style="margin-top:18px">
+    <h2>数据来源覆盖表</h2>
+    <table class="table"><thead><tr><th>来源</th><th>本期覆盖方式</th><th>原文链接</th></tr></thead><tbody>
+      <tr><td>Twitter/X</td><td>优先使用互动量较高、包含实际 workflow 的帖子；本期重点为 Claude Code Dynamic Workflows 与 Agentic RAG/roadmap 用法。</td><td><a href="https://x.com/ClaudeDevs/status/2060044853279617150" target="_blank" rel="noopener">Claude Code Dynamic Workflows</a></td></tr>
+      <tr><td>HuggingFace Daily Papers</td><td>使用 HF Daily Papers 官方入口与 HuggingPapers 公开摘要，提炼多模态生成、长程搜索 QA 信号。</td><td><a href="https://huggingface.co/papers" target="_blank" rel="noopener">Daily Papers</a></td></tr>
+      <tr><td>HuggingFace 模型下载趋势</td><td>下载量/likes 仅作为“私有化/开源部署热度”代理；不作为公有云 API 使用量。</td><td><a href="https://huggingface.co/models?sort=trending" target="_blank" rel="noopener">Trending Models</a></td></tr>
+      <tr><td>Papers With Code</td><td>作为论文—代码—数据集—Benchmark 的交叉入口；本期未把无法核验的榜单数字写成事实。</td><td><a href="https://paperswithcode.com/" target="_blank" rel="noopener">Papers With Code</a></td></tr>
+      <tr><td>ArXiv cs.AI/cs.LG</td><td>通过 arXiv-first 检索补充推理效率、Agentic RAG、reasoning trajectory 相关论文。</td><td><a href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener">cs.AI recent</a> / <a href="https://arxiv.org/list/cs.LG/recent" target="_blank" rel="noopener">cs.LG recent</a></td></tr>
+      <tr><td>GitHub Trending</td><td>观察 AI/LLM 开源项目的短期动量，重点看 Agent frameworks、LLM tools、MCP servers、coding agents。</td><td><a href="https://ossinsight.io/trending/ai" target="_blank" rel="noopener">OSSInsight AI Trending</a></td></tr>
+      <tr><td>The Batch</td><td>用于产业与 AI Engineering 口径校准。</td><td><a href="https://www.deeplearning.ai/the-batch" target="_blank" rel="noopener">The Batch</a></td></tr>
+      <tr><td>Benedict Evans Newsletter</td><td>用于商业模式、平台迁移和企业转型视角。</td><td><a href="https://www.ben-evans.com/newsletter" target="_blank" rel="noopener">Benedict Evans Newsletter</a></td></tr>
+      <tr><td>LessWrong/Alignment Forum</td><td>用于 AI Safety、Alignment、开放权重治理与风险讨论。</td><td><a href="https://www.alignmentforum.org/" target="_blank" rel="noopener">Alignment Forum</a></td></tr>
+      <tr><td>AI Snakeoil</td><td>用于反 hype、实证能力边界和社会影响校准。</td><td><a href="https://www.normaltech.ai/" target="_blank" rel="noopener">AI as Normal Technology</a></td></tr>
+      <tr><td>Import AI</td><td>用于前沿研究与政策安全二阶观察；本期未命中 10 月 5 日稳定可核验新文。</td><td><a href="https://importai.substack.com/" target="_blank" rel="noopener">Import AI</a></td></tr>
+      <tr><td>Artificial Analysis</td><td>单列为公有云模型使用场景维度，关注 intelligence、speed、price、latency、API 可用性。</td><td><a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">LLM Leaderboard</a></td></tr>
+    </tbody></table>
+    <p class="note">说明：本期使用公开可访问检索结果、arXiv-first 检索与本地历史晨报/夜报高频信号归纳；对未命中当日可核验原文的来源，仅保留官方入口与观察维度，未伪造链接或标题。</p>
+  </section>
+
+  <section class="grid">
+    <div class="card notes">
+      <h2>我的笔记</h2>
+      <p class="lead">点击下方区域即可编辑；内容自动保存到本浏览器 localStorage，500ms 防抖。</p>
+      <textarea id="note" placeholder="记录今天想跟进的模型、论文、客户话术或产品灵感……"></textarea>
+      <div class="note-actions"><span id="count" class="pill">0 字</span><span id="status" class="lead">未修改</span><button class="btn primary" id="exportBtn">导出 .txt</button><button class="btn warn" id="clearBtn">清空</button></div>
+    </div>
+    <div class="card">
+      <h2>今日可转化为产品话术</h2>
+      <ul>
+        <li><b>Agent Kit：</b>强调 workflow 编排、parallel agents、trace、sandbox、权限与验收闭环。</li>
+        <li><b>RAG：</b>从“接文档问答”升级为“按步骤自适应检索 + 证据链治理 + Token 预算控制”。</li>
+        <li><b>私有化模型：</b>HF 下载/趋势代表开源部署热度，适合引出模型商店、量化部署和合规扫描。</li>
+        <li><b>公有云 API：</b>单独评估 Intelligence、Latency、Cost、Context、区域合规和 fallback。</li>
+      </ul>
+    </div>
+  </section>
+  <p class="foot">注：高频信号为近 7 天/30 天本地历史晨报夜报与本次覆盖源的人工归纳，非全网精确计数；所有资讯均附原文链接或明确标注未命中可核验新文。</p>
+</div>
+<script>
+const key='llm_morning_notes_2026-10-05';
+const note=document.getElementById('note');
+const count=document.getElementById('count');
+const statusEl=document.getElementById('status');
+let timer=null;
+function wordCount(text){const t=(text||'').trim();if(!t)return 0;const cn=(t.match(/[\u4e00-\u9fa5]/g)||[]).length;const en=(t.replace(/[\u4e00-\u9fa5]/g,' ').match(/[A-Za-z0-9_+-]+/g)||[]).length;return cn+en;}
+function refresh(){count.textContent=wordCount(note.value)+' 字';}
+function save(){localStorage.setItem(key,note.value);statusEl.textContent='已自动保存 '+new Date().toLocaleTimeString();refresh();}
+note.value=localStorage.getItem(key)||'';refresh();
+note.addEventListener('input',()=>{refresh();statusEl.textContent='保存中…';clearTimeout(timer);timer=setTimeout(save,500);});
+document.getElementById('exportBtn').addEventListener('click',()=>{const blob=new Blob([note.value||''],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='llm_morning_notes_2026-10-05.txt';a.click();URL.revokeObjectURL(a.href);});
+document.getElementById('clearBtn').addEventListener('click',()=>{if(confirm('确认清空笔记？')){note.value='';localStorage.removeItem(key);refresh();statusEl.textContent='已清空';}});
+</script>
+</body>
+</html>
