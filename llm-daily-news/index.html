@@ -1,44 +1,25 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>LLM Daily News Archive</title>
-  <style>
-    :root{--bg:#0b1020;--card:#111936;--text:#eef4ff;--muted:#9fb0d0;--line:#26345f;--sun:#ffd166;--moon:#9bdcff;--shadow:0 16px 38px rgba(0,0,0,.28)}
-    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#27325e 0,#0b1020 42%,#070a14 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",Arial,sans-serif}.wrap{max-width:1120px;margin:0 auto;padding:36px 18px 70px}h1{font-size:38px;margin:0 0 8px}.lead{color:var(--muted);margin:0 0 26px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}.card{display:block;min-height:158px;padding:20px;border-radius:22px;background:rgba(17,25,54,.82);border:1px solid var(--line);box-shadow:var(--shadow);color:inherit;text-decoration:none;transition:.18s ease}.card:hover{transform:translateY(-3px);border-color:#71c8ff;background:rgba(25,37,77,.92);box-shadow:0 20px 46px rgba(0,0,0,.38)}.badge{display:inline-flex;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:800;margin-bottom:12px}.morning{background:rgba(255,209,102,.14);color:#ffe6a7;border:1px solid rgba(255,209,102,.38)}.night{background:rgba(155,220,255,.14);color:#dff5ff;border:1px solid rgba(155,220,255,.38)}.title{font-size:19px;font-weight:850;margin-bottom:8px}.desc{color:#b7c6e8;font-size:14px;line-height:1.55}.date{margin-top:14px;color:#8194bd;font-size:12px}.top{padding:26px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(155,220,255,.14),rgba(182,156,255,.1)),rgba(17,25,54,.76);border-radius:26px;margin-bottom:20px}.footer{margin-top:26px;color:#8194bd;font-size:13px}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>大模型晨报/夜报历史总目录</title>
+<style>
+:root{--bg:#0b1020;--card:#121a2f;--text:#eef3ff;--muted:#93a4c7;--line:#22304f;--sun:#ffd36a;--moon:#8bd3ff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#243363 0,#0b1020 42%,#070a12 100%);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",Arial,sans-serif}.wrap{max-width:1100px;margin:auto;padding:36px 18px 80px}.hero{padding:30px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(135deg,rgba(139,211,255,.18),rgba(255,211,106,.10));box-shadow:0 24px 80px rgba(0,0,0,.35)}h1{margin:0 0 8px;font-size:38px}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}.card{display:block;min-height:178px;padding:20px;border:1px solid var(--line);border-radius:22px;background:rgba(18,26,47,.86);color:inherit;text-decoration:none;box-shadow:0 12px 36px rgba(0,0,0,.22);transition:.18s transform,.18s border-color,.18s background}.card:hover{transform:translateY(-3px);border-color:#5faeff;background:rgba(28,40,72,.94);text-decoration:none}.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:13px;font-weight:700}.morning{background:rgba(255,211,106,.14);color:#ffe1a1;border:1px solid rgba(255,211,106,.34)}.night{background:rgba(139,211,255,.14);color:#c5ecff;border:1px solid rgba(139,211,255,.34)}.weekend{background:rgba(255,142,199,.14);color:#ffc2e2;border:1px solid rgba(255,142,199,.34)}.title{font-size:21px;font-weight:800;margin:14px 0 8px}.date{margin-top:16px;color:#b7c7eb;font-size:13px}@media(max-width:860px){.grid{grid-template-columns:1fr}h1{font-size:30px}}
+</style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="top">
-      <h1>大模型晨报/夜报历史总目录</h1>
-      <p class="lead">卡片式目录，整张卡片可点击；自动区分晨报/夜报类型徽章。</p>
-    </section>
-    <section class="grid">
-      <a class="card" href="morning_2026-10-06.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-10-06</div><div class="desc">Agent 工程化、HF 私有化部署热度、公有云模型路由、RAG/工具选择与 AI Safety 治理的 5 分钟扫读。</div><div class="date">2026-10-06</div></a>
-      <a class="card" href="night_2026-10-05.html"><span class="badge night">🌙 夜报</span><div class="title">大模型夜报 2026-10-05</div><div class="desc">Agent workflow、Qwen/GGUF 私有化部署热度、公有云模型路由、RAG/知识治理与 AI Safety 的深度复盘。</div><div class="date">2026-10-05</div></a>
-      <a class="card" href="morning_2026-10-05.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-10-05</div><div class="desc">Agent workflow、RAG/推理成本治理、HF 私有化部署热度、公有云模型路由与 AI Safety 产品化的 5 分钟扫读。</div><div class="date">2026-10-05</div></a>
-      <a class="card" href="night_2026-10-04.html"><span class="badge night">🌙 周末汇总夜报</span><div class="title">周末汇总夜报 2026-10-04</div><div class="desc">覆盖 10 月 3 日 + 10 月 4 日：Agent 工程化、HF 私有化部署热度、Daily Papers 与公有云模型使用场景。</div><div class="date">2026-10-04</div></a>
-      <a class="card" href="night_2026-10-02.html"><span class="badge night">🌙 夜报</span><div class="title">大模型夜报 2026-10-02</div><div class="desc">Agent 常驻化、开源私有化部署热度、推理效率、多模态生产工具与 AI Safety 治理的深度复盘。</div><div class="date">2026-10-02</div></a>
-      <a class="card" href="morning_2026-10-02.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-10-02</div><div class="desc">Agent workflow 工程化、开源私有化部署热度、公有云模型选型与 AI safety 治理的 5 分钟扫读。</div><div class="date">2026-10-02</div></a>
-      <a class="card" href="night_2026-10-01.html"><span class="badge night">🌙 夜报</span><div class="title">大模型夜报 2026-10-01</div><div class="desc">Agent 工作流常驻化、HF 开源部署热度、arXiv 评测与推理基础设施深度复盘。</div><div class="date">2026-10-01</div></a>
-      <a class="card" href="morning_2026-10-01.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-10-01</div><div class="desc">点击查看 2026-10-01 的 LLM 行业快讯、技术趋势与业务解读。</div><div class="date">2026-10-01</div></a>
-      <a class="card" href="night_2026-09-30.html"><span class="badge night">🌙 夜报</span><div class="title">大模型夜报 2026-09-30</div><div class="desc">点击查看 2026-09-30 的 LLM 深度复盘、播客洞察、产品方法论与技术趋势。</div><div class="date">2026-09-30</div></a>
-      <a class="card" href="morning_2026-09-30.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-09-30</div><div class="desc">点击查看 2026-09-30 的 LLM 行业快讯、技术趋势与业务解读。</div><div class="date">2026-09-30</div></a>
-      <a class="card" href="morning_2026-09-29.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-09-29</div><div class="desc">点击查看 2026-09-29 的 LLM 行业快讯、技术趋势与业务解读。</div><div class="date">2026-09-29</div></a>
-      <a class="card" href="morning_2026-09-28.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-09-28</div><div class="desc">点击查看 2026-09-28 的 LLM 行业快讯、技术趋势与业务解读。</div><div class="date">2026-09-28</div></a>
-      <a class="card" href="morning_2026-09-25.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-09-25</div><div class="desc">点击查看 2026-09-25 的 LLM 行业快讯、技术趋势与业务解读。</div><div class="date">2026-09-25</div></a>
-      <a class="card" href="morning_2026-09-24.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-09-24</div><div class="desc">点击查看 2026-09-24 的 LLM 行业快讯、技术趋势与业务解读。</div><div class="date">2026-09-24</div></a>
-      <a class="card" href="morning_2026-09-23.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-09-23</div><div class="desc">点击查看 2026-09-23 的 LLM 行业快讯、技术趋势与业务解读。</div><div class="date">2026-09-23</div></a>
-      <a class="card" href="morning_2026-09-22.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-09-22</div><div class="desc">点击查看 2026-09-22 的 LLM 行业快讯、技术趋势与业务解读。</div><div class="date">2026-09-22</div></a>
-      <a class="card" href="morning_2026-09-21.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-09-21</div><div class="desc">点击查看 2026-09-21 的 LLM 行业快讯、技术趋势与业务解读。</div><div class="date">2026-09-21</div></a>
-      <a class="card" href="morning_2026-09-18.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-09-18</div><div class="desc">点击查看 2026-09-18 的 LLM 行业快讯、技术趋势与业务解读。</div><div class="date">2026-09-18</div></a>
-      <a class="card" href="morning_2026-09-17.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-09-17</div><div class="desc">点击查看 2026-09-17 的 LLM 行业快讯、技术趋势与业务解读。</div><div class="date">2026-09-17</div></a>
-      <a class="card" href="morning_2026-09-16.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-09-16</div><div class="desc">点击查看 2026-09-16 的 LLM 行业快讯、技术趋势与业务解读。</div><div class="date">2026-09-16</div></a>
-      <a class="card" href="morning_2026-09-15.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-09-15</div><div class="desc">点击查看 2026-09-15 的 LLM 行业快讯、技术趋势与业务解读。</div><div class="date">2026-09-15</div></a>
-    </section>
-    <p class="footer">最后更新：2026-10-06 · 早期归档仍可通过对应文件名访问。</p>
-  </main>
+<main class="wrap">
+<section class="hero"><h1>大模型晨报/夜报历史总目录</h1><p class="muted">卡片式目录，整张卡片可点击；自动区分晨报/夜报类型徽章。公网地址：<a style="color:#8bd3ff" href="https://chao-zou.github.io/url_rebuilder/llm-daily-news/">GitHub Pages</a></p></section>
+<section class="grid">
+<a class="card" href="night_2026-10-06.html"><span class="badge night">🌙 夜报</span><div class="title">大模型夜报 2026-10-06</div><p class="muted">Agent 工程化、HF 私有化部署热度、公有云模型路由、论文评测/安全与中文播客工作流洞察。</p><div class="date">2026-10-06</div></a>
+<a class="card" href="morning_2026-10-06.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-10-06</div><p class="muted">Agent 工程化、HF 私有化部署热度、公有云模型路由、RAG/工具选择与 AI Safety 治理的 5 分钟扫读。</p><div class="date">2026-10-06</div></a>
+<a class="card" href="night_2026-10-05.html"><span class="badge night">🌙 夜报</span><div class="title">大模型夜报 2026-10-05</div><p class="muted">Agent workflow、Qwen/GGUF 私有化部署热度、公有云模型路由、RAG/知识治理与 AI Safety 的深度复盘。</p><div class="date">2026-10-05</div></a>
+<a class="card" href="morning_2026-10-05.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-10-05</div><p class="muted">Agent workflow、RAG/推理成本治理、HF 私有化部署热度、公有云模型路由与 AI Safety 产品化的 5 分钟扫读。</p><div class="date">2026-10-05</div></a>
+<a class="card" href="night_2026-10-04.html"><span class="badge weekend">🌙 周末汇总夜报</span><div class="title">周末汇总夜报 2026-10-04</div><p class="muted">覆盖 10 月 3 日 + 10 月 4 日：Agent 工程化、HF 私有化部署热度、Daily Papers 与公有云模型使用场景。</p><div class="date">2026-10-04</div></a>
+<a class="card" href="night_2026-10-02.html"><span class="badge night">🌙 夜报</span><div class="title">大模型夜报 2026-10-02</div><p class="muted">Agent 常驻化、开源私有化部署热度、推理效率、多模态生产工具与 AI Safety 治理的深度复盘。</p><div class="date">2026-10-02</div></a>
+<a class="card" href="morning_2026-10-02.html"><span class="badge morning">☀️ 晨报</span><div class="title">大模型晨报 2026-10-02</div><p class="muted">Agent workflow 工程化、开源私有化部署热度、公有云模型选型与 AI safety 治理的 5 分钟扫读。</p><div class="date">2026-10-02</div></a>
+</section>
+</main>
 </body>
 </html>
